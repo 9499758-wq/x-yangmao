@@ -255,5 +255,17 @@
   "56f8fde8dd3541f20b0ccda6917e3469dea9e5b1": "dhaulagani/awesome-free-ai-apis ⚡ 经过验证的免费 AI API、LLM 推理端点（DeepSeek R1、Llama 3.3、Gemini）、嵌入和音频模型的实时监控目录（每日更新）。",
   "3c65799030eca7392742c022de5fe272f0789812": "priestkos/awesome-free-llm-apis",
   "7dfc138aaf3a6a06e9518d9e4a05c60248b311b0": "priestkos/awesome-free-llm-apis 每个免费 LLM API 的目录：可折叠的提供商卡、一键基本 URL 复制、每周刷新。内容逐字镜像自 mnfst/awesome-free-llm-apis (CC0-1.0)。",
-  "ed299e32bc283614cd9ee8f96c7cf6a4ddd07437": "Monstergaming4u-ai/-awesome-free-llm-apis"
+  "ed299e32bc283614cd9ee8f96c7cf6a4ddd07437": "Monstergaming4u-ai/-awesome-free-llm-apis",
+  "14e7281f12f5f44661d7e16635142f6ab493a4aa": "Show HN：Solos，一款类似于社交媒体的日记应用程序，可记录您内心的情感 Solous 是一款私人日记应用程序。 \n这个应用程序的灵感来自《头脑特工队》或《由美的细胞》等电影，在这些电影中，我们内心都有情感。当我们写作时，这是我们的情感之一。我们想在这些争论的想法和情感之间与自己对话。我们是孤独的，但我们内心也有人。这就是“solo-us”这个名字的由来。在Solos中，您可以随时回复自己的消息。它支持普通的东西，如标签和搜索。我尝试使用 e2ee 作为选项，使其尽可能安全。<p>我是该应用程序的唯一构建者。我主要是在空闲时间与克劳德一起为自己构建了这个应用程序。是的，我的感觉是 100%，但我熟悉 aws 和 python，我是一个不错的程序员。这是真的",
+  "3b955cbea4fb430c63674d24a74c411cc67f35a5": "Show HN：图像到图像 AI：免费在线 AI 图像编辑器 – Tancky AI",
+  "d53bec5d34d967db7cd96b2b1baf0ac32b234e9b": "人工智能正在将保护主义者转变为自由贸易者",
+  "921bc715b9c8462bfe0bc47a54f45eed9ccd5c0a": "Show HN：代理从来源推断乐高机制，然后将它们动画化",
+  "658df835586bfb6cfb486d88ecb039315481da7c": "Show HN：代理从来源推断乐高机制，然后为它们制作动画 您好:)<p>大约一个月前，我发布了 LDraw Nova，这是一个代理工具集，用于通过生成 LDraw 源代码文件来组装乐高 CAD 模型。<p>有关更多详细信息，请参阅 Show HN 帖子：<p><a href=\"https://news.ycombinator.com/item?id=49937916\">https://news.ycombinator.com/item?id=49937916</a><p>从评论中，我得到的印象是，人们不仅对人工智能生成的乐高模型很感兴趣，而且对人工智能动画的乐高模型也很感兴趣。<p>我查看了过去实验的结果，发现使用代理是可行的法学硕士：<p>- 分析乐高模型的 LDraw 源代码\n- 逆向工程！通过阅读 par 的描述和顺序来呈现机制",
+  "4cdbffcad02b51bdfa1442b625ce27ba0de8be8b": "Show HN：Stitch.ai – 带有 AI 助手 Stitchy 的全新一体化工作区",
+  "5b7473648928f93f5ac07161959ea66227ff1c6e": "Show HN：Stitch.ai – 带有 AI 助手 Stitchy 的全新一体化工作区 我们的团队很高兴本周推出 Stitch.ai。我们一直在努力为知识工作者、自由职业者和创始人提供一个不需要在应用程序和选项卡之间切换的工作空间；一切都在一个应用程序中。<p>Stitch.ai 应用程序包括邮件、日历、联系人、任务、笔记、工作表、幻灯片、文件、看板和表单。我们仍然不敢相信我们能够构建如此多的工具！<p>我们使用自动生成的结和标签来标记您的工作，帮助您一键显示相关项目。缝合也是一个很棒的功能，可以让您“缝合”。您的物品放在一起。您可以将任务拼接到事件、将电子邮件拼接到笔记、将幻灯片拼接到联系人。缝合在一起的东西会保持在一起",
+  "d36401e8fc652356b88fbec4bf05b50cf416fca0": "推出 HN：Kino AI (YC S23) – AI 媒体管理器和视频编辑器",
+  "a3f4d488e3543208dbf1d6ed4fd672b8a7dc30a8": "推出 HN：Kino AI (YC S23) – AI 媒体管理器和视频编辑器 Hi HN！我是来自 Kino (<a href=\"https://kino.ai\">https://kino.ai</a>) 的卢克。 Kino 可让您与经纪人和队友一起制作精彩的视频。素材和​​资源的存储、丰富的视频编辑器以及供队友查看的链接都捆绑在一起。您的同事和 Codex / Claude Code 可以在同一时间线上工作，并将审阅笔记和片段集中在一个地方。请访问 <a href=\"https://kino.ai/walkthrough-video\">https://kino.ai/walkthrough-video</a> 查看基本概述，并在 <a href=\"https://kino.ai/launch-video\">https://kino.ai/launch-video</a> 查看我们的发布视频（完全使用 Kino 制作！）<p>Opus 5.5 可以编辑视频并制作出色的主题",
+  "0cf8332cdce63186c38608117981e4dc7dd5b446": "显示 HN：软件职称家谱",
+  "15b9f7fd53952ebcfa6cb42a0fb9195bbaa34750": "显示 HN：软件职称家谱 我一直想看到的东西，现在通过人工智能成为可能：计算/软件职称的家谱。<p>希望人们看起来很有趣。它收集的一些历史细节对我来说非常有趣，例如“计算机”节点（1880-1940 年代）中有关 ENIAC 的内容。",
+  "154c9e4ebe2eeaa46fa482c595db78fcfad2cea3": "下一代概念建模：快速、并行的粗到细文本生成"
 }
