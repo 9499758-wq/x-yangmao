@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="renderer" content="webkit" />
+<meta name="force-rendering" content="webkit" />
+<meta name="applicable-device" content="pc,mobile" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="format-detection" content="telephone=no" />
+<title>大模型 API 免费额度 - 大模型免费API与AI工具免费 | AI大模型免费资源导航 · 2026年11月最新</title>
+<meta name="description" content="本栏目持续整理大模型免费API、免费GPT接口、Claude免费额度、DeepSeek免费额度与各类LLM Token 试用信息。内容来自公开网页与社区帖子，经自动抓取汇总，方便开发者快速对比免费API额度与领取入口。请以官网活动规则为准，" />
+<meta name="keywords" content="AI大模型免费资源,大模型免费API,免费GPT,Claude免费,DeepSeek免费额度,AI工具免费,免费GPU,GitHub热门项目,AI开源项目推荐,最新AI新闻,免费API额度,AI开发工具,LLM免费额度,AI编程助手" />
+<meta name="robots" content="index,follow" />
+<meta name="author" content="AI大模型免费资源导航" />
+<!-- Set VERIFY_BAIDU env or seo_config.json baidu_site_verification after 站长平台验证 -->
+<link rel="canonical" href="https://aidamoxing-mianfei.netlify.app/c/damoxing-mianfei-api.html" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:site_name" content="AI大模型免费资源导航" />
+<meta property="og:title" content="大模型 API 免费额度 | AI大模型免费资源导航" />
+<meta property="og:description" content="本栏目持续整理大模型免费API、免费GPT接口、Claude免费额度、DeepSeek免费额度与各类LLM Token 试用信息。内容来自公开网页与社区帖子，经自动抓取汇总，方便开发者快速对比免费API额度与领取入口。请以官网活动规则为准，" />
+<meta property="og:url" content="https://aidamoxing-mianfei.netlify.app/c/damoxing-mianfei-api.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="大模型 API 免费额度 | AI大模型免费资源导航" />
+<meta name="twitter:description" content="本栏目持续整理大模型免费API、免费GPT接口、Claude免费额度、DeepSeek免费额度与各类LLM Token 试用信息。内容来自公开网页与社区帖子，经自动抓取汇总，方便开发者快速对比免费API额度与领取入口。请以官网活动规则为准，" />
+
+<style>
+
+:root {
+  --bg: #070b16; --bg2: #0d1428; --panel: rgba(18, 26, 52, 0.72); --panel-solid: #121a34;
+  --card: rgba(22, 32, 64, 0.78); --card-hover: rgba(30, 44, 88, 0.92);
+  --line: rgba(120, 150, 220, 0.22); --line-strong: rgba(140, 175, 255, 0.38);
+  --text: #eef2ff; --muted: #9aa6c9; --accent: #6ea8ff; --accent2: #5ef0c0;
+  --accent3: #a78bfa; --warn: #ffc857; --shadow: 0 18px 50px rgba(0,0,0,.35);
+  --radius: 18px; --glass: blur(18px) saturate(1.35);
+  --hero-a: rgba(110,168,255,.22); --hero-b: rgba(167,139,250,.16); --hero-c: rgba(94,240,192,.10);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4f7ff; --bg2: #e8eefc; --panel: rgba(255,255,255,.78); --panel-solid: #fff;
+    --card: rgba(255,255,255,.86); --card-hover: #fff;
+    --line: rgba(70,100,180,.16); --line-strong: rgba(70,110,210,.32);
+    --text: #12182b; --muted: #5b6688; --accent: #2f6df6; --accent2: #0f9f75;
+    --accent3: #6d4ce0; --warn: #c27a00; --shadow: 0 16px 40px rgba(40,70,140,.12);
+    --hero-a: rgba(47,109,246,.14); --hero-b: rgba(109,76,224,.10); --hero-c: rgba(15,159,117,.08);
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin:0; padding:0; overflow-wrap:anywhere; word-break:break-word; }
+body {
+  font-family: "PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 700px at 8% -12%, var(--hero-a), transparent 55%),
+    radial-gradient(900px 560px at 92% 0%, var(--hero-b), transparent 50%),
+    radial-gradient(800px 500px at 50% 110%, var(--hero-c), transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg2) 40%, var(--bg));
+  min-height: 100vh; line-height: 1.65; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 16px 72px; }
+.hero {
+  position: relative; overflow: hidden; border: 1px solid var(--line-strong); border-radius: 24px;
+  padding: 28px 22px 22px; margin-bottom: 18px;
+  background: linear-gradient(135deg, var(--hero-a), transparent 42%), linear-gradient(225deg, var(--hero-b), transparent 40%), var(--panel);
+  backdrop-filter: var(--glass); -webkit-backdrop-filter: var(--glass); box-shadow: var(--shadow);
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; font-size: .78rem; letter-spacing: .08em;
+  color: var(--accent2); font-weight: 600; margin-bottom: 10px; }
+.brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2);
+  box-shadow: 0 0 0 4px rgba(94,240,192,.18); }
+.hero h1 { margin: 0 0 10px; font-size: clamp(1.35rem, 4.4vw, 2rem); font-weight: 720; letter-spacing: -.02em; line-height: 1.25; }
+.hero .tagline { margin: 0; color: var(--muted); font-size: .98rem; max-width: 52rem; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,0,0,.18);
+  border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; font-size: .84rem; color: var(--muted); }
+@media (prefers-color-scheme: light) { .pill { background: rgba(255,255,255,.55); } }
+.pill b { color: var(--accent2); font-weight: 650; }
+.sticky-nav {
+  position: sticky; top: 10px; z-index: 40; display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px;
+  padding: 10px; border-radius: 16px; border: 1px solid var(--line); background: var(--panel);
+  backdrop-filter: var(--glass); -webkit-backdrop-filter: var(--glass); box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+.sticky-nav a {
+  border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; background: rgba(255,255,255,.03);
+  color: var(--text); font-size: .86rem; transition: border-color .2s, transform .15s, background .2s;
+}
+.sticky-nav a:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-1px); background: rgba(110,168,255,.10); }
+.toolbar { border: 1px solid var(--line); border-radius: 16px; padding: 12px; margin-bottom: 16px; background: var(--panel);
+  backdrop-filter: var(--glass); -webkit-backdrop-filter: var(--glass); }
+#q { width: 100%; padding: 13px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel-solid);
+  color: var(--text); font-size: 1rem; outline: none; }
+#q:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(110,168,255,.18); }
+.tabs { display: flex; gap: 8px; overflow-x: auto; padding: 10px 2px 2px; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+.tab { flex: 0 0 auto; border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 999px;
+  padding: 8px 13px; cursor: pointer; font-size: .85rem; white-space: nowrap; }
+.tab em { font-style: normal; color: var(--accent); margin-left: 4px; }
+.tab.active, .tab:hover { color: var(--text); border-color: var(--accent); background: rgba(110,168,255,.12); }
+.section { margin: 26px 0; }
+.section h2 { font-size: 1.18rem; margin: 0 0 8px; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.section h2 span { color: var(--muted); font-weight: 500; font-size: .9rem; }
+.sec-desc { margin: 0 0 14px; color: var(--muted); font-size: .92rem; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 720px) { .grid { grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); } }
+.card {
+  position: relative; background: linear-gradient(160deg, rgba(110,168,255,.08), transparent 42%), var(--card);
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 15px 14px; overflow: visible; max-height: none;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.card:hover { transform: translateY(-3px); border-color: var(--line-strong); box-shadow: var(--shadow);
+  background: linear-gradient(160deg, rgba(110,168,255,.14), transparent 45%), var(--card-hover); }
+.card.repo { background: linear-gradient(160deg, rgba(167,139,250,.10), transparent 42%), var(--card); }
+.card.hot { background: linear-gradient(160deg, rgba(94,240,192,.08), transparent 42%), var(--card); }
+.badgerow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+.badge { display: inline-block; font-size: .72rem; color: #d7e6ff;
+  background: linear-gradient(135deg, rgba(110,168,255,.22), rgba(167,139,250,.16));
+  border: 1px solid rgba(110,168,255,.35); border-radius: 999px; padding: 3px 9px; font-weight: 600; }
+@media (prefers-color-scheme: light) { .badge { color: #244a9a; } }
+.src-tag, .dl-tag { display: inline-flex; font-size: .72rem; border-radius: 999px; padding: 3px 9px;
+  border: 1px solid var(--line); color: var(--muted); background: rgba(255,255,255,.04); }
+.src-tag { color: var(--accent2); border-color: rgba(94,240,192,.28); }
+.dl-tag { color: var(--warn); border-color: rgba(255,200,87,.35); }
+.title { margin: 0 0 10px; font-size: 1.05rem; line-height: 1.45; font-weight: 650; overflow-wrap: anywhere; white-space: normal; }
+.title a { color: inherit; }
+.summary, .how, .meta, .linkrow, .author { margin: 0 0 10px; overflow: visible; overflow-wrap: anywhere;
+  word-break: break-word; white-space: normal; max-height: none; }
+.summary { color: var(--muted); font-size: .95rem; }
+.how { font-size: .9rem; color: var(--text); background: rgba(255,255,255,.04); border: 1px solid var(--line);
+  border-radius: 12px; padding: 10px 12px; }
+.meta { font-size: .88rem; color: var(--warn); }
+.author { color: var(--muted); }
+.linkrow { font-size: .86rem; color: var(--muted); }
+.fulllink { color: var(--accent); overflow-wrap: anywhere; word-break: break-word; white-space: normal; }
+.hidden { display: none !important; }
+.panel-box { margin-top: 28px; padding: 16px; border-radius: 16px; border: 1px solid var(--line); background: var(--panel);
+  backdrop-filter: var(--glass); -webkit-backdrop-filter: var(--glass); }
+.panel-box h2 { margin: 0 0 10px; font-size: 1rem; }
+.arch { display: inline-block; margin: 0 8px 8px 0; padding: 7px 11px; border-radius: 10px; border: 1px solid var(--line);
+  color: var(--muted); background: rgba(0,0,0,.15); }
+.arch:hover { border-color: var(--accent); color: var(--text); text-decoration: none; }
+.arch.current { color: var(--accent2); border-color: rgba(94,240,192,.45); }
+.disclaimer p, .intro p { margin: 0 0 10px; color: var(--muted); font-size: .92rem; }
+.intro p:last-child { margin-bottom: 0; }
+.empty { text-align: center; color: var(--muted); padding: 48px 10px; }
+footer { margin-top: 28px; color: var(--muted); font-size: .8rem; text-align: center; }
+.crumbs { margin: 0 0 14px; color: var(--muted); font-size: .9rem; }
+.crumbs a { color: var(--accent); }
+.related a { display: block; margin: 0 0 8px; }
+.detail-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+.btn {
+  display: inline-block; padding: 10px 16px; border-radius: 12px; border: 1px solid var(--line-strong);
+  background: linear-gradient(135deg, rgba(110,168,255,.2), rgba(167,139,250,.12)); color: var(--text); font-weight: 600;
+}
+.btn:hover { text-decoration: none; border-color: var(--accent); }
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"大模型 API 免费额度 - 大模型免费API与AI工具免费 | AI大模型免费资源导航 · 2026年11月最新","description":"本栏目持续整理大模型免费API、免费GPT接口、Claude免费额度、DeepSeek免费额度与各类LLM Token 试用信息。内容来自公开网页与社区帖子，经自动抓取汇总，方便开发者快速对比免费API额度与领取入口。请以官网活动规则为准，","url":"https://aidamoxing-mianfei.netlify.app/c/damoxing-mianfei-api.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://aidamoxing-mianfei.netlify.app/item/nvidia-nim-kimi-deepseek-glm-3b5f44eee3.html","name":"NVIDIA NIM：Kimi / DeepSeek / GLM 免信用卡试用"},{"@type":"ListItem","position":2,"url":"https://aidamoxing-mianfei.netlify.app/item/cloudflare-workers-ai-1-neurons-7f9eb88172.html","name":"Cloudflare Workers AI：每天 1 万 Neurons"},{"@type":"ListItem","position":3,"url":"https://aidamoxing-mianfei.netlify.app/item/gemini-3-5-flash-500-api-f9751b349a.html","name":"Gemini 3.5 Flash：每天约 500 次免费 API"},{"@type":"ListItem","position":4,"url":"https://aidamoxing-mianfei.netlify.app/item/100-tokens-b783987689.html","name":"阿里云百炼：新用户每模型约 100 万 Tokens"},{"@type":"ListItem","position":5,"url":"https://aidamoxing-mianfei.netlify.app/item/amd-15-286432b5d2.html","name":"AMD 国区：15 个大模型免费调用"},{"@type":"ListItem","position":6,"url":"https://aidamoxing-mianfei.netlify.app/item/lg-k-exaone-2-5-api-1c1c00d89a.html","name":"LG K-EXAONE 2.5：API 彻底免费开放"},{"@type":"ListItem","position":7,"url":"https://aidamoxing-mianfei.netlify.app/item/perch-ai-20-2-pt-933e1a9529.html","name":"Perch AI：每月约 $20 / 2 万 PT，免绑卡"},{"@type":"ListItem","position":8,"url":"https://aidamoxing-mianfei.netlify.app/item/iteracompute-qwen3-8-27b-3000-token-14f4680ebb.html","name":"IteraCompute：Qwen3.8-27B 每月约 3000 万 Token 免费"},{"@type":"ListItem","position":9,"url":"https://aidamoxing-mianfei.netlify.app/item/damoxing-mianfei-api-8f76ba739f.html","name":"国内平台额度速领：硅基流动 / 百炼 / 千帆 / 方舟"},{"@type":"ListItem","position":10,"url":"https://aidamoxing-mianfei.netlify.app/item/token-f3cbf51a61.html","name":"Token 羊毛聚合站：多平台免费额度一页看"},{"@type":"ListItem","position":11,"url":"https://aidamoxing-mianfei.netlify.app/item/ant-ling-3-2-flash-da47586221.html","name":"Ant Ling-3.2-flash：两周免费试用"},{"@type":"ListItem","position":12,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-velork-design-and-code-toget-307fbb10a0.html","name":"【科技】Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, T"},{"@type":"ListItem","position":13,"url":"https://aidamoxing-mianfei.netlify.app/item/free-open-api-of-weekly-resale-sold-70b5352893.html","name":"【科技】Free open API of weekly resale sold-price medians Free open API of weekly resale"},{"@type":"ListItem","position":14,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-makoda-reuse-your-codex-or-c-22cd5d82c1.html","name":"【科技】Show HN: Makoda: reuse your Codex or Claude subscriptions as API Show HN: Makoda"},{"@type":"ListItem","position":15,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-botel-always-reachable-agent-a56a6b0659.html","name":"【科技】Show HN: Botel – always reachable agents you pay for only while they're working "},{"@type":"ListItem","position":16,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-ski-voice-first-multilingual-dab13472a8.html","name":"【科技】Show HN: Ski Voice-First Multilingual Neutral Coding Harness Show HN: Ski Voice-"},{"@type":"ListItem","position":17,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-fireside-folio-free-books-co-3cb7fb09f2.html","name":"【科技】Show HN: Fireside Folio – free books, comics and news editions for reMarkable Sh"},{"@type":"ListItem","position":18,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-a-free-gameboy-style-music-t-49b9c74877.html","name":"【科技】Show HN: A free Gameboy–style music tracker in the browser with shareable URLs S"},{"@type":"ListItem","position":19,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-grade-or-skip-measure-a-pok-9eb8ec7172.html","name":"【科技】Show HN: Grade or Skip – measure a Pokémon card's centering and grading ROI Show"},{"@type":"ListItem","position":20,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-give-your-agent-a-mac-it-can-e0afa7d737.html","name":"【科技】Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it "},{"@type":"ListItem","position":21,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-i-paid-claude-us-1-070-to-re-59fdee3f5d.html","name":"【科技】Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay "},{"@type":"ListItem","position":22,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-sec-fundamentals-free-financ-4270e345da.html","name":"【科技】Show HN: SEC Fundamentals – free financial API Show HN: SEC Fundamentals – free "},{"@type":"ListItem","position":23,"url":"https://aidamoxing-mianfei.netlify.app/item/tell-hn-hn-is-wrong-tell-hn-hn-is-wr-0ca4e24576.html","name":"【科技】Tell HN: HN Is Wrong Tell HN: HN Is Wrong Here is a quick Show HN story.<p>Inspi"},{"@type":"ListItem","position":24,"url":"https://aidamoxing-mianfei.netlify.app/item/gpt-skills-gpt-skills-87183b5b2c.html","name":"实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流"},{"@type":"ListItem","position":25,"url":"https://aidamoxing-mianfei.netlify.app/item/st-gr-sail-proxy-st-gr-sail-proxy-fr-1a50b05ad6.html","name":"【科技】st-gr/sail-proxy st-gr/sail-proxy Free, open-source LLM gateway for SAP AI Core."},{"@type":"ListItem","position":26,"url":"https://aidamoxing-mianfei.netlify.app/item/royalskynet-orchestrator-royalskynet-7cbabeafa5.html","name":"【科技】royalskynet/orchestrator royalskynet/orchestrator Dispatch work orders to any LL"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://aidamoxing-mianfei.netlify.app/"},{"@type":"ListItem","position":2,"name":"大模型 API 免费额度","item":"https://aidamoxing-mianfei.netlify.app/c/damoxing-mianfei-api.html"}]}</script>
+</head>
+
+<body>
+<div class="wrap">
+  <div class="crumbs"><a href="../">首页</a> › <span>大模型 API 免费额度</span></div>
+  
+<nav class="sticky-nav" aria-label="栏目导航">
+  <a href=".././">首页</a>
+  <a href="../c/damoxing-mianfei-api.html">大模型免费API</a>
+  <a href="../c/ai-huiyuan-shiyong.html">AI工具免费</a>
+  <a href="../c/ai-kaifa-gongju.html">AI开发工具</a>
+  <a href="../c/mianfei-gpu-yunfuwu.html">免费GPU</a>
+  <a href="../#github-hot">GitHub热门项目</a>
+  <a href="../#hot-topics">最新AI新闻</a>
+  <a href="../#archives">每日存档</a>
+</nav>
+  <header class="hero">
+    <div class="brand"><span class="dot"></span> CATEGORY</div>
+    <h1>大模型 API 免费额度 · 2026年11月最新</h1>
+    <p class="tagline">聚焦长尾词：大模型免费API、免费GPT、Claude免费、DeepSeek免费额度、AI工具免费、免费GPU、GitHub热门项目、AI开源项目推荐、最新AI新闻</p>
+    <div class="stats">
+      <div class="pill">条目 <b>26</b></div>
+      <div class="pill">更新 <b>2026-11-09</b></div>
+    </div>
+  </header>
+  <section class="panel-box intro">
+    <h2>大模型 API 免费额度栏目介绍</h2>
+    <p>本栏目持续整理大模型免费API、免费GPT接口、Claude免费额度、DeepSeek免费额度与各类LLM Token 试用信息。内容来自公开网页与社区帖子，经自动抓取汇总，方便开发者快速对比免费API额度与领取入口。请以官网活动规则为准，注意密钥安全，勿轻信私下代充。</p>
+  </section>
+  <section class="section deal-section">
+    <h2>大模型 API 免费额度资源列表 <span>(26)</span></h2>
+    <div class="grid">
+<article class="card" data-cat="大模型 API 免费额度" data-text="NVIDIA NIM：Kimi / DeepSeek / GLM 免信用卡试用 登录 build.nvidia.com 即可试用 Kimi K3.1 Pro（2.8T、百万上下文）、DeepSeek V4.1 Flash、GLM 5.3 Flash；免费层约 40 次/分限速，不按 Token 扣费。部分模型网页可预览、API 开放情况以官网为准。 打开 build.nvidia.com → 登录 → 选择对应模型试用 chichu187 https://x.com/chichu187/status/2119008302432690299 大模型 API 免费额度 X">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 X</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/nvidia-nim-kimi-deepseek-glm-3b5f44eee3.html">NVIDIA NIM：Kimi / DeepSeek / GLM 免信用卡试用</a></h3>
+  <p class="summary">登录 build.nvidia.com 即可试用 Kimi K3.1 Pro（2.8T、百万上下文）、DeepSeek V4.1 Flash、GLM 5.3 Flash；免费层约 40 次/分限速，不按 Token 扣费。部分模型网页可预览、API 开放情况以官网为准。</p>
+  <div class="how"><strong>怎么领：</strong>打开 build.nvidia.com → 登录 → 选择对应模型试用</div>
+  <div class="meta author"><strong>作者：</strong>@chichu187 · 2026-11-07 18:05 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/nvidia-nim-kimi-deepseek-glm-3b5f44eee3.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/chichu187/status/2119008302432690299" target="_blank" rel="noopener noreferrer">https://x.com/chichu187/status/2119008302432690299</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="Cloudflare Workers AI：每天 1 万 Neurons Cloudflare 免费计划每天赠送约 1 万 Neurons（UTC 0 点 / 北京时间早 8 点重置），超额不扣费只报错。可跑 Llama、Qwen、Gemma、Mistral 等开源模型，也支持生图与语音转文字。有人换算约等于每天 490 次 Llama 3.1 8B、或 83 次 70B、或约 57 张图。注意：额度账号共享；Kimi/GLM 5/DeepSeek V4 等前沿模型不在免费档，要绑付费方式。 注册 Cloudflare 免费账号 → 建 API token → 直接调 Workers AI 接口（不用自建服务器） AWG48488 https://x.com/AWG48488/status/2119415638494204051 大模型 API 免费额度 X">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 X</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/cloudflare-workers-ai-1-neurons-7f9eb88172.html">Cloudflare Workers AI：每天 1 万 Neurons</a></h3>
+  <p class="summary">Cloudflare 免费计划每天赠送约 1 万 Neurons（UTC 0 点 / 北京时间早 8 点重置），超额不扣费只报错。可跑 Llama、Qwen、Gemma、Mistral 等开源模型，也支持生图与语音转文字。有人换算约等于每天 490 次 Llama 3.1 8B、或 83 次 70B、或约 57 张图。注意：额度账号共享；Kimi/GLM 5/DeepSeek V4 等前沿模型不在免费档，要绑付费方式。</p>
+  <div class="how"><strong>怎么领：</strong>注册 Cloudflare 免费账号 → 建 API token → 直接调 Workers AI 接口（不用自建服务器）</div>
+  <div class="meta author"><strong>作者：</strong>@AWG48488 · 2026-11-08 21:03 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/cloudflare-workers-ai-1-neurons-7f9eb88172.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/AWG48488/status/2119415638494204051" target="_blank" rel="noopener noreferrer">https://x.com/AWG48488/status/2119415638494204051</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="Gemini 3.5 Flash：每天约 500 次免费 API Google AI Studio 生成 API Key 即可用，免绑信用卡。适合跑自动化脚本、本地 CLI、翻译和小项目测试。注意：免费层数据可能用于模型训练，勿上传敏感代码。 打开 Google AI Studio → 生成 API Key → 调用 Gemini 3.5 Flash Stargridcompass https://x.com/Stargridcompass/status/2119384439457477086 大模型 API 免费额度 X">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 X</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/gemini-3-5-flash-500-api-f9751b349a.html">Gemini 3.5 Flash：每天约 500 次免费 API</a></h3>
+  <p class="summary">Google AI Studio 生成 API Key 即可用，免绑信用卡。适合跑自动化脚本、本地 CLI、翻译和小项目测试。注意：免费层数据可能用于模型训练，勿上传敏感代码。</p>
+  <div class="how"><strong>怎么领：</strong>打开 Google AI Studio → 生成 API Key → 调用 Gemini 3.5 Flash</div>
+  <div class="meta author"><strong>作者：</strong>@Stargridcompass · 2026-11-08 19:00 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/gemini-3-5-flash-500-api-f9751b349a.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/Stargridcompass/status/2119384439457477086" target="_blank" rel="noopener noreferrer">https://x.com/Stargridcompass/status/2119384439457477086</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="阿里云百炼：新用户每模型约 100 万 Tokens 新用户开通百炼可调 70+ 主流大模型，每模型约 100 万 Tokens，总计 7000 万+ Tokens，约 90 天有效；需实名认证，国内直连。 注册阿里云 → 实名 → 开通百炼控制台领取 0x_chaoran https://x.com/0x_chaoran/status/2119379991226105957 大模型 API 免费额度 X">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 X</span>
+    <span class="dl-tag">截止 新用户限领，有效期约 90 天</span>
+  </div>
+  <h3 class="title"><a href="../item/100-tokens-b783987689.html">阿里云百炼：新用户每模型约 100 万 Tokens</a></h3>
+  <p class="summary">新用户开通百炼可调 70+ 主流大模型，每模型约 100 万 Tokens，总计 7000 万+ Tokens，约 90 天有效；需实名认证，国内直连。</p>
+  <div class="how"><strong>怎么领：</strong>注册阿里云 → 实名 → 开通百炼控制台领取</div>
+  <div class="meta author"><strong>作者：</strong>@0x_chaoran · 2026-11-08 18:42 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/100-tokens-b783987689.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/0x_chaoran/status/2119379991226105957" target="_blank" rel="noopener noreferrer">https://x.com/0x_chaoran/status/2119379991226105957</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="AMD 国区：15 个大模型免费调用 DeepSeek-V4.1-Flash、GLM-5.3、Qwen3.8 等约 15 个模型可免费调，支持约 1M 上下文，免绑卡，每天 0 点重置额度。登录官网领 rc- Key 后可接入 Cherry Studio。 登录 AMD 官网 → 领取 API Key → 填入客户端 0x_chaoran https://x.com/0x_chaoran/status/2119319917963206980 大模型 API 免费额度 X">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 X</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/amd-15-286432b5d2.html">AMD 国区：15 个大模型免费调用</a></h3>
+  <p class="summary">DeepSeek-V4.1-Flash、GLM-5.3、Qwen3.8 等约 15 个模型可免费调，支持约 1M 上下文，免绑卡，每天 0 点重置额度。登录官网领 rc- Key 后可接入 Cherry Studio。</p>
+  <div class="how"><strong>怎么领：</strong>登录 AMD 官网 → 领取 API Key → 填入客户端</div>
+  <div class="meta author"><strong>作者：</strong>@0x_chaoran · 2026-11-08 14:43 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/amd-15-286432b5d2.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/0x_chaoran/status/2119319917963206980" target="_blank" rel="noopener noreferrer">https://x.com/0x_chaoran/status/2119319917963206980</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="LG K-EXAONE 2.5：API 彻底免费开放 LG 在英伟达首尔 AI 日宣布 K-EXAONE 2.5 API 对开发者/企业/研究机构免费。宣传约 7500 亿参数、约 51.2 万上下文、兼容 OpenAI 接口；目前主要支持韩语和英语。帖中对比 AutomationBench/BrowseComp 等分数接近或超过 DeepSeek-V4.1-Flash。 按官方渠道申请 K-EXAONE API Key 后调用 Super_Nius https://x.com/Super_Nius/status/2119635733048852485 大模型 API 免费额度 X">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 X</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/lg-k-exaone-2-5-api-1c1c00d89a.html">LG K-EXAONE 2.5：API 彻底免费开放</a></h3>
+  <p class="summary">LG 在英伟达首尔 AI 日宣布 K-EXAONE 2.5 API 对开发者/企业/研究机构免费。宣传约 7500 亿参数、约 51.2 万上下文、兼容 OpenAI 接口；目前主要支持韩语和英语。帖中对比 AutomationBench/BrowseComp 等分数接近或超过 DeepSeek-V4.1-Flash。</p>
+  <div class="how"><strong>怎么领：</strong>按官方渠道申请 K-EXAONE API Key 后调用</div>
+  <div class="meta author"><strong>作者：</strong>@Super_Nius · 2026-11-09 11:38 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/lg-k-exaone-2-5-api-1c1c00d89a.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/Super_Nius/status/2119635733048852485" target="_blank" rel="noopener noreferrer">https://x.com/Super_Nius/status/2119635733048852485</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="Perch AI：每月约 $20 / 2 万 PT，免绑卡 Starter 免费账号每月自动领约 20,000 PT（约合 $20），可用 DeepSeek 等模型；网页/桌面/命令行三端可用。Qwen 3.8 Max 限免至 11 月 21 日凌晨 1 点（吃月度额度，非无限）。 注册 Perch AI 免费 Starter → 每月自动到账 jhl880617 https://x.com/jhl880617/status/2119618098743451875 大模型 API 免费额度 X">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 X</span>
+    <span class="dl-tag">截止 Qwen 3.8 Max 限免至 2026-11-21 01:00 Asia/Shanghai</span>
+  </div>
+  <h3 class="title"><a href="../item/perch-ai-20-2-pt-933e1a9529.html">Perch AI：每月约 $20 / 2 万 PT，免绑卡</a></h3>
+  <p class="summary">Starter 免费账号每月自动领约 20,000 PT（约合 $20），可用 DeepSeek 等模型；网页/桌面/命令行三端可用。Qwen 3.8 Max 限免至 11 月 21 日凌晨 1 点（吃月度额度，非无限）。</p>
+  <div class="how"><strong>怎么领：</strong>注册 Perch AI 免费 Starter → 每月自动到账</div>
+  <div class="meta author"><strong>作者：</strong>@jhl880617 · 2026-11-09 10:28 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/perch-ai-20-2-pt-933e1a9529.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/jhl880617/status/2119618098743451875" target="_blank" rel="noopener noreferrer">https://x.com/jhl880617/status/2119618098743451875</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="IteraCompute：Qwen3.8-27B 每月约 3000 万 Token 免费 每月约 3000 万 Token 免费额度，Qwen3.8-27B 输入/缓存/输出标价为 0，约 128K 上下文，OpenAI 兼容接口；邮箱验证拿 Key，不用绑卡。额度每月 1 号重置，超额回 429 不自动扣费。帖称推广约到 11 月 24 日，高峰共享算力可能排队。同作者还提到 AMD 开发者计划约 100 美元 MI300X 额度（激活后约 30 天过期）等。 邮箱验证注册 IteraCompute → 领取 Key → 用 OpenAI 兼容接口调用 Jonnyhlkw https://x.com/Jonnyhlkw/status/2119269427845988819 大模型 API 免费额度 X">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 X</span>
+    <span class="dl-tag">截止 推广窗口帖称约至 2026-11-24；以官网为准</span>
+  </div>
+  <h3 class="title"><a href="../item/iteracompute-qwen3-8-27b-3000-token-14f4680ebb.html">IteraCompute：Qwen3.8-27B 每月约 3000 万 Token 免费</a></h3>
+  <p class="summary">每月约 3000 万 Token 免费额度，Qwen3.8-27B 输入/缓存/输出标价为 0，约 128K 上下文，OpenAI 兼容接口；邮箱验证拿 Key，不用绑卡。额度每月 1 号重置，超额回 429 不自动扣费。帖称推广约到 11 月 24 日，高峰共享算力可能排队。同作者还提到 AMD 开发者计划约 100 美元 MI300X 额度（激活后约 30 天过期）等。</p>
+  <div class="how"><strong>怎么领：</strong>邮箱验证注册 IteraCompute → 领取 Key → 用 OpenAI 兼容接口调用</div>
+  <div class="meta author"><strong>作者：</strong>@Jonnyhlkw · 2026-11-08 11:23 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/iteracompute-qwen3-8-27b-3000-token-14f4680ebb.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/Jonnyhlkw/status/2119269427845988819" target="_blank" rel="noopener noreferrer">https://x.com/Jonnyhlkw/status/2119269427845988819</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="国内平台额度速领：硅基流动 / 百炼 / 千帆 / 方舟 帖主实测汇总：硅基流动注册送约 14 元券；阿里云百炼每模型约 100 万 tokens；百度千帆 DeepSeek 每模型约 100 万；火山方舟每模型约 50 万，实名后还可每日再领。 分别注册各平台并按新用户/实名流程领取 jiangxuhe https://x.com/jiangxuhe/status/2119159437164425567 大模型 API 免费额度 X">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 X</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/damoxing-mianfei-api-8f76ba739f.html">国内平台额度速领：硅基流动 / 百炼 / 千帆 / 方舟</a></h3>
+  <p class="summary">帖主实测汇总：硅基流动注册送约 14 元券；阿里云百炼每模型约 100 万 tokens；百度千帆 DeepSeek 每模型约 100 万；火山方舟每模型约 50 万，实名后还可每日再领。</p>
+  <div class="how"><strong>怎么领：</strong>分别注册各平台并按新用户/实名流程领取</div>
+  <div class="meta author"><strong>作者：</strong>@jiangxuhe · 2026-11-08 04:05 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/damoxing-mianfei-api-8f76ba739f.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/jiangxuhe/status/2119159437164425567" target="_blank" rel="noopener noreferrer">https://x.com/jiangxuhe/status/2119159437164425567</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="Token 羊毛聚合站：多平台免费额度一页看 卡兹克「Token 羊毛」聚合站：把官网/公众号/X 上的免费 Token 福利收进一页，按每日、每周、每月、新人礼包和限免分组，首页显示今天还能领多少；领过的会变成可升级卡片。另有帖提到豆包每天 200、秒悟 2000 积分、Cloudflare 每天 1 万 Neurons、Qoder 每天 100 Credits、MiniMax 400 积分等卡牌，并标注核实日期与是否要实名。 打开聚合站按分组领取；以站点当日核实信息与厂商官网为准 TianciZhutc https://x.com/TianciZhutc/status/2119664524512858243 大模型 API 免费额度 X">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 X</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/token-f3cbf51a61.html">Token 羊毛聚合站：多平台免费额度一页看</a></h3>
+  <p class="summary">卡兹克「Token 羊毛」聚合站：把官网/公众号/X 上的免费 Token 福利收进一页，按每日、每周、每月、新人礼包和限免分组，首页显示今天还能领多少；领过的会变成可升级卡片。另有帖提到豆包每天 200、秒悟 2000 积分、Cloudflare 每天 1 万 Neurons、Qoder 每天 100 Credits、MiniMax 400 积分等卡牌，并标注核实日期与是否要实名。</p>
+  <div class="how"><strong>怎么领：</strong>打开聚合站按分组领取；以站点当日核实信息与厂商官网为准</div>
+  <div class="meta author"><strong>作者：</strong>@TianciZhutc · 2026-11-09 13:32 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/token-f3cbf51a61.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/TianciZhutc/status/2119664524512858243" target="_blank" rel="noopener noreferrer">https://x.com/TianciZhutc/status/2119664524512858243</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="Ant Ling-3.2-flash：两周免费试用 Ling-3.2-flash（560B/25B MoE，支持文本+图像+视频）自 11 月 5 日上线起免费约两周，OpenAI/Anthropic 兼容接口。有帖称注册需 +86 手机号。 按官方注册并领取试用（注意地区/手机号要求） liro90106788 https://x.com/liro90106788/status/2119092556835565580 大模型 API 免费额度 X">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 X</span>
+    <span class="dl-tag">截止 约 2026-11-19 截止（帖称 Nov 5–19）</span>
+  </div>
+  <h3 class="title"><a href="../item/ant-ling-3-2-flash-da47586221.html">Ant Ling-3.2-flash：两周免费试用</a></h3>
+  <p class="summary">Ling-3.2-flash（560B/25B MoE，支持文本+图像+视频）自 11 月 5 日上线起免费约两周，OpenAI/Anthropic 兼容接口。有帖称注册需 +86 手机号。</p>
+  <div class="how"><strong>怎么领：</strong>按官方注册并领取试用（注意地区/手机号要求）</div>
+  <div class="meta author"><strong>作者：</strong>@liro90106788 · 2026-11-07 23:40 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/ant-ling-3-2-flash-da47586221.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/liro90106788/status/2119092556835565580" target="_blank" rel="noopener noreferrer">https://x.com/liro90106788/status/2119092556835565580</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, T 来源摘要：Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, Together Hi HN! :)&lt;p&gt;I’ve been working as a fullstack freelancer for over 4 years now. I always wanted some kind of IDE where I could take designs, turn them into code, and not be restricted to usin… 打开来源链接按页面说明领取/试用；参与前自行核实。 aliadelelroby https://velork.com 大模型 API 免费额度 Hacker News">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-velork-design-and-code-toget-307fbb10a0.html">【科技】Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, T</a></h3>
+  <p class="summary">来源摘要：Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, Together Hi HN! :)&lt;p&gt;I’ve been working as a fullstack freelancer for over 4 years now. I always wanted some kind of IDE where I could take designs, turn them into code, and not be restricted to usin…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@aliadelelroby · 2026-11-08 23:31 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-velork-design-and-code-toget-307fbb10a0.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://velork.com" target="_blank" rel="noopener noreferrer">https://velork.com</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】Free open API of weekly resale sold-price medians Free open API of weekly resale 来源摘要：Free open API of weekly resale sold-price medians Free open API of weekly resale sold-price medians 打开来源链接按页面说明领取/试用；参与前自行核实。 malek_oweis https://www.aiplannermail.com/free-resale-price-api/ 大模型 API 免费额度 Hacker News">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/free-open-api-of-weekly-resale-sold-70b5352893.html">【科技】Free open API of weekly resale sold-price medians Free open API of weekly resale</a></h3>
+  <p class="summary">来源摘要：Free open API of weekly resale sold-price medians Free open API of weekly resale sold-price medians</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@malek_oweis · 2026-11-07 15:53 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/free-open-api-of-weekly-resale-sold-70b5352893.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://www.aiplannermail.com/free-resale-price-api/" target="_blank" rel="noopener noreferrer">https://www.aiplannermail.com/free-resale-price-api/</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】Show HN: Makoda: reuse your Codex or Claude subscriptions as API Show HN: Makoda 来源摘要：Show HN: Makoda: reuse your Codex or Claude subscriptions as API Show HN: Makoda: reuse your Codex or Claude subscriptions as API Already paying for ChatGPT or Claude? You should not need a second, per-token bill just to test your app(local or remote).&lt;p&gt;I was paying ~$120&amp;#x2… 打开来源链接按页面说明领取/试用；参与前自行核实。 freakuency https://makoda.ai/ 大模型 API 免费额度 Hacker News">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-makoda-reuse-your-codex-or-c-22cd5d82c1.html">【科技】Show HN: Makoda: reuse your Codex or Claude subscriptions as API Show HN: Makoda</a></h3>
+  <p class="summary">来源摘要：Show HN: Makoda: reuse your Codex or Claude subscriptions as API Show HN: Makoda: reuse your Codex or Claude subscriptions as API Already paying for ChatGPT or Claude? You should not need a second, per-token bill just to test your app(local or remote).&lt;p&gt;I was paying ~$120&amp;#x2…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@freakuency · 2026-11-07 03:08 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-makoda-reuse-your-codex-or-c-22cd5d82c1.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://makoda.ai/" target="_blank" rel="noopener noreferrer">https://makoda.ai/</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】Show HN: Botel – always reachable agents you pay for only while they&#x27;re working  来源摘要：Show HN: Botel – always reachable agents you pay for only while they&#x27;re working Show HN: Botel – always reachable agents you pay for only while they&#x27;re working I built a pay-as-you-go two star hotel for bots that you’re only charged for while it’s active. Typically wakes in un… 打开来源链接按页面说明领取/试用；参与前自行核实。 4ver https://botel.dev 大模型 API 免费额度 Hacker News">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-botel-always-reachable-agent-a56a6b0659.html">【科技】Show HN: Botel – always reachable agents you pay for only while they&#x27;re working </a></h3>
+  <p class="summary">来源摘要：Show HN: Botel – always reachable agents you pay for only while they&#x27;re working Show HN: Botel – always reachable agents you pay for only while they&#x27;re working I built a pay-as-you-go two star hotel for bots that you’re only charged for while it’s active. Typically wakes in un…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@4ver · 2026-11-06 23:46 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-botel-always-reachable-agent-a56a6b0659.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://botel.dev" target="_blank" rel="noopener noreferrer">https://botel.dev</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】Show HN: Ski Voice-First Multilingual Neutral Coding Harness Show HN: Ski Voice- 来源摘要：Show HN: Ski Voice-First Multilingual Neutral Coding Harness Show HN: Ski Voice-First Multilingual Neutral Coding Harness Glad to showcase SKI (&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;justski.it&quot; rel=&quot;nofollow&quot;&gt;https:&amp;#x2F;&amp;#x2F;justski.it&lt;/a&gt;) , a voice-first coding harness.&lt;p&gt;It supports… 打开来源链接按页面说明领取/试用；参与前自行核实。 jomon003 https://justski.it/ 大模型 API 免费额度 Hacker News">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-ski-voice-first-multilingual-dab13472a8.html">【科技】Show HN: Ski Voice-First Multilingual Neutral Coding Harness Show HN: Ski Voice-</a></h3>
+  <p class="summary">来源摘要：Show HN: Ski Voice-First Multilingual Neutral Coding Harness Show HN: Ski Voice-First Multilingual Neutral Coding Harness Glad to showcase SKI (&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;justski.it&quot; rel=&quot;nofollow&quot;&gt;https:&amp;#x2F;&amp;#x2F;justski.it&lt;/a&gt;) , a voice-first coding harness.&lt;p&gt;It supports…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@jomon003 · 2026-11-06 02:56 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-ski-voice-first-multilingual-dab13472a8.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://justski.it/" target="_blank" rel="noopener noreferrer">https://justski.it/</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】Show HN: Fireside Folio – free books, comics and news editions for reMarkable Sh 来源摘要：Show HN: Fireside Folio – free books, comics and news editions for reMarkable Show HN: Fireside Folio – free books, comics and news editions for reMarkable I own a reMarkable 2 and wanted more to read on it than my own PDFs, so I built a free web app. You connect your tablet o… 打开来源链接按页面说明领取/试用；参与前自行核实。 hashfunction https://firesidefolio.com/ 大模型 API 免费额度 Hacker News">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-fireside-folio-free-books-co-3cb7fb09f2.html">【科技】Show HN: Fireside Folio – free books, comics and news editions for reMarkable Sh</a></h3>
+  <p class="summary">来源摘要：Show HN: Fireside Folio – free books, comics and news editions for reMarkable Show HN: Fireside Folio – free books, comics and news editions for reMarkable I own a reMarkable 2 and wanted more to read on it than my own PDFs, so I built a free web app. You connect your tablet o…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@hashfunction · 2026-11-09 05:39 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-fireside-folio-free-books-co-3cb7fb09f2.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://firesidefolio.com/" target="_blank" rel="noopener noreferrer">https://firesidefolio.com/</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】Show HN: A free Gameboy–style music tracker in the browser with shareable URLs S 来源摘要：Show HN: A free Gameboy–style music tracker in the browser with shareable URLs Show HN: A free Gameboy–style music tracker in the browser with shareable URLs I built a 4-channel music tracker modeled on the original Game Boy&amp;#x27;s sound hardware: two pulse channels, a wave ch… 打开来源链接按页面说明领取/试用；参与前自行核实。 iamdan https://chiptunes.studio/ 大模型 API 免费额度 Hacker News">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-a-free-gameboy-style-music-t-49b9c74877.html">【科技】Show HN: A free Gameboy–style music tracker in the browser with shareable URLs S</a></h3>
+  <p class="summary">来源摘要：Show HN: A free Gameboy–style music tracker in the browser with shareable URLs Show HN: A free Gameboy–style music tracker in the browser with shareable URLs I built a 4-channel music tracker modeled on the original Game Boy&amp;#x27;s sound hardware: two pulse channels, a wave ch…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@iamdan · 2026-11-09 04:43 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-a-free-gameboy-style-music-t-49b9c74877.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://chiptunes.studio/" target="_blank" rel="noopener noreferrer">https://chiptunes.studio/</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】Show HN: Grade or Skip – measure a Pokémon card&#x27;s centering and grading ROI Show 来源摘要：Show HN: Grade or Skip – measure a Pokémon card&#x27;s centering and grading ROI Show HN: Grade or Skip – measure a Pokémon card&#x27;s centering and grading ROI Hi HN. Pokémon cards are one of my hobbies, and the question that comes up over and over is whether a raw card is worth payin… 打开来源链接按页面说明领取/试用；参与前自行核实。 nateparkerdev https://github.com/0x4rch/gradeorskip 大模型 API 免费额度 Hacker News">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-grade-or-skip-measure-a-pok-9eb8ec7172.html">【科技】Show HN: Grade or Skip – measure a Pokémon card&#x27;s centering and grading ROI Show</a></h3>
+  <p class="summary">来源摘要：Show HN: Grade or Skip – measure a Pokémon card&#x27;s centering and grading ROI Show HN: Grade or Skip – measure a Pokémon card&#x27;s centering and grading ROI Hi HN. Pokémon cards are one of my hobbies, and the question that comes up over and over is whether a raw card is worth payin…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@nateparkerdev · 2026-11-08 21:03 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-grade-or-skip-measure-a-pok-9eb8ec7172.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://github.com/0x4rch/gradeorskip" target="_blank" rel="noopener noreferrer">https://github.com/0x4rch/gradeorskip</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it  来源摘要：Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it can control Hello hello!&lt;p&gt;I&amp;#x27;m building Offstage Cloud which are ephemeral macOS sandboxes billed by second.&lt;p&gt;You can use it for CI (eg GitHub Actions), build with Xcode, or let your agent co… 打开来源链接按页面说明领取/试用；参与前自行核实。 viraatdas https://offstage.cloud/ 大模型 API 免费额度 Hacker News">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-give-your-agent-a-mac-it-can-e0afa7d737.html">【科技】Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it </a></h3>
+  <p class="summary">来源摘要：Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it can control Hello hello!&lt;p&gt;I&amp;#x27;m building Offstage Cloud which are ephemeral macOS sandboxes billed by second.&lt;p&gt;You can use it for CI (eg GitHub Actions), build with Xcode, or let your agent co…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@viraatdas · 2026-11-07 19:27 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-give-your-agent-a-mac-it-can-e0afa7d737.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://offstage.cloud/" target="_blank" rel="noopener noreferrer">https://offstage.cloud/</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay  来源摘要：Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay Hi HN, I&amp;#x27;m Oriol, a solo developer in Barcelona.&lt;p&gt;Before booking anything, I used to do the same thing every ti… 打开来源链接按页面说明领取/试用；参与前自行核实。 orifito https://okstays.com 大模型 API 免费额度 Hacker News">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-i-paid-claude-us-1-070-to-re-59fdee3f5d.html">【科技】Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay </a></h3>
+  <p class="summary">来源摘要：Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay Hi HN, I&amp;#x27;m Oriol, a solo developer in Barcelona.&lt;p&gt;Before booking anything, I used to do the same thing every ti…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@orifito · 2026-11-05 22:13 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-i-paid-claude-us-1-070-to-re-59fdee3f5d.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://okstays.com" target="_blank" rel="noopener noreferrer">https://okstays.com</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】Show HN: SEC Fundamentals – free financial API Show HN: SEC Fundamentals – free  来源摘要：Show HN: SEC Fundamentals – free financial API Show HN: SEC Fundamentals – free financial API 打开来源链接按页面说明领取/试用；参与前自行核实。 chartwidgets https://www.quotelinks.com/api/sec-fundamentals/ 大模型 API 免费额度 Hacker News">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-sec-fundamentals-free-financ-4270e345da.html">【科技】Show HN: SEC Fundamentals – free financial API Show HN: SEC Fundamentals – free </a></h3>
+  <p class="summary">来源摘要：Show HN: SEC Fundamentals – free financial API Show HN: SEC Fundamentals – free financial API</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@chartwidgets · 2026-11-08 14:51 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-sec-fundamentals-free-financ-4270e345da.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://www.quotelinks.com/api/sec-fundamentals/" target="_blank" rel="noopener noreferrer">https://www.quotelinks.com/api/sec-fundamentals/</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】Tell HN: HN Is Wrong Tell HN: HN Is Wrong Here is a quick Show HN story.&lt;p&gt;Inspi 来源摘要：Tell HN: HN Is Wrong Tell HN: HN Is Wrong Here is a quick Show HN story.&lt;p&gt;Inspired by Alex Karpathy&amp;#x27;s HackerTube, i spent time, effort and tokens on analyzing Show HN posts - 200K plus posts, and a million plus comments, identifying trends, patterns, reactions etc.&lt;p&gt;I s… 打开来源链接按页面说明领取/试用；参与前自行核实。 npguy https://news.ycombinator.com/item?id=50406993 大模型 API 免费额度 Hacker News">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/tell-hn-hn-is-wrong-tell-hn-hn-is-wr-0ca4e24576.html">【科技】Tell HN: HN Is Wrong Tell HN: HN Is Wrong Here is a quick Show HN story.&lt;p&gt;Inspi</a></h3>
+  <p class="summary">来源摘要：Tell HN: HN Is Wrong Tell HN: HN Is Wrong Here is a quick Show HN story.&lt;p&gt;Inspired by Alex Karpathy&amp;#x27;s HackerTube, i spent time, effort and tokens on analyzing Show HN posts - 200K plus posts, and a million plus comments, identifying trends, patterns, reactions etc.&lt;p&gt;I s…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@npguy · 2026-11-08 02:57 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/tell-hn-hn-is-wrong-tell-hn-hn-is-wr-0ca4e24576.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://news.ycombinator.com/item?id=50406993" target="_blank" rel="noopener noreferrer">https://news.ycombinator.com/item?id=50406993</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流 实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 为了解决 GPT 的审美不稳定的问题，我开发了一款类似 Claude Design 的项目，我起初并没有抱太大希望，觉得可以保证风格统一就好了。在使用 Codex Cli 的 `gpt-6.1-sol` 开发了 [摄影网站]( https://drop-af770064-b43.amery2010.workers.dev/)，结果却惊艳到了我。网站排版更大胆，交互更细腻，如果不说… 打开来源链接按页面说明领取/试用；参与前自行核实。 amery2010 https://www.v2ex.com/t/1255595 大模型 API 免费额度 V2EX">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 V2EX</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/gpt-skills-gpt-skills-87183b5b2c.html">实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流</a></h3>
+  <p class="summary">实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 为了解决 GPT 的审美不稳定的问题，我开发了一款类似 Claude Design 的项目，我起初并没有抱太大希望，觉得可以保证风格统一就好了。在使用 Codex Cli 的 `gpt-6.1-sol` 开发了 [摄影网站]( https://drop-af770064-b43.amery2010.workers.dev/)，结果却惊艳到了我。网站排版更大胆，交互更细腻，如果不说…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@amery2010 · 2026-11-09 16:01 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/gpt-skills-gpt-skills-87183b5b2c.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://www.v2ex.com/t/1255595" target="_blank" rel="noopener noreferrer">https://www.v2ex.com/t/1255595</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】st-gr/sail-proxy st-gr/sail-proxy Free, open-source LLM gateway for SAP AI Core. 来源摘要：st-gr/sail-proxy st-gr/sail-proxy Free, open-source LLM gateway for SAP AI Core. Run Claude Code, Codex, GitHub Copilot, Gemini CLI and your own apps on your SAP models through native OpenAI, Anthropic, Gemini, Bedrock and Ollama APIs. SSO, per-user API keys, SAP cost analytic… 打开来源链接按页面说明领取/试用；参与前自行核实。 st-gr https://github.com/st-gr/sail-proxy 大模型 API 免费额度 GitHub">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 GitHub</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/st-gr-sail-proxy-st-gr-sail-proxy-fr-1a50b05ad6.html">【科技】st-gr/sail-proxy st-gr/sail-proxy Free, open-source LLM gateway for SAP AI Core.</a></h3>
+  <p class="summary">来源摘要：st-gr/sail-proxy st-gr/sail-proxy Free, open-source LLM gateway for SAP AI Core. Run Claude Code, Codex, GitHub Copilot, Gemini CLI and your own apps on your SAP models through native OpenAI, Anthropic, Gemini, Bedrock and Ollama APIs. SSO, per-user API keys, SAP cost analytic…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@st-gr · 2026-11-09 16:12 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/st-gr-sail-proxy-st-gr-sail-proxy-fr-1a50b05ad6.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://github.com/st-gr/sail-proxy" target="_blank" rel="noopener noreferrer">https://github.com/st-gr/sail-proxy</a></div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="【科技】royalskynet/orchestrator royalskynet/orchestrator Dispatch work orders to any LL royalskynet/orchestrator royalskynet/orchestrator Dispatch work orders to any LLM you have (free pools, subscriptions, OmniRoute providers, APIs), ranked by measured pass rate; done = acceptance script passes. 多 LLM 工單調度器。 打开来源链接按页面说明领取/试用；参与前自行核实。 royalskynet https://github.com/royalskynet/orchestrator 大模型 API 免费额度 GitHub">
+  <div class="badgerow">
+    <span class="badge">大模型 API 免费额度</span>
+    <span class="src-tag">来源 GitHub</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/royalskynet-orchestrator-royalskynet-7cbabeafa5.html">【科技】royalskynet/orchestrator royalskynet/orchestrator Dispatch work orders to any LL</a></h3>
+  <p class="summary">royalskynet/orchestrator royalskynet/orchestrator Dispatch work orders to any LLM you have (free pools, subscriptions, OmniRoute providers, APIs), ranked by measured pass rate; done = acceptance script passes. 多 LLM 工單調度器。</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@royalskynet · 2026-11-09 16:01 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/royalskynet-orchestrator-royalskynet-7cbabeafa5.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://github.com/royalskynet/orchestrator" target="_blank" rel="noopener noreferrer">https://github.com/royalskynet/orchestrator</a></div>
+</article></div>
+  </section>
+  <section class="panel-box">
+    <h2>其他分类</h2>
+    <div><a class="arch" href="ai-huiyuan-shiyong.html">AI 产品会员/试用</a><a class="arch" href="ai-kaifa-gongju.html">AI 开发工具与编程助手</a><a class="arch" href="mianfei-gpu-yunfuwu.html">云服务/GPU/开发者资源</a><a class="arch" href="keji-app-xianmian.html">科技软件/App 限免</a><a class="arch" href="qita-keji.html">其他科技</a></div>
+  </section>
+  <footer>AI大模型免费资源导航 · 分类着陆页</footer>
+</div>
+</body>
+</html>

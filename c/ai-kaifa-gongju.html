@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="renderer" content="webkit" />
+<meta name="force-rendering" content="webkit" />
+<meta name="applicable-device" content="pc,mobile" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="format-detection" content="telephone=no" />
+<title>AI 开发工具与编程助手 - 大模型免费API与AI工具免费 | AI大模型免费资源导航 · 2026年11月最新</title>
+<meta name="description" content="面向程序员的 AI 开发工具与编程助手导航：代码补全、Agent、评测与开源助手等。适合搜索AI编程助手、AI开源项目推荐。页面展示完整标题、说明与仓库/官网链接，并与 GitHub 热门项目互相跳转。工具能力以官方文档为准，注意权限与隐私" />
+<meta name="keywords" content="AI大模型免费资源,大模型免费API,免费GPT,Claude免费,DeepSeek免费额度,AI工具免费,免费GPU,GitHub热门项目,AI开源项目推荐,最新AI新闻,免费API额度,AI开发工具,LLM免费额度,AI编程助手" />
+<meta name="robots" content="index,follow" />
+<meta name="author" content="AI大模型免费资源导航" />
+<!-- Set VERIFY_BAIDU env or seo_config.json baidu_site_verification after 站长平台验证 -->
+<link rel="canonical" href="https://aidamoxing-mianfei.netlify.app/c/ai-kaifa-gongju.html" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:site_name" content="AI大模型免费资源导航" />
+<meta property="og:title" content="AI 开发工具与编程助手 | AI大模型免费资源导航" />
+<meta property="og:description" content="面向程序员的 AI 开发工具与编程助手导航：代码补全、Agent、评测与开源助手等。适合搜索AI编程助手、AI开源项目推荐。页面展示完整标题、说明与仓库/官网链接，并与 GitHub 热门项目互相跳转。工具能力以官方文档为准，注意权限与隐私" />
+<meta property="og:url" content="https://aidamoxing-mianfei.netlify.app/c/ai-kaifa-gongju.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="AI 开发工具与编程助手 | AI大模型免费资源导航" />
+<meta name="twitter:description" content="面向程序员的 AI 开发工具与编程助手导航：代码补全、Agent、评测与开源助手等。适合搜索AI编程助手、AI开源项目推荐。页面展示完整标题、说明与仓库/官网链接，并与 GitHub 热门项目互相跳转。工具能力以官方文档为准，注意权限与隐私" />
+
+<style>
+
+:root {
+  --bg: #070b16; --bg2: #0d1428; --panel: rgba(18, 26, 52, 0.72); --panel-solid: #121a34;
+  --card: rgba(22, 32, 64, 0.78); --card-hover: rgba(30, 44, 88, 0.92);
+  --line: rgba(120, 150, 220, 0.22); --line-strong: rgba(140, 175, 255, 0.38);
+  --text: #eef2ff; --muted: #9aa6c9; --accent: #6ea8ff; --accent2: #5ef0c0;
+  --accent3: #a78bfa; --warn: #ffc857; --shadow: 0 18px 50px rgba(0,0,0,.35);
+  --radius: 18px; --glass: blur(18px) saturate(1.35);
+  --hero-a: rgba(110,168,255,.22); --hero-b: rgba(167,139,250,.16); --hero-c: rgba(94,240,192,.10);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4f7ff; --bg2: #e8eefc; --panel: rgba(255,255,255,.78); --panel-solid: #fff;
+    --card: rgba(255,255,255,.86); --card-hover: #fff;
+    --line: rgba(70,100,180,.16); --line-strong: rgba(70,110,210,.32);
+    --text: #12182b; --muted: #5b6688; --accent: #2f6df6; --accent2: #0f9f75;
+    --accent3: #6d4ce0; --warn: #c27a00; --shadow: 0 16px 40px rgba(40,70,140,.12);
+    --hero-a: rgba(47,109,246,.14); --hero-b: rgba(109,76,224,.10); --hero-c: rgba(15,159,117,.08);
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin:0; padding:0; overflow-wrap:anywhere; word-break:break-word; }
+body {
+  font-family: "PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 700px at 8% -12%, var(--hero-a), transparent 55%),
+    radial-gradient(900px 560px at 92% 0%, var(--hero-b), transparent 50%),
+    radial-gradient(800px 500px at 50% 110%, var(--hero-c), transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg2) 40%, var(--bg));
+  min-height: 100vh; line-height: 1.65; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 22px 16px 72px; }
+.hero {
+  position: relative; overflow: hidden; border: 1px solid var(--line-strong); border-radius: 24px;
+  padding: 28px 22px 22px; margin-bottom: 18px;
+  background: linear-gradient(135deg, var(--hero-a), transparent 42%), linear-gradient(225deg, var(--hero-b), transparent 40%), var(--panel);
+  backdrop-filter: var(--glass); -webkit-backdrop-filter: var(--glass); box-shadow: var(--shadow);
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; font-size: .78rem; letter-spacing: .08em;
+  color: var(--accent2); font-weight: 600; margin-bottom: 10px; }
+.brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2);
+  box-shadow: 0 0 0 4px rgba(94,240,192,.18); }
+.hero h1 { margin: 0 0 10px; font-size: clamp(1.35rem, 4.4vw, 2rem); font-weight: 720; letter-spacing: -.02em; line-height: 1.25; }
+.hero .tagline { margin: 0; color: var(--muted); font-size: .98rem; max-width: 52rem; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,0,0,.18);
+  border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; font-size: .84rem; color: var(--muted); }
+@media (prefers-color-scheme: light) { .pill { background: rgba(255,255,255,.55); } }
+.pill b { color: var(--accent2); font-weight: 650; }
+.sticky-nav {
+  position: sticky; top: 10px; z-index: 40; display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px;
+  padding: 10px; border-radius: 16px; border: 1px solid var(--line); background: var(--panel);
+  backdrop-filter: var(--glass); -webkit-backdrop-filter: var(--glass); box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+.sticky-nav a {
+  border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; background: rgba(255,255,255,.03);
+  color: var(--text); font-size: .86rem; transition: border-color .2s, transform .15s, background .2s;
+}
+.sticky-nav a:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-1px); background: rgba(110,168,255,.10); }
+.toolbar { border: 1px solid var(--line); border-radius: 16px; padding: 12px; margin-bottom: 16px; background: var(--panel);
+  backdrop-filter: var(--glass); -webkit-backdrop-filter: var(--glass); }
+#q { width: 100%; padding: 13px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel-solid);
+  color: var(--text); font-size: 1rem; outline: none; }
+#q:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(110,168,255,.18); }
+.tabs { display: flex; gap: 8px; overflow-x: auto; padding: 10px 2px 2px; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+.tab { flex: 0 0 auto; border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 999px;
+  padding: 8px 13px; cursor: pointer; font-size: .85rem; white-space: nowrap; }
+.tab em { font-style: normal; color: var(--accent); margin-left: 4px; }
+.tab.active, .tab:hover { color: var(--text); border-color: var(--accent); background: rgba(110,168,255,.12); }
+.section { margin: 26px 0; }
+.section h2 { font-size: 1.18rem; margin: 0 0 8px; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.section h2 span { color: var(--muted); font-weight: 500; font-size: .9rem; }
+.sec-desc { margin: 0 0 14px; color: var(--muted); font-size: .92rem; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 720px) { .grid { grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); } }
+.card {
+  position: relative; background: linear-gradient(160deg, rgba(110,168,255,.08), transparent 42%), var(--card);
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 15px 14px; overflow: visible; max-height: none;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.card:hover { transform: translateY(-3px); border-color: var(--line-strong); box-shadow: var(--shadow);
+  background: linear-gradient(160deg, rgba(110,168,255,.14), transparent 45%), var(--card-hover); }
+.card.repo { background: linear-gradient(160deg, rgba(167,139,250,.10), transparent 42%), var(--card); }
+.card.hot { background: linear-gradient(160deg, rgba(94,240,192,.08), transparent 42%), var(--card); }
+.badgerow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+.badge { display: inline-block; font-size: .72rem; color: #d7e6ff;
+  background: linear-gradient(135deg, rgba(110,168,255,.22), rgba(167,139,250,.16));
+  border: 1px solid rgba(110,168,255,.35); border-radius: 999px; padding: 3px 9px; font-weight: 600; }
+@media (prefers-color-scheme: light) { .badge { color: #244a9a; } }
+.src-tag, .dl-tag { display: inline-flex; font-size: .72rem; border-radius: 999px; padding: 3px 9px;
+  border: 1px solid var(--line); color: var(--muted); background: rgba(255,255,255,.04); }
+.src-tag { color: var(--accent2); border-color: rgba(94,240,192,.28); }
+.dl-tag { color: var(--warn); border-color: rgba(255,200,87,.35); }
+.title { margin: 0 0 10px; font-size: 1.05rem; line-height: 1.45; font-weight: 650; overflow-wrap: anywhere; white-space: normal; }
+.title a { color: inherit; }
+.summary, .how, .meta, .linkrow, .author { margin: 0 0 10px; overflow: visible; overflow-wrap: anywhere;
+  word-break: break-word; white-space: normal; max-height: none; }
+.summary { color: var(--muted); font-size: .95rem; }
+.how { font-size: .9rem; color: var(--text); background: rgba(255,255,255,.04); border: 1px solid var(--line);
+  border-radius: 12px; padding: 10px 12px; }
+.meta { font-size: .88rem; color: var(--warn); }
+.author { color: var(--muted); }
+.linkrow { font-size: .86rem; color: var(--muted); }
+.fulllink { color: var(--accent); overflow-wrap: anywhere; word-break: break-word; white-space: normal; }
+.hidden { display: none !important; }
+.panel-box { margin-top: 28px; padding: 16px; border-radius: 16px; border: 1px solid var(--line); background: var(--panel);
+  backdrop-filter: var(--glass); -webkit-backdrop-filter: var(--glass); }
+.panel-box h2 { margin: 0 0 10px; font-size: 1rem; }
+.arch { display: inline-block; margin: 0 8px 8px 0; padding: 7px 11px; border-radius: 10px; border: 1px solid var(--line);
+  color: var(--muted); background: rgba(0,0,0,.15); }
+.arch:hover { border-color: var(--accent); color: var(--text); text-decoration: none; }
+.arch.current { color: var(--accent2); border-color: rgba(94,240,192,.45); }
+.disclaimer p, .intro p { margin: 0 0 10px; color: var(--muted); font-size: .92rem; }
+.intro p:last-child { margin-bottom: 0; }
+.empty { text-align: center; color: var(--muted); padding: 48px 10px; }
+footer { margin-top: 28px; color: var(--muted); font-size: .8rem; text-align: center; }
+.crumbs { margin: 0 0 14px; color: var(--muted); font-size: .9rem; }
+.crumbs a { color: var(--accent); }
+.related a { display: block; margin: 0 0 8px; }
+.detail-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+.btn {
+  display: inline-block; padding: 10px 16px; border-radius: 12px; border: 1px solid var(--line-strong);
+  background: linear-gradient(135deg, rgba(110,168,255,.2), rgba(167,139,250,.12)); color: var(--text); font-weight: 600;
+}
+.btn:hover { text-decoration: none; border-color: var(--accent); }
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"AI 开发工具与编程助手 - 大模型免费API与AI工具免费 | AI大模型免费资源导航 · 2026年11月最新","description":"面向程序员的 AI 开发工具与编程助手导航：代码补全、Agent、评测与开源助手等。适合搜索AI编程助手、AI开源项目推荐。页面展示完整标题、说明与仓库/官网链接，并与 GitHub 热门项目互相跳转。工具能力以官方文档为准，注意权限与隐私","url":"https://aidamoxing-mianfei.netlify.app/c/ai-kaifa-gongju.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://aidamoxing-mianfei.netlify.app/item/qoder-qoduck-0-credits-75a4ff13ff.html","name":"Qoder 匿名模型 Qoduck：个人号每日 0 Credits"},{"@type":"ListItem","position":2,"url":"https://aidamoxing-mianfei.netlify.app/item/coderabbit-2213c64bb9.html","name":"CodeRabbit：开源项目免费 + 私有代码试用"},{"@type":"ListItem","position":3,"url":"https://aidamoxing-mianfei.netlify.app/item/devin-desktop-windsurf-6e7c4cf2cf.html","name":"Devin Desktop（原 Windsurf）：免费计划可用"},{"@type":"ListItem","position":4,"url":"https://aidamoxing-mianfei.netlify.app/item/github-copilot-9bd5edfd6f.html","name":"GitHub 学生包：Copilot 等开发者权益"},{"@type":"ListItem","position":5,"url":"https://aidamoxing-mianfei.netlify.app/item/omniroute-ai-370a07f8fd.html","name":"OmniRoute：开源免费 AI 网关聚合多平台"},{"@type":"ListItem","position":6,"url":"https://aidamoxing-mianfei.netlify.app/item/awesome-free-llm-apis-api-8194ed4f6a.html","name":"awesome-free-llm-apis：免费大模型 API 清单"},{"@type":"ListItem","position":7,"url":"https://aidamoxing-mianfei.netlify.app/item/qoder-255eaed880.html","name":"大学生参加 Qoder 高校赛可领一个月会员"},{"@type":"ListItem","position":8,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-my-first-project-an-ai-power-14bf5e0f88.html","name":"【科技】Show HN: My first project, an AI-powered financial news analyzer Show HN: My fir"},{"@type":"ListItem","position":9,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-jurex-in-house-handles-legal-7ffe02d223.html","name":"【科技】Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: J"},{"@type":"ListItem","position":10,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-solous-a-journaling-app-like-0e27c4ec54.html","name":"【科技】Show HN: Solous, a journaling app like a social media for emotions inside of you"},{"@type":"ListItem","position":11,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-stitch-ai-new-all-in-one-wor-0c9c38d4c6.html","name":"【科技】Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Show"},{"@type":"ListItem","position":12,"url":"https://aidamoxing-mianfei.netlify.app/item/launch-hn-kino-ai-yc-s23-ai-media-ma-2b5f926b26.html","name":"【科技】Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino "},{"@type":"ListItem","position":13,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-recalc-spreadsheet-where-cel-08c6391fce.html","name":"【科技】Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals "},{"@type":"ListItem","position":14,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-tell-the-sky-message-lantern-1946734f5f.html","name":"【科技】Show HN: Tell the Sky – message lanterns drift on winds from live weather data S"},{"@type":"ListItem","position":15,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-teach-a-speech-model-en-a-na-a8c0afd787.html","name":"【科技】Show HN: Teach a speech model (en) a name by saying it once, on your Mac Show HN"},{"@type":"ListItem","position":16,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-kids-shelf-your-kids-own-lit-7cf24d3f98.html","name":"【科技】Show HN: Kids Shelf, your kids' own little internet Show HN: Kids Shelf, your ki"},{"@type":"ListItem","position":17,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-cloudshare-app-for-ios-simpl-322b33d5c5.html","name":"【科技】Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show "},{"@type":"ListItem","position":18,"url":"https://aidamoxing-mianfei.netlify.app/item/show-hn-i-built-a-free-trivia-hostin-a066c2dd36.html","name":"【科技】Show HN: I built a free trivia hosting app with no accounts or subscriptions Sho"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://aidamoxing-mianfei.netlify.app/"},{"@type":"ListItem","position":2,"name":"AI 开发工具与编程助手","item":"https://aidamoxing-mianfei.netlify.app/c/ai-kaifa-gongju.html"}]}</script>
+</head>
+
+<body>
+<div class="wrap">
+  <div class="crumbs"><a href="../">首页</a> › <span>AI 开发工具与编程助手</span></div>
+  
+<nav class="sticky-nav" aria-label="栏目导航">
+  <a href=".././">首页</a>
+  <a href="../c/damoxing-mianfei-api.html">大模型免费API</a>
+  <a href="../c/ai-huiyuan-shiyong.html">AI工具免费</a>
+  <a href="../c/ai-kaifa-gongju.html">AI开发工具</a>
+  <a href="../c/mianfei-gpu-yunfuwu.html">免费GPU</a>
+  <a href="../#github-hot">GitHub热门项目</a>
+  <a href="../#hot-topics">最新AI新闻</a>
+  <a href="../#archives">每日存档</a>
+</nav>
+  <header class="hero">
+    <div class="brand"><span class="dot"></span> CATEGORY</div>
+    <h1>AI 开发工具与编程助手 · 2026年11月最新</h1>
+    <p class="tagline">聚焦长尾词：大模型免费API、免费GPT、Claude免费、DeepSeek免费额度、AI工具免费、免费GPU、GitHub热门项目、AI开源项目推荐、最新AI新闻</p>
+    <div class="stats">
+      <div class="pill">条目 <b>18</b></div>
+      <div class="pill">更新 <b>2026-11-09</b></div>
+    </div>
+  </header>
+  <section class="panel-box intro">
+    <h2>AI 开发工具与编程助手栏目介绍</h2>
+    <p>面向程序员的 AI 开发工具与编程助手导航：代码补全、Agent、评测与开源助手等。适合搜索AI编程助手、AI开源项目推荐。页面展示完整标题、说明与仓库/官网链接，并与 GitHub 热门项目互相跳转。工具能力以官方文档为准，注意权限与隐私设置。</p>
+  </section>
+  <section class="section deal-section">
+    <h2>AI 开发工具与编程助手资源列表 <span>(18)</span></h2>
+    <div class="grid">
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="Qoder 匿名模型 Qoduck：个人号每日 0 Credits Qoder 自 11/7 上线匿名模型 Qoduck：个人号每天有免费额度，额度内消耗倍率可到 0.0×，思考强度拉满也不扣 Credits；免费号也能用，付费号额度更多。帖称目前主要在 Qoder 客户端，IDE 插件和 CLI 可能未开；社区猜测是否 Qwen 新版，官方未盖章。可用 Codex 真实任务做盲测对比。 打开 Qoder 客户端 → 模型选择器切到 Qoduck → 直接写代码/搭项目 GeekCatX https://x.com/GeekCatX/status/2119680316772405739 AI 开发工具与编程助手 X">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 X</span>
+    <span class="dl-tag">截止 限时活动，结束时间未定</span>
+  </div>
+  <h3 class="title"><a href="../item/qoder-qoduck-0-credits-75a4ff13ff.html">Qoder 匿名模型 Qoduck：个人号每日 0 Credits</a></h3>
+  <p class="summary">Qoder 自 11/7 上线匿名模型 Qoduck：个人号每天有免费额度，额度内消耗倍率可到 0.0×，思考强度拉满也不扣 Credits；免费号也能用，付费号额度更多。帖称目前主要在 Qoder 客户端，IDE 插件和 CLI 可能未开；社区猜测是否 Qwen 新版，官方未盖章。可用 Codex 真实任务做盲测对比。</p>
+  <div class="how"><strong>怎么领：</strong>打开 Qoder 客户端 → 模型选择器切到 Qoduck → 直接写代码/搭项目</div>
+  <div class="meta author"><strong>作者：</strong>@GeekCatX · 2026-11-09 14:35 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/qoder-qoduck-0-credits-75a4ff13ff.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/GeekCatX/status/2119680316772405739" target="_blank" rel="noopener noreferrer">https://x.com/GeekCatX/status/2119680316772405739</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="CodeRabbit：开源项目免费 + 私有代码试用 CodeRabbit：开源仓库免费使用 AI 代码审查；私有代码提供免费试用。适合 PR 审查、变更说明与安全扫描。 打开 coderabbit.ai → 连接 GitHub/GitLab 仓库 → OSS 免费启用 CryptoSenyo https://x.com/CryptoSenyo/status/2119668944420409465 AI 开发工具与编程助手 X">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 X</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/coderabbit-2213c64bb9.html">CodeRabbit：开源项目免费 + 私有代码试用</a></h3>
+  <p class="summary">CodeRabbit：开源仓库免费使用 AI 代码审查；私有代码提供免费试用。适合 PR 审查、变更说明与安全扫描。</p>
+  <div class="how"><strong>怎么领：</strong>打开 coderabbit.ai → 连接 GitHub/GitLab 仓库 → OSS 免费启用</div>
+  <div class="meta author"><strong>作者：</strong>@CryptoSenyo · 2026-11-09 13:50 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/coderabbit-2213c64bb9.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/CryptoSenyo/status/2119668944420409465" target="_blank" rel="noopener noreferrer">https://x.com/CryptoSenyo/status/2119668944420409465</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="Devin Desktop（原 Windsurf）：免费计划可用 Devin Desktop（原 Windsurf）免费计划：含轻量 Agent 配额、有限模型额度、无限内联编辑与 Tab 补全，日常写代码够用；重活与高级模型仍需加钱。 注册 Devin Desktop 免费计划后直接使用 jhl880617 https://x.com/jhl880617/status/2119557938222109112 AI 开发工具与编程助手 X">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 X</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/devin-desktop-windsurf-6e7c4cf2cf.html">Devin Desktop（原 Windsurf）：免费计划可用</a></h3>
+  <p class="summary">Devin Desktop（原 Windsurf）免费计划：含轻量 Agent 配额、有限模型额度、无限内联编辑与 Tab 补全，日常写代码够用；重活与高级模型仍需加钱。</p>
+  <div class="how"><strong>怎么领：</strong>注册 Devin Desktop 免费计划后直接使用</div>
+  <div class="meta author"><strong>作者：</strong>@jhl880617 · 2026-11-09 06:29 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/devin-desktop-windsurf-6e7c4cf2cf.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/jhl880617/status/2119557938222109112" target="_blank" rel="noopener noreferrer">https://x.com/jhl880617/status/2119557938222109112</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="GitHub 学生包：Copilot 等开发者权益 学生认证后可领 Copilot 免费额度，以及域名一年、云服务额度等。需学校邮箱或学生证，审核有时要几天。 GitHub Education → 学生认证 → 领取 Student Developer Pack 7eddsi https://x.com/7eddsi/status/2118890883076517914 AI 开发工具与编程助手 X">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 X</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/github-copilot-9bd5edfd6f.html">GitHub 学生包：Copilot 等开发者权益</a></h3>
+  <p class="summary">学生认证后可领 Copilot 免费额度，以及域名一年、云服务额度等。需学校邮箱或学生证，审核有时要几天。</p>
+  <div class="how"><strong>怎么领：</strong>GitHub Education → 学生认证 → 领取 Student Developer Pack</div>
+  <div class="meta author"><strong>作者：</strong>@7eddsi · 2026-11-07 10:18 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/github-copilot-9bd5edfd6f.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/7eddsi/status/2118890883076517914" target="_blank" rel="noopener noreferrer">https://x.com/7eddsi/status/2118890883076517914</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="OmniRoute：开源免费 AI 网关聚合多平台 开源本地网关 OmniRoute：把大量 AI 服务商与免费方案收到一个端点，Claude Code / Cursor / Codex / Copilot / Cline 等可改指到它；限流可自动切路，并带 token 压缩宣传。免费额度来自各家，需自己注册；本地跑、配置与 Key 在本机。注意合规，勿用于绕过付费条款。 按项目说明安装（如 npm install -g omniroute）并 setup 指向你的 IDE/CLI 0xGky https://x.com/0xGky/status/2119600861261279410 AI 开发工具与编程助手 X">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 X</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/omniroute-ai-370a07f8fd.html">OmniRoute：开源免费 AI 网关聚合多平台</a></h3>
+  <p class="summary">开源本地网关 OmniRoute：把大量 AI 服务商与免费方案收到一个端点，Claude Code / Cursor / Codex / Copilot / Cline 等可改指到它；限流可自动切路，并带 token 压缩宣传。免费额度来自各家，需自己注册；本地跑、配置与 Key 在本机。注意合规，勿用于绕过付费条款。</p>
+  <div class="how"><strong>怎么领：</strong>按项目说明安装（如 npm install -g omniroute）并 setup 指向你的 IDE/CLI</div>
+  <div class="meta author"><strong>作者：</strong>@0xGky · 2026-11-09 09:20 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/omniroute-ai-370a07f8fd.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/0xGky/status/2119600861261279410" target="_blank" rel="noopener noreferrer">https://x.com/0xGky/status/2119600861261279410</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="awesome-free-llm-apis：免费大模型 API 清单 GitHub 高星清单 awesome-free-llm-apis（帖称约 1.26 万 star）整理多家免费 LLM API：Gemini（长上下文）、Groq、OpenRouter、Cloudflare Workers AI（每天约 1 万 Neurons）、NVIDIA NIM、以及国内多家等。另有核对帖提醒：免注册免 Key 的很少，Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰订阅。 打开该 GitHub 清单 → 按提供商申请 Key 并注意各自限额/实名要求 yxl44 https://x.com/yxl44/status/2119326478248915137 AI 开发工具与编程助手 X">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 X</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/awesome-free-llm-apis-api-8194ed4f6a.html">awesome-free-llm-apis：免费大模型 API 清单</a></h3>
+  <p class="summary">GitHub 高星清单 awesome-free-llm-apis（帖称约 1.26 万 star）整理多家免费 LLM API：Gemini（长上下文）、Groq、OpenRouter、Cloudflare Workers AI（每天约 1 万 Neurons）、NVIDIA NIM、以及国内多家等。另有核对帖提醒：免注册免 Key 的很少，Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰订阅。</p>
+  <div class="how"><strong>怎么领：</strong>打开该 GitHub 清单 → 按提供商申请 Key 并注意各自限额/实名要求</div>
+  <div class="meta author"><strong>作者：</strong>@yxl44 · 2026-11-08 15:09 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/awesome-free-llm-apis-api-8194ed4f6a.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/yxl44/status/2119326478248915137" target="_blank" rel="noopener noreferrer">https://x.com/yxl44/status/2119326478248915137</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="大学生参加 Qoder 高校赛可领一个月会员 帖称参加 2026 Qoder 高校创造力大赛即可白嫖一个月会员（以官方活动规则为准）。 按 Qoder 高校赛官方入口报名 lyuihh https://x.com/lyuihh/status/2119409656972132777 AI 开发工具与编程助手 X">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 X</span>
+    <span class="dl-tag">截止 以赛事报名截止为准</span>
+  </div>
+  <h3 class="title"><a href="../item/qoder-255eaed880.html">大学生参加 Qoder 高校赛可领一个月会员</a></h3>
+  <p class="summary">帖称参加 2026 Qoder 高校创造力大赛即可白嫖一个月会员（以官方活动规则为准）。</p>
+  <div class="how"><strong>怎么领：</strong>按 Qoder 高校赛官方入口报名</div>
+  <div class="meta author"><strong>作者：</strong>@lyuihh · 2026-11-08 20:40 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/qoder-255eaed880.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://x.com/lyuihh/status/2119409656972132777" target="_blank" rel="noopener noreferrer">https://x.com/lyuihh/status/2119409656972132777</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="【科技】Show HN: My first project, an AI-powered financial news analyzer Show HN: My fir 来源摘要：Show HN: My first project, an AI-powered financial news analyzer Show HN: My first project, an AI-powered financial news analyzer I&amp;#x27;m 17, and I started NotBot a few months ago to see whether I could turn an idea into a working project. My main interest is economics, not b… 打开来源链接按页面说明领取/试用；参与前自行核实。 lamarcol https://github.com/lamarcol/NotBot AI 开发工具与编程助手 Hacker News">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-my-first-project-an-ai-power-14bf5e0f88.html">【科技】Show HN: My first project, an AI-powered financial news analyzer Show HN: My fir</a></h3>
+  <p class="summary">来源摘要：Show HN: My first project, an AI-powered financial news analyzer Show HN: My first project, an AI-powered financial news analyzer I&amp;#x27;m 17, and I started NotBot a few months ago to see whether I could turn an idea into a working project. My main interest is economics, not b…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@lamarcol · 2026-11-09 06:34 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-my-first-project-an-ai-power-14bf5e0f88.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://github.com/lamarcol/NotBot" target="_blank" rel="noopener noreferrer">https://github.com/lamarcol/NotBot</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="【科技】Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: J 来源摘要：Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: Jurex in House – Handles Legal Side of Your Business with AI Hi,&lt;p&gt;Jurex-in-house is a Tool you &amp;amp; legal teams can use to handle the legal side of your business. Best in Class Drafting, research … 打开来源链接按页面说明领取/试用；参与前自行核实。 kartikdhawan https://inhouse.jurex.ai/login AI 开发工具与编程助手 Hacker News">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-jurex-in-house-handles-legal-7ffe02d223.html">【科技】Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: J</a></h3>
+  <p class="summary">来源摘要：Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: Jurex in House – Handles Legal Side of Your Business with AI Hi,&lt;p&gt;Jurex-in-house is a Tool you &amp;amp; legal teams can use to handle the legal side of your business. Best in Class Drafting, research …</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@kartikdhawan · 2026-11-08 23:29 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-jurex-in-house-handles-legal-7ffe02d223.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://inhouse.jurex.ai/login" target="_blank" rel="noopener noreferrer">https://inhouse.jurex.ai/login</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="【科技】Show HN: Solous, a journaling app like a social media for emotions inside of you 来源摘要：Show HN: Solous, a journaling app like a social media for emotions inside of you Show HN: Solous, a journaling app like a social media for emotions inside of you Solous is a private journaling app. This app is inspired by movies like inside out or Yumi&amp;#x27;s Cells where we al… 打开来源链接按页面说明领取/试用；参与前自行核实。 solous https://solous.net/ AI 开发工具与编程助手 Hacker News">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-solous-a-journaling-app-like-0e27c4ec54.html">【科技】Show HN: Solous, a journaling app like a social media for emotions inside of you</a></h3>
+  <p class="summary">来源摘要：Show HN: Solous, a journaling app like a social media for emotions inside of you Show HN: Solous, a journaling app like a social media for emotions inside of you Solous is a private journaling app. This app is inspired by movies like inside out or Yumi&amp;#x27;s Cells where we al…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@solous · 2026-11-07 22:34 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-solous-a-journaling-app-like-0e27c4ec54.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://solous.net/" target="_blank" rel="noopener noreferrer">https://solous.net/</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="【科技】Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Show 来源摘要：Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Our team is excited to launch Stitch.ai this week. We&amp;#x27;ve been working hard to bring knowledge workers, freelancers and f… 打开来源链接按页面说明领取/试用；参与前自行核实。 joquinn https://app.stitch.ai/auth/signup AI 开发工具与编程助手 Hacker News">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-stitch-ai-new-all-in-one-wor-0c9c38d4c6.html">【科技】Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Show</a></h3>
+  <p class="summary">来源摘要：Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Our team is excited to launch Stitch.ai this week. We&amp;#x27;ve been working hard to bring knowledge workers, freelancers and f…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@joquinn · 2026-11-06 13:19 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-stitch-ai-new-all-in-one-wor-0c9c38d4c6.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://app.stitch.ai/auth/signup" target="_blank" rel="noopener noreferrer">https://app.stitch.ai/auth/signup</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="【科技】Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino  来源摘要：Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino AI (YC S23) – AI media manager and video editor Hi HN! I&amp;#x27;m Luke from Kino (&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;kino.ai&quot;&gt;https:&amp;#x2F;&amp;#x2F;kino.ai&lt;/a&gt;). Kino lets you make great videos with your agents … 打开来源链接按页面说明领取/试用；参与前自行核实。 lukeigel https://news.ycombinator.com/item?id=50368804 AI 开发工具与编程助手 Hacker News">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/launch-hn-kino-ai-yc-s23-ai-media-ma-2b5f926b26.html">【科技】Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino </a></h3>
+  <p class="summary">来源摘要：Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino AI (YC S23) – AI media manager and video editor Hi HN! I&amp;#x27;m Luke from Kino (&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;kino.ai&quot;&gt;https:&amp;#x2F;&amp;#x2F;kino.ai&lt;/a&gt;). Kino lets you make great videos with your agents …</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@lukeigel · 2026-11-05 01:31 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/launch-hn-kino-ai-yc-s23-ai-media-ma-2b5f926b26.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://news.ycombinator.com/item?id=50368804" target="_blank" rel="noopener noreferrer">https://news.ycombinator.com/item?id=50368804</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="【科技】Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals  来源摘要：Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals I built this because it was useful for me when building evals&amp;#x2F;benchmarks, and I decided to put it up for free fo… 打开来源链接按页面说明领取/试用；参与前自行核实。 sshah03 https://github.com/sshah03/recalc AI 开发工具与编程助手 Hacker News">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-recalc-spreadsheet-where-cel-08c6391fce.html">【科技】Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals </a></h3>
+  <p class="summary">来源摘要：Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals I built this because it was useful for me when building evals&amp;#x2F;benchmarks, and I decided to put it up for free fo…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@sshah03 · 2026-11-08 23:12 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-recalc-spreadsheet-where-cel-08c6391fce.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://github.com/sshah03/recalc" target="_blank" rel="noopener noreferrer">https://github.com/sshah03/recalc</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="【科技】Show HN: Tell the Sky – message lanterns drift on winds from live weather data S 来源摘要：Show HN: Tell the Sky – message lanterns drift on winds from live weather data Show HN: Tell the Sky – message lanterns drift on winds from live weather data I created a web&amp;#x2F;mobile app that lets you write a story&amp;#x2F;secret&amp;#x2F;encouragement&amp;#x2F;etc... on a lantern. Yo… 打开来源链接按页面说明领取/试用；参与前自行核实。 andycodeman https://tellthesky.com AI 开发工具与编程助手 Hacker News">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-tell-the-sky-message-lantern-1946734f5f.html">【科技】Show HN: Tell the Sky – message lanterns drift on winds from live weather data S</a></h3>
+  <p class="summary">来源摘要：Show HN: Tell the Sky – message lanterns drift on winds from live weather data Show HN: Tell the Sky – message lanterns drift on winds from live weather data I created a web&amp;#x2F;mobile app that lets you write a story&amp;#x2F;secret&amp;#x2F;encouragement&amp;#x2F;etc... on a lantern. Yo…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@andycodeman · 2026-11-07 03:59 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-tell-the-sky-message-lantern-1946734f5f.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://tellthesky.com" target="_blank" rel="noopener noreferrer">https://tellthesky.com</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="【科技】Show HN: Teach a speech model (en) a name by saying it once, on your Mac Show HN 来源摘要：Show HN: Teach a speech model (en) a name by saying it once, on your Mac Show HN: Teach a speech model (en) a name by saying it once, on your Mac I wanted to see if a speech model could spell a name better if it heard it, not just read it.&lt;p&gt;Most STT tools handle custom words … 打开来源链接按页面说明领取/试用；参与前自行核实。 Angus1192 https://detailkeeper.com/ AI 开发工具与编程助手 Hacker News">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-teach-a-speech-model-en-a-na-a8c0afd787.html">【科技】Show HN: Teach a speech model (en) a name by saying it once, on your Mac Show HN</a></h3>
+  <p class="summary">来源摘要：Show HN: Teach a speech model (en) a name by saying it once, on your Mac Show HN: Teach a speech model (en) a name by saying it once, on your Mac I wanted to see if a speech model could spell a name better if it heard it, not just read it.&lt;p&gt;Most STT tools handle custom words …</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@Angus1192 · 2026-11-06 04:06 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-teach-a-speech-model-en-a-na-a8c0afd787.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://detailkeeper.com/" target="_blank" rel="noopener noreferrer">https://detailkeeper.com/</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="【科技】Show HN: Kids Shelf, your kids&#x27; own little internet Show HN: Kids Shelf, your ki 来源摘要：Show HN: Kids Shelf, your kids&#x27; own little internet Show HN: Kids Shelf, your kids&#x27; own little internet Hey all, I made this server for spinning up a local network page for our (young) kids to host videos and manage video watching time without turning them loose on main youtub… 打开来源链接按页面说明领取/试用；参与前自行核实。 ericd https://kidsshelf.org/ AI 开发工具与编程助手 Hacker News">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-kids-shelf-your-kids-own-lit-7cf24d3f98.html">【科技】Show HN: Kids Shelf, your kids&#x27; own little internet Show HN: Kids Shelf, your ki</a></h3>
+  <p class="summary">来源摘要：Show HN: Kids Shelf, your kids&#x27; own little internet Show HN: Kids Shelf, your kids&#x27; own little internet Hey all, I made this server for spinning up a local network page for our (young) kids to host videos and manage video watching time without turning them loose on main youtub…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@ericd · 2026-11-05 23:35 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-kids-shelf-your-kids-own-lit-7cf24d3f98.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://kidsshelf.org/" target="_blank" rel="noopener noreferrer">https://kidsshelf.org/</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="【科技】Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show  来源摘要：Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Hello HN. I&amp;#x27;m a developer from Spain, working for a US company and building apps as side projects.&lt;p&gt;I discovered that Clo… 打开来源链接按页面说明领取/试用；参与前自行核实。 ForeverYoungES https://apps.apple.com/us/app/cloudshare-s3-file-sharing/id6823902669 AI 开发工具与编程助手 Hacker News">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-cloudshare-app-for-ios-simpl-322b33d5c5.html">【科技】Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show </a></h3>
+  <p class="summary">来源摘要：Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Hello HN. I&amp;#x27;m a developer from Spain, working for a US company and building apps as side projects.&lt;p&gt;I discovered that Clo…</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@ForeverYoungES · 2026-11-08 19:22 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-cloudshare-app-for-ios-simpl-322b33d5c5.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://apps.apple.com/us/app/cloudshare-s3-file-sharing/id6823902669" target="_blank" rel="noopener noreferrer">https://apps.apple.com/us/app/cloudshare-s3-file-sharing/id6823902669</a></div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="【科技】Show HN: I built a free trivia hosting app with no accounts or subscriptions Sho 来源摘要：Show HN: I built a free trivia hosting app with no accounts or subscriptions Show HN: I built a free trivia hosting app with no accounts or subscriptions It&amp;#x27;s basically a fancy wrapper around your quiz data so that as a host you can show showmanship and present like a TV … 打开来源链接按页面说明领取/试用；参与前自行核实。 thepolymoth https://quiztoolkit.com/ AI 开发工具与编程助手 Hacker News">
+  <div class="badgerow">
+    <span class="badge">AI 开发工具与编程助手</span>
+    <span class="src-tag">来源 Hacker News</span>
+    
+  </div>
+  <h3 class="title"><a href="../item/show-hn-i-built-a-free-trivia-hostin-a066c2dd36.html">【科技】Show HN: I built a free trivia hosting app with no accounts or subscriptions Sho</a></h3>
+  <p class="summary">来源摘要：Show HN: I built a free trivia hosting app with no accounts or subscriptions Show HN: I built a free trivia hosting app with no accounts or subscriptions It&amp;#x27;s basically a fancy wrapper around your quiz data so that as a host you can show showmanship and present like a TV …</p>
+  <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div>
+  <div class="meta author"><strong>作者：</strong>@thepolymoth · 2026-11-08 03:27 Asia/Shanghai</div>
+  <div class="linkrow"><strong>详情页：</strong><a href="../item/show-hn-i-built-a-free-trivia-hostin-a066c2dd36.html">查看免费领取方法</a>
+   · <strong>原帖：</strong><a class="fulllink" href="https://quiztoolkit.com/" target="_blank" rel="noopener noreferrer">https://quiztoolkit.com/</a></div>
+</article></div>
+  </section>
+  <section class="panel-box">
+    <h2>其他分类</h2>
+    <div><a class="arch" href="damoxing-mianfei-api.html">大模型 API 免费额度</a><a class="arch" href="ai-huiyuan-shiyong.html">AI 产品会员/试用</a><a class="arch" href="mianfei-gpu-yunfuwu.html">云服务/GPU/开发者资源</a><a class="arch" href="keji-app-xianmian.html">科技软件/App 限免</a><a class="arch" href="qita-keji.html">其他科技</a></div>
+  </section>
+  <footer>AI大模型免费资源导航 · 分类着陆页</footer>
+</div>
+</body>
+</html>

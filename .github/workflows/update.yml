@@ -2,7 +2,6 @@ name: Auto update site
 
 on:
   schedule:
-    # every 6 hours — free GitHub Actions quota friendly
     - cron: "15 */6 * * *"
   workflow_dispatch:
   push:
@@ -10,11 +9,12 @@ on:
       - "data/**"
       - "build.py"
       - "fetch_auto.py"
+      - "baidu_push.py"
+      - "seo_config.json"
     branches: [main]
 
 permissions:
   contents: write
-  models: read
 
 concurrency:
   group: update-site
@@ -44,11 +44,17 @@ jobs:
           if [ $code -ne 0 ]; then
             echo "[heal] fetch_auto exited $code — continuing with previous data"
           fi
-          # never fail the job solely on fetch; build must still run
           exit 0
 
-      - name: Build site (SEO + archives)
+      - name: Build site (deep Baidu SEO)
+        env:
+          VERIFY_BAIDU: ${{ secrets.VERIFY_BAIDU }}
         run: python3 build.py
+
+      - name: Baidu URL push (optional)
+        env:
+          BAIDU_PUSH_TOKEN: ${{ secrets.BAIDU_PUSH_TOKEN }}
+        run: python3 baidu_push.py
 
       - name: Commit and push
         run: |

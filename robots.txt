@@ -4,4 +4,6 @@ User-agent: Baiduspider
 Allow: /
 User-agent: Baiduspider-render
 Allow: /
+Sitemap: https://aidamoxing-mianfei.netlify.app/sitemap_index.xml
 Sitemap: https://aidamoxing-mianfei.netlify.app/sitemap.xml
+Sitemap: https://aidamoxing-mianfei.netlify.app/sitemap.txt

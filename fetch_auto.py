@@ -115,32 +115,43 @@ def slug_id(prefix: str, url: str) -> str:
 
 
 def keyword_classify(text: str) -> tuple[str, str, str]:
-    """Return (category, title_zh, summary_zh) via rules."""
+    """Return (category, title_zh, summary_zh) via rules — Chinese-first display."""
     t = text or ""
     low = t.lower()
-    if any(k in low for k in ["api", "token", "credits", "neurons", "额度", "llm api"]):
+    if any(k in low for k in ["api", "token", "credits", "neurons", "额度", "llm api", "free gpt", "claude", "deepseek"]):
         cat = "大模型 API 免费额度"
+        hint = "大模型免费API / 额度相关"
     elif any(k in low for k in ["trial", "beta", "pro free", "会员", "试用", "限免会员"]):
         cat = "AI 产品会员/试用"
+        hint = "AI产品免费试用或限免会员"
     elif any(k in low for k in ["cursor", "copilot", "coderabbit", "ide", "编程", "coding assistant", "agent coding"]):
         cat = "AI 开发工具与编程助手"
+        hint = "AI开发工具与编程助手"
     elif any(k in low for k in ["gpu", "colab", "kaggle", "vps", "cloud", "compute", "算力", "服务器"]):
         cat = "云服务/GPU/开发者资源"
+        hint = "云服务 / 免费GPU / 开发者资源"
     elif any(k in low for k in ["app", "限免", "steam", "software", "开源工具"]):
         cat = "科技软件/App 限免"
+        hint = "科技软件或App限免"
     else:
         cat = "其他科技"
-    # title: first line / first 40 chars
-    title = re.split(r"[\n\r]", t.strip())[0]
-    title = re.sub(r"\s+", " ", title)[:80] or "未命名科技动态"
-    summary = re.sub(r"\s+", " ", t).strip()
-    if len(summary) > 280:
-        summary = summary[:277] + "…"
-    # Prefer Chinese-ish summary label
-    if not re.search(r"[\u4e00-\u9fff]", summary):
-        summary = f"来源摘要：{summary}"
-    if not re.search(r"[\u4e00-\u9fff]", title):
-        title = f"【科技】{title}"
+        hint = "AI / 科技资讯"
+    raw_title = re.split(r"[\n\r]", t.strip())[0]
+    raw_title = re.sub(r"\s+", " ", raw_title)[:100] or "未命名科技动态"
+    body = re.sub(r"\s+", " ", t).strip()
+    if len(body) > 260:
+        body = body[:257] + "…"
+    if re.search(r"[\u4e00-\u9fff]", raw_title):
+        title = raw_title[:80]
+    else:
+        title = f"{hint}：{raw_title}"[:90]
+    if re.search(r"[\u4e00-\u9fff]", body):
+        summary = body
+    else:
+        summary = (
+            f"【{cat}】公开来源摘要（自动整理，请以官网为准）：{body}。"
+            f"可关注大模型免费API、AI工具免费、免费GPU与GitHub热门项目相关更新。"
+        )
     return cat, title, summary
 
 
@@ -153,50 +164,13 @@ def has_cjk(s: str) -> bool:
 
 
 def models_zh(prompt: str, max_tokens: int = 1200) -> str | None:
-    """Call GitHub Models chat completions. Returns text or None."""
+    """Optional Models call. GitHub Models retired 2026-07-30; always falls back."""
     global MODELS_OK, MODELS_FAIL
-    tok = github_token()
-    if not tok:
-        MODELS_FAIL += 1
-        print("[warn] GitHub Models skipped: no GITHUB_TOKEN")
-        return None
-    url = "https://models.github.ai/inference/chat/completions"
-    payload = {
-        "model": "openai/gpt-4o-mini",
-        "temperature": 0.2,
-        "max_tokens": max_tokens,
-        "messages": [
-            {
-                "role": "system",
-                "content": (
-                    "你是中文科技编辑。只根据用户给出的原文翻译/改写为简洁中文，"
-                    "不要编造原文没有的优惠、数字、链接或功能。只输出用户要求的格式。"
-                ),
-            },
-            {"role": "user", "content": prompt},
-        ],
-    }
-    try:
-        st, data = http_json(
-            url,
-            method="POST",
-            payload=payload,
-            headers={"Authorization": f"Bearer {tok}", "Accept": "application/json"},
-            timeout=90,
-        )
-        if not data:
-            MODELS_FAIL += 1
-            print("[warn] GitHub Models empty body")
-            return None
-        content = (((data.get("choices") or [{}])[0]).get("message") or {}).get("content")
-        if content and isinstance(content, str) and content.strip():
-            MODELS_OK += 1
-            return content.strip()
-        MODELS_FAIL += 1
-        print("[warn] GitHub Models missing content")
-    except Exception as e:
-        MODELS_FAIL += 1
-        print(f"[warn] GitHub Models failed: {type(e).__name__}: {e}")
+    # GitHub Models inference API retired; skip network noise after first note.
+    if not getattr(models_zh, "_noted", False):
+        print("[info] GitHub Models retired (2026-07-30); using Chinese keyword fallback")
+        models_zh._noted = True  # type: ignore[attr-defined]
+    MODELS_FAIL += 1
     return None
 
 
