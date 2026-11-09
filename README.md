@@ -1,12 +1,24 @@
-# X 羊毛情报站 · AI / 科技
+# AI大模型免费资源导航
 
-静态站，由 GitHub Actions **免费**每日自动更新（无需 Grok / 付费 API）。
+站点：**AI大模型免费资源导航**  
+关键词：大模型免费API · AI工具免费 · GitHub热门项目
 
-- 羊毛数据：`data/YYYY-MM-DD.json`（可由 X 日常例程写入）+ `data/auto/`（Action 抓取）
-- 构建：`python3 build.py` → `index.html`
-- 自动抓取：`python3 fetch_auto.py`（HN / V2EX / GitHub / DEV.to / Lobsters）
-- 栏目：羊毛分类、**GitHub 新热门**、**最近热议**
-- GitHub Pages：仓库 `main` 根目录
-- Netlify `aiyangmao`：反向代理到 GitHub Pages
+## 线上地址
 
-例程侧只需推送新的 `data/YYYY-MM-DD.json`，Action 会重建页面。
+- Netlify（主站 / 百度 canonical）：https://aidamoxing-mianfei.netlify.app/
+- GitHub Pages：https://9499758-wq.github.io/x-yangmao/
+
+旧域名 `aiyangmao.netlify.app` 已停用（站点已重命名）。
+
+## 全自动更新
+
+GitHub Actions 每 6 小时：`fetch_auto.py` → Models 批量中文翻译（失败则关键词回退）→ `build.py` 生成首页 / 日归档 / sitemap / robots → 自动 commit。
+
+自愈策略：某源失败保留旧数据；翻译失败不阻断构建；页面永不空。
+
+## 本地
+
+```bash
+python3 fetch_auto.py
+python3 build.py
+```

@@ -144,19 +144,34 @@ def keyword_classify(text: str) -> tuple[str, str, str]:
     return cat, title, summary
 
 
-def models_zh(prompt: str) -> str | None:
+MODELS_OK = 0
+MODELS_FAIL = 0
+
+
+def has_cjk(s: str) -> bool:
+    return bool(re.search(r"[\u4e00-\u9fff]", s or ""))
+
+
+def models_zh(prompt: str, max_tokens: int = 1200) -> str | None:
+    """Call GitHub Models chat completions. Returns text or None."""
+    global MODELS_OK, MODELS_FAIL
     tok = github_token()
     if not tok:
+        MODELS_FAIL += 1
+        print("[warn] GitHub Models skipped: no GITHUB_TOKEN")
         return None
     url = "https://models.github.ai/inference/chat/completions"
     payload = {
         "model": "openai/gpt-4o-mini",
         "temperature": 0.2,
-        "max_tokens": 220,
+        "max_tokens": max_tokens,
         "messages": [
             {
                 "role": "system",
-                "content": "你是中文科技编辑。只根据用户给出的原文写简洁中文，不要编造原文没有的优惠/数字/链接。输出纯文本。",
+                "content": (
+                    "你是中文科技编辑。只根据用户给出的原文翻译/改写为简洁中文，"
+                    "不要编造原文没有的优惠、数字、链接或功能。只输出用户要求的格式。"
+                ),
             },
             {"role": "user", "content": prompt},
         ],
@@ -167,60 +182,193 @@ def models_zh(prompt: str) -> str | None:
             method="POST",
             payload=payload,
             headers={"Authorization": f"Bearer {tok}", "Accept": "application/json"},
-            timeout=50,
+            timeout=90,
         )
         if not data:
+            MODELS_FAIL += 1
+            print("[warn] GitHub Models empty body")
             return None
         content = (((data.get("choices") or [{}])[0]).get("message") or {}).get("content")
         if content and isinstance(content, str) and content.strip():
+            MODELS_OK += 1
             return content.strip()
+        MODELS_FAIL += 1
+        print("[warn] GitHub Models missing content")
     except Exception as e:
+        MODELS_FAIL += 1
         print(f"[warn] GitHub Models failed: {type(e).__name__}: {e}")
     return None
 
 
+def _extract_json_array(text: str) -> list | None:
+    if not text:
+        return None
+    text = text.strip()
+    # strip fences
+    text = re.sub(r"^```(?:json)?\s*", "", text)
+    text = re.sub(r"\s*```$", "", text)
+    try:
+        obj = json.loads(text)
+        if isinstance(obj, list):
+            return obj
+        if isinstance(obj, dict) and isinstance(obj.get("items"), list):
+            return obj["items"]
+    except Exception:
+        pass
+    m = re.search(r"\[[\s\S]*\]", text)
+    if m:
+        try:
+            obj = json.loads(m.group(0))
+            if isinstance(obj, list):
+                return obj
+        except Exception:
+            return None
+    return None
+
+
+def batch_translate(rows: list[dict], kind: str, batch_size: int = 12) -> dict[str, dict]:
+    """Translate many items via one Models call per batch.
+
+    rows: [{id, title, text, keep_title?}]
+    returns: {id: {title, summary, category?, how?, original_title?}}
+    """
+    out: dict[str, dict] = {}
+    if not rows:
+        return out
+
+    for i in range(0, len(rows), batch_size):
+        chunk = rows[i : i + batch_size]
+        payload_rows = []
+        for r in chunk:
+            payload_rows.append(
+                {
+                    "id": r["id"],
+                    "title": (r.get("title") or "")[:180],
+                    "text": (r.get("text") or r.get("title") or "")[:500],
+                }
+            )
+        if kind == "deal":
+            prompt = (
+                "将下列科技/羊毛条目翻译整理为中文。不要编造。\n"
+                "对每个元素输出 JSON 数组，元素字段：\n"
+                'id, category(只能是: '
+                + " / ".join(CATEGORIES)
+                + "), title(中文短标题), summary(1-2句中文说明能领到什么/怎么领), how(一句中文领取步骤)\n"
+                "只输出 JSON 数组。\n输入="
+                + json.dumps(payload_rows, ensure_ascii=False)
+            )
+        elif kind == "repo":
+            prompt = (
+                "将下列 GitHub 仓库说明翻译成中文。仓库全名保持英文不要改。\n"
+                "输出 JSON 数组，字段：id, title(可用仓库名或中文短名), summary(一句中文简介，不要编造)\n"
+                "只输出 JSON 数组。\n输入="
+                + json.dumps(payload_rows, ensure_ascii=False)
+            )
+        else:  # hot
+            prompt = (
+                "将下列科技热议标题/摘要翻译成中文。不要编造。\n"
+                "输出 JSON 数组，字段：id, title(中文短标题), summary(一句中文)\n"
+                "只输出 JSON 数组。\n输入="
+                + json.dumps(payload_rows, ensure_ascii=False)
+            )
+        ai = models_zh(prompt, max_tokens=1800)
+        parsed = _extract_json_array(ai or "")
+        if not parsed:
+            print(f"[warn] batch_translate({kind}) fallback keywords for {len(chunk)} items")
+            for r in chunk:
+                if kind == "deal":
+                    cat, title, summary = keyword_classify(f"{r.get('title')} {r.get('text')}")
+                    out[r["id"]] = {
+                        "category": cat,
+                        "title": title,
+                        "summary": summary,
+                        "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
+                        "translated_by": "keywords",
+                    }
+                else:
+                    title = re.sub(r"\s+", " ", (r.get("title") or "").strip())[:100] or "未命名"
+                    summary = re.sub(r"\s+", " ", (r.get("text") or title).strip())[:220]
+                    if not has_cjk(title):
+                        title = f"【{kind}】{title}"
+                    if not has_cjk(summary):
+                        summary = f"原文：{summary}"
+                    out[r["id"]] = {
+                        "title": title,
+                        "summary": summary,
+                        "translated_by": "keywords",
+                    }
+            continue
+
+        by_id = {str(x.get("id")): x for x in parsed if isinstance(x, dict) and x.get("id") is not None}
+        for r in chunk:
+            x = by_id.get(str(r["id"]))
+            if not x:
+                # fallback single
+                cat, title, summary = keyword_classify(f"{r.get('title')} {r.get('text')}")
+                out[r["id"]] = {
+                    "category": cat if kind == "deal" else None,
+                    "title": title if kind != "repo" else (r.get("title") or title),
+                    "summary": summary,
+                    "how": "打开来源链接按页面说明领取/试用；参与前自行核实。" if kind == "deal" else None,
+                    "translated_by": "keywords",
+                }
+                continue
+            title = str(x.get("title") or r.get("title") or "").strip()[:120]
+            summary = str(x.get("summary") or "").strip()[:400]
+            if kind == "repo":
+                # keep repo full name as name; title can be chinese short or name
+                if not summary:
+                    summary = f"GitHub 仓库：{r.get('title')}"
+                out[r["id"]] = {
+                    "title": title or r.get("title"),
+                    "summary": summary,
+                    "translated_by": "models",
+                }
+            elif kind == "deal":
+                cat = str(x.get("category") or "").strip()
+                if cat not in CATEGORIES:
+                    cat, _, _ = keyword_classify(f"{r.get('title')} {r.get('text')}")
+                how = str(x.get("how") or "打开来源链接按页面说明领取/试用；参与前自行核实。").strip()[:200]
+                if not has_cjk(title):
+                    title = f"【羊毛】{title}"
+                if not has_cjk(summary):
+                    summary = f"摘要：{summary}"
+                out[r["id"]] = {
+                    "category": cat,
+                    "title": title,
+                    "summary": summary,
+                    "how": how,
+                    "translated_by": "models",
+                }
+            else:
+                if not has_cjk(title):
+                    title = f"【热议】{title}"
+                if not has_cjk(summary):
+                    summary = f"摘要：{summary}"
+                out[r["id"]] = {
+                    "title": title,
+                    "summary": summary,
+                    "translated_by": "models",
+                }
+        time.sleep(0.8)
+    return out
+
+
 def enrich_deal(raw_title: str, raw_text: str, source: str) -> tuple[str, str, str, str]:
+    """Single-item fallback (prefer batch_translate)."""
     blob = f"{raw_title}\n{raw_text}"
     cat, title, summary = keyword_classify(blob)
     how = "打开来源链接按页面说明领取/试用；参与前自行核实。"
-    ai = models_zh(
-        "把下面科技/羊毛信息整理成三行：\n"
-        "分类:（只能是：" + " / ".join(CATEGORIES) + "）\n"
-        "标题:（中文短标题）\n"
-        "摘要:（一两句中文，含能领到什么、怎么领，不要编造）\n\n"
-        f"来源平台: {source}\n原文:\n{blob[:1500]}"
-    )
-    if ai:
-        cat_m = re.search(r"分类[:：]\s*(.+)", ai)
-        title_m = re.search(r"标题[:：]\s*(.+)", ai)
-        sum_m = re.search(r"摘要[:：]\s*(.+)", ai)
-        if cat_m and cat_m.group(1).strip() in CATEGORIES:
-            cat = cat_m.group(1).strip()
-        if title_m and title_m.group(1).strip():
-            title = title_m.group(1).strip()[:100]
-        if sum_m and sum_m.group(1).strip():
-            summary = sum_m.group(1).strip()[:400]
     return cat, title, summary, how
 
 
 def enrich_one_liner(raw_title: str, raw_text: str, kind: str) -> tuple[str, str]:
-    blob = f"{raw_title}\n{raw_text}"
     title = re.sub(r"\s+", " ", (raw_title or "").strip())[:100] or "未命名"
     summary = re.sub(r"\s+", " ", (raw_text or raw_title or "").strip())[:220]
-    if not re.search(r"[\u4e00-\u9fff]", title):
+    if not has_cjk(title):
         title = f"【{kind}】{title}"
-    if not re.search(r"[\u4e00-\u9fff]", summary):
-        summary = f"{kind}热度内容：{summary}"
-    ai = models_zh(
-        f"把下面{kind}内容写成两行中文（不要编造）：\n标题:（短）\n摘要:（一句话）\n\n原文:\n{blob[:1200]}"
-    )
-    if ai:
-        title_m = re.search(r"标题[:：]\s*(.+)", ai)
-        sum_m = re.search(r"摘要[:：]\s*(.+)", ai)
-        if title_m and title_m.group(1).strip():
-            title = title_m.group(1).strip()[:100]
-        if sum_m and sum_m.group(1).strip():
-            summary = sum_m.group(1).strip()[:280]
+    if not has_cjk(summary):
+        summary = f"{kind}内容：{summary}"
     return title, summary
 
 
@@ -438,15 +586,13 @@ def fetch_github_hot() -> list[dict]:
     since14 = (datetime.now(UTC) - timedelta(days=14)).strftime("%Y-%m-%d")
     queries = [
         f"topic:llm created:>{since14}",
-        f"topic:ai created:>{since10 if False else since7}",
+        f"topic:ai created:>{since7}",
         f"topic:agents created:>{since14}",
         f"topic:devtools created:>{since14}",
         f"LLM OR \"AI agent\" in:name,description created:>{since7}",
     ]
-    # fix the silly ternary
-    queries[1] = f"topic:ai created:>{since7}"
     seen = set()
-    out = []
+    raw = []
     for q in queries:
         url = "https://api.github.com/search/repositories?" + urllib.parse.urlencode(
             {"q": q, "sort": "stars", "order": "desc", "per_page": 10}
@@ -465,48 +611,64 @@ def fetch_github_hot() -> list[dict]:
                 continue
             seen.add(full)
             created = datetime.fromisoformat(r["created_at"].replace("Z", "+00:00")).astimezone(TZ)
-            title, summary = enrich_one_liner(full, desc or full, "GitHub")
-            out.append(
+            raw.append(
                 {
                     "id": slug_id("ghot", full),
                     "source": "GitHub",
                     "name": full,
-                    "title": title,
-                    "summary": summary,
+                    "title": full,
+                    "summary": desc,
+                    "summary_en": desc,
                     "stars": r.get("stargazers_count") or 0,
                     "language": r.get("language") or "未知",
                     "created_at": created.strftime("%Y-%m-%d Asia/Shanghai"),
                     "url": r.get("html_url"),
+                    "_raw_title": full,
+                    "_raw_text": desc or full,
                 }
             )
-    out.sort(key=lambda x: x.get("stars", 0), reverse=True)
-    return out[:30]
+    raw.sort(key=lambda x: x.get("stars", 0), reverse=True)
+    raw = raw[:30]
+    tr = batch_translate(
+        [{"id": r["id"], "title": r["_raw_title"], "text": r["_raw_text"]} for r in raw],
+        kind="repo",
+        batch_size=10,
+    )
+    out = []
+    for r in raw:
+        t = tr.get(r["id"]) or {}
+        r["title"] = t.get("title") or r["name"]
+        r["summary"] = t.get("summary") or (r.get("summary_en") and f"简介：{r['summary_en']}") or f"GitHub 仓库 {r['name']}"
+        r["translated_by"] = t.get("translated_by") or "keywords"
+        r.pop("_raw_title", None)
+        r.pop("_raw_text", None)
+        out.append(r)
+    return out
 
 
 def fetch_hot_topics(x_items: list[dict] | None = None) -> list[dict]:
-    out = []
-    # HN front page
+    raw = []
     st, data = safe_get("https://hn.algolia.com/api/v1/search?" + urllib.parse.urlencode({"tags": "front_page", "hitsPerPage": 20}))
     if data:
         for h in data.get("hits") or []:
             title = h.get("title") or ""
-            text = title
-            if looks_blocked(text) or not looks_ai_tech(text):
+            if looks_blocked(title) or not looks_ai_tech(title):
                 continue
             url_s = h.get("url") or f"https://news.ycombinator.com/item?id={h.get('objectID')}"
-            zh_title, zh_sum = enrich_one_liner(title, title, "HN")
-            out.append(
+            raw.append(
                 {
                     "id": slug_id("hnhot", str(h.get("objectID"))),
                     "source": "Hacker News",
-                    "title": zh_title,
-                    "summary": zh_sum,
+                    "title": title,
+                    "summary": title,
                     "heat": f"点数 {h.get('points') or 0} · 评论 {h.get('num_comments') or 0}",
                     "points": h.get("points") or 0,
                     "url": url_s,
+                    "_raw_title": title,
+                    "_raw_text": title,
+                    "_need_tr": True,
                 }
             )
-    # V2EX hot/latest
     for ep in ["https://www.v2ex.com/api/topics/hot.json", "https://www.v2ex.com/api/topics/latest.json"]:
         st, data = safe_get(ep)
         time.sleep(0.8)
@@ -518,44 +680,68 @@ def fetch_hot_topics(x_items: list[dict] | None = None) -> list[dict]:
             text = f"{title}\n{content}"
             if looks_blocked(text) or not looks_ai_tech(text):
                 continue
-            zh_title, zh_sum = enrich_one_liner(title, content or title, "V2EX")
-            out.append(
+            # V2EX often already Chinese
+            already = has_cjk(title)
+            raw.append(
                 {
                     "id": slug_id("v2hot", str(t.get("id"))),
                     "source": "V2EX",
-                    "title": zh_title,
-                    "summary": zh_sum,
+                    "title": title,
+                    "summary": content or title,
                     "heat": f"回复 {t.get('replies') or 0}",
                     "points": t.get("replies") or 0,
                     "url": t.get("url") or f"https://www.v2ex.com/t/{t.get('id')}",
+                    "_raw_title": title,
+                    "_raw_text": content or title,
+                    "_need_tr": not already,
                 }
             )
-    # top X items from routine data
     for it in (x_items or [])[:12]:
         eng = it.get("engagement") or {}
         heat_n = int(eng.get("likes") or 0) + int(eng.get("bookmarks") or 0) * 2 + int(eng.get("impressions") or 0) // 500
-        out.append(
+        title = it.get("title") or ""
+        summary = it.get("summary") or ""
+        raw.append(
             {
                 "id": slug_id("xhot", it.get("id") or it.get("url") or ""),
                 "source": "X",
-                "title": it.get("title") or "",
-                "summary": it.get("summary") or "",
+                "title": title,
+                "summary": summary,
                 "heat": f"赞 {eng.get('likes', 0)} · 收藏 {eng.get('bookmarks', 0)}",
                 "points": heat_n,
                 "url": it.get("url"),
+                "_need_tr": not (has_cjk(title) and has_cjk(summary)),
+                "_raw_title": title,
+                "_raw_text": summary or title,
             }
         )
-    # de-dupe by url
+
+    need = [r for r in raw if r.get("_need_tr")]
+    tr = batch_translate(
+        [{"id": r["id"], "title": r.get("_raw_title") or "", "text": r.get("_raw_text") or ""} for r in need],
+        kind="hot",
+        batch_size=12,
+    )
+    out = []
     seen = set()
-    uniq = []
-    for it in out:
-        u = it.get("url")
+    for r in raw:
+        u = r.get("url")
         if not u or u in seen:
             continue
         seen.add(u)
-        uniq.append(it)
-    uniq.sort(key=lambda x: x.get("points") or 0, reverse=True)
-    return uniq[:40]
+        if r.get("_need_tr"):
+            t = tr.get(r["id"]) or {}
+            r["title"] = t.get("title") or r["title"]
+            r["summary"] = t.get("summary") or r["summary"]
+            r["translated_by"] = t.get("translated_by") or "keywords"
+        else:
+            r["translated_by"] = "native-zh"
+        r.pop("_raw_title", None)
+        r.pop("_raw_text", None)
+        r.pop("_need_tr", None)
+        out.append(r)
+    out.sort(key=lambda x: x.get("points") or 0, reverse=True)
+    return out[:40]
 
 
 def load_latest_x_items() -> list[dict]:
@@ -570,28 +756,73 @@ def load_latest_x_items() -> list[dict]:
     return []
 
 
+def load_prev_json(path: Path):
+    if path.exists():
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except Exception as e:
+            print(f"[warn] cannot read previous {path}: {e}")
+    return None
+
+
 def finalize_deals(raw_items: list[dict]) -> list[dict]:
     seen = set()
-    out = []
+    uniq = []
     for it in raw_items:
         url = it.get("url")
         if not url or url in seen:
             continue
         seen.add(url)
-        cat, title, summary, how = enrich_deal(it.get("title") or "", it.get("_raw") or it.get("title") or "", it.get("source") or "")
-        it["category"] = cat
-        it["title"] = title
-        it["summary"] = summary
-        it["how"] = how
-        it.pop("_raw", None)
-        # drop expired-ish if deadline past — none usually
-        out.append(it)
-        if len(out) >= 40:
+        uniq.append(it)
+        if len(uniq) >= 40:
             break
+    tr = batch_translate(
+        [
+            {
+                "id": it["id"],
+                "title": it.get("title") or "",
+                "text": it.get("_raw") or it.get("title") or "",
+            }
+            for it in uniq
+        ],
+        kind="deal",
+        batch_size=10,
+    )
+    out = []
+    for it in uniq:
+        t = tr.get(it["id"]) or {}
+        if t:
+            it["category"] = t.get("category") or it.get("category") or "其他科技"
+            it["title"] = t.get("title") or it.get("title")
+            it["summary"] = t.get("summary") or it.get("summary")
+            it["how"] = t.get("how") or "打开来源链接按页面说明领取/试用；参与前自行核实。"
+            it["translated_by"] = t.get("translated_by") or "keywords"
+        else:
+            cat, title, summary, how = enrich_deal(it.get("title") or "", it.get("_raw") or it.get("title") or "", it.get("source") or "")
+            it["category"] = cat
+            it["title"] = title
+            it["summary"] = summary
+            it["how"] = how
+            it["translated_by"] = "keywords"
+        it.pop("_raw", None)
+        out.append(it)
     return out
 
 
+def write_json_safe(path: Path, payload: dict, keep_if_empty_key: str = "items") -> None:
+    """Self-healing: never overwrite good previous file with empty items."""
+    items = payload.get(keep_if_empty_key)
+    prev = load_prev_json(path)
+    if (not items) and prev and prev.get(keep_if_empty_key):
+        print(f"[heal] keep previous {path.name}: new empty, old has {len(prev.get(keep_if_empty_key) or [])}")
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"[write] {path} items={len(items or [])}")
+
+
 def main():
+    global MODELS_OK, MODELS_FAIL
     DATA_AUTO.mkdir(parents=True, exist_ok=True)
     print("[fetch] start", now_sh().isoformat())
     raw = []
@@ -607,42 +838,68 @@ def main():
             print(f"[fetch] {name}: {len(got)}")
             raw.extend(got)
         except Exception as e:
-            print(f"[fetch] {name} ERROR {type(e).__name__}: {e}")
+            print(f"[fetch] {name} ERROR {type(e).__name__}: {e} (keeping other sources)")
 
-    deals = finalize_deals(raw)
     day = today_str()
     deal_path = DATA_AUTO / f"{day}.json"
-    payload = {
-        "date": day,
-        "updated_at": now_sh().isoformat(timespec="minutes"),
-        "updated_at_label": now_sh().strftime("%Y-%m-%d %H:%M Asia/Shanghai"),
-        "source": "auto-fetch public APIs",
-        "items": deals,
-    }
-    deal_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"[write] {deal_path} items={len(deals)}")
+    try:
+        deals = finalize_deals(raw)
+    except Exception as e:
+        print(f"[heal] finalize_deals failed: {e}; keeping previous deals")
+        deals = []
+    write_json_safe(
+        deal_path,
+        {
+            "date": day,
+            "updated_at": now_sh().isoformat(timespec="minutes"),
+            "updated_at_label": now_sh().strftime("%Y-%m-%d %H:%M Asia/Shanghai"),
+            "source": "auto-fetch public APIs",
+            "items": deals,
+            "models_ok": MODELS_OK,
+            "models_fail": MODELS_FAIL,
+        },
+    )
 
     x_items = load_latest_x_items()
-    hot_repos = fetch_github_hot()
-    (DATA_AUTO / "github_hot.json").write_text(
-        json.dumps({"updated_at_label": now_sh().strftime("%Y-%m-%d %H:%M Asia/Shanghai"), "items": hot_repos}, ensure_ascii=False, indent=2)
-        + "\n",
-        encoding="utf-8",
+    hot_path = DATA_AUTO / "github_hot.json"
+    try:
+        hot_repos = fetch_github_hot()
+    except Exception as e:
+        print(f"[heal] github_hot failed: {e}")
+        hot_repos = []
+    write_json_safe(
+        hot_path,
+        {
+            "updated_at_label": now_sh().strftime("%Y-%m-%d %H:%M Asia/Shanghai"),
+            "items": hot_repos,
+            "models_ok": MODELS_OK,
+            "models_fail": MODELS_FAIL,
+        },
     )
-    print(f"[write] github_hot.json items={len(hot_repos)}")
 
-    hot_topics = fetch_hot_topics(x_items)
-    (DATA_AUTO / "hot_topics.json").write_text(
-        json.dumps({"updated_at_label": now_sh().strftime("%Y-%m-%d %H:%M Asia/Shanghai"), "items": hot_topics}, ensure_ascii=False, indent=2)
-        + "\n",
-        encoding="utf-8",
+    topics_path = DATA_AUTO / "hot_topics.json"
+    try:
+        hot_topics = fetch_hot_topics(x_items)
+    except Exception as e:
+        print(f"[heal] hot_topics failed: {e}")
+        hot_topics = []
+    write_json_safe(
+        topics_path,
+        {
+            "updated_at_label": now_sh().strftime("%Y-%m-%d %H:%M Asia/Shanghai"),
+            "items": hot_topics,
+            "models_ok": MODELS_OK,
+            "models_fail": MODELS_FAIL,
+        },
     )
-    print(f"[write] hot_topics.json items={len(hot_topics)}")
 
     by_src = {}
-    for it in deals:
+    # reload deals file in case healed
+    cur = load_prev_json(deal_path) or {"items": deals}
+    for it in cur.get("items") or []:
         by_src[it.get("source")] = by_src.get(it.get("source"), 0) + 1
     print("[summary] deals by source", by_src)
+    print(f"[summary] models_ok={MODELS_OK} models_fail={MODELS_FAIL}")
 
 
 if __name__ == "__main__":

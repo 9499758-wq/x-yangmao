@@ -1,0 +1,63 @@
+name: Auto update site
+
+on:
+  schedule:
+    # every 6 hours — free GitHub Actions quota friendly
+    - cron: "15 */6 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "data/**"
+      - "build.py"
+      - "fetch_auto.py"
+    branches: [main]
+
+permissions:
+  contents: write
+  models: read
+
+concurrency:
+  group: update-site
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch auto sources (self-healing)
+        if: github.event_name != 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          python3 fetch_auto.py
+          code=$?
+          set -e
+          if [ $code -ne 0 ]; then
+            echo "[heal] fetch_auto exited $code — continuing with previous data"
+          fi
+          # never fail the job solely on fetch; build must still run
+          exit 0
+
+      - name: Build site (SEO + archives)
+        run: python3 build.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "laohe-bot"
+          git config user.email "9499758-wq@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "auto update $(TZ=Asia/Shanghai date '+%F %H:%M')"
+            git push
+          fi

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+User-agent: Baiduspider
+Allow: /
+User-agent: Baiduspider-render
+Allow: /
+Sitemap: https://aidamoxing-mianfei.netlify.app/sitemap.xml

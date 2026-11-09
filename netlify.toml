@@ -1,0 +1,11 @@
+# Mirror GitHub Pages onto this Netlify free subdomain.
+# Publish dir is unused for proxy; redirects do the work.
+[build]
+  publish = "."
+  command = "echo 'static mirror via redirects'"
+
+[[redirects]]
+  from = "/*"
+  to = "https://9499758-wq.github.io/x-yangmao/:splat"
+  status = 200
+  force = true
