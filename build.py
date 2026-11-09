@@ -557,7 +557,7 @@ def write_category_pages(all_items, date, ym):
     <div class="eyebrow"><i class="live-dot"></i> MODULE</div>
     <h1 class="hero-title">{esc(cat)}</h1>
     <p class="lead">{esc(intro)}</p>
-    <div class="stats"><div class="pill">条目 <b data-count="{len(cat_items)}">0</b></div><div class="pill">更新 <b>{esc(date)}</b></div></div>
+    <div class="stats"><div class="pill">条目 <b data-count="{len(cat_items)}">{len(cat_items)}</b></div><div class="pill">更新 <b>{esc(date)}</b></div></div>
     </div>
     {brain_block("../vendor/")}
   </header>
@@ -595,7 +595,7 @@ def write_module_special(repos, topics, date, ym):
     <div class="eyebrow"><i class="live-dot"></i> GITHUB</div>
     <h1 class="hero-title">GitHub 新热门</h1>
     <p class="lead">近 7–14 天创建的 AI / 大模型 / Agent 开源项目，按星标整理，完整中文说明。</p>
-    <div class="stats"><div class="pill">项目 <b data-count="{len(repos)}">0</b></div><div class="pill">更新 <b>{esc(date)}</b></div></div>
+    <div class="stats"><div class="pill">项目 <b data-count="{len(repos)}">{len(repos)}</b></div><div class="pill">更新 <b>{esc(date)}</b></div></div>
     </div>
     {brain_block("../vendor/")}
   </header>
@@ -627,7 +627,7 @@ def write_module_special(repos, topics, date, ym):
     <div class="eyebrow"><i class="live-dot"></i> PULSE</div>
     <h1 class="hero-title">最近热议</h1>
     <p class="lead">Hacker News / V2EX / X 等渠道的 AI 与科技热议，标题与摘要已译为中文。</p>
-    <div class="stats"><div class="pill">话题 <b data-count="{len(topics)}">0</b></div><div class="pill">更新 <b>{esc(date)}</b></div></div>
+    <div class="stats"><div class="pill">话题 <b data-count="{len(topics)}">{len(topics)}</b></div><div class="pill">更新 <b>{esc(date)}</b></div></div>
     </div>
     {brain_block("../vendor/")}
   </header>
@@ -770,9 +770,9 @@ def build():
     <p class="lead">帮你一站看清大模型免费API、免费GPT、Claude免费额度、DeepSeek免费额度、AI工具免费试用、免费GPU，以及值得关注的 GitHub 热门项目与最新AI新闻。每个模块独立成页，信息每日自动更新；参与前请以官网规则为准。</p>
     <div class="stats">
       <div class="pill">更新日期 <b>{esc(date)}</b></div>
-      <div class="pill">免费资源 <b data-count="{len(items)}">0</b></div>
-      <div class="pill">GitHub热门 <b data-count="{len(repos)}">0</b></div>
-      <div class="pill">热议 <b data-count="{len(topics)}">0</b></div>
+      <div class="pill">免费资源 <b data-count="{len(items)}">{len(items)}</b></div>
+      <div class="pill">GitHub热门 <b data-count="{len(repos)}">{len(repos)}</b></div>
+      <div class="pill">热议 <b data-count="{len(topics)}">{len(topics)}</b></div>
       <div class="pill">更新 <b>{esc(updated)}</b></div>
       <div class="pill">生成 <b>{esc(now_label)}</b></div>
     </div>
