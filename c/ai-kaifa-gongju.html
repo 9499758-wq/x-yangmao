@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-<meta name="color-scheme" content="dark light" />
+<meta name="color-scheme" content="dark" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="renderer" content="webkit" />
 <meta name="force-rendering" content="webkit" />
@@ -25,9 +25,10 @@
 <meta property="og:url" content="https://ai168.netlify.app/c/ai-kaifa-gongju.html" />
 
 <style>
+:root { color-scheme: dark; }
 
 :root {
-  --bg0: #05070f;
+  --bg0: #03050c;
   --bg1: #0a1022;
   --panel: rgba(12, 18, 36, 0.62);
   --panel2: rgba(16, 24, 48, 0.78);
@@ -45,17 +46,7 @@
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   --sans: "PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg0: #f3f6ff; --bg1: #e8eefc;
-    --panel: rgba(255,255,255,.72); --panel2: rgba(255,255,255,.88);
-    --card: rgba(255,255,255,.82);
-    --line: rgba(60,100,180,.14); --line2: rgba(110,80,220,.22);
-    --text: #0e1528; --muted: #5a6688;
-    --cyan: #0891b2; --violet: #6d28d9; --mint: #0f766e; --warn: #b45309;
-    --glow: 0 0 36px rgba(8,145,178,.10);
-  }
-}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; color-scheme: dark; }
 html, body { margin:0; padding:0; overflow-wrap:anywhere; word-break:break-word; }
@@ -147,10 +138,7 @@ a:hover { text-decoration: underline; }
   background: linear-gradient(105deg, #fff 10%, var(--cyan) 45%, var(--violet) 85%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-@media (prefers-color-scheme: light) {
-  .hero h1 { background: linear-gradient(105deg, #0b1224 5%, var(--cyan) 45%, var(--violet) 90%);
-    -webkit-background-clip: text; background-clip: text; color: transparent; }
-}
+
 .hero .lead { margin: 0; max-width: 46rem; color: var(--muted); font-size: 1.05rem; }
 .stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .pill {
@@ -267,12 +255,148 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
 .sec-desc { margin: 0 0 14px; color: var(--muted); }
 .intro p { margin: 0; color: var(--muted); }
 
+
+.fx-aurora{position:fixed;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(40% 35% at 20% 20%,rgba(92,225,255,.22),transparent 60%),radial-gradient(35% 40% at 80% 15%,rgba(167,139,250,.24),transparent 55%),radial-gradient(45% 35% at 55% 75%,rgba(94,240,192,.12),transparent 60%),radial-gradient(30% 30% at 10% 80%,rgba(255,100,200,.08),transparent 60%);filter:saturate(1.2) blur(8px);animation:auroraMove 22s ease-in-out infinite alternate}
+@keyframes auroraMove{0%{transform:translate3d(-2%,-1%,0) rotate(0) scale(1)}50%{transform:translate3d(3%,2%,0) rotate(4deg) scale(1.05)}100%{transform:translate3d(-1%,3%,0) rotate(-3deg) scale(1.08)}}
+.fx-grid{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.28;background-image:linear-gradient(rgba(92,225,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(92,225,255,.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at center,#000 25%,transparent 78%)}
+.fx-noise{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");mix-blend-mode:overlay}
+.fx-scan{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.06;background:repeating-linear-gradient(to bottom,transparent 0,transparent 2px,rgba(255,255,255,.04) 3px,rgba(255,255,255,.04) 3px);animation:scanDrift 8s linear infinite}
+@keyframes scanDrift{to{transform:translateY(3px)}}
+#fx-particles{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%}
+.fx-spot{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(520px 520px at var(--spot-x,50%) var(--spot-y,30%),rgba(92,225,255,.14),transparent 55%)}
+body{background:#03050c!important}
+.wrap{z-index:2}
+body.page-enter .wrap{animation:pageIn .55s ease both}
+@keyframes pageIn{from{opacity:0;transform:translateY(10px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@property --border-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+@keyframes borderSpin{to{--border-angle:360deg}}
+.hero{border:1px solid transparent;background:linear-gradient(var(--panel),var(--panel)) padding-box,conic-gradient(from var(--border-angle,0deg),rgba(92,225,255,.15),rgba(167,139,250,.55),rgba(94,240,192,.25),rgba(92,225,255,.15)) border-box;animation:borderSpin 8s linear infinite}
+.hero h1,.hero-title{background:linear-gradient(105deg,#fff 8%,var(--cyan) 35%,var(--violet) 62%,#fff 90%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4.5s linear infinite}
+@keyframes shimmer{to{background-position:220% center}}
+.live-dot,.eyebrow i{animation:livePulse 1.8s ease-out infinite}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(94,240,192,.55)}70%{box-shadow:0 0 0 12px rgba(94,240,192,0)}100%{box-shadow:0 0 0 0 rgba(94,240,192,0)}}
+.module-tile,.card{transform-style:preserve-3d;will-change:transform;border:1px solid transparent;background:linear-gradient(160deg,rgba(92,225,255,.07),transparent 42%),linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--border-angle,180deg),rgba(92,225,255,.05),rgba(167,139,250,.55),rgba(94,240,192,.2),rgba(92,225,255,.05)) border-box;animation:borderSpin 12s linear infinite}
+.module-tile::after,.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(280px 180px at var(--mx,50%) var(--my,0%),rgba(92,225,255,.12),transparent 55%);opacity:0;transition:opacity .2s}
+.module-tile:hover::after,.card:hover::after{opacity:1}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+.fx-aurora,.fx-scan,.hero,.module-tile,.card,.hero h1,.hero-title,.eyebrow i,.live-dot,body.page-enter .wrap{animation:none!important}
+.reveal{opacity:1;transform:none;transition:none}
+.module-tile,.card{transform:none!important}
+}
+
+
+.hero.hero-brain {
+  display: grid; grid-template-columns: 1fr; gap: 18px; align-items: center;
+}
+@media (min-width: 900px) {
+  .hero.hero-brain { grid-template-columns: 1.15fr 0.95fr; }
+}
+.hero-copy { position: relative; z-index: 2; }
+#brain-hero {
+  position: relative; z-index: 2;
+  width: 100%; min-height: 280px; height: clamp(260px, 42vw, 420px);
+  border-radius: 22px;
+  border: 1px solid rgba(92,225,255,.18);
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(92,225,255,.10), transparent 55%),
+    radial-gradient(ellipse at 50% 60%, rgba(167,139,250,.12), transparent 50%),
+    rgba(0,0,0,.25);
+  box-shadow: inset 0 0 60px rgba(92,225,255,.06), 0 0 40px rgba(167,139,250,.08);
+  overflow: hidden;
+}
+#brain-hero canvas { width: 100% !important; height: 100% !important; }
+.brain-caption {
+  position: absolute; left: 12px; bottom: 10px; z-index: 3;
+  font-family: var(--mono); font-size: .68rem; color: rgba(139,151,184,.9);
+  letter-spacing: .06em; text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* interactivity */
+html.has-cursor, html.has-cursor * { cursor: none !important; }
+#cursor-dot, .cursor-trail {
+  position: fixed; top:0; left:0; width:10px; height:10px; margin:-5px 0 0 -5px;
+  border-radius:50%; pointer-events:none; z-index:9999;
+  background: rgba(92,225,255,.9); box-shadow: 0 0 16px rgba(92,225,255,.8);
+  mix-blend-mode: screen;
+}
+.cursor-trail { width:8px; height:8px; margin:-4px 0 0 -4px; opacity:.35; background: rgba(167,139,250,.7); }
+#scroll-progress {
+  position: fixed; top:0; left:0; height:2px; width:100%; z-index:10000;
+  background: linear-gradient(90deg, var(--cyan), var(--violet), var(--mint));
+  transform-origin: left center; transform: scaleX(0);
+}
+#back-top {
+  position: fixed; right:18px; bottom:18px; z-index:90;
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--line2);
+  background: rgba(10,16,34,.8); color: var(--cyan); font-size:18px;
+  opacity:0; pointer-events:none; transition: opacity .25s, transform .25s;
+  backdrop-filter: blur(10px);
+}
+#back-top.show { opacity:1; pointer-events:auto; }
+#back-top:hover { transform: translateY(-2px); box-shadow: 0 0 24px rgba(92,225,255,.25); }
+#fx-toast {
+  position: fixed; left:50%; bottom:28px; transform: translateX(-50%) translateY(20px);
+  background: rgba(12,20,42,.92); border:1px solid var(--line2); color: var(--text);
+  padding:10px 16px; border-radius:999px; z-index:10001; opacity:0; pointer-events:none;
+  transition: .25s ease; font-size:.9rem; backdrop-filter: blur(12px);
+}
+#fx-toast.show { opacity:1; transform: translateX(-50%) translateY(0); }
+.ripple {
+  position:absolute; width:8px; height:8px; border-radius:50%;
+  background: rgba(92,225,255,.35); transform: translate(-50%,-50%) scale(0);
+  animation: ripple .65s ease-out forwards; pointer-events:none;
+}
+@keyframes ripple { to { transform: translate(-50%,-50%) scale(28); opacity:0; } }
+#cmd-palette {
+  position:fixed; inset:0; z-index:10050; background: rgba(0,0,0,.55);
+  display:none; align-items:flex-start; justify-content:center; padding-top:12vh;
+  backdrop-filter: blur(8px);
+}
+#cmd-palette.open { display:flex; }
+.cmd-box {
+  width: min(640px, 92vw); background: rgba(10,16,34,.95); border:1px solid var(--line2);
+  border-radius:18px; overflow:hidden; box-shadow: 0 30px 80px rgba(0,0,0,.5);
+}
+#cmd-input {
+  width:100%; border:0; outline:0; padding:16px 18px; font-size:1rem;
+  background: transparent; color: var(--text); border-bottom:1px solid var(--line);
+}
+#cmd-results { max-height: 50vh; overflow:auto; }
+.cmd-item { display:block; padding:12px 18px; color: var(--text); text-decoration:none; border-bottom:1px solid rgba(120,200,255,.08); }
+.cmd-item:hover { background: rgba(92,225,255,.08); }
+.cmd-empty { padding:18px; color: var(--muted); }
+.burst-dot {
+  position: fixed; width:8px; height:8px; border-radius:50%; background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan); pointer-events:none; z-index:10002;
+  animation: burst .85s ease-out forwards;
+}
+@keyframes burst {
+  to { transform: translate(var(--dx), var(--dy)) scale(0.2); opacity:0; }
+}
+body.egg-burst .fx-aurora { filter: saturate(1.8) hue-rotate(40deg); }
+.card .copy-link, .copy-link {
+  font-family: var(--mono); font-size: .72rem; margin-left: 8px; color: var(--violet);
+}
+@media (prefers-reduced-motion: reduce) {
+  #cursor-dot, .cursor-trail, .ripple, .burst-dot { display:none !important; }
+  html.has-cursor, html.has-cursor * { cursor: auto !important; }
+}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"AI 开发工具与编程助手 | AI大模型免费资源导航 · 2026年11月最新","url":"https://ai168.netlify.app/c/ai-kaifa-gongju.html","description":"面向开发者的 AI 编程助手、Agent 与代码工具导航，适合关注 AI开源项目推荐与效率提升。"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://ai168.netlify.app/item/qoder-qoduck-0-credits-75a4ff13ff.html","name":"Qoder 匿名模型 Qoduck：个人号每日 0 Credits"},{"@type":"ListItem","position":2,"url":"https://ai168.netlify.app/item/coderabbit-2213c64bb9.html","name":"CodeRabbit：开源项目免费 + 私有代码试用"},{"@type":"ListItem","position":3,"url":"https://ai168.netlify.app/item/devin-desktop-windsurf-6e7c4cf2cf.html","name":"Devin Desktop（原 Windsurf）：免费计划可用"},{"@type":"ListItem","position":4,"url":"https://ai168.netlify.app/item/github-copilot-9bd5edfd6f.html","name":"GitHub 学生包：Copilot 等开发者权益"},{"@type":"ListItem","position":5,"url":"https://ai168.netlify.app/item/omniroute-ai-370a07f8fd.html","name":"OmniRoute：开源免费 AI 网关聚合多平台"},{"@type":"ListItem","position":6,"url":"https://ai168.netlify.app/item/awesome-free-llm-apis-api-8194ed4f6a.html","name":"awesome-free-llm-apis：免费大模型 API 清单"},{"@type":"ListItem","position":7,"url":"https://ai168.netlify.app/item/qoder-255eaed880.html","name":"大学生参加 Qoder 高校赛可领一个月会员"},{"@type":"ListItem","position":8,"url":"https://ai168.netlify.app/item/show-hn-show-hn-fir-14bf5e0f88.html","name":"Show HN ：我的第一个项目，一个人工智能驱动的金融新闻分析仪Show HN ：我的FIR"},{"@type":"ListItem","position":9,"url":"https://ai168.netlify.app/item/show-hn-velork-design-and-code-toget-307fbb10a0.html","name":"Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, T"},{"@type":"ListItem","position":10,"url":"https://ai168.netlify.app/item/show-hn-jurex-in-house-ai-show-hn-j-7ffe02d223.html","name":"Show HN: Jurex in House –使用AI处理您业务的法律方面Show HN: J"},{"@type":"ListItem","position":11,"url":"https://ai168.netlify.app/item/show-hn-solous-0e27c4ec54.html","name":"Show HN ： Solous ，一个日记应用程序，就像社交媒体一样，可以表达你内心的情感"},{"@type":"ListItem","position":12,"url":"https://ai168.netlify.app/item/hn-kino-ai-yc-s23-ai-hn-kino-2b5f926b26.html","name":"启动HN ： Kino AI （ YC S23 ） – AI媒体经理和视频编辑启动HN ： Kino"},{"@type":"ListItem","position":13,"url":"https://ai168.netlify.app/item/show-hn-fireside-folio-remarkable-sh-3cb7fb09f2.html","name":"Show HN: Fireside Folio – reMarkable Sh的免费书籍、漫画和新闻版本"},{"@type":"ListItem","position":14,"url":"https://ai168.netlify.app/item/show-hn-kids-shelf-your-kids-own-lit-7cf24d3f98.html","name":"Show HN: Kids Shelf, your kids 'own little internet Show HN: Kids Shelf, your ki"},{"@type":"ListItem","position":15,"url":"https://ai168.netlify.app/item/show-hn-ios-cloudshare-s3-show-322b33d5c5.html","name":"Show HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Show"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://ai168.netlify.app/item/qoder-qoduck-0-75a4ff13ff.html","name":"Qoder 匿名模型 Qoduck ：个人号每日 0学分"},{"@type":"ListItem","position":2,"url":"https://ai168.netlify.app/item/coderabbit-2213c64bb9.html","name":"CodeRabbit：开源项目免费 + 私有代码试用"},{"@type":"ListItem","position":3,"url":"https://ai168.netlify.app/item/devin-desktop-windsurf-6e7c4cf2cf.html","name":"Devin Desktop（原 Windsurf）：免费计划可用"},{"@type":"ListItem","position":4,"url":"https://ai168.netlify.app/item/github-copilot-9bd5edfd6f.html","name":"GitHub 学生包：Copilot 等开发者权益"},{"@type":"ListItem","position":5,"url":"https://ai168.netlify.app/item/omniroute-ai-370a07f8fd.html","name":"OmniRoute：开源免费 AI 网关聚合多平台"},{"@type":"ListItem","position":6,"url":"https://ai168.netlify.app/item/awesome-free-llm-apis-api-8194ed4f6a.html","name":"awesome-free-llm-apis ：免费大模型 API 清单"},{"@type":"ListItem","position":7,"url":"https://ai168.netlify.app/item/qoder-255eaed880.html","name":"大学生参加 Qoder 高校赛可领一个月会员"},{"@type":"ListItem","position":8,"url":"https://ai168.netlify.app/item/ai-kaifa-gongju-14bf5e0f88.html","name":"我的第一个项目，一个人工智能驱动的金融新闻分析仪"},{"@type":"ListItem","position":9,"url":"https://ai168.netlify.app/item/show-hn-velork-design-and-code-toget-307fbb10a0.html","name":"Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, T"},{"@type":"ListItem","position":10,"url":"https://ai168.netlify.app/item/jurex-in-house-ai-7ffe02d223.html","name":"Jurex in House –使用 AI处理您业务的法律方面"},{"@type":"ListItem","position":11,"url":"https://ai168.netlify.app/item/solous-0e27c4ec54.html","name":"Solous ，一个日记应用程序，就像社交媒体一样，可以表达你内心的情感"},{"@type":"ListItem","position":12,"url":"https://ai168.netlify.app/item/hn-kino-ai-yc-s23-ai-hn-kino-2b5f926b26.html","name":"启动HN ： Kino AI （ YC S23 ） – AI媒体经理和视频编辑启动 HN ： Kino"},{"@type":"ListItem","position":13,"url":"https://ai168.netlify.app/item/hn-remarkable-sh-3cb7fb09f2.html","name":"显示HN ：炉边对开– reMarkable Sh的免费书籍、漫画和新闻版本"},{"@type":"ListItem","position":14,"url":"https://ai168.netlify.app/item/kids-shelf-7cf24d3f98.html","name":"Kids Shelf：给孩子的迷你互联网书架"},{"@type":"ListItem","position":15,"url":"https://ai168.netlify.app/item/ios-cloudshare-s3-show-322b33d5c5.html","name":"适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Show"}]}</script>
 </head>
 
 <body>
+<div class="fx-aurora" aria-hidden="true"></div>
+<div class="fx-grid" aria-hidden="true"></div>
+<div class="fx-noise" aria-hidden="true"></div>
+<div class="fx-scan" aria-hidden="true"></div>
+<div class="fx-spot" aria-hidden="true"></div>
+<canvas id="fx-particles" aria-hidden="true"></canvas>
 <div class="wrap">
   
 <header class="topnav">
@@ -280,22 +404,30 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <nav class="navlinks" aria-label="模块导航"><a href="../c/damoxing-mianfei-api.html">大模型 API 免费额度</a><a href="../c/ai-huiyuan-shiyong.html">AI 产品会员/试用</a><a href="../c/ai-kaifa-gongju.html">AI 开发工具与编程助手</a><a href="../c/mianfei-gpu-yunfuwu.html">免费GPU / 云服务</a><a href="../c/keji-app-xianmian.html">科技软件 / App 限免</a><a href="../m/github-hot.html">GitHub 新热门</a><a href="../m/hot-topics.html">最近热议</a></nav>
 </header>
   <div class="crumbs"><a href="../">首页</a> › AI 开发工具与编程助手</div>
-  <header class="hero">
-    <div class="eyebrow"><i></i> MODULE</div>
-    <h1>AI 开发工具与编程助手</h1>
+  <header class="hero hero-brain">
+    <div class="hero-copy">
+    <div class="eyebrow"><i class="live-dot"></i> MODULE</div>
+    <h1 class="hero-title">AI 开发工具与编程助手</h1>
     <p class="lead">面向开发者的 AI 编程助手、Agent 与代码工具导航，适合关注 AI开源项目推荐与效率提升。</p>
-    <div class="stats"><div class="pill">条目 <b>15</b></div><div class="pill">更新 <b>2026-11-09</b></div></div>
+    <div class="stats"><div class="pill">条目 <b data-count="15">0</b></div><div class="pill">更新 <b>2026-11-09</b></div></div>
+    </div>
+    
+<div id="brain-hero" data-vendor="../vendor/" aria-hidden="true">
+  <span class="brain-caption">Neural Graph · WebGL</span>
+</div>
+
   </header>
+  <script src="../vendor/brain-loader.js" defer></script>
   <div class="toolbar"><input id="q" type="search" placeholder="在本模块内搜索…" autocomplete="off" /></div>
   <div class="grid">
-<article class="card" data-text="Qoder 匿名模型 Qoduck：个人号每日 0 Credits Qoder 自 11/7 上线匿名模型 Qoduck：个人号每天有免费额度，额度内消耗倍率可到 0.0×，思考强度拉满也不扣 Credits；免费号也能用，付费号额度更多。帖称目前主要在 Qoder 客户端，IDE 插件和 CLI 可能未开；社区猜测是否 Qwen 新版，官方未盖章。可用 Codex 真实任务做盲测对比。 打开 Qoder 客户端 → 模型选择器切到 Qoduck → 直接写代码/搭项目 GeekCatX https://x.com/GeekCatX/status/2119680316772405739 AI 开发工具与编程助手 X">
+<article class="card" data-text="Qoder 匿名模型 Qoduck ：个人号每日 0学分 Qoder 自 11/7 上线匿名模型 Qoduck：个人号每天有免费额度，额度内消耗倍率可到 0.0×，思考强度拉满也不扣 Credits；免费号也能用，付费号额度更多。帖称目前主要在 Qoder 客户端，IDE 插件和 CLI 可能未开；社区猜测是否 Qwen 新版，官方未盖章。可用 Codex 真实任务做盲测对比。 打开 Qoder 客户端 → 模型选择器切到 Qoduck → 直接写代码/搭项目 GeekCatX https://x.com/GeekCatX/status/2119680316772405739 AI 开发工具与编程助手 X">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 X</span><span class="dl-tag">截止 限时活动，结束时间未定</span></div>
-  <h3 class="title"><a href="../item/qoder-qoduck-0-credits-75a4ff13ff.html">Qoder 匿名模型 Qoduck：个人号每日 0 Credits</a></h3>
+  <h3 class="title"><a href="../item/qoder-qoduck-0-75a4ff13ff.html">Qoder 匿名模型 Qoduck ：个人号每日 0学分</a></h3>
   
   <p class="summary">Qoder 自 11/7 上线匿名模型 Qoduck：个人号每天有免费额度，额度内消耗倍率可到 0.0×，思考强度拉满也不扣 Credits；免费号也能用，付费号额度更多。帖称目前主要在 Qoder 客户端，IDE 插件和 CLI 可能未开；社区猜测是否 Qwen 新版，官方未盖章。可用 Codex 真实任务做盲测对比。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 Qoder 客户端 → 模型选择器切到 Qoduck → 直接写代码/搭项目</div><div class="meta author">@GeekCatX · 2026-11-09 14:35 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/qoder-qoduck-0-credits-75a4ff13ff.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/GeekCatX/status/2119680316772405739" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/qoder-qoduck-0-75a4ff13ff.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/GeekCatX/status/2119680316772405739" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/qoder-qoduck-0-75a4ff13ff.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="CodeRabbit：开源项目免费 + 私有代码试用 CodeRabbit：开源仓库免费使用 AI 代码审查；私有代码提供免费试用。适合 PR 审查、变更说明与安全扫描。 打开 coderabbit.ai → 连接 GitHub/GitLab 仓库 → OSS 免费启用 CryptoSenyo https://x.com/CryptoSenyo/status/2119668944420409465 AI 开发工具与编程助手 X">
@@ -305,7 +437,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">CodeRabbit：开源仓库免费使用 AI 代码审查；私有代码提供免费试用。适合 PR 审查、变更说明与安全扫描。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 coderabbit.ai → 连接 GitHub/GitLab 仓库 → OSS 免费启用</div><div class="meta author">@CryptoSenyo · 2026-11-09 13:50 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/coderabbit-2213c64bb9.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/CryptoSenyo/status/2119668944420409465" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/coderabbit-2213c64bb9.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/CryptoSenyo/status/2119668944420409465" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/coderabbit-2213c64bb9.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Devin Desktop（原 Windsurf）：免费计划可用 Devin Desktop（原 Windsurf）免费计划：含轻量 Agent 配额、有限模型额度、无限内联编辑与 Tab 补全，日常写代码够用；重活与高级模型仍需加钱。 注册 Devin Desktop 免费计划后直接使用 jhl880617 https://x.com/jhl880617/status/2119557938222109112 AI 开发工具与编程助手 X">
@@ -315,7 +447,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">Devin Desktop（原 Windsurf）免费计划：含轻量 Agent 配额、有限模型额度、无限内联编辑与 Tab 补全，日常写代码够用；重活与高级模型仍需加钱。</p>
   
   <div class="how"><strong>怎么领：</strong>注册 Devin Desktop 免费计划后直接使用</div><div class="meta author">@jhl880617 · 2026-11-09 06:29 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/devin-desktop-windsurf-6e7c4cf2cf.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/jhl880617/status/2119557938222109112" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/devin-desktop-windsurf-6e7c4cf2cf.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/jhl880617/status/2119557938222109112" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/devin-desktop-windsurf-6e7c4cf2cf.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="GitHub 学生包：Copilot 等开发者权益 学生认证后可领 Copilot 免费额度，以及域名一年、云服务额度等。需学校邮箱或学生证，审核有时要几天。 GitHub Education → 学生认证 → 领取 Student Developer Pack 7eddsi https://x.com/7eddsi/status/2118890883076517914 AI 开发工具与编程助手 X">
@@ -325,7 +457,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">学生认证后可领 Copilot 免费额度，以及域名一年、云服务额度等。需学校邮箱或学生证，审核有时要几天。</p>
   
   <div class="how"><strong>怎么领：</strong>GitHub Education → 学生认证 → 领取 Student Developer Pack</div><div class="meta author">@7eddsi · 2026-11-07 10:18 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/github-copilot-9bd5edfd6f.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/7eddsi/status/2118890883076517914" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/github-copilot-9bd5edfd6f.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/7eddsi/status/2118890883076517914" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/github-copilot-9bd5edfd6f.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="OmniRoute：开源免费 AI 网关聚合多平台 开源本地网关 OmniRoute：把大量 AI 服务商与免费方案收到一个端点，Claude Code / Cursor / Codex / Copilot / Cline 等可改指到它；限流可自动切路，并带 token 压缩宣传。免费额度来自各家，需自己注册；本地跑、配置与 Key 在本机。注意合规，勿用于绕过付费条款。 按项目说明安装（如 npm install -g omniroute）并 setup 指向你的 IDE/CLI 0xGky https://x.com/0xGky/status/2119600861261279410 AI 开发工具与编程助手 X">
@@ -335,17 +467,17 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">开源本地网关 OmniRoute：把大量 AI 服务商与免费方案收到一个端点，Claude Code / Cursor / Codex / Copilot / Cline 等可改指到它；限流可自动切路，并带 token 压缩宣传。免费额度来自各家，需自己注册；本地跑、配置与 Key 在本机。注意合规，勿用于绕过付费条款。</p>
   
   <div class="how"><strong>怎么领：</strong>按项目说明安装（如 npm install -g omniroute）并 setup 指向你的 IDE/CLI</div><div class="meta author">@0xGky · 2026-11-09 09:20 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/omniroute-ai-370a07f8fd.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/0xGky/status/2119600861261279410" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/omniroute-ai-370a07f8fd.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/0xGky/status/2119600861261279410" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/omniroute-ai-370a07f8fd.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="awesome-free-llm-apis：免费大模型 API 清单 GitHub 高星清单 awesome-free-llm-apis（帖称约 1.26 万 star）整理多家免费 LLM API：Gemini（长上下文）、Groq、OpenRouter、Cloudflare Workers AI（每天约 1 万 Neurons）、NVIDIA NIM、以及国内多家等。另有核对帖提醒：免注册免 Key 的很少，Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰订阅。 打开该 GitHub 清单 → 按提供商申请 Key 并注意各自限额/实名要求 yxl44 https://x.com/yxl44/status/2119326478248915137 AI 开发工具与编程助手 X">
+<article class="card" data-text="awesome-free-llm-apis ：免费大模型 API 清单 GitHub 高星清单 awesome-free-llm-apis （帖称约 1.26万星）整理多家免费 LLM API ： Gemini （双子座长上下文）、、 Groq OpenRouter、 Cloudflare Workers AI （每天约 1个万神经元）、 NVIDIA NIM、以及国内多家等。另有核对帖提醒 ：免注册免 Key 的很少， Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰订阅。 打开该 GitHub 清单 → 按提供商申请 Key 并注意各自限额/实名要求 yxl44 https://x.com/yxl44/status/2119326478248915137 AI 开发工具与编程助手 X">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 X</span></div>
-  <h3 class="title"><a href="../item/awesome-free-llm-apis-api-8194ed4f6a.html">awesome-free-llm-apis：免费大模型 API 清单</a></h3>
+  <h3 class="title"><a href="../item/awesome-free-llm-apis-api-8194ed4f6a.html">awesome-free-llm-apis ：免费大模型 API 清单</a></h3>
   
-  <p class="summary">GitHub 高星清单 awesome-free-llm-apis（帖称约 1.26 万 star）整理多家免费 LLM API：Gemini（长上下文）、Groq、OpenRouter、Cloudflare Workers AI（每天约 1 万 Neurons）、NVIDIA NIM、以及国内多家等。另有核对帖提醒：免注册免 Key 的很少，Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰订阅。</p>
+  <p class="summary">GitHub 高星清单 awesome-free-llm-apis （帖称约 1.26万星）整理多家免费 LLM API ： Gemini （双子座长上下文）、、 Groq OpenRouter、 Cloudflare Workers AI （每天约 1个万神经元）、 NVIDIA NIM、以及国内多家等。另有核对帖提醒 ：免注册免 Key 的很少， Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰订阅。</p>
   
   <div class="how"><strong>怎么领：</strong>打开该 GitHub 清单 → 按提供商申请 Key 并注意各自限额/实名要求</div><div class="meta author">@yxl44 · 2026-11-08 15:09 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/awesome-free-llm-apis-api-8194ed4f6a.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/yxl44/status/2119326478248915137" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/awesome-free-llm-apis-api-8194ed4f6a.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/yxl44/status/2119326478248915137" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/awesome-free-llm-apis-api-8194ed4f6a.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="大学生参加 Qoder 高校赛可领一个月会员 帖称参加 2026 Qoder 高校创造力大赛即可白嫖一个月会员（以官方活动规则为准）。 按 Qoder 高校赛官方入口报名 lyuihh https://x.com/lyuihh/status/2119409656972132777 AI 开发工具与编程助手 X">
@@ -355,87 +487,87 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">帖称参加 2026 Qoder 高校创造力大赛即可白嫖一个月会员（以官方活动规则为准）。</p>
   
   <div class="how"><strong>怎么领：</strong>按 Qoder 高校赛官方入口报名</div><div class="meta author">@lyuihh · 2026-11-08 20:40 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/qoder-255eaed880.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/lyuihh/status/2119409656972132777" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/qoder-255eaed880.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/lyuihh/status/2119409656972132777" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/qoder-255eaed880.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN ：我的第一个项目，一个人工智能驱动的金融新闻分析仪Show HN ：我的FIR 来源摘要：Show HN: My first project, an AI-powered financial news analyzer Show HN: My first project, an AI-powered financial news analyzer I&amp;#x27;m 17, and I started NotBot a few months ago to see whether I could turn an idea into a working project. My main interest is economics, not b… 打开来源链接按页面说明领取/试用；参与前自行核实。 lamarcol https://github.com/lamarcol/NotBot AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="我的第一个项目，一个人工智能驱动的金融新闻分析仪 我的第一个项目，一个人工智能驱动的金融新闻分析仪我17岁，几个月前我创办了NotBot ，看看我是否可以将一个想法变成一个工作项目。我的主要兴趣是经济学，而不是…… 打开来源链接按页面说明领取/试用；参与前自行核实。 lamarcol https://github.com/lamarcol/NotBot AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-show-hn-fir-14bf5e0f88.html">Show HN ：我的第一个项目，一个人工智能驱动的金融新闻分析仪Show HN ：我的FIR</a></h3>
-  <p class="orig">原文：Show HN: My first project, an AI-powered financial news analyzer Show HN: My fir</p>
-  <p class="summary">来源摘要：Show HN: My first project, an AI-powered financial news analyzer Show HN: My first project, an AI-powered financial news analyzer I&amp;#x27;m 17, and I started NotBot a few months ago to see whether I could turn an idea into a working project. My main interest is economics, not b…</p>
+  <h3 class="title"><a href="../item/ai-kaifa-gongju-14bf5e0f88.html">我的第一个项目，一个人工智能驱动的金融新闻分析仪</a></h3>
+  
+  <p class="summary">我的第一个项目，一个人工智能驱动的金融新闻分析仪我17岁，几个月前我创办了NotBot ，看看我是否可以将一个想法变成一个工作项目。我的主要兴趣是经济学，而不是……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@lamarcol · 2026-11-09 06:34 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-show-hn-fir-14bf5e0f88.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/lamarcol/NotBot" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/ai-kaifa-gongju-14bf5e0f88.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/lamarcol/NotBot" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/ai-kaifa-gongju-14bf5e0f88.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, T 来源摘要：Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, Together Hi HN! :)&lt;p&gt;I’ve been working as a fullstack freelancer for over 4 years now. I always wanted some kind of IDE where I could take designs, turn them into code, and not be restricted to usin… 打开来源链接按页面说明领取/试用；参与前自行核实。 aliadelelroby https://velork.com AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, T Velork – Design and Code, Together Hi HN!:)&lt;p&gt;我已经作为一名全职自由职业者工作了 4年多。我一直想要某种 IDE ，在这种 IDE中 ，我可以将设计转化为代码 ，而不仅仅局限于使用 …… 打开来源链接按页面说明领取/试用；参与前自行核实。 aliadelelroby https://velork.com AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/show-hn-velork-design-and-code-toget-307fbb10a0.html">Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, T</a></h3>
   
-  <p class="summary">来源摘要：Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, Together Hi HN! :)&lt;p&gt;I’ve been working as a fullstack freelancer for over 4 years now. I always wanted some kind of IDE where I could take designs, turn them into code, and not be restricted to usin…</p>
+  <p class="summary">Velork – Design and Code, Together Hi HN!:)&lt;p&gt;我已经作为一名全职自由职业者工作了 4年多。我一直想要某种 IDE ，在这种 IDE中 ，我可以将设计转化为代码 ，而不仅仅局限于使用 ……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@aliadelelroby · 2026-11-08 23:31 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-velork-design-and-code-toget-307fbb10a0.html">详情与领取方法</a> · <a class="fulllink" href="https://velork.com" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/show-hn-velork-design-and-code-toget-307fbb10a0.html">详情与领取方法</a> · <a class="fulllink" href="https://velork.com" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/show-hn-velork-design-and-code-toget-307fbb10a0.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Jurex in House –使用AI处理您业务的法律方面Show HN: J 来源摘要：Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: Jurex in House – Handles Legal Side of Your Business with AI Hi,&lt;p&gt;Jurex-in-house is a Tool you &amp;amp; legal teams can use to handle the legal side of your business. Best in Class Drafting, research … 打开来源链接按页面说明领取/试用；参与前自行核实。 kartikdhawan https://inhouse.jurex.ai/login AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="Jurex in House –使用 AI处理您业务的法律方面 Jurex in House –使用AI处理您业务的法律方面Hi,&lt;p&gt; Jurex-in-house是您和法律团队可以用来处理业务法律方面的工具。一流的起草、研究…… 打开来源链接按页面说明领取/试用；参与前自行核实。 kartikdhawan https://inhouse.jurex.ai/login AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-jurex-in-house-ai-show-hn-j-7ffe02d223.html">Show HN: Jurex in House –使用AI处理您业务的法律方面Show HN: J</a></h3>
-  <p class="orig">原文：Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: J</p>
-  <p class="summary">来源摘要：Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: Jurex in House – Handles Legal Side of Your Business with AI Hi,&lt;p&gt;Jurex-in-house is a Tool you &amp;amp; legal teams can use to handle the legal side of your business. Best in Class Drafting, research …</p>
+  <h3 class="title"><a href="../item/jurex-in-house-ai-7ffe02d223.html">Jurex in House –使用 AI处理您业务的法律方面</a></h3>
+  
+  <p class="summary">Jurex in House –使用AI处理您业务的法律方面Hi,&lt;p&gt; Jurex-in-house是您和法律团队可以用来处理业务法律方面的工具。一流的起草、研究……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@kartikdhawan · 2026-11-08 23:29 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-jurex-in-house-ai-show-hn-j-7ffe02d223.html">详情与领取方法</a> · <a class="fulllink" href="https://inhouse.jurex.ai/login" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/jurex-in-house-ai-7ffe02d223.html">详情与领取方法</a> · <a class="fulllink" href="https://inhouse.jurex.ai/login" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/jurex-in-house-ai-7ffe02d223.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN ： Solous ，一个日记应用程序，就像社交媒体一样，可以表达你内心的情感 来源摘要：Show HN: Solous, a journaling app like a social media for emotions inside of you Show HN: Solous, a journaling app like a social media for emotions inside of you Solous is a private journaling app. This app is inspired by movies like inside out or Yumi&amp;#x27;s Cells where we al… 打开来源链接按页面说明领取/试用；参与前自行核实。 solous https://solous.net/ AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="Solous ，一个日记应用程序，就像社交媒体一样，可以表达你内心的情感 Solous ，一个类似于社交媒体的日记应用程序，用于表达你内心的情感Solous是一个私人日记应用程序。这个应用程序的灵感来自电影，比如《Inside Out》或《Yumi&#x27;s Cells》，在这里我们可以…… 打开来源链接按页面说明领取/试用；参与前自行核实。 solous https://solous.net/ AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-solous-0e27c4ec54.html">Show HN ： Solous ，一个日记应用程序，就像社交媒体一样，可以表达你内心的情感</a></h3>
-  <p class="orig">原文：Show HN: Solous, a journaling app like a social media for emotions inside of you</p>
-  <p class="summary">来源摘要：Show HN: Solous, a journaling app like a social media for emotions inside of you Show HN: Solous, a journaling app like a social media for emotions inside of you Solous is a private journaling app. This app is inspired by movies like inside out or Yumi&amp;#x27;s Cells where we al…</p>
+  <h3 class="title"><a href="../item/solous-0e27c4ec54.html">Solous ，一个日记应用程序，就像社交媒体一样，可以表达你内心的情感</a></h3>
+  
+  <p class="summary">Solous ，一个类似于社交媒体的日记应用程序，用于表达你内心的情感Solous是一个私人日记应用程序。这个应用程序的灵感来自电影，比如《Inside Out》或《Yumi&#x27;s Cells》，在这里我们可以……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@solous · 2026-11-07 22:34 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-solous-0e27c4ec54.html">详情与领取方法</a> · <a class="fulllink" href="https://solous.net/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/solous-0e27c4ec54.html">详情与领取方法</a> · <a class="fulllink" href="https://solous.net/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/solous-0e27c4ec54.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="启动HN ： Kino AI （ YC S23 ） – AI媒体经理和视频编辑启动HN ： Kino 来源摘要：Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino AI (YC S23) – AI media manager and video editor Hi HN! I&amp;#x27;m Luke from Kino (&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;kino.ai&quot;&gt;https:&amp;#x2F;&amp;#x2F;kino.ai&lt;/a&gt;). Kino lets you make great videos with your agents … 打开来源链接按页面说明领取/试用；参与前自行核实。 lukeigel https://news.ycombinator.com/item?id=50368804 AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="启动HN ： Kino AI （ YC S23 ） – AI媒体经理和视频编辑启动 HN ： Kino 发布来源摘要时间：发布HN: Kino AI (YC S23) – AI媒体管理器兼视频编辑发布HN: Kino AI (YC S23) – AI媒体管理器兼视频编辑Hi HN!我是来自Kino的Luke （&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;kino.ai&quot;&gt; https://kino.ai&lt;/a&gt; ）。Kino可让您与经纪人一起制作精彩的视频…… 打开来源链接按页面说明领取/试用；参与前自行核实。 lukeigel https://news.ycombinator.com/item?id=50368804 AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/hn-kino-ai-yc-s23-ai-hn-kino-2b5f926b26.html">启动HN ： Kino AI （ YC S23 ） – AI媒体经理和视频编辑启动HN ： Kino</a></h3>
-  <p class="orig">原文：Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino</p>
-  <p class="summary">来源摘要：Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino AI (YC S23) – AI media manager and video editor Hi HN! I&amp;#x27;m Luke from Kino (&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;kino.ai&quot;&gt;https:&amp;#x2F;&amp;#x2F;kino.ai&lt;/a&gt;). Kino lets you make great videos with your agents …</p>
+  <h3 class="title"><a href="../item/hn-kino-ai-yc-s23-ai-hn-kino-2b5f926b26.html">启动HN ： Kino AI （ YC S23 ） – AI媒体经理和视频编辑启动 HN ： Kino</a></h3>
+  
+  <p class="summary">发布来源摘要时间：发布HN: Kino AI (YC S23) – AI媒体管理器兼视频编辑发布HN: Kino AI (YC S23) – AI媒体管理器兼视频编辑Hi HN!我是来自Kino的Luke （&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;kino.ai&quot;&gt; https://kino.ai&lt;/a&gt; ）。Kino可让您与经纪人一起制作精彩的视频……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@lukeigel · 2026-11-05 01:31 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hn-kino-ai-yc-s23-ai-hn-kino-2b5f926b26.html">详情与领取方法</a> · <a class="fulllink" href="https://news.ycombinator.com/item?id=50368804" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-kino-ai-yc-s23-ai-hn-kino-2b5f926b26.html">详情与领取方法</a> · <a class="fulllink" href="https://news.ycombinator.com/item?id=50368804" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-kino-ai-yc-s23-ai-hn-kino-2b5f926b26.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Fireside Folio – reMarkable Sh的免费书籍、漫画和新闻版本 来源摘要：Show HN: Fireside Folio – free books, comics and news editions for reMarkable Show HN: Fireside Folio – free books, comics and news editions for reMarkable I own a reMarkable 2 and wanted more to read on it than my own PDFs, so I built a free web app. You connect your tablet o… 打开来源链接按页面说明领取/试用；参与前自行核实。 hashfunction https://firesidefolio.com/ AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="显示HN ：炉边对开– reMarkable Sh的免费书籍、漫画和新闻版本 Fireside Folio – reMarkable Show的免费书籍、漫画和新闻版本HN: Fireside Folio – reMarkable的免费书籍、漫画和新闻版本我拥有一个reMarkable 2 ，并且想要阅读它而不是我自己的PDF ，所以我构建了一个免费的网络应用程序。您将平板电脑连接到…… 打开来源链接按页面说明领取/试用；参与前自行核实。 hashfunction https://firesidefolio.com/ AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-fireside-folio-remarkable-sh-3cb7fb09f2.html">Show HN: Fireside Folio – reMarkable Sh的免费书籍、漫画和新闻版本</a></h3>
-  <p class="orig">原文：Show HN: Fireside Folio – free books, comics and news editions for reMarkable Sh</p>
-  <p class="summary">来源摘要：Show HN: Fireside Folio – free books, comics and news editions for reMarkable Show HN: Fireside Folio – free books, comics and news editions for reMarkable I own a reMarkable 2 and wanted more to read on it than my own PDFs, so I built a free web app. You connect your tablet o…</p>
+  <h3 class="title"><a href="../item/hn-remarkable-sh-3cb7fb09f2.html">显示HN ：炉边对开– reMarkable Sh的免费书籍、漫画和新闻版本</a></h3>
+  
+  <p class="summary">Fireside Folio – reMarkable Show的免费书籍、漫画和新闻版本HN: Fireside Folio – reMarkable的免费书籍、漫画和新闻版本我拥有一个reMarkable 2 ，并且想要阅读它而不是我自己的PDF ，所以我构建了一个免费的网络应用程序。您将平板电脑连接到……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@hashfunction · 2026-11-09 05:39 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-fireside-folio-remarkable-sh-3cb7fb09f2.html">详情与领取方法</a> · <a class="fulllink" href="https://firesidefolio.com/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-remarkable-sh-3cb7fb09f2.html">详情与领取方法</a> · <a class="fulllink" href="https://firesidefolio.com/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-remarkable-sh-3cb7fb09f2.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Kids Shelf, your kids &#x27;own little internet Show HN: Kids Shelf, your ki 来源摘要：Show HN: Kids Shelf, your kids&#x27; own little internet Show HN: Kids Shelf, your kids&#x27; own little internet Hey all, I made this server for spinning up a local network page for our (young) kids to host videos and manage video watching time without turning them loose on main youtub… 打开来源链接按页面说明领取/试用；参与前自行核实。 ericd https://kidsshelf.org/ AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="Kids Shelf：给孩子的迷你互联网书架 儿童书架：儿童书籍和内容的小型互联网书架 打开来源链接按页面说明领取/试用；参与前自行核实。 ericd https://kidsshelf.org/ AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-kids-shelf-your-kids-own-lit-7cf24d3f98.html">Show HN: Kids Shelf, your kids &#x27;own little internet Show HN: Kids Shelf, your ki</a></h3>
-  <p class="orig">原文：Show HN: Kids Shelf, your kids&#x27; own little internet Show HN: Kids Shelf, your ki</p>
-  <p class="summary">来源摘要：Show HN: Kids Shelf, your kids&#x27; own little internet Show HN: Kids Shelf, your kids&#x27; own little internet Hey all, I made this server for spinning up a local network page for our (young) kids to host videos and manage video watching time without turning them loose on main youtub…</p>
+  <h3 class="title"><a href="../item/kids-shelf-7cf24d3f98.html">Kids Shelf：给孩子的迷你互联网书架</a></h3>
+  
+  <p class="summary">儿童书架：儿童书籍和内容的小型互联网书架</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@ericd · 2026-11-05 23:35 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-kids-shelf-your-kids-own-lit-7cf24d3f98.html">详情与领取方法</a> · <a class="fulllink" href="https://kidsshelf.org/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/kids-shelf-7cf24d3f98.html">详情与领取方法</a> · <a class="fulllink" href="https://kidsshelf.org/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/kids-shelf-7cf24d3f98.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Show 来源摘要：Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Hello HN. I&amp;#x27;m a developer from Spain, working for a US company and building apps as side projects.&lt;p&gt;I discovered that Clo… 打开来源链接按页面说明领取/试用；参与前自行核实。 ForeverYoungES https://apps.apple.com/us/app/cloudshare-s3-file-sharing/id6823902669 AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Show 显示HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法显示HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Hello HN。我是来自西班牙的开发人员，在一家美国公司工作，并作为附带项目构建应用程序。&lt;p&gt;我发现Clo…… 打开来源链接按页面说明领取/试用；参与前自行核实。 ForeverYoungES https://apps.apple.com/us/app/cloudshare-s3-file-sharing/id6823902669 AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-ios-cloudshare-s3-show-322b33d5c5.html">Show HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Show</a></h3>
-  <p class="orig">原文：Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show</p>
-  <p class="summary">来源摘要：Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Hello HN. I&amp;#x27;m a developer from Spain, working for a US company and building apps as side projects.&lt;p&gt;I discovered that Clo…</p>
+  <h3 class="title"><a href="../item/ios-cloudshare-s3-show-322b33d5c5.html">适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Show</a></h3>
+  
+  <p class="summary">显示HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法显示HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Hello HN。我是来自西班牙的开发人员，在一家美国公司工作，并作为附带项目构建应用程序。&lt;p&gt;我发现Clo……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@ForeverYoungES · 2026-11-08 19:22 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-ios-cloudshare-s3-show-322b33d5c5.html">详情与领取方法</a> · <a class="fulllink" href="https://apps.apple.com/us/app/cloudshare-s3-file-sharing/id6823902669" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/ios-cloudshare-s3-show-322b33d5c5.html">详情与领取方法</a> · <a class="fulllink" href="https://apps.apple.com/us/app/cloudshare-s3-file-sharing/id6823902669" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/ios-cloudshare-s3-show-322b33d5c5.html">复制链接</a></div>
 </article></div>
   <div id="empty" class="empty hidden">没有匹配条目</div>
   <footer>AI大模型免费资源导航 · AI 开发工具与编程助手</footer>
@@ -453,6 +585,282 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
       c.classList.toggle('hidden',!ok); if(ok) n++;
     });
     if(empty) empty.classList.toggle('hidden', n>0 || !cards.length);
+  });
+})();
+
+(function(){
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.style.colorScheme = 'dark';
+  try { document.body.classList.add('page-enter'); } catch(e) {}
+  const root = document.documentElement;
+  window.addEventListener('pointermove', function(e){
+    root.style.setProperty('--spot-x', e.clientX + 'px');
+    root.style.setProperty('--spot-y', e.clientY + 'px');
+  }, {passive:true});
+
+  function bindTilt(el){
+    el.addEventListener('pointermove', function(e){
+      if (reduced) return;
+      var r = el.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width;
+      var y = (e.clientY - r.top) / r.height;
+      el.style.setProperty('--mx', (x*100)+'%');
+      el.style.setProperty('--my', (y*100)+'%');
+      el.style.transform = 'perspective(900px) rotateX(' + ((0.5-y)*8) + 'deg) rotateY(' + ((x-0.5)*10) + 'deg) translateY(-2px)';
+    });
+    el.addEventListener('pointerleave', function(){ el.style.transform = ''; });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.card, .module-tile'), bindTilt);
+
+  function animateCount(el, target){
+    var t0 = performance.now(), dur = 900;
+    function frame(t){
+      var p = Math.min(1, (t - t0)/dur);
+      var eased = 1 - Math.pow(1-p, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-count]'), function(el){
+    var n = parseInt(el.getAttribute('data-count')||'0',10);
+    if (!reduced) animateCount(el, n); else el.textContent = String(n);
+  });
+
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal, .card, .module-tile, .panel-box, .hero'));
+  reveals.forEach(function(el){ el.classList.add('reveal'); });
+  if (!reduced && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold: 0.12, rootMargin: '0px 0px -8% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  var canvas = document.getElementById('fx-particles');
+  if (!canvas || reduced || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var w=0,h=0, particles=[], mouse={x:-9999,y:-9999};
+  var mobile = Math.min(window.innerWidth, window.innerHeight) < 720;
+  var COUNT = mobile ? 28 : 70;
+  function resize(){ w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+  function init(){
+    particles = [];
+    for (var i=0;i<COUNT;i++) particles.push({
+      x: Math.random()*w, y: Math.random()*h,
+      vx: (Math.random()-.5)*.35, vy: (Math.random()-.5)*.35,
+      r: Math.random()*1.6 + .4
+    });
+  }
+  function step(){
+    ctx.clearRect(0,0,w,h);
+    for (var i=0;i<particles.length;i++){
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      var dx = p.x - mouse.x, dy = p.y - mouse.y;
+      if (dx*dx + dy*dy < 16000) { p.vx += dx * -0.00003; p.vy += dy * -0.00003; }
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = 'rgba(92,225,255,.75)'; ctx.fill();
+    }
+    var maxD = mobile ? 110 : 140;
+    for (var i=0;i<particles.length;i++){
+      for (var j=i+1;j<particles.length;j++){
+        var a=particles[i], b=particles[j];
+        var dx=a.x-b.x, dy=a.y-b.y, dist=Math.hypot(dx,dy);
+        if (dist < maxD){
+          ctx.strokeStyle = 'rgba(167,139,250,' + ((1-dist/maxD)*0.35) + ')';
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(step);
+  }
+  window.addEventListener('pointermove', function(e){ mouse.x=e.clientX; mouse.y=e.clientY; }, {passive:true});
+  window.addEventListener('resize', function(){ resize(); init(); });
+  resize(); init(); step();
+})();
+
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touch = matchMedia('(hover: none), (pointer: coarse)').matches;
+  var desktop = !touch;
+
+  /* toast */
+  var toast = document.createElement('div');
+  toast.id = 'fx-toast';
+  toast.setAttribute('role','status');
+  document.body.appendChild(toast);
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function(){ toast.classList.remove('show'); }, 1800);
+  }
+
+  /* scroll progress + back to top */
+  var bar = document.createElement('div'); bar.id = 'scroll-progress'; document.body.appendChild(bar);
+  var topOrb = document.createElement('button');
+  topOrb.id = 'back-top'; topOrb.type='button'; topOrb.setAttribute('aria-label','回到顶部'); topOrb.innerHTML='↑';
+  document.body.appendChild(topOrb);
+  topOrb.addEventListener('click', function(){ window.scrollTo({top:0, behavior: reduced?'auto':'smooth'}); });
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max>0 ? (h.scrollTop/max) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    topOrb.classList.toggle('show', h.scrollTop > 480);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* custom cursor + trail (desktop) */
+  if (desktop && !reduced) {
+    document.documentElement.classList.add('has-cursor');
+    var cur = document.createElement('div'); cur.id='cursor-dot'; document.body.appendChild(cur);
+    var trail = [];
+    for (var i=0;i<8;i++){ var t=document.createElement('div'); t.className='cursor-trail'; document.body.appendChild(t); trail.push(t); }
+    var mx=0,my=0, pts=trail.map(function(){return {x:0,y:0};});
+    window.addEventListener('pointermove', function(e){ mx=e.clientX; my=e.clientY; cur.style.transform='translate('+mx+'px,'+my+'px)'; }, {passive:true});
+    (function loop(){
+      var x=mx,y=my;
+      for (var i=0;i<pts.length;i++){
+        pts[i].x += (x - pts[i].x) * (0.35 - i*0.03);
+        pts[i].y += (y - pts[i].y) * (0.35 - i*0.03);
+        trail[i].style.transform='translate('+pts[i].x+'px,'+pts[i].y+'px) scale('+(1-i*0.08)+')';
+        x=pts[i].x; y=pts[i].y;
+      }
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  /* magnetic tiles/buttons */
+  if (desktop && !reduced) {
+    var mags = document.querySelectorAll('.module-tile, .btn, .topnav a, #back-top');
+    Array.prototype.forEach.call(mags, function(el){
+      el.addEventListener('pointermove', function(e){
+        var r=el.getBoundingClientRect();
+        var dx=(e.clientX-(r.left+r.width/2))/r.width;
+        var dy=(e.clientY-(r.top+r.height/2))/r.height;
+        el.style.translate = (dx*12)+'px '+(dy*10)+'px';
+      });
+      el.addEventListener('pointerleave', function(){ el.style.translate=''; });
+    });
+  }
+
+  /* module tile <-> brain region */
+  Array.prototype.forEach.call(document.querySelectorAll('.module-tile'), function(el){
+    el.addEventListener('pointerenter', function(){
+      var href=(el.getAttribute('href')||'');
+      var id=href.split('/').pop().replace('.html','');
+      if (window.__brainAPI && window.__brainAPI.highlightRegion) window.__brainAPI.highlightRegion(id);
+    });
+    el.addEventListener('pointerleave', function(){
+      if (window.__brainAPI && window.__brainAPI.highlightRegion) window.__brainAPI.highlightRegion('');
+    });
+  });
+
+  /* card ripple + copy link */
+  document.addEventListener('click', function(e){
+    var card = e.target.closest && e.target.closest('.card, .module-tile');
+    if (card && !reduced) {
+      var r=card.getBoundingClientRect();
+      var rip=document.createElement('span'); rip.className='ripple';
+      rip.style.left=(e.clientX-r.left)+'px'; rip.style.top=(e.clientY-r.top)+'px';
+      card.appendChild(rip); setTimeout(function(){ rip.remove(); }, 700);
+    }
+    var copyBtn = e.target.closest && e.target.closest('[data-copy-link]');
+    if (copyBtn) {
+      e.preventDefault();
+      var url = copyBtn.getAttribute('data-copy-link') || location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function(){ showToast('链接已复制'); }).catch(function(){ showToast('复制失败'); });
+      } else {
+        showToast('请手动复制链接');
+      }
+    }
+  });
+
+  /* text scramble on headings */
+  function scramble(el){
+    if (reduced || el.dataset.scrambled) return;
+    el.dataset.scrambled='1';
+    var final = el.textContent;
+    var chars = 'アイウエオカキクケコABCDEF0123456789#$%';
+    var i=0;
+    var t=setInterval(function(){
+      el.textContent = final.split('').map(function(ch, idx){
+        if (idx < i) return final[idx];
+        if (/\s/.test(ch)) return ch;
+        return chars[Math.floor(Math.random()*chars.length)];
+      }).join('');
+      i += 1;
+      if (i > final.length) { el.textContent=final; clearInterval(t); }
+    }, 28);
+  }
+  if ('IntersectionObserver' in window) {
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ scramble(en.target); io.unobserve(en.target);} });
+    }, {threshold:0.4});
+    document.querySelectorAll('h1.hero-title, .hero h1, .section h2').forEach(function(h){ io.observe(h); });
+  }
+
+  /* Cmd/Ctrl+K command palette */
+  var items = [];
+  document.querySelectorAll('.card').forEach(function(card){
+    var title = (card.querySelector('.title')||{}).textContent||'';
+    var link = card.querySelector('a[href]');
+    var href = link ? link.getAttribute('href') : '';
+    var text = card.getAttribute('data-text')||title;
+    items.push({title:title.trim(), href:href, text:text});
+  });
+  document.querySelectorAll('.module-tile').forEach(function(tile){
+    items.push({title:(tile.querySelector('h2')||{}).textContent||'模块', href:tile.getAttribute('href')||'', text:tile.textContent||''});
+  });
+  var pal=document.createElement('div'); pal.id='cmd-palette'; pal.innerHTML='<div class="cmd-box"><input id="cmd-input" placeholder="搜索资源 / 模块…（Esc 关闭）" /><div id="cmd-results"></div></div>';
+  document.body.appendChild(pal);
+  var input=pal.querySelector('#cmd-input');
+  var results=pal.querySelector('#cmd-results');
+  function render(q){
+    q=(q||'').trim().toLowerCase();
+    var hits=items.filter(function(it){ return !q || (it.text+it.title).toLowerCase().indexOf(q)>=0; }).slice(0,12);
+    results.innerHTML = hits.map(function(it){
+      return '<a class="cmd-item" href="'+it.href+'"><strong>'+it.title.replace(/</g,'&lt;')+'</strong></a>';
+    }).join('') || '<div class="cmd-empty">无结果</div>';
+  }
+  function openPal(){ pal.classList.add('open'); input.value=''; render(''); setTimeout(function(){ input.focus(); }, 10); }
+  function closePal(){ pal.classList.remove('open'); }
+  window.addEventListener('keydown', function(e){
+    if ((e.metaKey||e.ctrlKey) && e.key.toLowerCase()==='k'){ e.preventDefault(); openPal(); }
+    if (e.key==='Escape') closePal();
+  });
+  pal.addEventListener('click', function(e){ if(e.target===pal) closePal(); });
+  input.addEventListener('input', function(){ render(input.value); });
+
+  /* easter egg ai168 */
+  var buf='';
+  window.addEventListener('keypress', function(e){
+    if (e.target && /input|textarea/i.test(e.target.tagName)) return;
+    buf=(buf+e.key).slice(-5).toLowerCase();
+    if (buf==='ai168'){
+      buf='';
+      showToast('AI168 粒子爆发');
+      if (window.__brainAPI && window.__brainAPI.triggerShockwave) window.__brainAPI.triggerShockwave();
+      document.body.classList.add('egg-burst');
+      setTimeout(function(){ document.body.classList.remove('egg-burst'); }, 1200);
+      // burst dots
+      if (!reduced){
+        for (var i=0;i<24;i++){
+          var d=document.createElement('div'); d.className='burst-dot';
+          d.style.left=(50+Math.cos(i)*10)+'%'; d.style.top=(40+Math.sin(i)*8)+'%';
+          d.style.setProperty('--dx', (Math.cos(i/24*Math.PI*2)*120)+'px');
+          d.style.setProperty('--dy', (Math.sin(i/24*Math.PI*2)*90)+'px');
+          document.body.appendChild(d);
+          setTimeout((function(el){ return function(){ el.remove(); }; })(d), 900);
+        }
+      }
+    }
   });
 })();
 </script>

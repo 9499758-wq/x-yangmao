@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-<meta name="color-scheme" content="dark light" />
+<meta name="color-scheme" content="dark" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="renderer" content="webkit" />
 <meta name="force-rendering" content="webkit" />
@@ -25,9 +25,10 @@
 <meta property="og:url" content="https://ai168.netlify.app/m/hot-topics.html" />
 
 <style>
+:root { color-scheme: dark; }
 
 :root {
-  --bg0: #05070f;
+  --bg0: #03050c;
   --bg1: #0a1022;
   --panel: rgba(12, 18, 36, 0.62);
   --panel2: rgba(16, 24, 48, 0.78);
@@ -45,17 +46,7 @@
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   --sans: "PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg0: #f3f6ff; --bg1: #e8eefc;
-    --panel: rgba(255,255,255,.72); --panel2: rgba(255,255,255,.88);
-    --card: rgba(255,255,255,.82);
-    --line: rgba(60,100,180,.14); --line2: rgba(110,80,220,.22);
-    --text: #0e1528; --muted: #5a6688;
-    --cyan: #0891b2; --violet: #6d28d9; --mint: #0f766e; --warn: #b45309;
-    --glow: 0 0 36px rgba(8,145,178,.10);
-  }
-}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; color-scheme: dark; }
 html, body { margin:0; padding:0; overflow-wrap:anywhere; word-break:break-word; }
@@ -147,10 +138,7 @@ a:hover { text-decoration: underline; }
   background: linear-gradient(105deg, #fff 10%, var(--cyan) 45%, var(--violet) 85%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-@media (prefers-color-scheme: light) {
-  .hero h1 { background: linear-gradient(105deg, #0b1224 5%, var(--cyan) 45%, var(--violet) 90%);
-    -webkit-background-clip: text; background-clip: text; color: transparent; }
-}
+
 .hero .lead { margin: 0; max-width: 46rem; color: var(--muted); font-size: 1.05rem; }
 .stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .pill {
@@ -267,11 +255,147 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
 .sec-desc { margin: 0 0 14px; color: var(--muted); }
 .intro p { margin: 0; color: var(--muted); }
 
+
+.fx-aurora{position:fixed;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(40% 35% at 20% 20%,rgba(92,225,255,.22),transparent 60%),radial-gradient(35% 40% at 80% 15%,rgba(167,139,250,.24),transparent 55%),radial-gradient(45% 35% at 55% 75%,rgba(94,240,192,.12),transparent 60%),radial-gradient(30% 30% at 10% 80%,rgba(255,100,200,.08),transparent 60%);filter:saturate(1.2) blur(8px);animation:auroraMove 22s ease-in-out infinite alternate}
+@keyframes auroraMove{0%{transform:translate3d(-2%,-1%,0) rotate(0) scale(1)}50%{transform:translate3d(3%,2%,0) rotate(4deg) scale(1.05)}100%{transform:translate3d(-1%,3%,0) rotate(-3deg) scale(1.08)}}
+.fx-grid{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.28;background-image:linear-gradient(rgba(92,225,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(92,225,255,.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at center,#000 25%,transparent 78%)}
+.fx-noise{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");mix-blend-mode:overlay}
+.fx-scan{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.06;background:repeating-linear-gradient(to bottom,transparent 0,transparent 2px,rgba(255,255,255,.04) 3px,rgba(255,255,255,.04) 3px);animation:scanDrift 8s linear infinite}
+@keyframes scanDrift{to{transform:translateY(3px)}}
+#fx-particles{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%}
+.fx-spot{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(520px 520px at var(--spot-x,50%) var(--spot-y,30%),rgba(92,225,255,.14),transparent 55%)}
+body{background:#03050c!important}
+.wrap{z-index:2}
+body.page-enter .wrap{animation:pageIn .55s ease both}
+@keyframes pageIn{from{opacity:0;transform:translateY(10px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@property --border-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+@keyframes borderSpin{to{--border-angle:360deg}}
+.hero{border:1px solid transparent;background:linear-gradient(var(--panel),var(--panel)) padding-box,conic-gradient(from var(--border-angle,0deg),rgba(92,225,255,.15),rgba(167,139,250,.55),rgba(94,240,192,.25),rgba(92,225,255,.15)) border-box;animation:borderSpin 8s linear infinite}
+.hero h1,.hero-title{background:linear-gradient(105deg,#fff 8%,var(--cyan) 35%,var(--violet) 62%,#fff 90%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4.5s linear infinite}
+@keyframes shimmer{to{background-position:220% center}}
+.live-dot,.eyebrow i{animation:livePulse 1.8s ease-out infinite}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(94,240,192,.55)}70%{box-shadow:0 0 0 12px rgba(94,240,192,0)}100%{box-shadow:0 0 0 0 rgba(94,240,192,0)}}
+.module-tile,.card{transform-style:preserve-3d;will-change:transform;border:1px solid transparent;background:linear-gradient(160deg,rgba(92,225,255,.07),transparent 42%),linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--border-angle,180deg),rgba(92,225,255,.05),rgba(167,139,250,.55),rgba(94,240,192,.2),rgba(92,225,255,.05)) border-box;animation:borderSpin 12s linear infinite}
+.module-tile::after,.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(280px 180px at var(--mx,50%) var(--my,0%),rgba(92,225,255,.12),transparent 55%);opacity:0;transition:opacity .2s}
+.module-tile:hover::after,.card:hover::after{opacity:1}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+.fx-aurora,.fx-scan,.hero,.module-tile,.card,.hero h1,.hero-title,.eyebrow i,.live-dot,body.page-enter .wrap{animation:none!important}
+.reveal{opacity:1;transform:none;transition:none}
+.module-tile,.card{transform:none!important}
+}
+
+
+.hero.hero-brain {
+  display: grid; grid-template-columns: 1fr; gap: 18px; align-items: center;
+}
+@media (min-width: 900px) {
+  .hero.hero-brain { grid-template-columns: 1.15fr 0.95fr; }
+}
+.hero-copy { position: relative; z-index: 2; }
+#brain-hero {
+  position: relative; z-index: 2;
+  width: 100%; min-height: 280px; height: clamp(260px, 42vw, 420px);
+  border-radius: 22px;
+  border: 1px solid rgba(92,225,255,.18);
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(92,225,255,.10), transparent 55%),
+    radial-gradient(ellipse at 50% 60%, rgba(167,139,250,.12), transparent 50%),
+    rgba(0,0,0,.25);
+  box-shadow: inset 0 0 60px rgba(92,225,255,.06), 0 0 40px rgba(167,139,250,.08);
+  overflow: hidden;
+}
+#brain-hero canvas { width: 100% !important; height: 100% !important; }
+.brain-caption {
+  position: absolute; left: 12px; bottom: 10px; z-index: 3;
+  font-family: var(--mono); font-size: .68rem; color: rgba(139,151,184,.9);
+  letter-spacing: .06em; text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* interactivity */
+html.has-cursor, html.has-cursor * { cursor: none !important; }
+#cursor-dot, .cursor-trail {
+  position: fixed; top:0; left:0; width:10px; height:10px; margin:-5px 0 0 -5px;
+  border-radius:50%; pointer-events:none; z-index:9999;
+  background: rgba(92,225,255,.9); box-shadow: 0 0 16px rgba(92,225,255,.8);
+  mix-blend-mode: screen;
+}
+.cursor-trail { width:8px; height:8px; margin:-4px 0 0 -4px; opacity:.35; background: rgba(167,139,250,.7); }
+#scroll-progress {
+  position: fixed; top:0; left:0; height:2px; width:100%; z-index:10000;
+  background: linear-gradient(90deg, var(--cyan), var(--violet), var(--mint));
+  transform-origin: left center; transform: scaleX(0);
+}
+#back-top {
+  position: fixed; right:18px; bottom:18px; z-index:90;
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--line2);
+  background: rgba(10,16,34,.8); color: var(--cyan); font-size:18px;
+  opacity:0; pointer-events:none; transition: opacity .25s, transform .25s;
+  backdrop-filter: blur(10px);
+}
+#back-top.show { opacity:1; pointer-events:auto; }
+#back-top:hover { transform: translateY(-2px); box-shadow: 0 0 24px rgba(92,225,255,.25); }
+#fx-toast {
+  position: fixed; left:50%; bottom:28px; transform: translateX(-50%) translateY(20px);
+  background: rgba(12,20,42,.92); border:1px solid var(--line2); color: var(--text);
+  padding:10px 16px; border-radius:999px; z-index:10001; opacity:0; pointer-events:none;
+  transition: .25s ease; font-size:.9rem; backdrop-filter: blur(12px);
+}
+#fx-toast.show { opacity:1; transform: translateX(-50%) translateY(0); }
+.ripple {
+  position:absolute; width:8px; height:8px; border-radius:50%;
+  background: rgba(92,225,255,.35); transform: translate(-50%,-50%) scale(0);
+  animation: ripple .65s ease-out forwards; pointer-events:none;
+}
+@keyframes ripple { to { transform: translate(-50%,-50%) scale(28); opacity:0; } }
+#cmd-palette {
+  position:fixed; inset:0; z-index:10050; background: rgba(0,0,0,.55);
+  display:none; align-items:flex-start; justify-content:center; padding-top:12vh;
+  backdrop-filter: blur(8px);
+}
+#cmd-palette.open { display:flex; }
+.cmd-box {
+  width: min(640px, 92vw); background: rgba(10,16,34,.95); border:1px solid var(--line2);
+  border-radius:18px; overflow:hidden; box-shadow: 0 30px 80px rgba(0,0,0,.5);
+}
+#cmd-input {
+  width:100%; border:0; outline:0; padding:16px 18px; font-size:1rem;
+  background: transparent; color: var(--text); border-bottom:1px solid var(--line);
+}
+#cmd-results { max-height: 50vh; overflow:auto; }
+.cmd-item { display:block; padding:12px 18px; color: var(--text); text-decoration:none; border-bottom:1px solid rgba(120,200,255,.08); }
+.cmd-item:hover { background: rgba(92,225,255,.08); }
+.cmd-empty { padding:18px; color: var(--muted); }
+.burst-dot {
+  position: fixed; width:8px; height:8px; border-radius:50%; background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan); pointer-events:none; z-index:10002;
+  animation: burst .85s ease-out forwards;
+}
+@keyframes burst {
+  to { transform: translate(var(--dx), var(--dy)) scale(0.2); opacity:0; }
+}
+body.egg-burst .fx-aurora { filter: saturate(1.8) hue-rotate(40deg); }
+.card .copy-link, .copy-link {
+  font-family: var(--mono); font-size: .72rem; margin-left: 8px; color: var(--violet);
+}
+@media (prefers-reduced-motion: reduce) {
+  #cursor-dot, .cursor-trail, .ripple, .burst-dot { display:none !important; }
+  html.has-cursor, html.has-cursor * { cursor: auto !important; }
+}
+
 </style>
 
 </head>
 
 <body>
+<div class="fx-aurora" aria-hidden="true"></div>
+<div class="fx-grid" aria-hidden="true"></div>
+<div class="fx-noise" aria-hidden="true"></div>
+<div class="fx-scan" aria-hidden="true"></div>
+<div class="fx-spot" aria-hidden="true"></div>
+<canvas id="fx-particles" aria-hidden="true"></canvas>
 <div class="wrap">
   
 <header class="topnav">
@@ -279,20 +403,28 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <nav class="navlinks" aria-label="模块导航"><a href="../c/damoxing-mianfei-api.html">大模型 API 免费额度</a><a href="../c/ai-huiyuan-shiyong.html">AI 产品会员/试用</a><a href="../c/ai-kaifa-gongju.html">AI 开发工具与编程助手</a><a href="../c/mianfei-gpu-yunfuwu.html">免费GPU / 云服务</a><a href="../c/keji-app-xianmian.html">科技软件 / App 限免</a><a href="../m/github-hot.html">GitHub 新热门</a><a href="../m/hot-topics.html">最近热议</a></nav>
 </header>
   <div class="crumbs"><a href="../">首页</a> › 最近热议</div>
-  <header class="hero">
-    <div class="eyebrow"><i></i> PULSE</div>
-    <h1>最近热议</h1>
-    <p class="lead">Hacker News / V2EX / X 等渠道的 AI 与科技热议，标题与摘要已尽量译为中文。</p>
-    <div class="stats"><div class="pill">话题 <b>40</b></div><div class="pill">更新 <b>2026-11-09</b></div></div>
+  <header class="hero hero-brain">
+    <div class="hero-copy">
+    <div class="eyebrow"><i class="live-dot"></i> PULSE</div>
+    <h1 class="hero-title">最近热议</h1>
+    <p class="lead">Hacker News / V2EX / X 等渠道的 AI 与科技热议，标题与摘要已译为中文。</p>
+    <div class="stats"><div class="pill">话题 <b data-count="40">0</b></div><div class="pill">更新 <b>2026-11-09</b></div></div>
+    </div>
+    
+<div id="brain-hero" data-vendor="../vendor/" aria-hidden="true">
+  <span class="brain-caption">Neural Graph · WebGL</span>
+</div>
+
   </header>
+  <script src="../vendor/brain-loader.js" defer></script>
   <div class="toolbar"><input id="q" type="search" placeholder="搜索热议…" autocomplete="off" /></div>
   <div class="grid">
 <article class="card" data-text="再见， Claude ，你好Pi 再见， Claude ，你好Pi">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title">再见， Claude ，你好Pi</h3>
-  <p class="orig">原文：Goodbye Claude, hello Pi</p>
+  
   <p class="summary">再见， Claude ，你好Pi</p>
-  <p class="orig">原文：Goodbye Claude, hello Pi</p>
+  
   <div class="meta">热度：点数 754 · 评论 462</div>
   <div class="linkrow"><a class="fulllink" href="https://caleb.software/posts/claude-to-pi.html" target="_blank" rel="noopener noreferrer">https://caleb.software/posts/claude-to-pi.html</a></div>
 </article>
@@ -300,9 +432,9 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
 <article class="card" data-text="高盛(Goldman Sachs)正在从其银行家和交易员手中撤出Claude Code 高盛(Goldman Sachs)正在从其银行家和交易员手中撤出Claude Code">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title">高盛(Goldman Sachs)正在从其银行家和交易员手中撤出Claude Code</h3>
-  <p class="orig">原文：Goldman Sachs is pulling Claude Code from its bankers and traders</p>
+  
   <p class="summary">高盛(Goldman Sachs)正在从其银行家和交易员手中撤出Claude Code</p>
-  <p class="orig">原文：Goldman Sachs is pulling Claude Code from its bankers and traders</p>
+  
   <div class="meta">热度：点数 748 · 评论 400</div>
   <div class="linkrow"><a class="fulllink" href="https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers" target="_blank" rel="noopener noreferrer">https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers</a></div>
 </article>
@@ -310,29 +442,29 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
 <article class="card" data-text="英伟达首席执行官Jensen Huang致员工关于婚外情的信 英伟达首席执行官Jensen Huang致员工关于婚外情的信">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title">英伟达首席执行官Jensen Huang致员工关于婚外情的信</h3>
-  <p class="orig">原文：Nvidia CEO Jensen Huang&#x27;s letter to staff about affair</p>
+  
   <p class="summary">英伟达首席执行官Jensen Huang致员工关于婚外情的信</p>
-  <p class="orig">原文：Nvidia CEO Jensen Huang&#x27;s letter to staff about affair</p>
+  
   <div class="meta">热度：点数 607 · 评论 623</div>
   <div class="linkrow"><a class="fulllink" href="https://nvidianews.nvidia.com/news/a-message-to-our-company" target="_blank" rel="noopener noreferrer">https://nvidianews.nvidia.com/news/a-message-to-our-company</a></div>
 </article>
 
-<article class="card" data-text="KetchUp –使用Rust和WebGPU构建的开源SketchUp替代方案 KetchUp –使用Rust和WebGPU构建的开源SketchUp替代方案">
+<article class="card" data-text="KetchUp –使用 Rust和 WebGPU构建的开源 SketchUp替代方案 KetchUp –使用 Rust和 WebGPU构建的开源 SketchUp替代方案">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title">KetchUp –使用Rust和WebGPU构建的开源SketchUp替代方案</h3>
-  <p class="orig">原文：KetchUp – Open-source SketchUp alternative built with Rust and WebGPU</p>
-  <p class="summary">KetchUp –使用Rust和WebGPU构建的开源SketchUp替代方案</p>
-  <p class="orig">原文：KetchUp – Open-source SketchUp alternative built with Rust and WebGPU</p>
+  <h3 class="title">KetchUp –使用 Rust和 WebGPU构建的开源 SketchUp替代方案</h3>
+  
+  <p class="summary">KetchUp –使用 Rust和 WebGPU构建的开源 SketchUp替代方案</p>
+  
   <div class="meta">热度：点数 440 · 评论 123</div>
   <div class="linkrow"><a class="fulllink" href="https://ketchup3d.github.io/app/" target="_blank" rel="noopener noreferrer">https://ketchup3d.github.io/app/</a></div>
 </article>
 
-<article class="card" data-text="Llama-modchip ： 284B DeepSeek ， 64GB内存，无GPU Llama-modchip ： 284B DeepSeek ， 64GB内存，无GPU">
+<article class="card" data-text="Llama-modchip ： 284B DeepSeek ， 64GB内存 ，无 GPU Llama-modchip ： 284B DeepSeek ， 64GB内存 ，无 GPU">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title">Llama-modchip ： 284B DeepSeek ， 64GB内存，无GPU</h3>
-  <p class="orig">原文：Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU</p>
-  <p class="summary">Llama-modchip ： 284B DeepSeek ， 64GB内存，无GPU</p>
-  <p class="orig">原文：Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU</p>
+  <h3 class="title">Llama-modchip ： 284B DeepSeek ， 64GB内存 ，无 GPU</h3>
+  
+  <p class="summary">Llama-modchip ： 284B DeepSeek ， 64GB内存 ，无 GPU</p>
+  
   <div class="meta">热度：点数 412 · 评论 185</div>
   <div class="linkrow"><a class="fulllink" href="https://github.com/synchopate/llama-modchip" target="_blank" rel="noopener noreferrer">https://github.com/synchopate/llama-modchip</a></div>
 </article>
@@ -340,9 +472,9 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
 <article class="card" data-text="Outlook.com正在拒绝来自没有DMARC的域的电子邮件 Outlook.com正在拒绝来自没有DMARC的域的电子邮件">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title">Outlook.com正在拒绝来自没有DMARC的域的电子邮件</h3>
-  <p class="orig">原文：Outlook.com is rejecting email from domains without DMARC</p>
+  
   <p class="summary">Outlook.com正在拒绝来自没有DMARC的域的电子邮件</p>
-  <p class="orig">原文：Outlook.com is rejecting email from domains without DMARC</p>
+  
   <div class="meta">热度：点数 380 · 评论 271</div>
   <div class="linkrow"><a class="fulllink" href="https://mailroute.net/blog/outlook-rejecting-email-without-dmarc" target="_blank" rel="noopener noreferrer">https://mailroute.net/blog/outlook-rejecting-email-without-dmarc</a></div>
 </article>
@@ -350,9 +482,9 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
 <article class="card" data-text="我不相信AI泡沫的存在 我不相信AI泡沫的存在">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title">我不相信AI泡沫的存在</h3>
-  <p class="orig">原文：I&#x27;m not convinced the AI bubble exists</p>
+  
   <p class="summary">我不相信AI泡沫的存在</p>
-  <p class="orig">原文：I&#x27;m not convinced the AI bubble exists</p>
+  
   <div class="meta">热度：点数 233 · 评论 340</div>
   <div class="linkrow"><a class="fulllink" href="https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html#im-not-convinced-the-ai-bubble-exists" target="_blank" rel="noopener noreferrer">https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html#im-not-convinced-the-ai-bubble-exists</a></div>
 </article>
@@ -360,15 +492,15 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
 <article class="card" data-text="我如何对抗AI Brain Fry 我如何对抗AI Brain Fry">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title">我如何对抗AI Brain Fry</h3>
-  <p class="orig">原文：How I Fight AI Brain Fry</p>
+  
   <p class="summary">我如何对抗AI Brain Fry</p>
-  <p class="orig">原文：How I Fight AI Brain Fry</p>
+  
   <div class="meta">热度：点数 233 · 评论 165</div>
   <div class="linkrow"><a class="fulllink" href="https://sergeykuhne.com/blog/fighting-ai-brain-fry" target="_blank" rel="noopener noreferrer">https://sergeykuhne.com/blog/fighting-ai-brain-fry</a></div>
 </article>
 
-<article class="card" data-text="[中转站] 小众中转站推广，特色分组 opus-4.6，进来领鸡蛋 10$ 站点： https://minitoken.cc/
-充值比例 1:1
+<article class="card" data-text="[中转站] 小众中转站推广，特色分组 opus-4.6，进来领鸡蛋 10$ 站点网址网址： https://minitoken.cc/
+充值比例 1: 1
 
 主营模型
 claude-opus-4-6
@@ -377,13 +509,13 @@ gpt-6-astra
 gpt-6.1-sol
 
 
-留下用户名送 5$,加入 qq 群留下用户名送 5$，一共 10$ 有效期一个月
-点击链接加入群聊： https://qm.qq.com/q/P2hDQlEPus">
+留下用户名送 5 $,加入 qq 群留下用户名送 5 $ ，一共 10 $ 有效期一个月
+点击链接加入群聊网址网址： https://qm.qq.com/q/P2hDQlEPus">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 V2EX</span></div>
   <h3 class="title">[中转站] 小众中转站推广，特色分组 opus-4.6，进来领鸡蛋 10$</h3>
   
-  <p class="summary">站点： https://minitoken.cc/
-充值比例 1:1
+  <p class="summary">站点网址网址： https://minitoken.cc/
+充值比例 1: 1
 
 主营模型
 claude-opus-4-6
@@ -392,8 +524,8 @@ gpt-6-astra
 gpt-6.1-sol
 
 
-留下用户名送 5$,加入 qq 群留下用户名送 5$，一共 10$ 有效期一个月
-点击链接加入群聊： https://qm.qq.com/q/P2hDQlEPus</p>
+留下用户名送 5 $,加入 qq 群留下用户名送 5 $ ，一共 10 $ 有效期一个月
+点击链接加入群聊网址网址： https://qm.qq.com/q/P2hDQlEPus</p>
   
   <div class="meta">热度：回复 105</div>
   <div class="linkrow"><a class="fulllink" href="https://www.v2ex.com/t/1255439" target="_blank" rel="noopener noreferrer">https://www.v2ex.com/t/1255439</a></div>
@@ -402,9 +534,9 @@ gpt-6.1-sol
 <article class="card" data-text="对GPUI的批判 对GPUI的批判">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title">对GPUI的批判</h3>
-  <p class="orig">原文：A Critique of GPUI</p>
+  
   <p class="summary">对GPUI的批判</p>
-  <p class="orig">原文：A Critique of GPUI</p>
+  
   <div class="meta">热度：点数 83 · 评论 48</div>
   <div class="linkrow"><a class="fulllink" href="https://blog.zortax.de/posts/a-critique-of-gpui" target="_blank" rel="noopener noreferrer">https://blog.zortax.de/posts/a-critique-of-gpui</a></div>
 </article>
@@ -577,7 +709,7 @@ KimDrop 主要想解决一个场景：想在电脑上管理 iPhone 里的照片�
 - 在电脑浏览器中浏览 iPhone 相册，按相册、日期等查找照片
 - 预览 HEIC 照片和 Live Photo
 - 下载需要保存的照片和视频原件
-- 在手机和电脑之间传输文件，支持文件夹上传和 ZIP 下载">
+- 在手机和电脑之间传输文件，支持文件夹上传和 ZIP 下载">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 V2EX</span></div>
   <h3 class="title">[免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏览、下载 iPhone 照片和文件</h3>
   
@@ -591,7 +723,7 @@ KimDrop 主要想解决一个场景：想在电脑上管理 iPhone 里的照片�
 - 在电脑浏览器中浏览 iPhone 相册，按相册、日期等查找照片
 - 预览 HEIC 照片和 Live Photo
 - 下载需要保存的照片和视频原件
-- 在手机和电脑之间传输文件，支持文件夹上传和 ZIP 下载</p>
+- 在手机和电脑之间传输文件，支持文件夹上传和 ZIP 下载</p>
   
   <div class="meta">热度：回复 4</div>
   <div class="linkrow"><a class="fulllink" href="https://www.v2ex.com/t/1255560" target="_blank" rel="noopener noreferrer">https://www.v2ex.com/t/1255560</a></div>
@@ -695,9 +827,9 @@ BLE 是点对点 GATT ，不是广播。官方 App 和车之间那条链路没�
   <div class="linkrow"><a class="fulllink" href="https://www.v2ex.com/t/1255568" target="_blank" rel="noopener noreferrer">https://www.v2ex.com/t/1255568</a></div>
 </article>
 
-<article class="card" data-text="IteraCompute：Qwen3.8-27B 每月约 3000 万 Token 免费 每月约 3000 万 Token 免费额度，Qwen3.8-27B 输入/缓存/输出标价为 0，约 128K 上下文，OpenAI 兼容接口；邮箱验证拿 Key，不用绑卡。额度每月 1 号重置，超额回 429 不自动扣费。帖称推广约到 11 月 24 日，高峰共享算力可能排队。同作者还提到 AMD 开发者计划约 100 美元 MI300X 额度（激活后约 30 天过期）等。">
+<article class="card" data-text="IteraCompute ： Qwen3.8-27B 每月约 3000万代币 免费 每月约 3000 万 Token 免费额度，Qwen3.8-27B 输入/缓存/输出标价为 0，约 128K 上下文，OpenAI 兼容接口；邮箱验证拿 Key，不用绑卡。额度每月 1 号重置，超额回 429 不自动扣费。帖称推广约到 11 月 24 日，高峰共享算力可能排队。同作者还提到 AMD 开发者计划约 100 美元 MI300X 额度（激活后约 30 天过期）等。">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 X</span></div>
-  <h3 class="title">IteraCompute：Qwen3.8-27B 每月约 3000 万 Token 免费</h3>
+  <h3 class="title">IteraCompute ： Qwen3.8-27B 每月约 3000万代币 免费</h3>
   
   <p class="summary">每月约 3000 万 Token 免费额度，Qwen3.8-27B 输入/缓存/输出标价为 0，约 128K 上下文，OpenAI 兼容接口；邮箱验证拿 Key，不用绑卡。额度每月 1 号重置，超额回 429 不自动扣费。帖称推广约到 11 月 24 日，高峰共享算力可能排队。同作者还提到 AMD 开发者计划约 100 美元 MI300X 额度（激活后约 30 天过期）等。</p>
   
@@ -745,7 +877,7 @@ BLE 是点对点 GATT ，不是广播。官方 App 和车之间那条链路没�
   <div class="linkrow"><a class="fulllink" href="https://x.com/AWG48488/status/2119415638494204051" target="_blank" rel="noopener noreferrer">https://x.com/AWG48488/status/2119415638494204051</a></div>
 </article>
 
-<article class="card" data-text="Cow Code 中转站 | 支持 Claude、GPT、Gemini、DeepSeek 等主流模型 0.1x 起，支持 ZFB 支付与按量、包月计费 目前站内支持 OpenAI 、Anthropic 、Gemini 反重力、深度求索 DeepSeek 、智谱 GLM 等
+<article class="card" data-text="COW代码中转站| 支持 Claude、 GPT、 Gemini、 DeepSeek 等主流模型 0.1x 起，支持 ZFB 支付与按量、包月计费 目前站内支持 OpenAI 、Anthropic 、Gemini 反重力、深度求索 DeepSeek 、智谱 GLM 等
 GPT Claude 0.1x 起
 
 官网地址： https://cowcode.top
@@ -753,7 +885,7 @@ GPT Claude 0.1x 起
 邀请好友返利 10%
 https://cowcode.top/r/v2ex">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 V2EX</span></div>
-  <h3 class="title">Cow Code 中转站 | 支持 Claude、GPT、Gemini、DeepSeek 等主流模型 0.1x 起，支持 ZFB 支付与按量、包月计费</h3>
+  <h3 class="title">COW代码中转站| 支持 Claude、 GPT、 Gemini、 DeepSeek 等主流模型 0.1x 起，支持 ZFB 支付与按量、包月计费</h3>
   
   <p class="summary">目前站内支持 OpenAI 、Anthropic 、Gemini 反重力、深度求索 DeepSeek 、智谱 GLM 等
 GPT Claude 0.1x 起
@@ -851,19 +983,19 @@ AI 时代任何内容都可以生成了，安静地码字有时候也成了奢�
   <div class="linkrow"><a class="fulllink" href="https://www.v2ex.com/t/1255600" target="_blank" rel="noopener noreferrer">https://www.v2ex.com/t/1255600</a></div>
 </article>
 
-<article class="card" data-text="把做的 CYD GPS 码表开源了，暂时裸着还没壳子 前情提要：/t/1253585
+<article class="card" data-text="把做的 CYD GPS 码表开源了，暂时裸着还没壳子 前情提要编号编号：/t/1253585
 
-开源地址： https://github.com/hellodk34/MotoNav-CYD-Plus
+开源地址网址网址： https://github.com/hellodk34/MotoNav-CYD-Plus
 
-bilibili 视频介绍： [使用 ESP32 CYD 开发版制作 GPS 码表]  https://www.bilibili.com/video/BV1ZPxn6nEbM/">
+bilibili 视频介绍： [使用ESP32 CYD 开发版制作 GPS码表] https://www.bilibili.com/video/BV1ZPxn6nEbM/">
   <div class="badgerow"><span class="badge">最近热议</span><span class="src-tag">来源 V2EX</span></div>
   <h3 class="title">把做的 CYD GPS 码表开源了，暂时裸着还没壳子</h3>
   
-  <p class="summary">前情提要：/t/1253585
+  <p class="summary">前情提要编号编号：/t/1253585
 
-开源地址： https://github.com/hellodk34/MotoNav-CYD-Plus
+开源地址网址网址： https://github.com/hellodk34/MotoNav-CYD-Plus
 
-bilibili 视频介绍： [使用 ESP32 CYD 开发版制作 GPS 码表]  https://www.bilibili.com/video/BV1ZPxn6nEbM/</p>
+bilibili 视频介绍： [使用ESP32 CYD 开发版制作 GPS码表] https://www.bilibili.com/video/BV1ZPxn6nEbM/</p>
   
   <div class="meta">热度：回复 0</div>
   <div class="linkrow"><a class="fulllink" href="https://www.v2ex.com/t/1255599" target="_blank" rel="noopener noreferrer">https://www.v2ex.com/t/1255599</a></div>
@@ -1010,6 +1142,282 @@ GPT 的代码老是又臭又长，过度防御，想换个从 claude 蒸馏的�
       c.classList.toggle('hidden',!ok); if(ok) n++;
     });
     if(empty) empty.classList.toggle('hidden', n>0 || !cards.length);
+  });
+})();
+
+(function(){
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.style.colorScheme = 'dark';
+  try { document.body.classList.add('page-enter'); } catch(e) {}
+  const root = document.documentElement;
+  window.addEventListener('pointermove', function(e){
+    root.style.setProperty('--spot-x', e.clientX + 'px');
+    root.style.setProperty('--spot-y', e.clientY + 'px');
+  }, {passive:true});
+
+  function bindTilt(el){
+    el.addEventListener('pointermove', function(e){
+      if (reduced) return;
+      var r = el.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width;
+      var y = (e.clientY - r.top) / r.height;
+      el.style.setProperty('--mx', (x*100)+'%');
+      el.style.setProperty('--my', (y*100)+'%');
+      el.style.transform = 'perspective(900px) rotateX(' + ((0.5-y)*8) + 'deg) rotateY(' + ((x-0.5)*10) + 'deg) translateY(-2px)';
+    });
+    el.addEventListener('pointerleave', function(){ el.style.transform = ''; });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.card, .module-tile'), bindTilt);
+
+  function animateCount(el, target){
+    var t0 = performance.now(), dur = 900;
+    function frame(t){
+      var p = Math.min(1, (t - t0)/dur);
+      var eased = 1 - Math.pow(1-p, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-count]'), function(el){
+    var n = parseInt(el.getAttribute('data-count')||'0',10);
+    if (!reduced) animateCount(el, n); else el.textContent = String(n);
+  });
+
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal, .card, .module-tile, .panel-box, .hero'));
+  reveals.forEach(function(el){ el.classList.add('reveal'); });
+  if (!reduced && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold: 0.12, rootMargin: '0px 0px -8% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  var canvas = document.getElementById('fx-particles');
+  if (!canvas || reduced || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var w=0,h=0, particles=[], mouse={x:-9999,y:-9999};
+  var mobile = Math.min(window.innerWidth, window.innerHeight) < 720;
+  var COUNT = mobile ? 28 : 70;
+  function resize(){ w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+  function init(){
+    particles = [];
+    for (var i=0;i<COUNT;i++) particles.push({
+      x: Math.random()*w, y: Math.random()*h,
+      vx: (Math.random()-.5)*.35, vy: (Math.random()-.5)*.35,
+      r: Math.random()*1.6 + .4
+    });
+  }
+  function step(){
+    ctx.clearRect(0,0,w,h);
+    for (var i=0;i<particles.length;i++){
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      var dx = p.x - mouse.x, dy = p.y - mouse.y;
+      if (dx*dx + dy*dy < 16000) { p.vx += dx * -0.00003; p.vy += dy * -0.00003; }
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = 'rgba(92,225,255,.75)'; ctx.fill();
+    }
+    var maxD = mobile ? 110 : 140;
+    for (var i=0;i<particles.length;i++){
+      for (var j=i+1;j<particles.length;j++){
+        var a=particles[i], b=particles[j];
+        var dx=a.x-b.x, dy=a.y-b.y, dist=Math.hypot(dx,dy);
+        if (dist < maxD){
+          ctx.strokeStyle = 'rgba(167,139,250,' + ((1-dist/maxD)*0.35) + ')';
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(step);
+  }
+  window.addEventListener('pointermove', function(e){ mouse.x=e.clientX; mouse.y=e.clientY; }, {passive:true});
+  window.addEventListener('resize', function(){ resize(); init(); });
+  resize(); init(); step();
+})();
+
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touch = matchMedia('(hover: none), (pointer: coarse)').matches;
+  var desktop = !touch;
+
+  /* toast */
+  var toast = document.createElement('div');
+  toast.id = 'fx-toast';
+  toast.setAttribute('role','status');
+  document.body.appendChild(toast);
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function(){ toast.classList.remove('show'); }, 1800);
+  }
+
+  /* scroll progress + back to top */
+  var bar = document.createElement('div'); bar.id = 'scroll-progress'; document.body.appendChild(bar);
+  var topOrb = document.createElement('button');
+  topOrb.id = 'back-top'; topOrb.type='button'; topOrb.setAttribute('aria-label','回到顶部'); topOrb.innerHTML='↑';
+  document.body.appendChild(topOrb);
+  topOrb.addEventListener('click', function(){ window.scrollTo({top:0, behavior: reduced?'auto':'smooth'}); });
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max>0 ? (h.scrollTop/max) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    topOrb.classList.toggle('show', h.scrollTop > 480);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* custom cursor + trail (desktop) */
+  if (desktop && !reduced) {
+    document.documentElement.classList.add('has-cursor');
+    var cur = document.createElement('div'); cur.id='cursor-dot'; document.body.appendChild(cur);
+    var trail = [];
+    for (var i=0;i<8;i++){ var t=document.createElement('div'); t.className='cursor-trail'; document.body.appendChild(t); trail.push(t); }
+    var mx=0,my=0, pts=trail.map(function(){return {x:0,y:0};});
+    window.addEventListener('pointermove', function(e){ mx=e.clientX; my=e.clientY; cur.style.transform='translate('+mx+'px,'+my+'px)'; }, {passive:true});
+    (function loop(){
+      var x=mx,y=my;
+      for (var i=0;i<pts.length;i++){
+        pts[i].x += (x - pts[i].x) * (0.35 - i*0.03);
+        pts[i].y += (y - pts[i].y) * (0.35 - i*0.03);
+        trail[i].style.transform='translate('+pts[i].x+'px,'+pts[i].y+'px) scale('+(1-i*0.08)+')';
+        x=pts[i].x; y=pts[i].y;
+      }
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  /* magnetic tiles/buttons */
+  if (desktop && !reduced) {
+    var mags = document.querySelectorAll('.module-tile, .btn, .topnav a, #back-top');
+    Array.prototype.forEach.call(mags, function(el){
+      el.addEventListener('pointermove', function(e){
+        var r=el.getBoundingClientRect();
+        var dx=(e.clientX-(r.left+r.width/2))/r.width;
+        var dy=(e.clientY-(r.top+r.height/2))/r.height;
+        el.style.translate = (dx*12)+'px '+(dy*10)+'px';
+      });
+      el.addEventListener('pointerleave', function(){ el.style.translate=''; });
+    });
+  }
+
+  /* module tile <-> brain region */
+  Array.prototype.forEach.call(document.querySelectorAll('.module-tile'), function(el){
+    el.addEventListener('pointerenter', function(){
+      var href=(el.getAttribute('href')||'');
+      var id=href.split('/').pop().replace('.html','');
+      if (window.__brainAPI && window.__brainAPI.highlightRegion) window.__brainAPI.highlightRegion(id);
+    });
+    el.addEventListener('pointerleave', function(){
+      if (window.__brainAPI && window.__brainAPI.highlightRegion) window.__brainAPI.highlightRegion('');
+    });
+  });
+
+  /* card ripple + copy link */
+  document.addEventListener('click', function(e){
+    var card = e.target.closest && e.target.closest('.card, .module-tile');
+    if (card && !reduced) {
+      var r=card.getBoundingClientRect();
+      var rip=document.createElement('span'); rip.className='ripple';
+      rip.style.left=(e.clientX-r.left)+'px'; rip.style.top=(e.clientY-r.top)+'px';
+      card.appendChild(rip); setTimeout(function(){ rip.remove(); }, 700);
+    }
+    var copyBtn = e.target.closest && e.target.closest('[data-copy-link]');
+    if (copyBtn) {
+      e.preventDefault();
+      var url = copyBtn.getAttribute('data-copy-link') || location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function(){ showToast('链接已复制'); }).catch(function(){ showToast('复制失败'); });
+      } else {
+        showToast('请手动复制链接');
+      }
+    }
+  });
+
+  /* text scramble on headings */
+  function scramble(el){
+    if (reduced || el.dataset.scrambled) return;
+    el.dataset.scrambled='1';
+    var final = el.textContent;
+    var chars = 'アイウエオカキクケコABCDEF0123456789#$%';
+    var i=0;
+    var t=setInterval(function(){
+      el.textContent = final.split('').map(function(ch, idx){
+        if (idx < i) return final[idx];
+        if (/\s/.test(ch)) return ch;
+        return chars[Math.floor(Math.random()*chars.length)];
+      }).join('');
+      i += 1;
+      if (i > final.length) { el.textContent=final; clearInterval(t); }
+    }, 28);
+  }
+  if ('IntersectionObserver' in window) {
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ scramble(en.target); io.unobserve(en.target);} });
+    }, {threshold:0.4});
+    document.querySelectorAll('h1.hero-title, .hero h1, .section h2').forEach(function(h){ io.observe(h); });
+  }
+
+  /* Cmd/Ctrl+K command palette */
+  var items = [];
+  document.querySelectorAll('.card').forEach(function(card){
+    var title = (card.querySelector('.title')||{}).textContent||'';
+    var link = card.querySelector('a[href]');
+    var href = link ? link.getAttribute('href') : '';
+    var text = card.getAttribute('data-text')||title;
+    items.push({title:title.trim(), href:href, text:text});
+  });
+  document.querySelectorAll('.module-tile').forEach(function(tile){
+    items.push({title:(tile.querySelector('h2')||{}).textContent||'模块', href:tile.getAttribute('href')||'', text:tile.textContent||''});
+  });
+  var pal=document.createElement('div'); pal.id='cmd-palette'; pal.innerHTML='<div class="cmd-box"><input id="cmd-input" placeholder="搜索资源 / 模块…（Esc 关闭）" /><div id="cmd-results"></div></div>';
+  document.body.appendChild(pal);
+  var input=pal.querySelector('#cmd-input');
+  var results=pal.querySelector('#cmd-results');
+  function render(q){
+    q=(q||'').trim().toLowerCase();
+    var hits=items.filter(function(it){ return !q || (it.text+it.title).toLowerCase().indexOf(q)>=0; }).slice(0,12);
+    results.innerHTML = hits.map(function(it){
+      return '<a class="cmd-item" href="'+it.href+'"><strong>'+it.title.replace(/</g,'&lt;')+'</strong></a>';
+    }).join('') || '<div class="cmd-empty">无结果</div>';
+  }
+  function openPal(){ pal.classList.add('open'); input.value=''; render(''); setTimeout(function(){ input.focus(); }, 10); }
+  function closePal(){ pal.classList.remove('open'); }
+  window.addEventListener('keydown', function(e){
+    if ((e.metaKey||e.ctrlKey) && e.key.toLowerCase()==='k'){ e.preventDefault(); openPal(); }
+    if (e.key==='Escape') closePal();
+  });
+  pal.addEventListener('click', function(e){ if(e.target===pal) closePal(); });
+  input.addEventListener('input', function(){ render(input.value); });
+
+  /* easter egg ai168 */
+  var buf='';
+  window.addEventListener('keypress', function(e){
+    if (e.target && /input|textarea/i.test(e.target.tagName)) return;
+    buf=(buf+e.key).slice(-5).toLowerCase();
+    if (buf==='ai168'){
+      buf='';
+      showToast('AI168 粒子爆发');
+      if (window.__brainAPI && window.__brainAPI.triggerShockwave) window.__brainAPI.triggerShockwave();
+      document.body.classList.add('egg-burst');
+      setTimeout(function(){ document.body.classList.remove('egg-burst'); }, 1200);
+      // burst dots
+      if (!reduced){
+        for (var i=0;i<24;i++){
+          var d=document.createElement('div'); d.className='burst-dot';
+          d.style.left=(50+Math.cos(i)*10)+'%'; d.style.top=(40+Math.sin(i)*8)+'%';
+          d.style.setProperty('--dx', (Math.cos(i/24*Math.PI*2)*120)+'px');
+          d.style.setProperty('--dy', (Math.sin(i/24*Math.PI*2)*90)+'px');
+          document.body.appendChild(d);
+          setTimeout((function(el){ return function(){ el.remove(); }; })(d), 900);
+        }
+      }
+    }
   });
 })();
 </script>

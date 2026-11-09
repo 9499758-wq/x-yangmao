@@ -72,7 +72,7 @@
       "id": "amd-free-models",
       "category": "大模型 API 免费额度",
       "title": "AMD 国区：15 个大模型免费调用",
-      "summary": "DeepSeek-V4.1-Flash、GLM-5.3、Qwen3.8 等约 15 个模型可免费调，支持约 1M 上下文，免绑卡，每天 0 点重置额度。登录官网领 rc- Key 后可接入 Cherry Studio。",
+      "summary": "DeepSeek-V4.1-Flash 、GLM-5.3、 Qwen3.8 等约 15 个模型可免费调，支持约 1M 上下文免绑卡，每天 0 点重置额度。登录官网领 rc- Key 后可接入 Cherry Studio。",
       "how": "登录 AMD 官网 → 领取 API Key → 填入客户端",
       "deadline": null,
       "author": "0x_chaoran",
@@ -82,7 +82,8 @@
         "likes": 0,
         "bookmarks": 0,
         "impressions": 11
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "lg-exaone",
@@ -119,7 +120,7 @@
     {
       "id": "iteracompute-qwen",
       "category": "大模型 API 免费额度",
-      "title": "IteraCompute：Qwen3.8-27B 每月约 3000 万 Token 免费",
+      "title": "IteraCompute ： Qwen3.8-27B 每月约 3000万代币 免费",
       "summary": "每月约 3000 万 Token 免费额度，Qwen3.8-27B 输入/缓存/输出标价为 0，约 128K 上下文，OpenAI 兼容接口；邮箱验证拿 Key，不用绑卡。额度每月 1 号重置，超额回 429 不自动扣费。帖称推广约到 11 月 24 日，高峰共享算力可能排队。同作者还提到 AMD 开发者计划约 100 美元 MI300X 额度（激活后约 30 天过期）等。",
       "how": "邮箱验证注册 IteraCompute → 领取 Key → 用 OpenAI 兼容接口调用",
       "deadline": "推广窗口帖称约至 2026-11-24；以官网为准",
@@ -130,7 +131,8 @@
         "likes": 2,
         "bookmarks": 0,
         "impressions": 88
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "amd-gpu-credit",
@@ -226,7 +228,8 @@
         "likes": 0,
         "bookmarks": 0,
         "impressions": 9
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "hunyuan-hy4",
@@ -242,7 +245,8 @@
         "likes": 0,
         "bookmarks": 0,
         "impressions": 2
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "zhipu-zcode",
@@ -258,12 +262,13 @@
         "likes": 1,
         "bookmarks": 0,
         "impressions": 419
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "qoder-qoduck",
       "category": "AI 开发工具与编程助手",
-      "title": "Qoder 匿名模型 Qoduck：个人号每日 0 Credits",
+      "title": "Qoder 匿名模型 Qoduck ：个人号每日 0学分",
       "summary": "Qoder 自 11/7 上线匿名模型 Qoduck：个人号每天有免费额度，额度内消耗倍率可到 0.0×，思考强度拉满也不扣 Credits；免费号也能用，付费号额度更多。帖称目前主要在 Qoder 客户端，IDE 插件和 CLI 可能未开；社区猜测是否 Qwen 新版，官方未盖章。可用 Codex 真实任务做盲测对比。",
       "how": "打开 Qoder 客户端 → 模型选择器切到 Qoduck → 直接写代码/搭项目",
       "deadline": "限时活动，结束时间未定",
@@ -274,7 +279,8 @@
         "likes": 1,
         "bookmarks": 0,
         "impressions": 339
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "coderabbit",
@@ -338,13 +344,14 @@
         "likes": 4,
         "bookmarks": 0,
         "impressions": 436
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "awesome-free-llm",
       "category": "AI 开发工具与编程助手",
-      "title": "awesome-free-llm-apis：免费大模型 API 清单",
-      "summary": "GitHub 高星清单 awesome-free-llm-apis（帖称约 1.26 万 star）整理多家免费 LLM API：Gemini（长上下文）、Groq、OpenRouter、Cloudflare Workers AI（每天约 1 万 Neurons）、NVIDIA NIM、以及国内多家等。另有核对帖提醒：免注册免 Key 的很少，Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰订阅。",
+      "title": "awesome-free-llm-apis ：免费大模型 API 清单",
+      "summary": "GitHub 高星清单 awesome-free-llm-apis （帖称约 1.26万星）整理多家免费 LLM API ： Gemini （双子座长上下文）、、 Groq OpenRouter、 Cloudflare Workers AI （每天约 1个万神经元）、 NVIDIA NIM、以及国内多家等。另有核对帖提醒 ：免注册免 Key 的很少， Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰订阅。",
       "how": "打开该 GitHub 清单 → 按提供商申请 Key 并注意各自限额/实名要求",
       "deadline": null,
       "author": "yxl44",
@@ -354,7 +361,8 @@
         "likes": 30,
         "bookmarks": 8,
         "impressions": 6910
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "qoder-student",
@@ -386,13 +394,14 @@
         "likes": 171,
         "bookmarks": 280,
         "impressions": 14362
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "simular-box",
       "category": "云服务/GPU/开发者资源",
-      "title": "Box by Simular：免费云端 Linux 桌面",
-      "summary": "Box by Simular：给 AI Agent 用的免费云端 Linux 桌面。多帖实测约 4 核 / 7–8G 内存 / 40G 硬盘，Ubuntu 24.04，Google 登录免绑卡；每天送积分，闲置会休眠，无公网入口，不适合当传统 VPS。可用 npx @simular-ai/box connect 接入 Claude Code / Codex / Cursor 等。",
+      "title": "Box by Simular ：免费云端 Linux 桌面",
+      "summary": "BOX by Simular ：给 AI Agent 用的免费云端 桌面。多帖实测约 Linux 4/7-8G核 内存/40G 硬盘， Ubuntu 24.04 ， Google 登录免绑卡；每天送积分 闲置会休眠无公网入口 ，不适合当传统 VPS。可用 npx @ simular-ai/BOX connect 接入 Claude Code/Codex/Cursor 等。",
       "how": "打开 box.simular.ai 登录领取 → 用 MCP/CLI 接入 AI",
       "deadline": null,
       "author": "vampire2g",
@@ -402,7 +411,8 @@
         "likes": 4,
         "bookmarks": 0,
         "impressions": 312
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "google-colab",
@@ -423,8 +433,8 @@
     {
       "id": "natbox-trial",
       "category": "云服务/GPU/开发者资源",
-      "title": "natbox：免费试用 NAT VPS 一个月",
-      "summary": "免费试用档：256MB RAM、0.5 共享核、3GB SSD、5 个转发端口、100GB 流量，含 root SSH 与 IPv6 /80。一人一台，名额有限。",
+      "title": "natbox ：免费试用 NAT VPS 一个月",
+      "summary": "免费试用档： 256MB RAM、 0.5 共享核、3GB SSD、 5 个转发端口、100GB 流量，含 root SSH 与 IPv6/80。一人一台 ，名额有限。",
       "how": "打开 my.natbox.io 免费试用页领取",
       "deadline": "名额发完即止",
       "author": "natboxio",
@@ -434,7 +444,8 @@
         "likes": 0,
         "bookmarks": 0,
         "impressions": 90
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "vultr-300",
@@ -450,7 +461,8 @@
         "likes": 4,
         "bookmarks": 12,
         "impressions": 2270
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "cloadу-container",
@@ -482,7 +494,8 @@
         "likes": 4,
         "bookmarks": 3,
         "impressions": 793
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "movie-sprite",
@@ -503,7 +516,7 @@
     {
       "id": "duo-widget",
       "category": "科技软件/App 限免",
-      "title": "Duo widget：电量/WiFi/信号组件 ¥28→0",
+      "title": "双人小工具：电量/WiFi/信号组件¥ 28→ 0",
       "summary": "约 1.4MB 极简无广桌面/锁屏组件，20 种排版，一眼看状态。",
       "how": "App Store 打开帖内链接领取",
       "deadline": "限免随时结束",
@@ -514,7 +527,8 @@
         "likes": 7,
         "bookmarks": 12,
         "impressions": 4438
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "linkjoy",
@@ -546,12 +560,13 @@
         "likes": 6,
         "bookmarks": 3,
         "impressions": 1283
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "aow4-weekend",
       "category": "科技软件/App 限免",
-      "title": "《Age of Wonders 4》Steam 完整版限时免费玩",
+      "title": "《Age of Wonders 4》 Steam 完整版限时免费玩",
       "summary": "帖称 Steam 周末本体完整版全开试玩（非永久入库），到 11 月 10 日凌晨 2 点。",
       "how": "Steam 打开游戏页 → 限时免费试玩",
       "deadline": "2026-11-10 02:00 Asia/Shanghai",
@@ -562,7 +577,8 @@
         "likes": 5,
         "bookmarks": 0,
         "impressions": 181
-      }
+      },
+      "translated_by": "free-translate"
     },
     {
       "id": "epic-babel",
@@ -626,7 +642,8 @@
         "likes": 1,
         "bookmarks": 0,
         "impressions": 40
-      }
+      },
+      "translated_by": "free-translate"
     }
   ]
 }

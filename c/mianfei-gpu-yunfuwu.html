@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-<meta name="color-scheme" content="dark light" />
+<meta name="color-scheme" content="dark" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="renderer" content="webkit" />
 <meta name="force-rendering" content="webkit" />
@@ -25,9 +25,10 @@
 <meta property="og:url" content="https://ai168.netlify.app/c/mianfei-gpu-yunfuwu.html" />
 
 <style>
+:root { color-scheme: dark; }
 
 :root {
-  --bg0: #05070f;
+  --bg0: #03050c;
   --bg1: #0a1022;
   --panel: rgba(12, 18, 36, 0.62);
   --panel2: rgba(16, 24, 48, 0.78);
@@ -45,17 +46,7 @@
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   --sans: "PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg0: #f3f6ff; --bg1: #e8eefc;
-    --panel: rgba(255,255,255,.72); --panel2: rgba(255,255,255,.88);
-    --card: rgba(255,255,255,.82);
-    --line: rgba(60,100,180,.14); --line2: rgba(110,80,220,.22);
-    --text: #0e1528; --muted: #5a6688;
-    --cyan: #0891b2; --violet: #6d28d9; --mint: #0f766e; --warn: #b45309;
-    --glow: 0 0 36px rgba(8,145,178,.10);
-  }
-}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; color-scheme: dark; }
 html, body { margin:0; padding:0; overflow-wrap:anywhere; word-break:break-word; }
@@ -147,10 +138,7 @@ a:hover { text-decoration: underline; }
   background: linear-gradient(105deg, #fff 10%, var(--cyan) 45%, var(--violet) 85%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-@media (prefers-color-scheme: light) {
-  .hero h1 { background: linear-gradient(105deg, #0b1224 5%, var(--cyan) 45%, var(--violet) 90%);
-    -webkit-background-clip: text; background-clip: text; color: transparent; }
-}
+
 .hero .lead { margin: 0; max-width: 46rem; color: var(--muted); font-size: 1.05rem; }
 .stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .pill {
@@ -267,12 +255,148 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
 .sec-desc { margin: 0 0 14px; color: var(--muted); }
 .intro p { margin: 0; color: var(--muted); }
 
+
+.fx-aurora{position:fixed;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(40% 35% at 20% 20%,rgba(92,225,255,.22),transparent 60%),radial-gradient(35% 40% at 80% 15%,rgba(167,139,250,.24),transparent 55%),radial-gradient(45% 35% at 55% 75%,rgba(94,240,192,.12),transparent 60%),radial-gradient(30% 30% at 10% 80%,rgba(255,100,200,.08),transparent 60%);filter:saturate(1.2) blur(8px);animation:auroraMove 22s ease-in-out infinite alternate}
+@keyframes auroraMove{0%{transform:translate3d(-2%,-1%,0) rotate(0) scale(1)}50%{transform:translate3d(3%,2%,0) rotate(4deg) scale(1.05)}100%{transform:translate3d(-1%,3%,0) rotate(-3deg) scale(1.08)}}
+.fx-grid{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.28;background-image:linear-gradient(rgba(92,225,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(92,225,255,.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at center,#000 25%,transparent 78%)}
+.fx-noise{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");mix-blend-mode:overlay}
+.fx-scan{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.06;background:repeating-linear-gradient(to bottom,transparent 0,transparent 2px,rgba(255,255,255,.04) 3px,rgba(255,255,255,.04) 3px);animation:scanDrift 8s linear infinite}
+@keyframes scanDrift{to{transform:translateY(3px)}}
+#fx-particles{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%}
+.fx-spot{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(520px 520px at var(--spot-x,50%) var(--spot-y,30%),rgba(92,225,255,.14),transparent 55%)}
+body{background:#03050c!important}
+.wrap{z-index:2}
+body.page-enter .wrap{animation:pageIn .55s ease both}
+@keyframes pageIn{from{opacity:0;transform:translateY(10px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@property --border-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+@keyframes borderSpin{to{--border-angle:360deg}}
+.hero{border:1px solid transparent;background:linear-gradient(var(--panel),var(--panel)) padding-box,conic-gradient(from var(--border-angle,0deg),rgba(92,225,255,.15),rgba(167,139,250,.55),rgba(94,240,192,.25),rgba(92,225,255,.15)) border-box;animation:borderSpin 8s linear infinite}
+.hero h1,.hero-title{background:linear-gradient(105deg,#fff 8%,var(--cyan) 35%,var(--violet) 62%,#fff 90%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4.5s linear infinite}
+@keyframes shimmer{to{background-position:220% center}}
+.live-dot,.eyebrow i{animation:livePulse 1.8s ease-out infinite}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(94,240,192,.55)}70%{box-shadow:0 0 0 12px rgba(94,240,192,0)}100%{box-shadow:0 0 0 0 rgba(94,240,192,0)}}
+.module-tile,.card{transform-style:preserve-3d;will-change:transform;border:1px solid transparent;background:linear-gradient(160deg,rgba(92,225,255,.07),transparent 42%),linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--border-angle,180deg),rgba(92,225,255,.05),rgba(167,139,250,.55),rgba(94,240,192,.2),rgba(92,225,255,.05)) border-box;animation:borderSpin 12s linear infinite}
+.module-tile::after,.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(280px 180px at var(--mx,50%) var(--my,0%),rgba(92,225,255,.12),transparent 55%);opacity:0;transition:opacity .2s}
+.module-tile:hover::after,.card:hover::after{opacity:1}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+.fx-aurora,.fx-scan,.hero,.module-tile,.card,.hero h1,.hero-title,.eyebrow i,.live-dot,body.page-enter .wrap{animation:none!important}
+.reveal{opacity:1;transform:none;transition:none}
+.module-tile,.card{transform:none!important}
+}
+
+
+.hero.hero-brain {
+  display: grid; grid-template-columns: 1fr; gap: 18px; align-items: center;
+}
+@media (min-width: 900px) {
+  .hero.hero-brain { grid-template-columns: 1.15fr 0.95fr; }
+}
+.hero-copy { position: relative; z-index: 2; }
+#brain-hero {
+  position: relative; z-index: 2;
+  width: 100%; min-height: 280px; height: clamp(260px, 42vw, 420px);
+  border-radius: 22px;
+  border: 1px solid rgba(92,225,255,.18);
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(92,225,255,.10), transparent 55%),
+    radial-gradient(ellipse at 50% 60%, rgba(167,139,250,.12), transparent 50%),
+    rgba(0,0,0,.25);
+  box-shadow: inset 0 0 60px rgba(92,225,255,.06), 0 0 40px rgba(167,139,250,.08);
+  overflow: hidden;
+}
+#brain-hero canvas { width: 100% !important; height: 100% !important; }
+.brain-caption {
+  position: absolute; left: 12px; bottom: 10px; z-index: 3;
+  font-family: var(--mono); font-size: .68rem; color: rgba(139,151,184,.9);
+  letter-spacing: .06em; text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* interactivity */
+html.has-cursor, html.has-cursor * { cursor: none !important; }
+#cursor-dot, .cursor-trail {
+  position: fixed; top:0; left:0; width:10px; height:10px; margin:-5px 0 0 -5px;
+  border-radius:50%; pointer-events:none; z-index:9999;
+  background: rgba(92,225,255,.9); box-shadow: 0 0 16px rgba(92,225,255,.8);
+  mix-blend-mode: screen;
+}
+.cursor-trail { width:8px; height:8px; margin:-4px 0 0 -4px; opacity:.35; background: rgba(167,139,250,.7); }
+#scroll-progress {
+  position: fixed; top:0; left:0; height:2px; width:100%; z-index:10000;
+  background: linear-gradient(90deg, var(--cyan), var(--violet), var(--mint));
+  transform-origin: left center; transform: scaleX(0);
+}
+#back-top {
+  position: fixed; right:18px; bottom:18px; z-index:90;
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--line2);
+  background: rgba(10,16,34,.8); color: var(--cyan); font-size:18px;
+  opacity:0; pointer-events:none; transition: opacity .25s, transform .25s;
+  backdrop-filter: blur(10px);
+}
+#back-top.show { opacity:1; pointer-events:auto; }
+#back-top:hover { transform: translateY(-2px); box-shadow: 0 0 24px rgba(92,225,255,.25); }
+#fx-toast {
+  position: fixed; left:50%; bottom:28px; transform: translateX(-50%) translateY(20px);
+  background: rgba(12,20,42,.92); border:1px solid var(--line2); color: var(--text);
+  padding:10px 16px; border-radius:999px; z-index:10001; opacity:0; pointer-events:none;
+  transition: .25s ease; font-size:.9rem; backdrop-filter: blur(12px);
+}
+#fx-toast.show { opacity:1; transform: translateX(-50%) translateY(0); }
+.ripple {
+  position:absolute; width:8px; height:8px; border-radius:50%;
+  background: rgba(92,225,255,.35); transform: translate(-50%,-50%) scale(0);
+  animation: ripple .65s ease-out forwards; pointer-events:none;
+}
+@keyframes ripple { to { transform: translate(-50%,-50%) scale(28); opacity:0; } }
+#cmd-palette {
+  position:fixed; inset:0; z-index:10050; background: rgba(0,0,0,.55);
+  display:none; align-items:flex-start; justify-content:center; padding-top:12vh;
+  backdrop-filter: blur(8px);
+}
+#cmd-palette.open { display:flex; }
+.cmd-box {
+  width: min(640px, 92vw); background: rgba(10,16,34,.95); border:1px solid var(--line2);
+  border-radius:18px; overflow:hidden; box-shadow: 0 30px 80px rgba(0,0,0,.5);
+}
+#cmd-input {
+  width:100%; border:0; outline:0; padding:16px 18px; font-size:1rem;
+  background: transparent; color: var(--text); border-bottom:1px solid var(--line);
+}
+#cmd-results { max-height: 50vh; overflow:auto; }
+.cmd-item { display:block; padding:12px 18px; color: var(--text); text-decoration:none; border-bottom:1px solid rgba(120,200,255,.08); }
+.cmd-item:hover { background: rgba(92,225,255,.08); }
+.cmd-empty { padding:18px; color: var(--muted); }
+.burst-dot {
+  position: fixed; width:8px; height:8px; border-radius:50%; background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan); pointer-events:none; z-index:10002;
+  animation: burst .85s ease-out forwards;
+}
+@keyframes burst {
+  to { transform: translate(var(--dx), var(--dy)) scale(0.2); opacity:0; }
+}
+body.egg-burst .fx-aurora { filter: saturate(1.8) hue-rotate(40deg); }
+.card .copy-link, .copy-link {
+  font-family: var(--mono); font-size: .72rem; margin-left: 8px; color: var(--violet);
+}
+@media (prefers-reduced-motion: reduce) {
+  #cursor-dot, .cursor-trail, .ripple, .burst-dot { display:none !important; }
+  html.has-cursor, html.has-cursor * { cursor: auto !important; }
+}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"云服务/GPU/开发者资源 | AI大模型免费资源导航 · 2026年11月最新","url":"https://ai168.netlify.app/c/mianfei-gpu-yunfuwu.html","description":"免费GPU、云算力试用与开发者资源入口，便于训练、推理与实验前快速筛选。"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://ai168.netlify.app/item/kaggle-30-t4-gpu-7bccf211e4.html","name":"Kaggle：每周约 30 小时双 T4 免费 GPU"},{"@type":"ListItem","position":2,"url":"https://ai168.netlify.app/item/box-by-simular-linux-cf2eb8c124.html","name":"Box by Simular：免费云端 Linux 桌面"},{"@type":"ListItem","position":3,"url":"https://ai168.netlify.app/item/google-colab-16gb-t4-gpu-c259d1dba6.html","name":"Google Colab 免费版：约 16GB T4 GPU"},{"@type":"ListItem","position":4,"url":"https://ai168.netlify.app/item/natbox-nat-vps-a648f62664.html","name":"natbox：免费试用 NAT VPS 一个月"},{"@type":"ListItem","position":5,"url":"https://ai168.netlify.app/item/vultr-fly300vultr-b7153648bf.html","name":"Vultr 新用户促销额度：优惠码 FLY300VULTR"},{"@type":"ListItem","position":6,"url":"https://ai168.netlify.app/item/cloady-e951b57322.html","name":"Cloady：免费小容器（现多称仅免费一个月）"},{"@type":"ListItem","position":7,"url":"https://ai168.netlify.app/item/show-hn-mac-show-hn-e0afa7d737.html","name":"Show HN:给您的代理一台它可以控制的Mac Show HN:给您的代理一台它"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://ai168.netlify.app/item/kaggle-30-t4-gpu-7bccf211e4.html","name":"Kaggle：每周约 30 小时双 T4 免费 GPU"},{"@type":"ListItem","position":2,"url":"https://ai168.netlify.app/item/box-by-simular-linux-cf2eb8c124.html","name":"Box by Simular ：免费云端 Linux 桌面"},{"@type":"ListItem","position":3,"url":"https://ai168.netlify.app/item/google-colab-16gb-t4-gpu-c259d1dba6.html","name":"Google Colab 免费版：约 16GB T4 GPU"},{"@type":"ListItem","position":4,"url":"https://ai168.netlify.app/item/natbox-nat-vps-a648f62664.html","name":"natbox ：免费试用 NAT VPS 一个月"},{"@type":"ListItem","position":5,"url":"https://ai168.netlify.app/item/vultr-fly300vultr-b7153648bf.html","name":"Vultr 新用户促销额度：优惠码 FLY300VULTR"},{"@type":"ListItem","position":6,"url":"https://ai168.netlify.app/item/cloady-e951b57322.html","name":"Cloady：免费小容器（现多称仅免费一个月）"},{"@type":"ListItem","position":7,"url":"https://ai168.netlify.app/item/mianfei-gpu-yunfuwu-e0afa7d737.html","name":"给您的代理一台它可以控制的Mac"}]}</script>
 </head>
 
 <body>
+<div class="fx-aurora" aria-hidden="true"></div>
+<div class="fx-grid" aria-hidden="true"></div>
+<div class="fx-noise" aria-hidden="true"></div>
+<div class="fx-scan" aria-hidden="true"></div>
+<div class="fx-spot" aria-hidden="true"></div>
+<canvas id="fx-particles" aria-hidden="true"></canvas>
 <div class="wrap">
   
 <header class="topnav">
@@ -280,12 +404,20 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <nav class="navlinks" aria-label="模块导航"><a href="../c/damoxing-mianfei-api.html">大模型 API 免费额度</a><a href="../c/ai-huiyuan-shiyong.html">AI 产品会员/试用</a><a href="../c/ai-kaifa-gongju.html">AI 开发工具与编程助手</a><a href="../c/mianfei-gpu-yunfuwu.html">免费GPU / 云服务</a><a href="../c/keji-app-xianmian.html">科技软件 / App 限免</a><a href="../m/github-hot.html">GitHub 新热门</a><a href="../m/hot-topics.html">最近热议</a></nav>
 </header>
   <div class="crumbs"><a href="../">首页</a> › 云服务/GPU/开发者资源</div>
-  <header class="hero">
-    <div class="eyebrow"><i></i> MODULE</div>
-    <h1>云服务/GPU/开发者资源</h1>
+  <header class="hero hero-brain">
+    <div class="hero-copy">
+    <div class="eyebrow"><i class="live-dot"></i> MODULE</div>
+    <h1 class="hero-title">云服务/GPU/开发者资源</h1>
     <p class="lead">免费GPU、云算力试用与开发者资源入口，便于训练、推理与实验前快速筛选。</p>
-    <div class="stats"><div class="pill">条目 <b>7</b></div><div class="pill">更新 <b>2026-11-09</b></div></div>
+    <div class="stats"><div class="pill">条目 <b data-count="7">0</b></div><div class="pill">更新 <b>2026-11-09</b></div></div>
+    </div>
+    
+<div id="brain-hero" data-vendor="../vendor/" aria-hidden="true">
+  <span class="brain-caption">Neural Graph · WebGL</span>
+</div>
+
   </header>
+  <script src="../vendor/brain-loader.js" defer></script>
   <div class="toolbar"><input id="q" type="search" placeholder="在本模块内搜索…" autocomplete="off" /></div>
   <div class="grid">
 <article class="card" data-text="Kaggle：每周约 30 小时双 T4 免费 GPU Kaggle 免费档常见每周约 30 小时 GPU T4 x2（约 2×16GB / 合计约 32GB 显存）+ 约 20 小时 TPU，单次最长约 12 小时；免绑卡但需手机验证。可配合 Ollama 跑约 30B 级模型，再经 cloudflared 隧道接到 Cursor 等作 Base URL。官方严禁多号刷额度与常驻挖矿；穿透链接勿外发，用完关掉 Notebook。 Google 登录 Kaggle → Settings 手机验证 → Notebook Accelerator 选 GPU T4 x2 并打开 Internet mingzi206 https://x.com/mingzi206/status/2119468078165815781 云服务/GPU/开发者资源 X">
@@ -295,17 +427,17 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">Kaggle 免费档常见每周约 30 小时 GPU T4 x2（约 2×16GB / 合计约 32GB 显存）+ 约 20 小时 TPU，单次最长约 12 小时；免绑卡但需手机验证。可配合 Ollama 跑约 30B 级模型，再经 cloudflared 隧道接到 Cursor 等作 Base URL。官方严禁多号刷额度与常驻挖矿；穿透链接勿外发，用完关掉 Notebook。</p>
   
   <div class="how"><strong>怎么领：</strong>Google 登录 Kaggle → Settings 手机验证 → Notebook Accelerator 选 GPU T4 x2 并打开 Internet</div><div class="meta author">@mingzi206 · 2026-11-09 00:32 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/kaggle-30-t4-gpu-7bccf211e4.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/mingzi206/status/2119468078165815781" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/kaggle-30-t4-gpu-7bccf211e4.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/mingzi206/status/2119468078165815781" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/kaggle-30-t4-gpu-7bccf211e4.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Box by Simular：免费云端 Linux 桌面 Box by Simular：给 AI Agent 用的免费云端 Linux 桌面。多帖实测约 4 核 / 7–8G 内存 / 40G 硬盘，Ubuntu 24.04，Google 登录免绑卡；每天送积分，闲置会休眠，无公网入口，不适合当传统 VPS。可用 npx @simular-ai/box connect 接入 Claude Code / Codex / Cursor 等。 打开 box.simular.ai 登录领取 → 用 MCP/CLI 接入 AI vampire2g https://x.com/vampire2g/status/2119077912074949083 云服务/GPU/开发者资源 X">
+<article class="card" data-text="Box by Simular ：免费云端 Linux 桌面 BOX by Simular ：给 AI Agent 用的免费云端 桌面。多帖实测约 Linux 4/7-8G核 内存/40G 硬盘， Ubuntu 24.04 ， Google 登录免绑卡；每天送积分 闲置会休眠无公网入口 ，不适合当传统 VPS。可用 npx @ simular-ai/BOX connect 接入 Claude Code/Codex/Cursor 等。 打开 box.simular.ai 登录领取 → 用 MCP/CLI 接入 AI vampire2g https://x.com/vampire2g/status/2119077912074949083 云服务/GPU/开发者资源 X">
   <div class="badgerow"><span class="badge">云服务/GPU/开发者资源</span><span class="src-tag">来源 X</span></div>
-  <h3 class="title"><a href="../item/box-by-simular-linux-cf2eb8c124.html">Box by Simular：免费云端 Linux 桌面</a></h3>
+  <h3 class="title"><a href="../item/box-by-simular-linux-cf2eb8c124.html">Box by Simular ：免费云端 Linux 桌面</a></h3>
   
-  <p class="summary">Box by Simular：给 AI Agent 用的免费云端 Linux 桌面。多帖实测约 4 核 / 7–8G 内存 / 40G 硬盘，Ubuntu 24.04，Google 登录免绑卡；每天送积分，闲置会休眠，无公网入口，不适合当传统 VPS。可用 npx @simular-ai/box connect 接入 Claude Code / Codex / Cursor 等。</p>
+  <p class="summary">BOX by Simular ：给 AI Agent 用的免费云端 桌面。多帖实测约 Linux 4/7-8G核 内存/40G 硬盘， Ubuntu 24.04 ， Google 登录免绑卡；每天送积分 闲置会休眠无公网入口 ，不适合当传统 VPS。可用 npx @ simular-ai/BOX connect 接入 Claude Code/Codex/Cursor 等。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 box.simular.ai 登录领取 → 用 MCP/CLI 接入 AI</div><div class="meta author">@vampire2g · 2026-11-07 22:41 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/box-by-simular-linux-cf2eb8c124.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/vampire2g/status/2119077912074949083" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/box-by-simular-linux-cf2eb8c124.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/vampire2g/status/2119077912074949083" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/box-by-simular-linux-cf2eb8c124.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Google Colab 免费版：约 16GB T4 GPU Google Colab 免费版可开 NVIDIA T4（约 15–16GB 显存），Google 账号登录浏览器即用，通常免绑卡。额度不公开、看运气；适合临时跑模型/推理。另有开源方案把 Colab T4 暴露为本地 OpenAI 兼容接口（注意账号与安全风险）。 打开 Google Colab → 运行时改 GPU → 开始写 Notebook KOF97AI https://x.com/KOF97AI/status/2119638891808612551 云服务/GPU/开发者资源 X">
@@ -315,17 +447,17 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">Google Colab 免费版可开 NVIDIA T4（约 15–16GB 显存），Google 账号登录浏览器即用，通常免绑卡。额度不公开、看运气；适合临时跑模型/推理。另有开源方案把 Colab T4 暴露为本地 OpenAI 兼容接口（注意账号与安全风险）。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 Google Colab → 运行时改 GPU → 开始写 Notebook</div><div class="meta author">@KOF97AI · 2026-11-09 11:51 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/google-colab-16gb-t4-gpu-c259d1dba6.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/KOF97AI/status/2119638891808612551" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/google-colab-16gb-t4-gpu-c259d1dba6.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/KOF97AI/status/2119638891808612551" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/google-colab-16gb-t4-gpu-c259d1dba6.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="natbox：免费试用 NAT VPS 一个月 免费试用档：256MB RAM、0.5 共享核、3GB SSD、5 个转发端口、100GB 流量，含 root SSH 与 IPv6 /80。一人一台，名额有限。 打开 my.natbox.io 免费试用页领取 natboxio https://x.com/natboxio/status/2119278249570099289 云服务/GPU/开发者资源 X">
+<article class="card" data-text="natbox ：免费试用 NAT VPS 一个月 免费试用档： 256MB RAM、 0.5 共享核、3GB SSD、 5 个转发端口、100GB 流量，含 root SSH 与 IPv6/80。一人一台 ，名额有限。 打开 my.natbox.io 免费试用页领取 natboxio https://x.com/natboxio/status/2119278249570099289 云服务/GPU/开发者资源 X">
   <div class="badgerow"><span class="badge">云服务/GPU/开发者资源</span><span class="src-tag">来源 X</span><span class="dl-tag">截止 名额发完即止</span></div>
-  <h3 class="title"><a href="../item/natbox-nat-vps-a648f62664.html">natbox：免费试用 NAT VPS 一个月</a></h3>
+  <h3 class="title"><a href="../item/natbox-nat-vps-a648f62664.html">natbox ：免费试用 NAT VPS 一个月</a></h3>
   
-  <p class="summary">免费试用档：256MB RAM、0.5 共享核、3GB SSD、5 个转发端口、100GB 流量，含 root SSH 与 IPv6 /80。一人一台，名额有限。</p>
+  <p class="summary">免费试用档： 256MB RAM、 0.5 共享核、3GB SSD、 5 个转发端口、100GB 流量，含 root SSH 与 IPv6/80。一人一台 ，名额有限。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 my.natbox.io 免费试用页领取</div><div class="meta author">@natboxio · 2026-11-08 11:58 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/natbox-nat-vps-a648f62664.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/natboxio/status/2119278249570099289" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/natbox-nat-vps-a648f62664.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/natboxio/status/2119278249570099289" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/natbox-nat-vps-a648f62664.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Vultr 新用户促销额度：优惠码 FLY300VULTR 帖称 Vultr 官方优惠页列出新用户最高约 $300 Promotional Credit，优惠码 FLY300VULTR。以官网活动页实时规则为准。 注册 Vultr → 结账填 FLY300VULTR（核对官网） Leo_zhang2018 https://x.com/Leo_zhang2018/status/2118934417666428946 云服务/GPU/开发者资源 X">
@@ -335,7 +467,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">帖称 Vultr 官方优惠页列出新用户最高约 $300 Promotional Credit，优惠码 FLY300VULTR。以官网活动页实时规则为准。</p>
   
   <div class="how"><strong>怎么领：</strong>注册 Vultr → 结账填 FLY300VULTR（核对官网）</div><div class="meta author">@Leo_zhang2018 · 2026-11-07 13:11 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/vultr-fly300vultr-b7153648bf.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/Leo_zhang2018/status/2118934417666428946" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/vultr-fly300vultr-b7153648bf.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/Leo_zhang2018/status/2118934417666428946" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/vultr-fly300vultr-b7153648bf.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Cloady：免费小容器（现多称仅免费一个月） 邮箱注册可领约 0.5 核 / 1G 内存 / 5G 硬盘容器，能跑 Docker。评论区有人称政策改为只免费一个月，也有封号反馈，建议小号先试。 邮箱注册 Cloady → 领取免费档 fanfankp https://x.com/fanfankp/status/2119382702088417686 云服务/GPU/开发者资源 X">
@@ -345,17 +477,17 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">邮箱注册可领约 0.5 核 / 1G 内存 / 5G 硬盘容器，能跑 Docker。评论区有人称政策改为只免费一个月，也有封号反馈，建议小号先试。</p>
   
   <div class="how"><strong>怎么领：</strong>邮箱注册 Cloady → 领取免费档</div><div class="meta author">@fanfankp · 2026-11-08 18:53 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/cloady-e951b57322.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/fanfankp/status/2119382702088417686" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/cloady-e951b57322.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/fanfankp/status/2119382702088417686" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/cloady-e951b57322.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN:给您的代理一台它可以控制的Mac Show HN:给您的代理一台它 来源摘要：Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it can control Hello hello!&lt;p&gt;I&amp;#x27;m building Offstage Cloud which are ephemeral macOS sandboxes billed by second.&lt;p&gt;You can use it for CI (eg GitHub Actions), build with Xcode, or let your agent co… 打开来源链接按页面说明领取/试用；参与前自行核实。 viraatdas https://offstage.cloud/ 云服务/GPU/开发者资源 Hacker News">
+<article class="card" data-text="给您的代理一台它可以控制的Mac 显示HN ：给您的代理一个可以控制的Mac显示HN ：给您的代理一个可以控制的Mac你好！&lt;p&gt;我正在构建Offstage Cloud ，它是按秒计费的短暂macOS沙盒。&lt;p&gt;您可以将其用于CI （例如GitHub Actions ）、使用Xcode构建或让您的代理协同… 打开来源链接按页面说明领取/试用；参与前自行核实。 viraatdas https://offstage.cloud/ 云服务/GPU/开发者资源 Hacker News">
   <div class="badgerow"><span class="badge">云服务/GPU/开发者资源</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-mac-show-hn-e0afa7d737.html">Show HN:给您的代理一台它可以控制的Mac Show HN:给您的代理一台它</a></h3>
-  <p class="orig">原文：Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it</p>
-  <p class="summary">来源摘要：Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it can control Hello hello!&lt;p&gt;I&amp;#x27;m building Offstage Cloud which are ephemeral macOS sandboxes billed by second.&lt;p&gt;You can use it for CI (eg GitHub Actions), build with Xcode, or let your agent co…</p>
+  <h3 class="title"><a href="../item/mianfei-gpu-yunfuwu-e0afa7d737.html">给您的代理一台它可以控制的Mac</a></h3>
+  
+  <p class="summary">显示HN ：给您的代理一个可以控制的Mac显示HN ：给您的代理一个可以控制的Mac你好！&lt;p&gt;我正在构建Offstage Cloud ，它是按秒计费的短暂macOS沙盒。&lt;p&gt;您可以将其用于CI （例如GitHub Actions ）、使用Xcode构建或让您的代理协同…</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@viraatdas · 2026-11-07 19:27 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-mac-show-hn-e0afa7d737.html">详情与领取方法</a> · <a class="fulllink" href="https://offstage.cloud/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/mianfei-gpu-yunfuwu-e0afa7d737.html">详情与领取方法</a> · <a class="fulllink" href="https://offstage.cloud/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/mianfei-gpu-yunfuwu-e0afa7d737.html">复制链接</a></div>
 </article></div>
   <div id="empty" class="empty hidden">没有匹配条目</div>
   <footer>AI大模型免费资源导航 · 云服务/GPU/开发者资源</footer>
@@ -373,6 +505,282 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
       c.classList.toggle('hidden',!ok); if(ok) n++;
     });
     if(empty) empty.classList.toggle('hidden', n>0 || !cards.length);
+  });
+})();
+
+(function(){
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.style.colorScheme = 'dark';
+  try { document.body.classList.add('page-enter'); } catch(e) {}
+  const root = document.documentElement;
+  window.addEventListener('pointermove', function(e){
+    root.style.setProperty('--spot-x', e.clientX + 'px');
+    root.style.setProperty('--spot-y', e.clientY + 'px');
+  }, {passive:true});
+
+  function bindTilt(el){
+    el.addEventListener('pointermove', function(e){
+      if (reduced) return;
+      var r = el.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width;
+      var y = (e.clientY - r.top) / r.height;
+      el.style.setProperty('--mx', (x*100)+'%');
+      el.style.setProperty('--my', (y*100)+'%');
+      el.style.transform = 'perspective(900px) rotateX(' + ((0.5-y)*8) + 'deg) rotateY(' + ((x-0.5)*10) + 'deg) translateY(-2px)';
+    });
+    el.addEventListener('pointerleave', function(){ el.style.transform = ''; });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.card, .module-tile'), bindTilt);
+
+  function animateCount(el, target){
+    var t0 = performance.now(), dur = 900;
+    function frame(t){
+      var p = Math.min(1, (t - t0)/dur);
+      var eased = 1 - Math.pow(1-p, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-count]'), function(el){
+    var n = parseInt(el.getAttribute('data-count')||'0',10);
+    if (!reduced) animateCount(el, n); else el.textContent = String(n);
+  });
+
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal, .card, .module-tile, .panel-box, .hero'));
+  reveals.forEach(function(el){ el.classList.add('reveal'); });
+  if (!reduced && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold: 0.12, rootMargin: '0px 0px -8% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  var canvas = document.getElementById('fx-particles');
+  if (!canvas || reduced || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var w=0,h=0, particles=[], mouse={x:-9999,y:-9999};
+  var mobile = Math.min(window.innerWidth, window.innerHeight) < 720;
+  var COUNT = mobile ? 28 : 70;
+  function resize(){ w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+  function init(){
+    particles = [];
+    for (var i=0;i<COUNT;i++) particles.push({
+      x: Math.random()*w, y: Math.random()*h,
+      vx: (Math.random()-.5)*.35, vy: (Math.random()-.5)*.35,
+      r: Math.random()*1.6 + .4
+    });
+  }
+  function step(){
+    ctx.clearRect(0,0,w,h);
+    for (var i=0;i<particles.length;i++){
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      var dx = p.x - mouse.x, dy = p.y - mouse.y;
+      if (dx*dx + dy*dy < 16000) { p.vx += dx * -0.00003; p.vy += dy * -0.00003; }
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = 'rgba(92,225,255,.75)'; ctx.fill();
+    }
+    var maxD = mobile ? 110 : 140;
+    for (var i=0;i<particles.length;i++){
+      for (var j=i+1;j<particles.length;j++){
+        var a=particles[i], b=particles[j];
+        var dx=a.x-b.x, dy=a.y-b.y, dist=Math.hypot(dx,dy);
+        if (dist < maxD){
+          ctx.strokeStyle = 'rgba(167,139,250,' + ((1-dist/maxD)*0.35) + ')';
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(step);
+  }
+  window.addEventListener('pointermove', function(e){ mouse.x=e.clientX; mouse.y=e.clientY; }, {passive:true});
+  window.addEventListener('resize', function(){ resize(); init(); });
+  resize(); init(); step();
+})();
+
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touch = matchMedia('(hover: none), (pointer: coarse)').matches;
+  var desktop = !touch;
+
+  /* toast */
+  var toast = document.createElement('div');
+  toast.id = 'fx-toast';
+  toast.setAttribute('role','status');
+  document.body.appendChild(toast);
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function(){ toast.classList.remove('show'); }, 1800);
+  }
+
+  /* scroll progress + back to top */
+  var bar = document.createElement('div'); bar.id = 'scroll-progress'; document.body.appendChild(bar);
+  var topOrb = document.createElement('button');
+  topOrb.id = 'back-top'; topOrb.type='button'; topOrb.setAttribute('aria-label','回到顶部'); topOrb.innerHTML='↑';
+  document.body.appendChild(topOrb);
+  topOrb.addEventListener('click', function(){ window.scrollTo({top:0, behavior: reduced?'auto':'smooth'}); });
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var p = max>0 ? (h.scrollTop/max) : 0;
+    bar.style.transform = 'scaleX(' + p + ')';
+    topOrb.classList.toggle('show', h.scrollTop > 480);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* custom cursor + trail (desktop) */
+  if (desktop && !reduced) {
+    document.documentElement.classList.add('has-cursor');
+    var cur = document.createElement('div'); cur.id='cursor-dot'; document.body.appendChild(cur);
+    var trail = [];
+    for (var i=0;i<8;i++){ var t=document.createElement('div'); t.className='cursor-trail'; document.body.appendChild(t); trail.push(t); }
+    var mx=0,my=0, pts=trail.map(function(){return {x:0,y:0};});
+    window.addEventListener('pointermove', function(e){ mx=e.clientX; my=e.clientY; cur.style.transform='translate('+mx+'px,'+my+'px)'; }, {passive:true});
+    (function loop(){
+      var x=mx,y=my;
+      for (var i=0;i<pts.length;i++){
+        pts[i].x += (x - pts[i].x) * (0.35 - i*0.03);
+        pts[i].y += (y - pts[i].y) * (0.35 - i*0.03);
+        trail[i].style.transform='translate('+pts[i].x+'px,'+pts[i].y+'px) scale('+(1-i*0.08)+')';
+        x=pts[i].x; y=pts[i].y;
+      }
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  /* magnetic tiles/buttons */
+  if (desktop && !reduced) {
+    var mags = document.querySelectorAll('.module-tile, .btn, .topnav a, #back-top');
+    Array.prototype.forEach.call(mags, function(el){
+      el.addEventListener('pointermove', function(e){
+        var r=el.getBoundingClientRect();
+        var dx=(e.clientX-(r.left+r.width/2))/r.width;
+        var dy=(e.clientY-(r.top+r.height/2))/r.height;
+        el.style.translate = (dx*12)+'px '+(dy*10)+'px';
+      });
+      el.addEventListener('pointerleave', function(){ el.style.translate=''; });
+    });
+  }
+
+  /* module tile <-> brain region */
+  Array.prototype.forEach.call(document.querySelectorAll('.module-tile'), function(el){
+    el.addEventListener('pointerenter', function(){
+      var href=(el.getAttribute('href')||'');
+      var id=href.split('/').pop().replace('.html','');
+      if (window.__brainAPI && window.__brainAPI.highlightRegion) window.__brainAPI.highlightRegion(id);
+    });
+    el.addEventListener('pointerleave', function(){
+      if (window.__brainAPI && window.__brainAPI.highlightRegion) window.__brainAPI.highlightRegion('');
+    });
+  });
+
+  /* card ripple + copy link */
+  document.addEventListener('click', function(e){
+    var card = e.target.closest && e.target.closest('.card, .module-tile');
+    if (card && !reduced) {
+      var r=card.getBoundingClientRect();
+      var rip=document.createElement('span'); rip.className='ripple';
+      rip.style.left=(e.clientX-r.left)+'px'; rip.style.top=(e.clientY-r.top)+'px';
+      card.appendChild(rip); setTimeout(function(){ rip.remove(); }, 700);
+    }
+    var copyBtn = e.target.closest && e.target.closest('[data-copy-link]');
+    if (copyBtn) {
+      e.preventDefault();
+      var url = copyBtn.getAttribute('data-copy-link') || location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function(){ showToast('链接已复制'); }).catch(function(){ showToast('复制失败'); });
+      } else {
+        showToast('请手动复制链接');
+      }
+    }
+  });
+
+  /* text scramble on headings */
+  function scramble(el){
+    if (reduced || el.dataset.scrambled) return;
+    el.dataset.scrambled='1';
+    var final = el.textContent;
+    var chars = 'アイウエオカキクケコABCDEF0123456789#$%';
+    var i=0;
+    var t=setInterval(function(){
+      el.textContent = final.split('').map(function(ch, idx){
+        if (idx < i) return final[idx];
+        if (/\s/.test(ch)) return ch;
+        return chars[Math.floor(Math.random()*chars.length)];
+      }).join('');
+      i += 1;
+      if (i > final.length) { el.textContent=final; clearInterval(t); }
+    }, 28);
+  }
+  if ('IntersectionObserver' in window) {
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ scramble(en.target); io.unobserve(en.target);} });
+    }, {threshold:0.4});
+    document.querySelectorAll('h1.hero-title, .hero h1, .section h2').forEach(function(h){ io.observe(h); });
+  }
+
+  /* Cmd/Ctrl+K command palette */
+  var items = [];
+  document.querySelectorAll('.card').forEach(function(card){
+    var title = (card.querySelector('.title')||{}).textContent||'';
+    var link = card.querySelector('a[href]');
+    var href = link ? link.getAttribute('href') : '';
+    var text = card.getAttribute('data-text')||title;
+    items.push({title:title.trim(), href:href, text:text});
+  });
+  document.querySelectorAll('.module-tile').forEach(function(tile){
+    items.push({title:(tile.querySelector('h2')||{}).textContent||'模块', href:tile.getAttribute('href')||'', text:tile.textContent||''});
+  });
+  var pal=document.createElement('div'); pal.id='cmd-palette'; pal.innerHTML='<div class="cmd-box"><input id="cmd-input" placeholder="搜索资源 / 模块…（Esc 关闭）" /><div id="cmd-results"></div></div>';
+  document.body.appendChild(pal);
+  var input=pal.querySelector('#cmd-input');
+  var results=pal.querySelector('#cmd-results');
+  function render(q){
+    q=(q||'').trim().toLowerCase();
+    var hits=items.filter(function(it){ return !q || (it.text+it.title).toLowerCase().indexOf(q)>=0; }).slice(0,12);
+    results.innerHTML = hits.map(function(it){
+      return '<a class="cmd-item" href="'+it.href+'"><strong>'+it.title.replace(/</g,'&lt;')+'</strong></a>';
+    }).join('') || '<div class="cmd-empty">无结果</div>';
+  }
+  function openPal(){ pal.classList.add('open'); input.value=''; render(''); setTimeout(function(){ input.focus(); }, 10); }
+  function closePal(){ pal.classList.remove('open'); }
+  window.addEventListener('keydown', function(e){
+    if ((e.metaKey||e.ctrlKey) && e.key.toLowerCase()==='k'){ e.preventDefault(); openPal(); }
+    if (e.key==='Escape') closePal();
+  });
+  pal.addEventListener('click', function(e){ if(e.target===pal) closePal(); });
+  input.addEventListener('input', function(){ render(input.value); });
+
+  /* easter egg ai168 */
+  var buf='';
+  window.addEventListener('keypress', function(e){
+    if (e.target && /input|textarea/i.test(e.target.tagName)) return;
+    buf=(buf+e.key).slice(-5).toLowerCase();
+    if (buf==='ai168'){
+      buf='';
+      showToast('AI168 粒子爆发');
+      if (window.__brainAPI && window.__brainAPI.triggerShockwave) window.__brainAPI.triggerShockwave();
+      document.body.classList.add('egg-burst');
+      setTimeout(function(){ document.body.classList.remove('egg-burst'); }, 1200);
+      // burst dots
+      if (!reduced){
+        for (var i=0;i<24;i++){
+          var d=document.createElement('div'); d.className='burst-dot';
+          d.style.left=(50+Math.cos(i)*10)+'%'; d.style.top=(40+Math.sin(i)*8)+'%';
+          d.style.setProperty('--dx', (Math.cos(i/24*Math.PI*2)*120)+'px');
+          d.style.setProperty('--dy', (Math.sin(i/24*Math.PI*2)*90)+'px');
+          document.body.appendChild(d);
+          setTimeout((function(el){ return function(){ el.remove(); }; })(d), 900);
+        }
+      }
+    }
   });
 })();
 </script>

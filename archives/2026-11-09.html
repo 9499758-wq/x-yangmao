@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-<meta name="color-scheme" content="dark light" />
+<meta name="color-scheme" content="dark" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="renderer" content="webkit" />
 <meta name="force-rendering" content="webkit" />
@@ -25,9 +25,10 @@
 <meta property="og:url" content="https://ai168.netlify.app/archives/2026-11-09.html" />
 
 <style>
+:root { color-scheme: dark; }
 
 :root {
-  --bg0: #05070f;
+  --bg0: #03050c;
   --bg1: #0a1022;
   --panel: rgba(12, 18, 36, 0.62);
   --panel2: rgba(16, 24, 48, 0.78);
@@ -45,17 +46,7 @@
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   --sans: "PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg0: #f3f6ff; --bg1: #e8eefc;
-    --panel: rgba(255,255,255,.72); --panel2: rgba(255,255,255,.88);
-    --card: rgba(255,255,255,.82);
-    --line: rgba(60,100,180,.14); --line2: rgba(110,80,220,.22);
-    --text: #0e1528; --muted: #5a6688;
-    --cyan: #0891b2; --violet: #6d28d9; --mint: #0f766e; --warn: #b45309;
-    --glow: 0 0 36px rgba(8,145,178,.10);
-  }
-}
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; color-scheme: dark; }
 html, body { margin:0; padding:0; overflow-wrap:anywhere; word-break:break-word; }
@@ -147,10 +138,7 @@ a:hover { text-decoration: underline; }
   background: linear-gradient(105deg, #fff 10%, var(--cyan) 45%, var(--violet) 85%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-@media (prefers-color-scheme: light) {
-  .hero h1 { background: linear-gradient(105deg, #0b1224 5%, var(--cyan) 45%, var(--violet) 90%);
-    -webkit-background-clip: text; background-clip: text; color: transparent; }
-}
+
 .hero .lead { margin: 0; max-width: 46rem; color: var(--muted); font-size: 1.05rem; }
 .stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .pill {
@@ -267,11 +255,147 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
 .sec-desc { margin: 0 0 14px; color: var(--muted); }
 .intro p { margin: 0; color: var(--muted); }
 
+
+.fx-aurora{position:fixed;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(40% 35% at 20% 20%,rgba(92,225,255,.22),transparent 60%),radial-gradient(35% 40% at 80% 15%,rgba(167,139,250,.24),transparent 55%),radial-gradient(45% 35% at 55% 75%,rgba(94,240,192,.12),transparent 60%),radial-gradient(30% 30% at 10% 80%,rgba(255,100,200,.08),transparent 60%);filter:saturate(1.2) blur(8px);animation:auroraMove 22s ease-in-out infinite alternate}
+@keyframes auroraMove{0%{transform:translate3d(-2%,-1%,0) rotate(0) scale(1)}50%{transform:translate3d(3%,2%,0) rotate(4deg) scale(1.05)}100%{transform:translate3d(-1%,3%,0) rotate(-3deg) scale(1.08)}}
+.fx-grid{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.28;background-image:linear-gradient(rgba(92,225,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(92,225,255,.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at center,#000 25%,transparent 78%)}
+.fx-noise{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");mix-blend-mode:overlay}
+.fx-scan{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.06;background:repeating-linear-gradient(to bottom,transparent 0,transparent 2px,rgba(255,255,255,.04) 3px,rgba(255,255,255,.04) 3px);animation:scanDrift 8s linear infinite}
+@keyframes scanDrift{to{transform:translateY(3px)}}
+#fx-particles{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%}
+.fx-spot{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(520px 520px at var(--spot-x,50%) var(--spot-y,30%),rgba(92,225,255,.14),transparent 55%)}
+body{background:#03050c!important}
+.wrap{z-index:2}
+body.page-enter .wrap{animation:pageIn .55s ease both}
+@keyframes pageIn{from{opacity:0;transform:translateY(10px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@property --border-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+@keyframes borderSpin{to{--border-angle:360deg}}
+.hero{border:1px solid transparent;background:linear-gradient(var(--panel),var(--panel)) padding-box,conic-gradient(from var(--border-angle,0deg),rgba(92,225,255,.15),rgba(167,139,250,.55),rgba(94,240,192,.25),rgba(92,225,255,.15)) border-box;animation:borderSpin 8s linear infinite}
+.hero h1,.hero-title{background:linear-gradient(105deg,#fff 8%,var(--cyan) 35%,var(--violet) 62%,#fff 90%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4.5s linear infinite}
+@keyframes shimmer{to{background-position:220% center}}
+.live-dot,.eyebrow i{animation:livePulse 1.8s ease-out infinite}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(94,240,192,.55)}70%{box-shadow:0 0 0 12px rgba(94,240,192,0)}100%{box-shadow:0 0 0 0 rgba(94,240,192,0)}}
+.module-tile,.card{transform-style:preserve-3d;will-change:transform;border:1px solid transparent;background:linear-gradient(160deg,rgba(92,225,255,.07),transparent 42%),linear-gradient(var(--card),var(--card)) padding-box,conic-gradient(from var(--border-angle,180deg),rgba(92,225,255,.05),rgba(167,139,250,.55),rgba(94,240,192,.2),rgba(92,225,255,.05)) border-box;animation:borderSpin 12s linear infinite}
+.module-tile::after,.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(280px 180px at var(--mx,50%) var(--my,0%),rgba(92,225,255,.12),transparent 55%);opacity:0;transition:opacity .2s}
+.module-tile:hover::after,.card:hover::after{opacity:1}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+.fx-aurora,.fx-scan,.hero,.module-tile,.card,.hero h1,.hero-title,.eyebrow i,.live-dot,body.page-enter .wrap{animation:none!important}
+.reveal{opacity:1;transform:none;transition:none}
+.module-tile,.card{transform:none!important}
+}
+
+
+.hero.hero-brain {
+  display: grid; grid-template-columns: 1fr; gap: 18px; align-items: center;
+}
+@media (min-width: 900px) {
+  .hero.hero-brain { grid-template-columns: 1.15fr 0.95fr; }
+}
+.hero-copy { position: relative; z-index: 2; }
+#brain-hero {
+  position: relative; z-index: 2;
+  width: 100%; min-height: 280px; height: clamp(260px, 42vw, 420px);
+  border-radius: 22px;
+  border: 1px solid rgba(92,225,255,.18);
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(92,225,255,.10), transparent 55%),
+    radial-gradient(ellipse at 50% 60%, rgba(167,139,250,.12), transparent 50%),
+    rgba(0,0,0,.25);
+  box-shadow: inset 0 0 60px rgba(92,225,255,.06), 0 0 40px rgba(167,139,250,.08);
+  overflow: hidden;
+}
+#brain-hero canvas { width: 100% !important; height: 100% !important; }
+.brain-caption {
+  position: absolute; left: 12px; bottom: 10px; z-index: 3;
+  font-family: var(--mono); font-size: .68rem; color: rgba(139,151,184,.9);
+  letter-spacing: .06em; text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* interactivity */
+html.has-cursor, html.has-cursor * { cursor: none !important; }
+#cursor-dot, .cursor-trail {
+  position: fixed; top:0; left:0; width:10px; height:10px; margin:-5px 0 0 -5px;
+  border-radius:50%; pointer-events:none; z-index:9999;
+  background: rgba(92,225,255,.9); box-shadow: 0 0 16px rgba(92,225,255,.8);
+  mix-blend-mode: screen;
+}
+.cursor-trail { width:8px; height:8px; margin:-4px 0 0 -4px; opacity:.35; background: rgba(167,139,250,.7); }
+#scroll-progress {
+  position: fixed; top:0; left:0; height:2px; width:100%; z-index:10000;
+  background: linear-gradient(90deg, var(--cyan), var(--violet), var(--mint));
+  transform-origin: left center; transform: scaleX(0);
+}
+#back-top {
+  position: fixed; right:18px; bottom:18px; z-index:90;
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--line2);
+  background: rgba(10,16,34,.8); color: var(--cyan); font-size:18px;
+  opacity:0; pointer-events:none; transition: opacity .25s, transform .25s;
+  backdrop-filter: blur(10px);
+}
+#back-top.show { opacity:1; pointer-events:auto; }
+#back-top:hover { transform: translateY(-2px); box-shadow: 0 0 24px rgba(92,225,255,.25); }
+#fx-toast {
+  position: fixed; left:50%; bottom:28px; transform: translateX(-50%) translateY(20px);
+  background: rgba(12,20,42,.92); border:1px solid var(--line2); color: var(--text);
+  padding:10px 16px; border-radius:999px; z-index:10001; opacity:0; pointer-events:none;
+  transition: .25s ease; font-size:.9rem; backdrop-filter: blur(12px);
+}
+#fx-toast.show { opacity:1; transform: translateX(-50%) translateY(0); }
+.ripple {
+  position:absolute; width:8px; height:8px; border-radius:50%;
+  background: rgba(92,225,255,.35); transform: translate(-50%,-50%) scale(0);
+  animation: ripple .65s ease-out forwards; pointer-events:none;
+}
+@keyframes ripple { to { transform: translate(-50%,-50%) scale(28); opacity:0; } }
+#cmd-palette {
+  position:fixed; inset:0; z-index:10050; background: rgba(0,0,0,.55);
+  display:none; align-items:flex-start; justify-content:center; padding-top:12vh;
+  backdrop-filter: blur(8px);
+}
+#cmd-palette.open { display:flex; }
+.cmd-box {
+  width: min(640px, 92vw); background: rgba(10,16,34,.95); border:1px solid var(--line2);
+  border-radius:18px; overflow:hidden; box-shadow: 0 30px 80px rgba(0,0,0,.5);
+}
+#cmd-input {
+  width:100%; border:0; outline:0; padding:16px 18px; font-size:1rem;
+  background: transparent; color: var(--text); border-bottom:1px solid var(--line);
+}
+#cmd-results { max-height: 50vh; overflow:auto; }
+.cmd-item { display:block; padding:12px 18px; color: var(--text); text-decoration:none; border-bottom:1px solid rgba(120,200,255,.08); }
+.cmd-item:hover { background: rgba(92,225,255,.08); }
+.cmd-empty { padding:18px; color: var(--muted); }
+.burst-dot {
+  position: fixed; width:8px; height:8px; border-radius:50%; background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan); pointer-events:none; z-index:10002;
+  animation: burst .85s ease-out forwards;
+}
+@keyframes burst {
+  to { transform: translate(var(--dx), var(--dy)) scale(0.2); opacity:0; }
+}
+body.egg-burst .fx-aurora { filter: saturate(1.8) hue-rotate(40deg); }
+.card .copy-link, .copy-link {
+  font-family: var(--mono); font-size: .72rem; margin-left: 8px; color: var(--violet);
+}
+@media (prefers-reduced-motion: reduce) {
+  #cursor-dot, .cursor-trail, .ripple, .burst-dot { display:none !important; }
+  html.has-cursor, html.has-cursor * { cursor: auto !important; }
+}
+
 </style>
 
 </head>
 
 <body>
+<div class="fx-aurora" aria-hidden="true"></div>
+<div class="fx-grid" aria-hidden="true"></div>
+<div class="fx-noise" aria-hidden="true"></div>
+<div class="fx-scan" aria-hidden="true"></div>
+<div class="fx-spot" aria-hidden="true"></div>
+<canvas id="fx-particles" aria-hidden="true"></canvas>
 <div class="wrap">
   
 <header class="topnav">
@@ -279,7 +403,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <nav class="navlinks" aria-label="模块导航"><a href="../c/damoxing-mianfei-api.html">大模型 API 免费额度</a><a href="../c/ai-huiyuan-shiyong.html">AI 产品会员/试用</a><a href="../c/ai-kaifa-gongju.html">AI 开发工具与编程助手</a><a href="../c/mianfei-gpu-yunfuwu.html">免费GPU / 云服务</a><a href="../c/keji-app-xianmian.html">科技软件 / App 限免</a><a href="../m/github-hot.html">GitHub 新热门</a><a href="../m/hot-topics.html">最近热议</a></nav>
 </header>
   <div class="crumbs"><a href="../">首页</a> › 日归档 › 2026-11-09</div>
-  <header class="hero"><div class="eyebrow"><i></i> ARCHIVE</div><h1>2026-11-09</h1>
+  <header class="hero"><div class="eyebrow"><i class="live-dot"></i> ARCHIVE</div><h1>2026-11-09</h1>
   <p class="lead">2026年11月最新 · 78 条</p></header>
   <section class="section"><h2>大模型 API 免费额度 <span>(21)</span></h2><div class="grid">
 <article class="card" data-text="NVIDIA NIM：Kimi / DeepSeek / GLM 免信用卡试用 登录 build.nvidia.com 即可试用 Kimi K3.1 Pro（2.8T、百万上下文）、DeepSeek V4.1 Flash、GLM 5.3 Flash；免费层约 40 次/分限速，不按 Token 扣费。部分模型网页可预览、API 开放情况以官网为准。 打开 build.nvidia.com → 登录 → 选择对应模型试用 chichu187 https://x.com/chichu187/status/2119008302432690299 大模型 API 免费额度 未知">
@@ -289,7 +413,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">登录 build.nvidia.com 即可试用 Kimi K3.1 Pro（2.8T、百万上下文）、DeepSeek V4.1 Flash、GLM 5.3 Flash；免费层约 40 次/分限速，不按 Token 扣费。部分模型网页可预览、API 开放情况以官网为准。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 build.nvidia.com → 登录 → 选择对应模型试用</div><div class="meta author">@chichu187 · 2026-11-07 18:05 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/nvidia-nim-kimi-deepseek-glm-3b5f44eee3.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/chichu187/status/2119008302432690299" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/nvidia-nim-kimi-deepseek-glm-3b5f44eee3.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/chichu187/status/2119008302432690299" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/nvidia-nim-kimi-deepseek-glm-3b5f44eee3.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Cloudflare Workers AI：每天 1 万 Neurons Cloudflare 免费计划每天赠送约 1 万 Neurons（UTC 0 点 / 北京时间早 8 点重置），超额不扣费只报错。可跑 Llama、Qwen、Gemma、Mistral 等开源模型，也支持生图与语音转文字。有人换算约等于每天 490 次 Llama 3.1 8B、或 83 次 70B、或约 57 张图。注意：额度账号共享；Kimi/GLM 5/DeepSeek V4 等前沿模型不在免费档，要绑付费方式。 注册 Cloudflare 免费账号 → 建 API token → 直接调 Workers AI 接口（不用自建服务器） AWG48488 https://x.com/AWG48488/status/2119415638494204051 大模型 API 免费额度 未知">
@@ -299,7 +423,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">Cloudflare 免费计划每天赠送约 1 万 Neurons（UTC 0 点 / 北京时间早 8 点重置），超额不扣费只报错。可跑 Llama、Qwen、Gemma、Mistral 等开源模型，也支持生图与语音转文字。有人换算约等于每天 490 次 Llama 3.1 8B、或 83 次 70B、或约 57 张图。注意：额度账号共享；Kimi/GLM 5/DeepSeek V4 等前沿模型不在免费档，要绑付费方式。</p>
   
   <div class="how"><strong>怎么领：</strong>注册 Cloudflare 免费账号 → 建 API token → 直接调 Workers AI 接口（不用自建服务器）</div><div class="meta author">@AWG48488 · 2026-11-08 21:03 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/cloudflare-workers-ai-1-neurons-7f9eb88172.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/AWG48488/status/2119415638494204051" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/cloudflare-workers-ai-1-neurons-7f9eb88172.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/AWG48488/status/2119415638494204051" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/cloudflare-workers-ai-1-neurons-7f9eb88172.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Gemini 3.5 Flash：每天约 500 次免费 API Google AI Studio 生成 API Key 即可用，免绑信用卡。适合跑自动化脚本、本地 CLI、翻译和小项目测试。注意：免费层数据可能用于模型训练，勿上传敏感代码。 打开 Google AI Studio → 生成 API Key → 调用 Gemini 3.5 Flash Stargridcompass https://x.com/Stargridcompass/status/2119384439457477086 大模型 API 免费额度 未知">
@@ -309,7 +433,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">Google AI Studio 生成 API Key 即可用，免绑信用卡。适合跑自动化脚本、本地 CLI、翻译和小项目测试。注意：免费层数据可能用于模型训练，勿上传敏感代码。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 Google AI Studio → 生成 API Key → 调用 Gemini 3.5 Flash</div><div class="meta author">@Stargridcompass · 2026-11-08 19:00 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/gemini-3-5-flash-500-api-f9751b349a.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/Stargridcompass/status/2119384439457477086" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/gemini-3-5-flash-500-api-f9751b349a.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/Stargridcompass/status/2119384439457477086" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/gemini-3-5-flash-500-api-f9751b349a.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="阿里云百炼：新用户每模型约 100 万 Tokens 新用户开通百炼可调 70+ 主流大模型，每模型约 100 万 Tokens，总计 7000 万+ Tokens，约 90 天有效；需实名认证，国内直连。 注册阿里云 → 实名 → 开通百炼控制台领取 0x_chaoran https://x.com/0x_chaoran/status/2119379991226105957 大模型 API 免费额度 未知">
@@ -319,17 +443,17 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">新用户开通百炼可调 70+ 主流大模型，每模型约 100 万 Tokens，总计 7000 万+ Tokens，约 90 天有效；需实名认证，国内直连。</p>
   
   <div class="how"><strong>怎么领：</strong>注册阿里云 → 实名 → 开通百炼控制台领取</div><div class="meta author">@0x_chaoran · 2026-11-08 18:42 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/100-tokens-b783987689.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/0x_chaoran/status/2119379991226105957" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/100-tokens-b783987689.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/0x_chaoran/status/2119379991226105957" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/100-tokens-b783987689.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="AMD 国区：15 个大模型免费调用 DeepSeek-V4.1-Flash、GLM-5.3、Qwen3.8 等约 15 个模型可免费调，支持约 1M 上下文，免绑卡，每天 0 点重置额度。登录官网领 rc- Key 后可接入 Cherry Studio。 登录 AMD 官网 → 领取 API Key → 填入客户端 0x_chaoran https://x.com/0x_chaoran/status/2119319917963206980 大模型 API 免费额度 未知">
+<article class="card" data-text="AMD 国区：15 个大模型免费调用 DeepSeek-V4.1-Flash 、GLM-5.3、 Qwen3.8 等约 15 个模型可免费调，支持约 1M 上下文免绑卡，每天 0 点重置额度。登录官网领 rc- Key 后可接入 Cherry Studio。 登录 AMD 官网 → 领取 API Key → 填入客户端 0x_chaoran https://x.com/0x_chaoran/status/2119319917963206980 大模型 API 免费额度 未知">
   <div class="badgerow"><span class="badge">大模型 API 免费额度</span><span class="src-tag">来源 未知</span></div>
   <h3 class="title"><a href="../item/amd-15-286432b5d2.html">AMD 国区：15 个大模型免费调用</a></h3>
   
-  <p class="summary">DeepSeek-V4.1-Flash、GLM-5.3、Qwen3.8 等约 15 个模型可免费调，支持约 1M 上下文，免绑卡，每天 0 点重置额度。登录官网领 rc- Key 后可接入 Cherry Studio。</p>
+  <p class="summary">DeepSeek-V4.1-Flash 、GLM-5.3、 Qwen3.8 等约 15 个模型可免费调，支持约 1M 上下文免绑卡，每天 0 点重置额度。登录官网领 rc- Key 后可接入 Cherry Studio。</p>
   
   <div class="how"><strong>怎么领：</strong>登录 AMD 官网 → 领取 API Key → 填入客户端</div><div class="meta author">@0x_chaoran · 2026-11-08 14:43 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/amd-15-286432b5d2.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/0x_chaoran/status/2119319917963206980" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/amd-15-286432b5d2.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/0x_chaoran/status/2119319917963206980" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/amd-15-286432b5d2.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="LG K-EXAONE 2.5：API 彻底免费开放 LG 在英伟达首尔 AI 日宣布 K-EXAONE 2.5 API 对开发者/企业/研究机构免费。宣传约 7500 亿参数、约 51.2 万上下文、兼容 OpenAI 接口；目前主要支持韩语和英语。帖中对比 AutomationBench/BrowseComp 等分数接近或超过 DeepSeek-V4.1-Flash。 按官方渠道申请 K-EXAONE API Key 后调用 Super_Nius https://x.com/Super_Nius/status/2119635733048852485 大模型 API 免费额度 未知">
@@ -339,7 +463,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">LG 在英伟达首尔 AI 日宣布 K-EXAONE 2.5 API 对开发者/企业/研究机构免费。宣传约 7500 亿参数、约 51.2 万上下文、兼容 OpenAI 接口；目前主要支持韩语和英语。帖中对比 AutomationBench/BrowseComp 等分数接近或超过 DeepSeek-V4.1-Flash。</p>
   
   <div class="how"><strong>怎么领：</strong>按官方渠道申请 K-EXAONE API Key 后调用</div><div class="meta author">@Super_Nius · 2026-11-09 11:38 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/lg-k-exaone-2-5-api-1c1c00d89a.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/Super_Nius/status/2119635733048852485" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/lg-k-exaone-2-5-api-1c1c00d89a.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/Super_Nius/status/2119635733048852485" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/lg-k-exaone-2-5-api-1c1c00d89a.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Perch AI：每月约 $20 / 2 万 PT，免绑卡 Starter 免费账号每月自动领约 20,000 PT（约合 $20），可用 DeepSeek 等模型；网页/桌面/命令行三端可用。Qwen 3.8 Max 限免至 11 月 21 日凌晨 1 点（吃月度额度，非无限）。 注册 Perch AI 免费 Starter → 每月自动到账 jhl880617 https://x.com/jhl880617/status/2119618098743451875 大模型 API 免费额度 未知">
@@ -349,17 +473,17 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">Starter 免费账号每月自动领约 20,000 PT（约合 $20），可用 DeepSeek 等模型；网页/桌面/命令行三端可用。Qwen 3.8 Max 限免至 11 月 21 日凌晨 1 点（吃月度额度，非无限）。</p>
   
   <div class="how"><strong>怎么领：</strong>注册 Perch AI 免费 Starter → 每月自动到账</div><div class="meta author">@jhl880617 · 2026-11-09 10:28 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/perch-ai-20-2-pt-933e1a9529.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/jhl880617/status/2119618098743451875" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/perch-ai-20-2-pt-933e1a9529.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/jhl880617/status/2119618098743451875" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/perch-ai-20-2-pt-933e1a9529.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="IteraCompute：Qwen3.8-27B 每月约 3000 万 Token 免费 每月约 3000 万 Token 免费额度，Qwen3.8-27B 输入/缓存/输出标价为 0，约 128K 上下文，OpenAI 兼容接口；邮箱验证拿 Key，不用绑卡。额度每月 1 号重置，超额回 429 不自动扣费。帖称推广约到 11 月 24 日，高峰共享算力可能排队。同作者还提到 AMD 开发者计划约 100 美元 MI300X 额度（激活后约 30 天过期）等。 邮箱验证注册 IteraCompute → 领取 Key → 用 OpenAI 兼容接口调用 Jonnyhlkw https://x.com/Jonnyhlkw/status/2119269427845988819 大模型 API 免费额度 未知">
+<article class="card" data-text="IteraCompute ： Qwen3.8-27B 每月约 3000万代币 免费 每月约 3000 万 Token 免费额度，Qwen3.8-27B 输入/缓存/输出标价为 0，约 128K 上下文，OpenAI 兼容接口；邮箱验证拿 Key，不用绑卡。额度每月 1 号重置，超额回 429 不自动扣费。帖称推广约到 11 月 24 日，高峰共享算力可能排队。同作者还提到 AMD 开发者计划约 100 美元 MI300X 额度（激活后约 30 天过期）等。 邮箱验证注册 IteraCompute → 领取 Key → 用 OpenAI 兼容接口调用 Jonnyhlkw https://x.com/Jonnyhlkw/status/2119269427845988819 大模型 API 免费额度 未知">
   <div class="badgerow"><span class="badge">大模型 API 免费额度</span><span class="src-tag">来源 未知</span><span class="dl-tag">截止 推广窗口帖称约至 2026-11-24；以官网为准</span></div>
-  <h3 class="title"><a href="../item/iteracompute-qwen3-8-27b-3000-token-14f4680ebb.html">IteraCompute：Qwen3.8-27B 每月约 3000 万 Token 免费</a></h3>
+  <h3 class="title"><a href="../item/iteracompute-qwen3-8-27b-3000-14f4680ebb.html">IteraCompute ： Qwen3.8-27B 每月约 3000万代币 免费</a></h3>
   
   <p class="summary">每月约 3000 万 Token 免费额度，Qwen3.8-27B 输入/缓存/输出标价为 0，约 128K 上下文，OpenAI 兼容接口；邮箱验证拿 Key，不用绑卡。额度每月 1 号重置，超额回 429 不自动扣费。帖称推广约到 11 月 24 日，高峰共享算力可能排队。同作者还提到 AMD 开发者计划约 100 美元 MI300X 额度（激活后约 30 天过期）等。</p>
   
   <div class="how"><strong>怎么领：</strong>邮箱验证注册 IteraCompute → 领取 Key → 用 OpenAI 兼容接口调用</div><div class="meta author">@Jonnyhlkw · 2026-11-08 11:23 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/iteracompute-qwen3-8-27b-3000-token-14f4680ebb.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/Jonnyhlkw/status/2119269427845988819" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/iteracompute-qwen3-8-27b-3000-14f4680ebb.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/Jonnyhlkw/status/2119269427845988819" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/iteracompute-qwen3-8-27b-3000-14f4680ebb.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="国内平台额度速领：硅基流动 / 百炼 / 千帆 / 方舟 帖主实测汇总：硅基流动注册送约 14 元券；阿里云百炼每模型约 100 万 tokens；百度千帆 DeepSeek 每模型约 100 万；火山方舟每模型约 50 万，实名后还可每日再领。 分别注册各平台并按新用户/实名流程领取 jiangxuhe https://x.com/jiangxuhe/status/2119159437164425567 大模型 API 免费额度 未知">
@@ -369,7 +493,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">帖主实测汇总：硅基流动注册送约 14 元券；阿里云百炼每模型约 100 万 tokens；百度千帆 DeepSeek 每模型约 100 万；火山方舟每模型约 50 万，实名后还可每日再领。</p>
   
   <div class="how"><strong>怎么领：</strong>分别注册各平台并按新用户/实名流程领取</div><div class="meta author">@jiangxuhe · 2026-11-08 04:05 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/damoxing-mianfei-api-8f76ba739f.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/jiangxuhe/status/2119159437164425567" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/damoxing-mianfei-api-8f76ba739f.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/jiangxuhe/status/2119159437164425567" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/damoxing-mianfei-api-8f76ba739f.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Token 羊毛聚合站：多平台免费额度一页看 卡兹克「Token 羊毛」聚合站：把官网/公众号/X 上的免费 Token 福利收进一页，按每日、每周、每月、新人礼包和限免分组，首页显示今天还能领多少；领过的会变成可升级卡片。另有帖提到豆包每天 200、秒悟 2000 积分、Cloudflare 每天 1 万 Neurons、Qoder 每天 100 Credits、MiniMax 400 积分等卡牌，并标注核实日期与是否要实名。 打开聚合站按分组领取；以站点当日核实信息与厂商官网为准 TianciZhutc https://x.com/TianciZhutc/status/2119664524512858243 大模型 API 免费额度 未知">
@@ -379,7 +503,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">卡兹克「Token 羊毛」聚合站：把官网/公众号/X 上的免费 Token 福利收进一页，按每日、每周、每月、新人礼包和限免分组，首页显示今天还能领多少；领过的会变成可升级卡片。另有帖提到豆包每天 200、秒悟 2000 积分、Cloudflare 每天 1 万 Neurons、Qoder 每天 100 Credits、MiniMax 400 积分等卡牌，并标注核实日期与是否要实名。</p>
   
   <div class="how"><strong>怎么领：</strong>打开聚合站按分组领取；以站点当日核实信息与厂商官网为准</div><div class="meta author">@TianciZhutc · 2026-11-09 13:32 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/token-f3cbf51a61.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/TianciZhutc/status/2119664524512858243" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/token-f3cbf51a61.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/TianciZhutc/status/2119664524512858243" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/token-f3cbf51a61.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Ant Ling-3.2-flash：两周免费试用 Ling-3.2-flash（560B/25B MoE，支持文本+图像+视频）自 11 月 5 日上线起免费约两周，OpenAI/Anthropic 兼容接口。有帖称注册需 +86 手机号。 按官方注册并领取试用（注意地区/手机号要求） liro90106788 https://x.com/liro90106788/status/2119092556835565580 大模型 API 免费额度 未知">
@@ -389,77 +513,77 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">Ling-3.2-flash（560B/25B MoE，支持文本+图像+视频）自 11 月 5 日上线起免费约两周，OpenAI/Anthropic 兼容接口。有帖称注册需 +86 手机号。</p>
   
   <div class="how"><strong>怎么领：</strong>按官方注册并领取试用（注意地区/手机号要求）</div><div class="meta author">@liro90106788 · 2026-11-07 23:40 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/ant-ling-3-2-flash-da47586221.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/liro90106788/status/2119092556835565580" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/ant-ling-3-2-flash-da47586221.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/liro90106788/status/2119092556835565580" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/ant-ling-3-2-flash-da47586221.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="每周转售的免费开放API已售出-价格中位数每周转售的免费开放API 来源摘要：Free open API of weekly resale sold-price medians Free open API of weekly resale sold-price medians 打开来源链接按页面说明领取/试用；参与前自行核实。 malek_oweis https://www.aiplannermail.com/free-resale-price-api/ 大模型 API 免费额度 Hacker News">
+<article class="card" data-text="每周转售的免费开放API已售出-价格中位数每周转售的免费开放API 每周转售销售价格中位数的免费开放API每周转售销售价格中位数的免费开放API 打开来源链接按页面说明领取/试用；参与前自行核实。 malek_oweis https://www.aiplannermail.com/free-resale-price-api/ 大模型 API 免费额度 Hacker News">
   <div class="badgerow"><span class="badge">大模型 API 免费额度</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/api-api-70b5352893.html">每周转售的免费开放API已售出-价格中位数每周转售的免费开放API</a></h3>
-  <p class="orig">原文：Free open API of weekly resale sold-price medians Free open API of weekly resale</p>
-  <p class="summary">来源摘要：Free open API of weekly resale sold-price medians Free open API of weekly resale sold-price medians</p>
+  
+  <p class="summary">每周转售销售价格中位数的免费开放API每周转售销售价格中位数的免费开放API</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@malek_oweis · 2026-11-07 15:53 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/api-api-70b5352893.html">详情与领取方法</a> · <a class="fulllink" href="https://www.aiplannermail.com/free-resale-price-api/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/api-api-70b5352893.html">详情与领取方法</a> · <a class="fulllink" href="https://www.aiplannermail.com/free-resale-price-api/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/api-api-70b5352893.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Makoda:重复使用您的Codex或Claude订阅作为API Show HN: Makoda 来源摘要：Show HN: Makoda: reuse your Codex or Claude subscriptions as API Show HN: Makoda: reuse your Codex or Claude subscriptions as API Already paying for ChatGPT or Claude? You should not need a second, per-token bill just to test your app(local or remote).&lt;p&gt;I was paying ~$120&amp;#x2… 打开来源链接按页面说明领取/试用；参与前自行核实。 freakuency https://makoda.ai/ 大模型 API 免费额度 Hacker News">
+<article class="card" data-text="Makoda:重复使用您的 Codex或 Claude订阅作为 API 显示HN ： Makoda ：重复使用您的Codex或Claude订阅作为API显示HN ： Makoda ：重复使用您的Codex或Claude订阅作为API已经支付了ChatGPT或Claude ？您不应该仅仅为了测试您的应用程序（本地或远程）而需要按代币开具第二张账单。&lt;p&gt;我正在支付~ $ 120 &amp; # x2… 打开来源链接按页面说明领取/试用；参与前自行核实。 freakuency https://makoda.ai/ 大模型 API 免费额度 Hacker News">
   <div class="badgerow"><span class="badge">大模型 API 免费额度</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-makoda-codex-claude-api-show-22cd5d82c1.html">Show HN: Makoda:重复使用您的Codex或Claude订阅作为API Show HN: Makoda</a></h3>
-  <p class="orig">原文：Show HN: Makoda: reuse your Codex or Claude subscriptions as API Show HN: Makoda</p>
-  <p class="summary">来源摘要：Show HN: Makoda: reuse your Codex or Claude subscriptions as API Show HN: Makoda: reuse your Codex or Claude subscriptions as API Already paying for ChatGPT or Claude? You should not need a second, per-token bill just to test your app(local or remote).&lt;p&gt;I was paying ~$120&amp;#x2…</p>
+  <h3 class="title"><a href="../item/makoda-codex-claude-api-22cd5d82c1.html">Makoda:重复使用您的 Codex或 Claude订阅作为 API</a></h3>
+  
+  <p class="summary">显示HN ： Makoda ：重复使用您的Codex或Claude订阅作为API显示HN ： Makoda ：重复使用您的Codex或Claude订阅作为API已经支付了ChatGPT或Claude ？您不应该仅仅为了测试您的应用程序（本地或远程）而需要按代币开具第二张账单。&lt;p&gt;我正在支付~ $ 120 &amp; # x2…</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@freakuency · 2026-11-07 03:08 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-makoda-codex-claude-api-show-22cd5d82c1.html">详情与领取方法</a> · <a class="fulllink" href="https://makoda.ai/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/makoda-codex-claude-api-22cd5d82c1.html">详情与领取方法</a> · <a class="fulllink" href="https://makoda.ai/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/makoda-codex-claude-api-22cd5d82c1.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="告诉HN ：大量关于Opus 5.5被削弱的报道告诉HN ：大量报道 来源摘要：Tell HN: A flood of reports of Opus 5.5 being nerfed Tell HN: A flood of reports of Opus 5.5 being nerfed Here are several user reports of Opus 5.5 being nerfed:&lt;p&gt;https:&amp;#x2F;&amp;#x2F;www.reddit.com&amp;#x2F;r&amp;#x2F;ClaudeCode&amp;#x2F;comments&amp;#x2F;1xr4urz&amp;#x2F;opus_55_in_the_past_two_w… 打开来源链接按页面说明领取/试用；参与前自行核实。 b--l https://news.ycombinator.com/item?id=50419019 大模型 API 免费额度 Hacker News">
+<article class="card" data-text="告诉HN ：大量关于Opus 5.5被削弱的报道告诉HN ：大量报道 告诉HN ：大量关于Opus 5.5被削弱的报告告诉HN ：大量关于Opus 5.5被削弱的报告以下是几份关于Opus 5.5被削弱的用户报告：&lt;p&gt; https://www.reddit.com/r/ClaudeCode/comments/1xr4urz/opus_55_in_the_past_two_w… 打开来源链接按页面说明领取/试用；参与前自行核实。 b--l https://news.ycombinator.com/item?id=50419019 大模型 API 免费额度 Hacker News">
   <div class="badgerow"><span class="badge">大模型 API 免费额度</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/hn-opus-5-5-hn-df19d1541d.html">告诉HN ：大量关于Opus 5.5被削弱的报道告诉HN ：大量报道</a></h3>
-  <p class="orig">原文：Tell HN: A flood of reports of Opus 5.5 being nerfed Tell HN: A flood of reports</p>
-  <p class="summary">来源摘要：Tell HN: A flood of reports of Opus 5.5 being nerfed Tell HN: A flood of reports of Opus 5.5 being nerfed Here are several user reports of Opus 5.5 being nerfed:&lt;p&gt;https:&amp;#x2F;&amp;#x2F;www.reddit.com&amp;#x2F;r&amp;#x2F;ClaudeCode&amp;#x2F;comments&amp;#x2F;1xr4urz&amp;#x2F;opus_55_in_the_past_two_w…</p>
+  
+  <p class="summary">告诉HN ：大量关于Opus 5.5被削弱的报告告诉HN ：大量关于Opus 5.5被削弱的报告以下是几份关于Opus 5.5被削弱的用户报告：&lt;p&gt; https://www.reddit.com/r/ClaudeCode/comments/1xr4urz/opus_55_in_the_past_two_w…</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@b--l · 2026-11-09 07:49 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hn-opus-5-5-hn-df19d1541d.html">详情与领取方法</a> · <a class="fulllink" href="https://news.ycombinator.com/item?id=50419019" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-opus-5-5-hn-df19d1541d.html">详情与领取方法</a> · <a class="fulllink" href="https://news.ycombinator.com/item?id=50419019" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-opus-5-5-hn-df19d1541d.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="显示HN ：重新计算–电子表格，其中单元格可以是Claude Code或Codex终端 来源摘要：Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals I built this because it was useful for me when building evals&amp;#x2F;benchmarks, and I decided to put it up for free fo… 打开来源链接按页面说明领取/试用；参与前自行核实。 sshah03 https://github.com/sshah03/recalc 大模型 API 免费额度 Hacker News">
+<article class="card" data-text="显示HN ：重新计算–电子表格，其中单元格可以是Claude Code或Codex终端 Recalc –电子表格，其中单元格可以是Claude Code或Codex终端我构建了这个，因为它在构建EVALS/基准时对我很有用，我决定免费放置它… 打开来源链接按页面说明领取/试用；参与前自行核实。 sshah03 https://github.com/sshah03/recalc 大模型 API 免费额度 Hacker News">
   <div class="badgerow"><span class="badge">大模型 API 免费额度</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/hn-claude-code-codex-08c6391fce.html">显示HN ：重新计算–电子表格，其中单元格可以是Claude Code或Codex终端</a></h3>
-  <p class="orig">原文：Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals</p>
-  <p class="summary">来源摘要：Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals I built this because it was useful for me when building evals&amp;#x2F;benchmarks, and I decided to put it up for free fo…</p>
+  
+  <p class="summary">Recalc –电子表格，其中单元格可以是Claude Code或Codex终端我构建了这个，因为它在构建EVALS/基准时对我很有用，我决定免费放置它…</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@sshah03 · 2026-11-08 23:12 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hn-claude-code-codex-08c6391fce.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/sshah03/recalc" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-claude-code-codex-08c6391fce.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/sshah03/recalc" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-claude-code-codex-08c6391fce.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN ：我向Claude支付了1,070 $ ，以阅读3万个房源的最差评价 来源摘要：Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay Hi HN, I&amp;#x27;m Oriol, a solo developer in Barcelona.&lt;p&gt;Before booking anything, I used to do the same thing every ti… 打开来源链接按页面说明领取/试用；参与前自行核实。 orifito https://okstays.com 大模型 API 免费额度 Hacker News">
+<article class="card" data-text="我向Claude支付了1,070 $ ，以阅读3万个房源的最差评价 我向Claude支付了1070 $ ，以阅读3万个房源的最差评价Hi HN ，我是巴塞罗那的独家开发商Oriol。&lt;p&gt;在预订任何东西之前，我以前每次都会做同样的事情…… 打开来源链接按页面说明领取/试用；参与前自行核实。 orifito https://okstays.com 大模型 API 免费额度 Hacker News">
   <div class="badgerow"><span class="badge">大模型 API 免费额度</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-claude-1-070-3-59fdee3f5d.html">Show HN ：我向Claude支付了1,070 $ ，以阅读3万个房源的最差评价</a></h3>
-  <p class="orig">原文：Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay</p>
-  <p class="summary">来源摘要：Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay Hi HN, I&amp;#x27;m Oriol, a solo developer in Barcelona.&lt;p&gt;Before booking anything, I used to do the same thing every ti…</p>
+  <h3 class="title"><a href="../item/claude-1-070-3-59fdee3f5d.html">我向Claude支付了1,070 $ ，以阅读3万个房源的最差评价</a></h3>
+  
+  <p class="summary">我向Claude支付了1070 $ ，以阅读3万个房源的最差评价Hi HN ，我是巴塞罗那的独家开发商Oriol。&lt;p&gt;在预订任何东西之前，我以前每次都会做同样的事情……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@orifito · 2026-11-05 22:13 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-claude-1-070-3-59fdee3f5d.html">详情与领取方法</a> · <a class="fulllink" href="https://okstays.com" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/claude-1-070-3-59fdee3f5d.html">详情与领取方法</a> · <a class="fulllink" href="https://okstays.com" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/claude-1-070-3-59fdee3f5d.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: SEC Fundamentals –免费金融API Show HN: SEC Fundamentals –免费 来源摘要：Show HN: SEC Fundamentals – free financial API Show HN: SEC Fundamentals – free financial API 打开来源链接按页面说明领取/试用；参与前自行核实。 chartwidgets https://www.quotelinks.com/api/sec-fundamentals/ 大模型 API 免费额度 Hacker News">
+<article class="card" data-text="SEC Fundamentals –免费金融 API SEC Fundamentals –免费金融API 打开来源链接按页面说明领取/试用；参与前自行核实。 chartwidgets https://www.quotelinks.com/api/sec-fundamentals/ 大模型 API 免费额度 Hacker News">
   <div class="badgerow"><span class="badge">大模型 API 免费额度</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-sec-fundamentals-api-show-hn-4270e345da.html">Show HN: SEC Fundamentals –免费金融API Show HN: SEC Fundamentals –免费</a></h3>
-  <p class="orig">原文：Show HN: SEC Fundamentals – free financial API Show HN: SEC Fundamentals – free</p>
-  <p class="summary">来源摘要：Show HN: SEC Fundamentals – free financial API Show HN: SEC Fundamentals – free financial API</p>
+  <h3 class="title"><a href="../item/sec-fundamentals-api-4270e345da.html">SEC Fundamentals –免费金融 API</a></h3>
+  
+  <p class="summary">SEC Fundamentals –免费金融API</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@chartwidgets · 2026-11-08 14:51 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-sec-fundamentals-api-show-hn-4270e345da.html">详情与领取方法</a> · <a class="fulllink" href="https://www.quotelinks.com/api/sec-fundamentals/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/sec-fundamentals-api-4270e345da.html">详情与领取方法</a> · <a class="fulllink" href="https://www.quotelinks.com/api/sec-fundamentals/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/sec-fundamentals-api-4270e345da.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="告诉HN ： HN是错误的告诉HN ： HN是错误的这是一个快速展示HN的故事。&lt;p&gt;Inspi 来源摘要：Tell HN: HN Is Wrong Tell HN: HN Is Wrong Here is a quick Show HN story.&lt;p&gt;Inspired by Alex Karpathy&amp;#x27;s HackerTube, i spent time, effort and tokens on analyzing Show HN posts - 200K plus posts, and a million plus comments, identifying trends, patterns, reactions etc.&lt;p&gt;I s… 打开来源链接按页面说明领取/试用；参与前自行核实。 npguy https://news.ycombinator.com/item?id=50406993 大模型 API 免费额度 Hacker News">
+<article class="card" data-text="告诉HN ： HN是错误的告诉HN ： HN是错误的这是一个快速展示HN的故事。&lt;p&gt;Inspi 告诉HN ： HN是错的告诉HN ： HN是错的这是一个快速展示HN的故事。&lt;p&gt;受到Alex Karpathy的HackerTube的启发，我花时间、精力和代币来分析 打开来源链接按页面说明领取/试用；参与前自行核实。 npguy https://news.ycombinator.com/item?id=50406993 大模型 API 免费额度 Hacker News">
   <div class="badgerow"><span class="badge">大模型 API 免费额度</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/hn-hn-hn-hn-hn-p-inspi-0ca4e24576.html">告诉HN ： HN是错误的告诉HN ： HN是错误的这是一个快速展示HN的故事。&lt;p&gt;Inspi</a></h3>
-  <p class="orig">原文：Tell HN: HN Is Wrong Tell HN: HN Is Wrong Here is a quick Show HN story.&lt;p&gt;Inspi</p>
-  <p class="summary">来源摘要：Tell HN: HN Is Wrong Tell HN: HN Is Wrong Here is a quick Show HN story.&lt;p&gt;Inspired by Alex Karpathy&amp;#x27;s HackerTube, i spent time, effort and tokens on analyzing Show HN posts - 200K plus posts, and a million plus comments, identifying trends, patterns, reactions etc.&lt;p&gt;I s…</p>
+  
+  <p class="summary">告诉HN ： HN是错的告诉HN ： HN是错的这是一个快速展示HN的故事。&lt;p&gt;受到Alex Karpathy的HackerTube的启发，我花时间、精力和代币来分析</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@npguy · 2026-11-08 02:57 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hn-hn-hn-hn-hn-p-inspi-0ca4e24576.html">详情与领取方法</a> · <a class="fulllink" href="https://news.ycombinator.com/item?id=50406993" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-hn-hn-hn-hn-p-inspi-0ca4e24576.html">详情与领取方法</a> · <a class="fulllink" href="https://news.ycombinator.com/item?id=50406993" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-hn-hn-hn-hn-p-inspi-0ca4e24576.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流 实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 为了解决 GPT 的审美不稳定的问题，我开发了一款类似 Claude Design 的项目，我起初并没有抱太大希望，觉得可以保证风格统一就好了。在使用 Codex Cli 的 `gpt-6.1-sol` 开发了 [摄影网站]( https://drop-af770064-b43.amery2010.workers.dev/)，结果却惊艳到了我。网站排版更大胆，交互更细腻，如果不说… 打开来源链接按页面说明领取/试用；参与前自行核实。 amery2010 https://www.v2ex.com/t/1255595 大模型 API 免费额度 V2EX">
@@ -469,27 +593,27 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 为了解决 GPT 的审美不稳定的问题，我开发了一款类似 Claude Design 的项目，我起初并没有抱太大希望，觉得可以保证风格统一就好了。在使用 Codex Cli 的 `gpt-6.1-sol` 开发了 [摄影网站]( https://drop-af770064-b43.amery2010.workers.dev/)，结果却惊艳到了我。网站排版更大胆，交互更细腻，如果不说…</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@amery2010 · 2026-11-09 16:01 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/gpt-skills-gpt-skills-87183b5b2c.html">详情与领取方法</a> · <a class="fulllink" href="https://www.v2ex.com/t/1255595" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/gpt-skills-gpt-skills-87183b5b2c.html">详情与领取方法</a> · <a class="fulllink" href="https://www.v2ex.com/t/1255595" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/gpt-skills-gpt-skills-87183b5b2c.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="st-gr/sail-proxy st-gr/sail-proxy适用于SAP AI Core的免费开源LLM网关。 来源摘要：st-gr/sail-proxy st-gr/sail-proxy Free, open-source LLM gateway for SAP AI Core. Run Claude Code, Codex, GitHub Copilot, Gemini CLI and your own apps on your SAP models through native OpenAI, Anthropic, Gemini, Bedrock and Ollama APIs. SSO, per-user API keys, SAP cost analytic… 打开来源链接按页面说明领取/试用；参与前自行核实。 st-gr https://github.com/st-gr/sail-proxy 大模型 API 免费额度 GitHub">
+<article class="card" data-text="st-gr/sail-proxy st-gr/sail-proxy适用于SAP AI Core的免费开源LLM网关。 st-gr/sail-proxy st-gr/sail-proxy适用于SAP AI Core的开源LLM网关。通过原生OpenAI、Anthropic、Gemini、Bedrock和Ollama API ，在SAP模型上运行Claude Code、Codex、GitHub Copilot、Gemini CLI和自己的应用程序。SSO、每用户API密钥、SAP成本分析…… 打开来源链接按页面说明领取/试用；参与前自行核实。 st-gr https://github.com/st-gr/sail-proxy 大模型 API 免费额度 GitHub">
   <div class="badgerow"><span class="badge">大模型 API 免费额度</span><span class="src-tag">来源 GitHub</span></div>
   <h3 class="title"><a href="../item/st-gr-sail-proxy-st-gr-sail-proxy-sa-1a50b05ad6.html">st-gr/sail-proxy st-gr/sail-proxy适用于SAP AI Core的免费开源LLM网关。</a></h3>
-  <p class="orig">原文：st-gr/sail-proxy st-gr/sail-proxy Free, open-source LLM gateway for SAP AI Core.</p>
-  <p class="summary">来源摘要：st-gr/sail-proxy st-gr/sail-proxy Free, open-source LLM gateway for SAP AI Core. Run Claude Code, Codex, GitHub Copilot, Gemini CLI and your own apps on your SAP models through native OpenAI, Anthropic, Gemini, Bedrock and Ollama APIs. SSO, per-user API keys, SAP cost analytic…</p>
+  
+  <p class="summary">st-gr/sail-proxy st-gr/sail-proxy适用于SAP AI Core的开源LLM网关。通过原生OpenAI、Anthropic、Gemini、Bedrock和Ollama API ，在SAP模型上运行Claude Code、Codex、GitHub Copilot、Gemini CLI和自己的应用程序。SSO、每用户API密钥、SAP成本分析……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@st-gr · 2026-11-09 16:12 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/st-gr-sail-proxy-st-gr-sail-proxy-sa-1a50b05ad6.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/st-gr/sail-proxy" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/st-gr-sail-proxy-st-gr-sail-proxy-sa-1a50b05ad6.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/st-gr/sail-proxy" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/st-gr-sail-proxy-st-gr-sail-proxy-sa-1a50b05ad6.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="royalskynet/orchestrator royalskynet/orchestrator将工单发送到任何LL royalskynet/orchestrator royalskynet/orchestrator Dispatch work orders to any LLM you have (free pools, subscriptions, OmniRoute providers, APIs), ranked by measured pass rate; done = acceptance script passes. 多 LLM 工單調度器。 打开来源链接按页面说明领取/试用；参与前自行核实。 royalskynet https://github.com/royalskynet/orchestrator 大模型 API 免费额度 GitHub">
+<article class="card" data-text="royalskynet/orchestrator royalskynet/orchestrator将工单发送到任何LL royalskynet/orchestrator royalskynet/orchestrator将工作订单发送到您拥有的任何LLM （免费池、订阅、OmniRoute提供商、API ） ，按测量的通过率排名；完成=接受脚本通过。多LLM 工單調度器。 打开来源链接按页面说明领取/试用；参与前自行核实。 royalskynet https://github.com/royalskynet/orchestrator 大模型 API 免费额度 GitHub">
   <div class="badgerow"><span class="badge">大模型 API 免费额度</span><span class="src-tag">来源 GitHub</span></div>
   <h3 class="title"><a href="../item/royalskynet-orchestrator-royalskynet-7cbabeafa5.html">royalskynet/orchestrator royalskynet/orchestrator将工单发送到任何LL</a></h3>
-  <p class="orig">原文：royalskynet/orchestrator royalskynet/orchestrator Dispatch work orders to any LL</p>
-  <p class="summary">royalskynet/orchestrator royalskynet/orchestrator Dispatch work orders to any LLM you have (free pools, subscriptions, OmniRoute providers, APIs), ranked by measured pass rate; done = acceptance script passes. 多 LLM 工單調度器。</p>
+  
+  <p class="summary">royalskynet/orchestrator royalskynet/orchestrator将工作订单发送到您拥有的任何LLM （免费池、订阅、OmniRoute提供商、API ） ，按测量的通过率排名；完成=接受脚本通过。多LLM 工單調度器。</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@royalskynet · 2026-11-09 16:01 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/royalskynet-orchestrator-royalskynet-7cbabeafa5.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/royalskynet/orchestrator" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/royalskynet-orchestrator-royalskynet-7cbabeafa5.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/royalskynet/orchestrator" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/royalskynet-orchestrator-royalskynet-7cbabeafa5.html">复制链接</a></div>
 </article></div></section><section class="section"><h2>AI 产品会员/试用 <span>(5)</span></h2><div class="grid">
 <article class="card" data-text="fal FLUX 3 Max：免费周末只剩最后一天 fal FLUX 3 Max 免费周末：新视频模型免费开放生成——免登录每天 3 条，登录 4 条，绑卡验证 5 条；单条最长约 15 秒、720p、带声音。同帖还提到 Google AI Pro 学生免费一年（SheerID，约 12/31 截止、注意到期续费）、Zed Pro 学生一年、OpenAI Codex 学生 $100 积分、Mistral Vibe 学生价、七牛 Conatus 每日免费 Token（至约 11/30）以及 Kaggle 等常驻算力。 打开 fal 活动页生成；学生福利另走 SheerID/学校邮箱认证 NianEn_Ai https://x.com/NianEn_Ai/status/2119609656192516379 AI 产品会员/试用 未知">
   <div class="badgerow"><span class="badge">AI 产品会员/试用</span><span class="src-tag">来源 未知</span><span class="dl-tag">截止 FLUX 3 Max 约至 2026-11-10 04:00 Asia/Shanghai；其余以各活动页为准</span></div>
@@ -498,7 +622,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">fal FLUX 3 Max 免费周末：新视频模型免费开放生成——免登录每天 3 条，登录 4 条，绑卡验证 5 条；单条最长约 15 秒、720p、带声音。同帖还提到 Google AI Pro 学生免费一年（SheerID，约 12/31 截止、注意到期续费）、Zed Pro 学生一年、OpenAI Codex 学生 $100 积分、Mistral Vibe 学生价、七牛 Conatus 每日免费 Token（至约 11/30）以及 Kaggle 等常驻算力。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 fal 活动页生成；学生福利另走 SheerID/学校邮箱认证</div><div class="meta author">@NianEn_Ai · 2026-11-09 09:54 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/fal-flux-3-max-e75984b644.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/NianEn_Ai/status/2119609656192516379" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/fal-flux-3-max-e75984b644.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/NianEn_Ai/status/2119609656192516379" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/fal-flux-3-max-e75984b644.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="阶跃 StepAudio / 语音模型限免延期到 11/17 阶跃/StepFun 语音相关限免：有帖称官方定价页改口径，适用限免模型延到 11 月 17 日 11:59，12 点起按新价；含实时语音、配音、音频生成、音乐、语音识别，免费套餐需个人实名。另有帖提到 StepAudio 3 有 4 个 preview 模型免费（TTS/ASR 已收费），需登录建 API key。 登录阶跃/StepFun → 创建 API key → 使用限免模型（以官网定价页为准） tutuqi88 https://x.com/tutuqi88/status/2119665105483059423 AI 产品会员/试用 未知">
@@ -508,7 +632,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">阶跃/StepFun 语音相关限免：有帖称官方定价页改口径，适用限免模型延到 11 月 17 日 11:59，12 点起按新价；含实时语音、配音、音频生成、音乐、语音识别，免费套餐需个人实名。另有帖提到 StepAudio 3 有 4 个 preview 模型免费（TTS/ASR 已收费），需登录建 API key。</p>
   
   <div class="how"><strong>怎么领：</strong>登录阶跃/StepFun → 创建 API key → 使用限免模型（以官网定价页为准）</div><div class="meta author">@tutuqi88 · 2026-11-09 13:35 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/stepaudio-11-17-9a70ab89c1.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/tutuqi88/status/2119665105483059423" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/stepaudio-11-17-9a70ab89c1.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/tutuqi88/status/2119665105483059423" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/stepaudio-11-17-9a70ab89c1.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="腾讯混元 Hy4：WorkBuddy/CodeBuddy 限免 在 WorkBuddy、CodeBuddy 中选 Hy4 可领每日免费额度；帖称网友反馈几句可能限流，晚上更顺。另提 TokenHub 五折至年底（输入约 3 元/百万 token）。 打开 WorkBuddy/CodeBuddy → 选择 Hy4 使用每日额度 FirstInFeed https://x.com/FirstInFeed/status/2119258807843139989 AI 产品会员/试用 未知">
@@ -518,7 +642,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">在 WorkBuddy、CodeBuddy 中选 Hy4 可领每日免费额度；帖称网友反馈几句可能限流，晚上更顺。另提 TokenHub 五折至年底（输入约 3 元/百万 token）。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 WorkBuddy/CodeBuddy → 选择 Hy4 使用每日额度</div><div class="meta author">@FirstInFeed · 2026-11-08 10:40 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hy4-workbuddy-codebuddy-c64bfd0bf1.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/FirstInFeed/status/2119258807843139989" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hy4-workbuddy-codebuddy-c64bfd0bf1.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/FirstInFeed/status/2119258807843139989" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hy4-workbuddy-codebuddy-c64bfd0bf1.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="智谱 ZCode：每天晚间领 3 亿 GLM-5.3-Flash 智谱 ZCode：每天 19:00 领约 3 亿 GLM-5.3-Flash，但 23:00 至次日 9:00 才能消耗，且限客户端。同帖还提到长亭 MonkeyCode 每天 10 点约 500 亿 token 共享池（高峰可能烧穿）、智谱 AutoClaw 一轮约 5000 万 token（帖称 11/8 截止）、TRAE 每天签到约 150 积分、Qoder 每天 10 点领约 100 Credits。规则变化快，以官方页为准。 打开智谱 ZCode 客户端 → 19:00 后领取 → 按规定时段使用；其余工具按各自官方入口 BonoDJblack https://x.com/BonoDJblack/status/2119337260500107572 AI 产品会员/试用 未知">
@@ -528,7 +652,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">智谱 ZCode：每天 19:00 领约 3 亿 GLM-5.3-Flash，但 23:00 至次日 9:00 才能消耗，且限客户端。同帖还提到长亭 MonkeyCode 每天 10 点约 500 亿 token 共享池（高峰可能烧穿）、智谱 AutoClaw 一轮约 5000 万 token（帖称 11/8 截止）、TRAE 每天签到约 150 积分、Qoder 每天 10 点领约 100 Credits。规则变化快，以官方页为准。</p>
   
   <div class="how"><strong>怎么领：</strong>打开智谱 ZCode 客户端 → 19:00 后领取 → 按规定时段使用；其余工具按各自官方入口</div><div class="meta author">@BonoDJblack · 2026-11-08 15:52 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/zcode-3-glm-5-3-flash-0d8fd235a3.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/BonoDJblack/status/2119337260500107572" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/zcode-3-glm-5-3-flash-0d8fd235a3.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/BonoDJblack/status/2119337260500107572" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/zcode-3-glm-5-3-flash-0d8fd235a3.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="[免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏览、下载 iPhone 照片和文件 [免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏 [免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏览、下载 iPhone 照片和文件 [免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏览、下载 iPhone 照片和文件 大家好，我是一名独立开发者，想分享一下自己做的 iOS 应用 KimDrop ，也希望听听大家的使用建议。 KimDrop 主要想解决一个场景：想在电脑上管理 iPhone 里的照片或文件。 手机和电脑连接同一个 Wi-Fi 后，在 iPhone 上打开 KimDrop ，再用电脑浏览器访问应用显示的地址，就可以浏览、下载、管理照片及文件。 相册与文件功能… 打开来源链接按页面说明领取/试用；参与前自行核实。 Kimball https://www.v2ex.com/t/1255560 AI 产品会员/试用 V2EX">
@@ -538,16 +662,16 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">[免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏览、下载 iPhone 照片和文件 [免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏览、下载 iPhone 照片和文件 大家好，我是一名独立开发者，想分享一下自己做的 iOS 应用 KimDrop ，也希望听听大家的使用建议。 KimDrop 主要想解决一个场景：想在电脑上管理 iPhone 里的照片或文件。 手机和电脑连接同一个 Wi-Fi 后，在 iPhone 上打开 KimDrop ，再用电脑浏览器访问应用显示的地址，就可以浏览、下载、管理照片及文件。 相册与文件功能…</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@Kimball · 2026-11-09 14:22 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/ios-kimdrop-iphone-ios-kimdrop-a255f87fa4.html">详情与领取方法</a> · <a class="fulllink" href="https://www.v2ex.com/t/1255560" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/ios-kimdrop-iphone-ios-kimdrop-a255f87fa4.html">详情与领取方法</a> · <a class="fulllink" href="https://www.v2ex.com/t/1255560" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/ios-kimdrop-iphone-ios-kimdrop-a255f87fa4.html">复制链接</a></div>
 </article></div></section><section class="section"><h2>AI 开发工具与编程助手 <span>(15)</span></h2><div class="grid">
-<article class="card" data-text="Qoder 匿名模型 Qoduck：个人号每日 0 Credits Qoder 自 11/7 上线匿名模型 Qoduck：个人号每天有免费额度，额度内消耗倍率可到 0.0×，思考强度拉满也不扣 Credits；免费号也能用，付费号额度更多。帖称目前主要在 Qoder 客户端，IDE 插件和 CLI 可能未开；社区猜测是否 Qwen 新版，官方未盖章。可用 Codex 真实任务做盲测对比。 打开 Qoder 客户端 → 模型选择器切到 Qoduck → 直接写代码/搭项目 GeekCatX https://x.com/GeekCatX/status/2119680316772405739 AI 开发工具与编程助手 未知">
+<article class="card" data-text="Qoder 匿名模型 Qoduck ：个人号每日 0学分 Qoder 自 11/7 上线匿名模型 Qoduck：个人号每天有免费额度，额度内消耗倍率可到 0.0×，思考强度拉满也不扣 Credits；免费号也能用，付费号额度更多。帖称目前主要在 Qoder 客户端，IDE 插件和 CLI 可能未开；社区猜测是否 Qwen 新版，官方未盖章。可用 Codex 真实任务做盲测对比。 打开 Qoder 客户端 → 模型选择器切到 Qoduck → 直接写代码/搭项目 GeekCatX https://x.com/GeekCatX/status/2119680316772405739 AI 开发工具与编程助手 未知">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 未知</span><span class="dl-tag">截止 限时活动，结束时间未定</span></div>
-  <h3 class="title"><a href="../item/qoder-qoduck-0-credits-75a4ff13ff.html">Qoder 匿名模型 Qoduck：个人号每日 0 Credits</a></h3>
+  <h3 class="title"><a href="../item/qoder-qoduck-0-75a4ff13ff.html">Qoder 匿名模型 Qoduck ：个人号每日 0学分</a></h3>
   
   <p class="summary">Qoder 自 11/7 上线匿名模型 Qoduck：个人号每天有免费额度，额度内消耗倍率可到 0.0×，思考强度拉满也不扣 Credits；免费号也能用，付费号额度更多。帖称目前主要在 Qoder 客户端，IDE 插件和 CLI 可能未开；社区猜测是否 Qwen 新版，官方未盖章。可用 Codex 真实任务做盲测对比。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 Qoder 客户端 → 模型选择器切到 Qoduck → 直接写代码/搭项目</div><div class="meta author">@GeekCatX · 2026-11-09 14:35 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/qoder-qoduck-0-credits-75a4ff13ff.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/GeekCatX/status/2119680316772405739" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/qoder-qoduck-0-75a4ff13ff.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/GeekCatX/status/2119680316772405739" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/qoder-qoduck-0-75a4ff13ff.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="CodeRabbit：开源项目免费 + 私有代码试用 CodeRabbit：开源仓库免费使用 AI 代码审查；私有代码提供免费试用。适合 PR 审查、变更说明与安全扫描。 打开 coderabbit.ai → 连接 GitHub/GitLab 仓库 → OSS 免费启用 CryptoSenyo https://x.com/CryptoSenyo/status/2119668944420409465 AI 开发工具与编程助手 未知">
@@ -557,7 +681,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">CodeRabbit：开源仓库免费使用 AI 代码审查；私有代码提供免费试用。适合 PR 审查、变更说明与安全扫描。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 coderabbit.ai → 连接 GitHub/GitLab 仓库 → OSS 免费启用</div><div class="meta author">@CryptoSenyo · 2026-11-09 13:50 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/coderabbit-2213c64bb9.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/CryptoSenyo/status/2119668944420409465" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/coderabbit-2213c64bb9.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/CryptoSenyo/status/2119668944420409465" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/coderabbit-2213c64bb9.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Devin Desktop（原 Windsurf）：免费计划可用 Devin Desktop（原 Windsurf）免费计划：含轻量 Agent 配额、有限模型额度、无限内联编辑与 Tab 补全，日常写代码够用；重活与高级模型仍需加钱。 注册 Devin Desktop 免费计划后直接使用 jhl880617 https://x.com/jhl880617/status/2119557938222109112 AI 开发工具与编程助手 未知">
@@ -567,7 +691,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">Devin Desktop（原 Windsurf）免费计划：含轻量 Agent 配额、有限模型额度、无限内联编辑与 Tab 补全，日常写代码够用；重活与高级模型仍需加钱。</p>
   
   <div class="how"><strong>怎么领：</strong>注册 Devin Desktop 免费计划后直接使用</div><div class="meta author">@jhl880617 · 2026-11-09 06:29 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/devin-desktop-windsurf-6e7c4cf2cf.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/jhl880617/status/2119557938222109112" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/devin-desktop-windsurf-6e7c4cf2cf.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/jhl880617/status/2119557938222109112" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/devin-desktop-windsurf-6e7c4cf2cf.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="GitHub 学生包：Copilot 等开发者权益 学生认证后可领 Copilot 免费额度，以及域名一年、云服务额度等。需学校邮箱或学生证，审核有时要几天。 GitHub Education → 学生认证 → 领取 Student Developer Pack 7eddsi https://x.com/7eddsi/status/2118890883076517914 AI 开发工具与编程助手 未知">
@@ -577,7 +701,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">学生认证后可领 Copilot 免费额度，以及域名一年、云服务额度等。需学校邮箱或学生证，审核有时要几天。</p>
   
   <div class="how"><strong>怎么领：</strong>GitHub Education → 学生认证 → 领取 Student Developer Pack</div><div class="meta author">@7eddsi · 2026-11-07 10:18 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/github-copilot-9bd5edfd6f.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/7eddsi/status/2118890883076517914" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/github-copilot-9bd5edfd6f.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/7eddsi/status/2118890883076517914" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/github-copilot-9bd5edfd6f.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="OmniRoute：开源免费 AI 网关聚合多平台 开源本地网关 OmniRoute：把大量 AI 服务商与免费方案收到一个端点，Claude Code / Cursor / Codex / Copilot / Cline 等可改指到它；限流可自动切路，并带 token 压缩宣传。免费额度来自各家，需自己注册；本地跑、配置与 Key 在本机。注意合规，勿用于绕过付费条款。 按项目说明安装（如 npm install -g omniroute）并 setup 指向你的 IDE/CLI 0xGky https://x.com/0xGky/status/2119600861261279410 AI 开发工具与编程助手 未知">
@@ -587,17 +711,17 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">开源本地网关 OmniRoute：把大量 AI 服务商与免费方案收到一个端点，Claude Code / Cursor / Codex / Copilot / Cline 等可改指到它；限流可自动切路，并带 token 压缩宣传。免费额度来自各家，需自己注册；本地跑、配置与 Key 在本机。注意合规，勿用于绕过付费条款。</p>
   
   <div class="how"><strong>怎么领：</strong>按项目说明安装（如 npm install -g omniroute）并 setup 指向你的 IDE/CLI</div><div class="meta author">@0xGky · 2026-11-09 09:20 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/omniroute-ai-370a07f8fd.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/0xGky/status/2119600861261279410" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/omniroute-ai-370a07f8fd.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/0xGky/status/2119600861261279410" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/omniroute-ai-370a07f8fd.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="awesome-free-llm-apis：免费大模型 API 清单 GitHub 高星清单 awesome-free-llm-apis（帖称约 1.26 万 star）整理多家免费 LLM API：Gemini（长上下文）、Groq、OpenRouter、Cloudflare Workers AI（每天约 1 万 Neurons）、NVIDIA NIM、以及国内多家等。另有核对帖提醒：免注册免 Key 的很少，Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰订阅。 打开该 GitHub 清单 → 按提供商申请 Key 并注意各自限额/实名要求 yxl44 https://x.com/yxl44/status/2119326478248915137 AI 开发工具与编程助手 未知">
+<article class="card" data-text="awesome-free-llm-apis ：免费大模型 API 清单 GitHub 高星清单 awesome-free-llm-apis （帖称约 1.26万星）整理多家免费 LLM API ： Gemini （双子座长上下文）、、 Groq OpenRouter、 Cloudflare Workers AI （每天约 1个万神经元）、 NVIDIA NIM、以及国内多家等。另有核对帖提醒 ：免注册免 Key 的很少， Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰订阅。 打开该 GitHub 清单 → 按提供商申请 Key 并注意各自限额/实名要求 yxl44 https://x.com/yxl44/status/2119326478248915137 AI 开发工具与编程助手 未知">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 未知</span></div>
-  <h3 class="title"><a href="../item/awesome-free-llm-apis-api-8194ed4f6a.html">awesome-free-llm-apis：免费大模型 API 清单</a></h3>
+  <h3 class="title"><a href="../item/awesome-free-llm-apis-api-8194ed4f6a.html">awesome-free-llm-apis ：免费大模型 API 清单</a></h3>
   
-  <p class="summary">GitHub 高星清单 awesome-free-llm-apis（帖称约 1.26 万 star）整理多家免费 LLM API：Gemini（长上下文）、Groq、OpenRouter、Cloudflare Workers AI（每天约 1 万 Neurons）、NVIDIA NIM、以及国内多家等。另有核对帖提醒：免注册免 Key 的很少，Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰订阅。</p>
+  <p class="summary">GitHub 高星清单 awesome-free-llm-apis （帖称约 1.26万星）整理多家免费 LLM API ： Gemini （双子座长上下文）、、 Groq OpenRouter、 Cloudflare Workers AI （每天约 1个万神经元）、 NVIDIA NIM、以及国内多家等。另有核对帖提醒 ：免注册免 Key 的很少， Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰订阅。</p>
   
   <div class="how"><strong>怎么领：</strong>打开该 GitHub 清单 → 按提供商申请 Key 并注意各自限额/实名要求</div><div class="meta author">@yxl44 · 2026-11-08 15:09 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/awesome-free-llm-apis-api-8194ed4f6a.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/yxl44/status/2119326478248915137" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/awesome-free-llm-apis-api-8194ed4f6a.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/yxl44/status/2119326478248915137" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/awesome-free-llm-apis-api-8194ed4f6a.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="大学生参加 Qoder 高校赛可领一个月会员 帖称参加 2026 Qoder 高校创造力大赛即可白嫖一个月会员（以官方活动规则为准）。 按 Qoder 高校赛官方入口报名 lyuihh https://x.com/lyuihh/status/2119409656972132777 AI 开发工具与编程助手 未知">
@@ -607,87 +731,87 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">帖称参加 2026 Qoder 高校创造力大赛即可白嫖一个月会员（以官方活动规则为准）。</p>
   
   <div class="how"><strong>怎么领：</strong>按 Qoder 高校赛官方入口报名</div><div class="meta author">@lyuihh · 2026-11-08 20:40 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/qoder-255eaed880.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/lyuihh/status/2119409656972132777" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/qoder-255eaed880.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/lyuihh/status/2119409656972132777" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/qoder-255eaed880.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN ：我的第一个项目，一个人工智能驱动的金融新闻分析仪Show HN ：我的FIR 来源摘要：Show HN: My first project, an AI-powered financial news analyzer Show HN: My first project, an AI-powered financial news analyzer I&amp;#x27;m 17, and I started NotBot a few months ago to see whether I could turn an idea into a working project. My main interest is economics, not b… 打开来源链接按页面说明领取/试用；参与前自行核实。 lamarcol https://github.com/lamarcol/NotBot AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="我的第一个项目，一个人工智能驱动的金融新闻分析仪 我的第一个项目，一个人工智能驱动的金融新闻分析仪我17岁，几个月前我创办了NotBot ，看看我是否可以将一个想法变成一个工作项目。我的主要兴趣是经济学，而不是…… 打开来源链接按页面说明领取/试用；参与前自行核实。 lamarcol https://github.com/lamarcol/NotBot AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-show-hn-fir-14bf5e0f88.html">Show HN ：我的第一个项目，一个人工智能驱动的金融新闻分析仪Show HN ：我的FIR</a></h3>
-  <p class="orig">原文：Show HN: My first project, an AI-powered financial news analyzer Show HN: My fir</p>
-  <p class="summary">来源摘要：Show HN: My first project, an AI-powered financial news analyzer Show HN: My first project, an AI-powered financial news analyzer I&amp;#x27;m 17, and I started NotBot a few months ago to see whether I could turn an idea into a working project. My main interest is economics, not b…</p>
+  <h3 class="title"><a href="../item/ai-kaifa-gongju-14bf5e0f88.html">我的第一个项目，一个人工智能驱动的金融新闻分析仪</a></h3>
+  
+  <p class="summary">我的第一个项目，一个人工智能驱动的金融新闻分析仪我17岁，几个月前我创办了NotBot ，看看我是否可以将一个想法变成一个工作项目。我的主要兴趣是经济学，而不是……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@lamarcol · 2026-11-09 06:34 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-show-hn-fir-14bf5e0f88.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/lamarcol/NotBot" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/ai-kaifa-gongju-14bf5e0f88.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/lamarcol/NotBot" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/ai-kaifa-gongju-14bf5e0f88.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, T 来源摘要：Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, Together Hi HN! :)&lt;p&gt;I’ve been working as a fullstack freelancer for over 4 years now. I always wanted some kind of IDE where I could take designs, turn them into code, and not be restricted to usin… 打开来源链接按页面说明领取/试用；参与前自行核实。 aliadelelroby https://velork.com AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, T Velork – Design and Code, Together Hi HN!:)&lt;p&gt;我已经作为一名全职自由职业者工作了 4年多。我一直想要某种 IDE ，在这种 IDE中 ，我可以将设计转化为代码 ，而不仅仅局限于使用 …… 打开来源链接按页面说明领取/试用；参与前自行核实。 aliadelelroby https://velork.com AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/show-hn-velork-design-and-code-toget-307fbb10a0.html">Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, T</a></h3>
   
-  <p class="summary">来源摘要：Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, Together Hi HN! :)&lt;p&gt;I’ve been working as a fullstack freelancer for over 4 years now. I always wanted some kind of IDE where I could take designs, turn them into code, and not be restricted to usin…</p>
+  <p class="summary">Velork – Design and Code, Together Hi HN!:)&lt;p&gt;我已经作为一名全职自由职业者工作了 4年多。我一直想要某种 IDE ，在这种 IDE中 ，我可以将设计转化为代码 ，而不仅仅局限于使用 ……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@aliadelelroby · 2026-11-08 23:31 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-velork-design-and-code-toget-307fbb10a0.html">详情与领取方法</a> · <a class="fulllink" href="https://velork.com" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/show-hn-velork-design-and-code-toget-307fbb10a0.html">详情与领取方法</a> · <a class="fulllink" href="https://velork.com" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/show-hn-velork-design-and-code-toget-307fbb10a0.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Jurex in House –使用AI处理您业务的法律方面Show HN: J 来源摘要：Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: Jurex in House – Handles Legal Side of Your Business with AI Hi,&lt;p&gt;Jurex-in-house is a Tool you &amp;amp; legal teams can use to handle the legal side of your business. Best in Class Drafting, research … 打开来源链接按页面说明领取/试用；参与前自行核实。 kartikdhawan https://inhouse.jurex.ai/login AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="Jurex in House –使用 AI处理您业务的法律方面 Jurex in House –使用AI处理您业务的法律方面Hi,&lt;p&gt; Jurex-in-house是您和法律团队可以用来处理业务法律方面的工具。一流的起草、研究…… 打开来源链接按页面说明领取/试用；参与前自行核实。 kartikdhawan https://inhouse.jurex.ai/login AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-jurex-in-house-ai-show-hn-j-7ffe02d223.html">Show HN: Jurex in House –使用AI处理您业务的法律方面Show HN: J</a></h3>
-  <p class="orig">原文：Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: J</p>
-  <p class="summary">来源摘要：Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: Jurex in House – Handles Legal Side of Your Business with AI Hi,&lt;p&gt;Jurex-in-house is a Tool you &amp;amp; legal teams can use to handle the legal side of your business. Best in Class Drafting, research …</p>
+  <h3 class="title"><a href="../item/jurex-in-house-ai-7ffe02d223.html">Jurex in House –使用 AI处理您业务的法律方面</a></h3>
+  
+  <p class="summary">Jurex in House –使用AI处理您业务的法律方面Hi,&lt;p&gt; Jurex-in-house是您和法律团队可以用来处理业务法律方面的工具。一流的起草、研究……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@kartikdhawan · 2026-11-08 23:29 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-jurex-in-house-ai-show-hn-j-7ffe02d223.html">详情与领取方法</a> · <a class="fulllink" href="https://inhouse.jurex.ai/login" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/jurex-in-house-ai-7ffe02d223.html">详情与领取方法</a> · <a class="fulllink" href="https://inhouse.jurex.ai/login" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/jurex-in-house-ai-7ffe02d223.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN ： Solous ，一个日记应用程序，就像社交媒体一样，可以表达你内心的情感 来源摘要：Show HN: Solous, a journaling app like a social media for emotions inside of you Show HN: Solous, a journaling app like a social media for emotions inside of you Solous is a private journaling app. This app is inspired by movies like inside out or Yumi&amp;#x27;s Cells where we al… 打开来源链接按页面说明领取/试用；参与前自行核实。 solous https://solous.net/ AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="Solous ，一个日记应用程序，就像社交媒体一样，可以表达你内心的情感 Solous ，一个类似于社交媒体的日记应用程序，用于表达你内心的情感Solous是一个私人日记应用程序。这个应用程序的灵感来自电影，比如《Inside Out》或《Yumi&#x27;s Cells》，在这里我们可以…… 打开来源链接按页面说明领取/试用；参与前自行核实。 solous https://solous.net/ AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-solous-0e27c4ec54.html">Show HN ： Solous ，一个日记应用程序，就像社交媒体一样，可以表达你内心的情感</a></h3>
-  <p class="orig">原文：Show HN: Solous, a journaling app like a social media for emotions inside of you</p>
-  <p class="summary">来源摘要：Show HN: Solous, a journaling app like a social media for emotions inside of you Show HN: Solous, a journaling app like a social media for emotions inside of you Solous is a private journaling app. This app is inspired by movies like inside out or Yumi&amp;#x27;s Cells where we al…</p>
+  <h3 class="title"><a href="../item/solous-0e27c4ec54.html">Solous ，一个日记应用程序，就像社交媒体一样，可以表达你内心的情感</a></h3>
+  
+  <p class="summary">Solous ，一个类似于社交媒体的日记应用程序，用于表达你内心的情感Solous是一个私人日记应用程序。这个应用程序的灵感来自电影，比如《Inside Out》或《Yumi&#x27;s Cells》，在这里我们可以……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@solous · 2026-11-07 22:34 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-solous-0e27c4ec54.html">详情与领取方法</a> · <a class="fulllink" href="https://solous.net/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/solous-0e27c4ec54.html">详情与领取方法</a> · <a class="fulllink" href="https://solous.net/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/solous-0e27c4ec54.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="启动HN ： Kino AI （ YC S23 ） – AI媒体经理和视频编辑启动HN ： Kino 来源摘要：Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino AI (YC S23) – AI media manager and video editor Hi HN! I&amp;#x27;m Luke from Kino (&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;kino.ai&quot;&gt;https:&amp;#x2F;&amp;#x2F;kino.ai&lt;/a&gt;). Kino lets you make great videos with your agents … 打开来源链接按页面说明领取/试用；参与前自行核实。 lukeigel https://news.ycombinator.com/item?id=50368804 AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="启动HN ： Kino AI （ YC S23 ） – AI媒体经理和视频编辑启动 HN ： Kino 发布来源摘要时间：发布HN: Kino AI (YC S23) – AI媒体管理器兼视频编辑发布HN: Kino AI (YC S23) – AI媒体管理器兼视频编辑Hi HN!我是来自Kino的Luke （&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;kino.ai&quot;&gt; https://kino.ai&lt;/a&gt; ）。Kino可让您与经纪人一起制作精彩的视频…… 打开来源链接按页面说明领取/试用；参与前自行核实。 lukeigel https://news.ycombinator.com/item?id=50368804 AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/hn-kino-ai-yc-s23-ai-hn-kino-2b5f926b26.html">启动HN ： Kino AI （ YC S23 ） – AI媒体经理和视频编辑启动HN ： Kino</a></h3>
-  <p class="orig">原文：Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino</p>
-  <p class="summary">来源摘要：Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino AI (YC S23) – AI media manager and video editor Hi HN! I&amp;#x27;m Luke from Kino (&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;kino.ai&quot;&gt;https:&amp;#x2F;&amp;#x2F;kino.ai&lt;/a&gt;). Kino lets you make great videos with your agents …</p>
+  <h3 class="title"><a href="../item/hn-kino-ai-yc-s23-ai-hn-kino-2b5f926b26.html">启动HN ： Kino AI （ YC S23 ） – AI媒体经理和视频编辑启动 HN ： Kino</a></h3>
+  
+  <p class="summary">发布来源摘要时间：发布HN: Kino AI (YC S23) – AI媒体管理器兼视频编辑发布HN: Kino AI (YC S23) – AI媒体管理器兼视频编辑Hi HN!我是来自Kino的Luke （&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;kino.ai&quot;&gt; https://kino.ai&lt;/a&gt; ）。Kino可让您与经纪人一起制作精彩的视频……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@lukeigel · 2026-11-05 01:31 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hn-kino-ai-yc-s23-ai-hn-kino-2b5f926b26.html">详情与领取方法</a> · <a class="fulllink" href="https://news.ycombinator.com/item?id=50368804" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-kino-ai-yc-s23-ai-hn-kino-2b5f926b26.html">详情与领取方法</a> · <a class="fulllink" href="https://news.ycombinator.com/item?id=50368804" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-kino-ai-yc-s23-ai-hn-kino-2b5f926b26.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Fireside Folio – reMarkable Sh的免费书籍、漫画和新闻版本 来源摘要：Show HN: Fireside Folio – free books, comics and news editions for reMarkable Show HN: Fireside Folio – free books, comics and news editions for reMarkable I own a reMarkable 2 and wanted more to read on it than my own PDFs, so I built a free web app. You connect your tablet o… 打开来源链接按页面说明领取/试用；参与前自行核实。 hashfunction https://firesidefolio.com/ AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="显示HN ：炉边对开– reMarkable Sh的免费书籍、漫画和新闻版本 Fireside Folio – reMarkable Show的免费书籍、漫画和新闻版本HN: Fireside Folio – reMarkable的免费书籍、漫画和新闻版本我拥有一个reMarkable 2 ，并且想要阅读它而不是我自己的PDF ，所以我构建了一个免费的网络应用程序。您将平板电脑连接到…… 打开来源链接按页面说明领取/试用；参与前自行核实。 hashfunction https://firesidefolio.com/ AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-fireside-folio-remarkable-sh-3cb7fb09f2.html">Show HN: Fireside Folio – reMarkable Sh的免费书籍、漫画和新闻版本</a></h3>
-  <p class="orig">原文：Show HN: Fireside Folio – free books, comics and news editions for reMarkable Sh</p>
-  <p class="summary">来源摘要：Show HN: Fireside Folio – free books, comics and news editions for reMarkable Show HN: Fireside Folio – free books, comics and news editions for reMarkable I own a reMarkable 2 and wanted more to read on it than my own PDFs, so I built a free web app. You connect your tablet o…</p>
+  <h3 class="title"><a href="../item/hn-remarkable-sh-3cb7fb09f2.html">显示HN ：炉边对开– reMarkable Sh的免费书籍、漫画和新闻版本</a></h3>
+  
+  <p class="summary">Fireside Folio – reMarkable Show的免费书籍、漫画和新闻版本HN: Fireside Folio – reMarkable的免费书籍、漫画和新闻版本我拥有一个reMarkable 2 ，并且想要阅读它而不是我自己的PDF ，所以我构建了一个免费的网络应用程序。您将平板电脑连接到……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@hashfunction · 2026-11-09 05:39 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-fireside-folio-remarkable-sh-3cb7fb09f2.html">详情与领取方法</a> · <a class="fulllink" href="https://firesidefolio.com/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-remarkable-sh-3cb7fb09f2.html">详情与领取方法</a> · <a class="fulllink" href="https://firesidefolio.com/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-remarkable-sh-3cb7fb09f2.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Kids Shelf, your kids &#x27;own little internet Show HN: Kids Shelf, your ki 来源摘要：Show HN: Kids Shelf, your kids&#x27; own little internet Show HN: Kids Shelf, your kids&#x27; own little internet Hey all, I made this server for spinning up a local network page for our (young) kids to host videos and manage video watching time without turning them loose on main youtub… 打开来源链接按页面说明领取/试用；参与前自行核实。 ericd https://kidsshelf.org/ AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="Kids Shelf：给孩子的迷你互联网书架 儿童书架：儿童书籍和内容的小型互联网书架 打开来源链接按页面说明领取/试用；参与前自行核实。 ericd https://kidsshelf.org/ AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-kids-shelf-your-kids-own-lit-7cf24d3f98.html">Show HN: Kids Shelf, your kids &#x27;own little internet Show HN: Kids Shelf, your ki</a></h3>
-  <p class="orig">原文：Show HN: Kids Shelf, your kids&#x27; own little internet Show HN: Kids Shelf, your ki</p>
-  <p class="summary">来源摘要：Show HN: Kids Shelf, your kids&#x27; own little internet Show HN: Kids Shelf, your kids&#x27; own little internet Hey all, I made this server for spinning up a local network page for our (young) kids to host videos and manage video watching time without turning them loose on main youtub…</p>
+  <h3 class="title"><a href="../item/kids-shelf-7cf24d3f98.html">Kids Shelf：给孩子的迷你互联网书架</a></h3>
+  
+  <p class="summary">儿童书架：儿童书籍和内容的小型互联网书架</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@ericd · 2026-11-05 23:35 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-kids-shelf-your-kids-own-lit-7cf24d3f98.html">详情与领取方法</a> · <a class="fulllink" href="https://kidsshelf.org/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/kids-shelf-7cf24d3f98.html">详情与领取方法</a> · <a class="fulllink" href="https://kidsshelf.org/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/kids-shelf-7cf24d3f98.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Show 来源摘要：Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Hello HN. I&amp;#x27;m a developer from Spain, working for a US company and building apps as side projects.&lt;p&gt;I discovered that Clo… 打开来源链接按页面说明领取/试用；参与前自行核实。 ForeverYoungES https://apps.apple.com/us/app/cloudshare-s3-file-sharing/id6823902669 AI 开发工具与编程助手 Hacker News">
+<article class="card" data-text="适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Show 显示HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法显示HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Hello HN。我是来自西班牙的开发人员，在一家美国公司工作，并作为附带项目构建应用程序。&lt;p&gt;我发现Clo…… 打开来源链接按页面说明领取/试用；参与前自行核实。 ForeverYoungES https://apps.apple.com/us/app/cloudshare-s3-file-sharing/id6823902669 AI 开发工具与编程助手 Hacker News">
   <div class="badgerow"><span class="badge">AI 开发工具与编程助手</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-ios-cloudshare-s3-show-322b33d5c5.html">Show HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Show</a></h3>
-  <p class="orig">原文：Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show</p>
-  <p class="summary">来源摘要：Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Hello HN. I&amp;#x27;m a developer from Spain, working for a US company and building apps as side projects.&lt;p&gt;I discovered that Clo…</p>
+  <h3 class="title"><a href="../item/ios-cloudshare-s3-show-322b33d5c5.html">适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Show</a></h3>
+  
+  <p class="summary">显示HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法显示HN ：适用于iOS的CloudShare应用程序，分享到您自己的S3存储桶的简单方法Hello HN。我是来自西班牙的开发人员，在一家美国公司工作，并作为附带项目构建应用程序。&lt;p&gt;我发现Clo……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@ForeverYoungES · 2026-11-08 19:22 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-ios-cloudshare-s3-show-322b33d5c5.html">详情与领取方法</a> · <a class="fulllink" href="https://apps.apple.com/us/app/cloudshare-s3-file-sharing/id6823902669" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/ios-cloudshare-s3-show-322b33d5c5.html">详情与领取方法</a> · <a class="fulllink" href="https://apps.apple.com/us/app/cloudshare-s3-file-sharing/id6823902669" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/ios-cloudshare-s3-show-322b33d5c5.html">复制链接</a></div>
 </article></div></section><section class="section"><h2>云服务/GPU/开发者资源 <span>(7)</span></h2><div class="grid">
 <article class="card" data-text="Kaggle：每周约 30 小时双 T4 免费 GPU Kaggle 免费档常见每周约 30 小时 GPU T4 x2（约 2×16GB / 合计约 32GB 显存）+ 约 20 小时 TPU，单次最长约 12 小时；免绑卡但需手机验证。可配合 Ollama 跑约 30B 级模型，再经 cloudflared 隧道接到 Cursor 等作 Base URL。官方严禁多号刷额度与常驻挖矿；穿透链接勿外发，用完关掉 Notebook。 Google 登录 Kaggle → Settings 手机验证 → Notebook Accelerator 选 GPU T4 x2 并打开 Internet mingzi206 https://x.com/mingzi206/status/2119468078165815781 云服务/GPU/开发者资源 未知">
   <div class="badgerow"><span class="badge">云服务/GPU/开发者资源</span><span class="src-tag">来源 未知</span></div>
@@ -696,17 +820,17 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">Kaggle 免费档常见每周约 30 小时 GPU T4 x2（约 2×16GB / 合计约 32GB 显存）+ 约 20 小时 TPU，单次最长约 12 小时；免绑卡但需手机验证。可配合 Ollama 跑约 30B 级模型，再经 cloudflared 隧道接到 Cursor 等作 Base URL。官方严禁多号刷额度与常驻挖矿；穿透链接勿外发，用完关掉 Notebook。</p>
   
   <div class="how"><strong>怎么领：</strong>Google 登录 Kaggle → Settings 手机验证 → Notebook Accelerator 选 GPU T4 x2 并打开 Internet</div><div class="meta author">@mingzi206 · 2026-11-09 00:32 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/kaggle-30-t4-gpu-7bccf211e4.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/mingzi206/status/2119468078165815781" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/kaggle-30-t4-gpu-7bccf211e4.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/mingzi206/status/2119468078165815781" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/kaggle-30-t4-gpu-7bccf211e4.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Box by Simular：免费云端 Linux 桌面 Box by Simular：给 AI Agent 用的免费云端 Linux 桌面。多帖实测约 4 核 / 7–8G 内存 / 40G 硬盘，Ubuntu 24.04，Google 登录免绑卡；每天送积分，闲置会休眠，无公网入口，不适合当传统 VPS。可用 npx @simular-ai/box connect 接入 Claude Code / Codex / Cursor 等。 打开 box.simular.ai 登录领取 → 用 MCP/CLI 接入 AI vampire2g https://x.com/vampire2g/status/2119077912074949083 云服务/GPU/开发者资源 未知">
+<article class="card" data-text="Box by Simular ：免费云端 Linux 桌面 BOX by Simular ：给 AI Agent 用的免费云端 桌面。多帖实测约 Linux 4/7-8G核 内存/40G 硬盘， Ubuntu 24.04 ， Google 登录免绑卡；每天送积分 闲置会休眠无公网入口 ，不适合当传统 VPS。可用 npx @ simular-ai/BOX connect 接入 Claude Code/Codex/Cursor 等。 打开 box.simular.ai 登录领取 → 用 MCP/CLI 接入 AI vampire2g https://x.com/vampire2g/status/2119077912074949083 云服务/GPU/开发者资源 未知">
   <div class="badgerow"><span class="badge">云服务/GPU/开发者资源</span><span class="src-tag">来源 未知</span></div>
-  <h3 class="title"><a href="../item/box-by-simular-linux-cf2eb8c124.html">Box by Simular：免费云端 Linux 桌面</a></h3>
+  <h3 class="title"><a href="../item/box-by-simular-linux-cf2eb8c124.html">Box by Simular ：免费云端 Linux 桌面</a></h3>
   
-  <p class="summary">Box by Simular：给 AI Agent 用的免费云端 Linux 桌面。多帖实测约 4 核 / 7–8G 内存 / 40G 硬盘，Ubuntu 24.04，Google 登录免绑卡；每天送积分，闲置会休眠，无公网入口，不适合当传统 VPS。可用 npx @simular-ai/box connect 接入 Claude Code / Codex / Cursor 等。</p>
+  <p class="summary">BOX by Simular ：给 AI Agent 用的免费云端 桌面。多帖实测约 Linux 4/7-8G核 内存/40G 硬盘， Ubuntu 24.04 ， Google 登录免绑卡；每天送积分 闲置会休眠无公网入口 ，不适合当传统 VPS。可用 npx @ simular-ai/BOX connect 接入 Claude Code/Codex/Cursor 等。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 box.simular.ai 登录领取 → 用 MCP/CLI 接入 AI</div><div class="meta author">@vampire2g · 2026-11-07 22:41 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/box-by-simular-linux-cf2eb8c124.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/vampire2g/status/2119077912074949083" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/box-by-simular-linux-cf2eb8c124.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/vampire2g/status/2119077912074949083" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/box-by-simular-linux-cf2eb8c124.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Google Colab 免费版：约 16GB T4 GPU Google Colab 免费版可开 NVIDIA T4（约 15–16GB 显存），Google 账号登录浏览器即用，通常免绑卡。额度不公开、看运气；适合临时跑模型/推理。另有开源方案把 Colab T4 暴露为本地 OpenAI 兼容接口（注意账号与安全风险）。 打开 Google Colab → 运行时改 GPU → 开始写 Notebook KOF97AI https://x.com/KOF97AI/status/2119638891808612551 云服务/GPU/开发者资源 未知">
@@ -716,17 +840,17 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">Google Colab 免费版可开 NVIDIA T4（约 15–16GB 显存），Google 账号登录浏览器即用，通常免绑卡。额度不公开、看运气；适合临时跑模型/推理。另有开源方案把 Colab T4 暴露为本地 OpenAI 兼容接口（注意账号与安全风险）。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 Google Colab → 运行时改 GPU → 开始写 Notebook</div><div class="meta author">@KOF97AI · 2026-11-09 11:51 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/google-colab-16gb-t4-gpu-c259d1dba6.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/KOF97AI/status/2119638891808612551" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/google-colab-16gb-t4-gpu-c259d1dba6.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/KOF97AI/status/2119638891808612551" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/google-colab-16gb-t4-gpu-c259d1dba6.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="natbox：免费试用 NAT VPS 一个月 免费试用档：256MB RAM、0.5 共享核、3GB SSD、5 个转发端口、100GB 流量，含 root SSH 与 IPv6 /80。一人一台，名额有限。 打开 my.natbox.io 免费试用页领取 natboxio https://x.com/natboxio/status/2119278249570099289 云服务/GPU/开发者资源 未知">
+<article class="card" data-text="natbox ：免费试用 NAT VPS 一个月 免费试用档： 256MB RAM、 0.5 共享核、3GB SSD、 5 个转发端口、100GB 流量，含 root SSH 与 IPv6/80。一人一台 ，名额有限。 打开 my.natbox.io 免费试用页领取 natboxio https://x.com/natboxio/status/2119278249570099289 云服务/GPU/开发者资源 未知">
   <div class="badgerow"><span class="badge">云服务/GPU/开发者资源</span><span class="src-tag">来源 未知</span><span class="dl-tag">截止 名额发完即止</span></div>
-  <h3 class="title"><a href="../item/natbox-nat-vps-a648f62664.html">natbox：免费试用 NAT VPS 一个月</a></h3>
+  <h3 class="title"><a href="../item/natbox-nat-vps-a648f62664.html">natbox ：免费试用 NAT VPS 一个月</a></h3>
   
-  <p class="summary">免费试用档：256MB RAM、0.5 共享核、3GB SSD、5 个转发端口、100GB 流量，含 root SSH 与 IPv6 /80。一人一台，名额有限。</p>
+  <p class="summary">免费试用档： 256MB RAM、 0.5 共享核、3GB SSD、 5 个转发端口、100GB 流量，含 root SSH 与 IPv6/80。一人一台 ，名额有限。</p>
   
   <div class="how"><strong>怎么领：</strong>打开 my.natbox.io 免费试用页领取</div><div class="meta author">@natboxio · 2026-11-08 11:58 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/natbox-nat-vps-a648f62664.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/natboxio/status/2119278249570099289" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/natbox-nat-vps-a648f62664.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/natboxio/status/2119278249570099289" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/natbox-nat-vps-a648f62664.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Vultr 新用户促销额度：优惠码 FLY300VULTR 帖称 Vultr 官方优惠页列出新用户最高约 $300 Promotional Credit，优惠码 FLY300VULTR。以官网活动页实时规则为准。 注册 Vultr → 结账填 FLY300VULTR（核对官网） Leo_zhang2018 https://x.com/Leo_zhang2018/status/2118934417666428946 云服务/GPU/开发者资源 未知">
@@ -736,7 +860,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">帖称 Vultr 官方优惠页列出新用户最高约 $300 Promotional Credit，优惠码 FLY300VULTR。以官网活动页实时规则为准。</p>
   
   <div class="how"><strong>怎么领：</strong>注册 Vultr → 结账填 FLY300VULTR（核对官网）</div><div class="meta author">@Leo_zhang2018 · 2026-11-07 13:11 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/vultr-fly300vultr-b7153648bf.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/Leo_zhang2018/status/2118934417666428946" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/vultr-fly300vultr-b7153648bf.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/Leo_zhang2018/status/2118934417666428946" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/vultr-fly300vultr-b7153648bf.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Cloady：免费小容器（现多称仅免费一个月） 邮箱注册可领约 0.5 核 / 1G 内存 / 5G 硬盘容器，能跑 Docker。评论区有人称政策改为只免费一个月，也有封号反馈，建议小号先试。 邮箱注册 Cloady → 领取免费档 fanfankp https://x.com/fanfankp/status/2119382702088417686 云服务/GPU/开发者资源 未知">
@@ -746,17 +870,17 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">邮箱注册可领约 0.5 核 / 1G 内存 / 5G 硬盘容器，能跑 Docker。评论区有人称政策改为只免费一个月，也有封号反馈，建议小号先试。</p>
   
   <div class="how"><strong>怎么领：</strong>邮箱注册 Cloady → 领取免费档</div><div class="meta author">@fanfankp · 2026-11-08 18:53 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/cloady-e951b57322.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/fanfankp/status/2119382702088417686" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/cloady-e951b57322.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/fanfankp/status/2119382702088417686" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/cloady-e951b57322.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN:给您的代理一台它可以控制的Mac Show HN:给您的代理一台它 来源摘要：Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it can control Hello hello!&lt;p&gt;I&amp;#x27;m building Offstage Cloud which are ephemeral macOS sandboxes billed by second.&lt;p&gt;You can use it for CI (eg GitHub Actions), build with Xcode, or let your agent co… 打开来源链接按页面说明领取/试用；参与前自行核实。 viraatdas https://offstage.cloud/ 云服务/GPU/开发者资源 Hacker News">
+<article class="card" data-text="给您的代理一台它可以控制的Mac 显示HN ：给您的代理一个可以控制的Mac显示HN ：给您的代理一个可以控制的Mac你好！&lt;p&gt;我正在构建Offstage Cloud ，它是按秒计费的短暂macOS沙盒。&lt;p&gt;您可以将其用于CI （例如GitHub Actions ）、使用Xcode构建或让您的代理协同… 打开来源链接按页面说明领取/试用；参与前自行核实。 viraatdas https://offstage.cloud/ 云服务/GPU/开发者资源 Hacker News">
   <div class="badgerow"><span class="badge">云服务/GPU/开发者资源</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-mac-show-hn-e0afa7d737.html">Show HN:给您的代理一台它可以控制的Mac Show HN:给您的代理一台它</a></h3>
-  <p class="orig">原文：Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it</p>
-  <p class="summary">来源摘要：Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it can control Hello hello!&lt;p&gt;I&amp;#x27;m building Offstage Cloud which are ephemeral macOS sandboxes billed by second.&lt;p&gt;You can use it for CI (eg GitHub Actions), build with Xcode, or let your agent co…</p>
+  <h3 class="title"><a href="../item/mianfei-gpu-yunfuwu-e0afa7d737.html">给您的代理一台它可以控制的Mac</a></h3>
+  
+  <p class="summary">显示HN ：给您的代理一个可以控制的Mac显示HN ：给您的代理一个可以控制的Mac你好！&lt;p&gt;我正在构建Offstage Cloud ，它是按秒计费的短暂macOS沙盒。&lt;p&gt;您可以将其用于CI （例如GitHub Actions ）、使用Xcode构建或让您的代理协同…</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@viraatdas · 2026-11-07 19:27 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-mac-show-hn-e0afa7d737.html">详情与领取方法</a> · <a class="fulllink" href="https://offstage.cloud/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/mianfei-gpu-yunfuwu-e0afa7d737.html">详情与领取方法</a> · <a class="fulllink" href="https://offstage.cloud/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/mianfei-gpu-yunfuwu-e0afa7d737.html">复制链接</a></div>
 </article></div></section><section class="section"><h2>科技软件/App 限免 <span>(10)</span></h2><div class="grid">
 <article class="card" data-text="ImageSweep：相册垃圾清理 App 本体限免 原价约 ¥28 → 0，按年月/地点快速划选废片，无广告、防误删。 App Store 搜索 ImageSweep 或打开帖内链接领取 linbai489068 https://x.com/linbai489068/status/2119346247995994265 科技软件/App 限免 未知">
   <div class="badgerow"><span class="badge">科技软件/App 限免</span><span class="src-tag">来源 未知</span><span class="dl-tag">截止 限免随时结束</span></div>
@@ -765,7 +889,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">原价约 ¥28 → 0，按年月/地点快速划选废片，无广告、防误删。</p>
   
   <div class="how"><strong>怎么领：</strong>App Store 搜索 ImageSweep 或打开帖内链接领取</div><div class="meta author">@linbai489068 · 2026-11-08 16:28 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/imagesweep-app-1e2030a480.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/linbai489068/status/2119346247995994265" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/imagesweep-app-1e2030a480.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/linbai489068/status/2119346247995994265" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/imagesweep-app-1e2030a480.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="电影精灵：老牌视频剪辑本体 ¥198→0 多轨道、画中画、绿幕抠像等功能的 iOS 视频剪辑 App，本体限免入库。 App Store 打开帖内链接 0 元下载 linbai489068 https://x.com/linbai489068/status/2119271425475498138 科技软件/App 限免 未知">
@@ -775,17 +899,17 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">多轨道、画中画、绿幕抠像等功能的 iOS 视频剪辑 App，本体限免入库。</p>
   
   <div class="how"><strong>怎么领：</strong>App Store 打开帖内链接 0 元下载</div><div class="meta author">@linbai489068 · 2026-11-08 11:30 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/198-0-ca90a761a2.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/linbai489068/status/2119271425475498138" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/198-0-ca90a761a2.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/linbai489068/status/2119271425475498138" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/198-0-ca90a761a2.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Duo widget：电量/WiFi/信号组件 ¥28→0 约 1.4MB 极简无广桌面/锁屏组件，20 种排版，一眼看状态。 App Store 打开帖内链接领取 linbai489068 https://x.com/linbai489068/status/2119415280321560746 科技软件/App 限免 未知">
+<article class="card" data-text="双人小工具：电量/WiFi/信号组件¥ 28→ 0 约 1.4MB 极简无广桌面/锁屏组件，20 种排版，一眼看状态。 App Store 打开帖内链接领取 linbai489068 https://x.com/linbai489068/status/2119415280321560746 科技软件/App 限免 未知">
   <div class="badgerow"><span class="badge">科技软件/App 限免</span><span class="src-tag">来源 未知</span><span class="dl-tag">截止 限免随时结束</span></div>
-  <h3 class="title"><a href="../item/duo-widget-wifi-28-0-42b17938ff.html">Duo widget：电量/WiFi/信号组件 ¥28→0</a></h3>
+  <h3 class="title"><a href="../item/wifi-28-0-42b17938ff.html">双人小工具：电量/WiFi/信号组件¥ 28→ 0</a></h3>
   
   <p class="summary">约 1.4MB 极简无广桌面/锁屏组件，20 种排版，一眼看状态。</p>
   
   <div class="how"><strong>怎么领：</strong>App Store 打开帖内链接领取</div><div class="meta author">@linbai489068 · 2026-11-08 21:02 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/duo-widget-wifi-28-0-42b17938ff.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/linbai489068/status/2119415280321560746" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/wifi-28-0-42b17938ff.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/linbai489068/status/2119415280321560746" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/wifi-28-0-42b17938ff.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Linkjoy：跨平台书签/离线高亮终身内购限免 原价约 ¥128 的终身内购限免，去广告阅读、划线批注、iCloud 多端同步。 App Store 打开帖内链接 → 领取终身内购 linbai489068 https://x.com/linbai489068/status/2119468075993157818 科技软件/App 限免 未知">
@@ -795,7 +919,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">原价约 ¥128 的终身内购限免，去广告阅读、划线批注、iCloud 多端同步。</p>
   
   <div class="how"><strong>怎么领：</strong>App Store 打开帖内链接 → 领取终身内购</div><div class="meta author">@linbai489068 · 2026-11-09 00:32 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/linkjoy-598015b017.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/linbai489068/status/2119468075993157818" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/linkjoy-598015b017.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/linbai489068/status/2119468075993157818" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/linkjoy-598015b017.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Stillwell 叠光相机：RAW 相机终身限免 原价约 ¥88 终身内购限免；原生 Bayer RAW、星轨与多重曝光等。 App Store 打开帖内链接领取终身版 linbai489068 https://x.com/linbai489068/status/2119467385514258665 科技软件/App 限免 未知">
@@ -805,17 +929,17 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">原价约 ¥88 终身内购限免；原生 Bayer RAW、星轨与多重曝光等。</p>
   
   <div class="how"><strong>怎么领：</strong>App Store 打开帖内链接领取终身版</div><div class="meta author">@linbai489068 · 2026-11-09 00:29 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/stillwell-raw-9bf8fcf426.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/linbai489068/status/2119467385514258665" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/stillwell-raw-9bf8fcf426.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/linbai489068/status/2119467385514258665" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/stillwell-raw-9bf8fcf426.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="《Age of Wonders 4》Steam 完整版限时免费玩 帖称 Steam 周末本体完整版全开试玩（非永久入库），到 11 月 10 日凌晨 2 点。 Steam 打开游戏页 → 限时免费试玩 404latitude https://x.com/404latitude/status/2119328818548892028 科技软件/App 限免 未知">
+<article class="card" data-text="《Age of Wonders 4》 Steam 完整版限时免费玩 帖称 Steam 周末本体完整版全开试玩（非永久入库），到 11 月 10 日凌晨 2 点。 Steam 打开游戏页 → 限时免费试玩 404latitude https://x.com/404latitude/status/2119328818548892028 科技软件/App 限免 未知">
   <div class="badgerow"><span class="badge">科技软件/App 限免</span><span class="src-tag">来源 未知</span><span class="dl-tag">截止 2026-11-10 02:00 Asia/Shanghai</span></div>
-  <h3 class="title"><a href="../item/age-of-wonders-4-steam-d7cfc2626b.html">《Age of Wonders 4》Steam 完整版限时免费玩</a></h3>
+  <h3 class="title"><a href="../item/age-of-wonders-4-steam-d7cfc2626b.html">《Age of Wonders 4》 Steam 完整版限时免费玩</a></h3>
   
   <p class="summary">帖称 Steam 周末本体完整版全开试玩（非永久入库），到 11 月 10 日凌晨 2 点。</p>
   
   <div class="how"><strong>怎么领：</strong>Steam 打开游戏页 → 限时免费试玩</div><div class="meta author">@404latitude · 2026-11-08 15:19 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/age-of-wonders-4-steam-d7cfc2626b.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/404latitude/status/2119328818548892028" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/age-of-wonders-4-steam-d7cfc2626b.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/404latitude/status/2119328818548892028" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/age-of-wonders-4-steam-d7cfc2626b.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Epic 手机端免费领《巴别塔圣歌》 帖称 Epic 手机端可免费领《巴别塔圣歌》（约 98% 好评），截止约 11 月 12 日；可能锁国区，需切换 IP。 Epic 手机端按活动领取（注意区服限制） cyberde05 https://x.com/cyberde05/status/2119355966424834436 科技软件/App 限免 未知">
@@ -825,7 +949,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">帖称 Epic 手机端可免费领《巴别塔圣歌》（约 98% 好评），截止约 11 月 12 日；可能锁国区，需切换 IP。</p>
   
   <div class="how"><strong>怎么领：</strong>Epic 手机端按活动领取（注意区服限制）</div><div class="meta author">@cyberde05 · 2026-11-08 17:06 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/epic-059a83bdd5.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/cyberde05/status/2119355966424834436" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/epic-059a83bdd5.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/cyberde05/status/2119355966424834436" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/epic-059a83bdd5.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Lumenic 影音播放器：限时八折 本地/NAS 影音播放器，支持 SMB/WebDAV、HDR/杜比视界等；美区全平台约 US$7.99（原价 9.99），优惠至 11 月 15 日。 各区 App Store 购买（价格以商店为准） iOSRXWY https://x.com/iOSRXWY/status/2119389087501005109 科技软件/App 限免 未知">
@@ -835,27 +959,27 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">本地/NAS 影音播放器，支持 SMB/WebDAV、HDR/杜比视界等；美区全平台约 US$7.99（原价 9.99），优惠至 11 月 15 日。</p>
   
   <div class="how"><strong>怎么领：</strong>各区 App Store 购买（价格以商店为准）</div><div class="meta author">@iOSRXWY · 2026-11-08 19:18 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/lumenic-ca288533a3.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/iOSRXWY/status/2119389087501005109" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/lumenic-ca288533a3.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/iOSRXWY/status/2119389087501005109" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/lumenic-ca288533a3.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="显示HN ：告诉天空–来自实时天气数据S的风的消息灯笼漂移 来源摘要：Show HN: Tell the Sky – message lanterns drift on winds from live weather data Show HN: Tell the Sky – message lanterns drift on winds from live weather data I created a web&amp;#x2F;mobile app that lets you write a story&amp;#x2F;secret&amp;#x2F;encouragement&amp;#x2F;etc... on a lantern. Yo… 打开来源链接按页面说明领取/试用；参与前自行核实。 andycodeman https://tellthesky.com 科技软件/App 限免 Hacker News">
+<article class="card" data-text="显示HN ：告诉天空–来自实时天气数据S的风的消息灯笼漂移 显示HN ：告诉天空–来自实时天气数据的消息灯笼随风漂移显示HN ：告诉天空–来自实时天气数据的消息灯笼随风漂移我创建了一个网络/移动应用程序，让您可以在灯笼上写下故事/秘密/鼓励/等。哟… 打开来源链接按页面说明领取/试用；参与前自行核实。 andycodeman https://tellthesky.com 科技软件/App 限免 Hacker News">
   <div class="badgerow"><span class="badge">科技软件/App 限免</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/hn-s-1946734f5f.html">显示HN ：告诉天空–来自实时天气数据S的风的消息灯笼漂移</a></h3>
-  <p class="orig">原文：Show HN: Tell the Sky – message lanterns drift on winds from live weather data S</p>
-  <p class="summary">来源摘要：Show HN: Tell the Sky – message lanterns drift on winds from live weather data Show HN: Tell the Sky – message lanterns drift on winds from live weather data I created a web&amp;#x2F;mobile app that lets you write a story&amp;#x2F;secret&amp;#x2F;encouragement&amp;#x2F;etc... on a lantern. Yo…</p>
+  
+  <p class="summary">显示HN ：告诉天空–来自实时天气数据的消息灯笼随风漂移显示HN ：告诉天空–来自实时天气数据的消息灯笼随风漂移我创建了一个网络/移动应用程序，让您可以在灯笼上写下故事/秘密/鼓励/等。哟…</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@andycodeman · 2026-11-07 03:59 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hn-s-1946734f5f.html">详情与领取方法</a> · <a class="fulllink" href="https://tellthesky.com" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-s-1946734f5f.html">详情与领取方法</a> · <a class="fulllink" href="https://tellthesky.com" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-s-1946734f5f.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN ：我构建了一个免费的琐事托管应用程序，没有帐户或订阅SHO 来源摘要：Show HN: I built a free trivia hosting app with no accounts or subscriptions Show HN: I built a free trivia hosting app with no accounts or subscriptions It&amp;#x27;s basically a fancy wrapper around your quiz data so that as a host you can show showmanship and present like a TV … 打开来源链接按页面说明领取/试用；参与前自行核实。 thepolymoth https://quiztoolkit.com/ 科技软件/App 限免 Hacker News">
+<article class="card" data-text="我构建了一个免费的琐事托管应用程序，没有帐户或订阅SHO 我构建了一个没有帐户或订阅的免费琐事托管应用程序它基本上是一个围绕您的测验数据的花哨包装器，作为房东，您可以展示表演技巧，并像电视一样呈现…… 打开来源链接按页面说明领取/试用；参与前自行核实。 thepolymoth https://quiztoolkit.com/ 科技软件/App 限免 Hacker News">
   <div class="badgerow"><span class="badge">科技软件/App 限免</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-sho-a066c2dd36.html">Show HN ：我构建了一个免费的琐事托管应用程序，没有帐户或订阅SHO</a></h3>
-  <p class="orig">原文：Show HN: I built a free trivia hosting app with no accounts or subscriptions Sho</p>
-  <p class="summary">来源摘要：Show HN: I built a free trivia hosting app with no accounts or subscriptions Show HN: I built a free trivia hosting app with no accounts or subscriptions It&amp;#x27;s basically a fancy wrapper around your quiz data so that as a host you can show showmanship and present like a TV …</p>
+  <h3 class="title"><a href="../item/keji-app-xianmian-a066c2dd36.html">我构建了一个免费的琐事托管应用程序，没有帐户或订阅SHO</a></h3>
+  
+  <p class="summary">我构建了一个没有帐户或订阅的免费琐事托管应用程序它基本上是一个围绕您的测验数据的花哨包装器，作为房东，您可以展示表演技巧，并像电视一样呈现……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@thepolymoth · 2026-11-08 03:27 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-sho-a066c2dd36.html">详情与领取方法</a> · <a class="fulllink" href="https://quiztoolkit.com/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/keji-app-xianmian-a066c2dd36.html">详情与领取方法</a> · <a class="fulllink" href="https://quiztoolkit.com/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/keji-app-xianmian-a066c2dd36.html">复制链接</a></div>
 </article></div></section><section class="section"><h2>其他科技 <span>(20)</span></h2><div class="grid">
 <article class="card" data-text="开发者官方兑换码站：领 App 内购 Pro 帖介绍专门汇总开发者提供的 Apple 官方兑换码的网站，可永久解锁部分付费内购，不同于普通限免降价站。 打开帖内网站按 App 领取兑换码 BlackMelooo https://x.com/BlackMelooo/status/2119257219942457547 其他科技 未知">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 未知</span><span class="dl-tag">截止 码发完即止</span></div>
@@ -864,7 +988,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">帖介绍专门汇总开发者提供的 Apple 官方兑换码的网站，可永久解锁部分付费内购，不同于普通限免降价站。</p>
   
   <div class="how"><strong>怎么领：</strong>打开帖内网站按 App 领取兑换码</div><div class="meta author">@BlackMelooo · 2026-11-08 10:34 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/app-pro-29f089c277.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/BlackMelooo/status/2119257219942457547" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/app-pro-29f089c277.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/BlackMelooo/status/2119257219942457547" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/app-pro-29f089c277.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="Cap：开源可自托管录屏工具 开源录屏，主体协议 AGPLv3，适合想自己控数据的人；与 FreeLLMAPI 等同批核验清单出现。 按开源项目说明安装/自托管 imocone https://x.com/imocone/status/2118971100717592580 其他科技 未知">
@@ -874,157 +998,157 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">开源录屏，主体协议 AGPLv3，适合想自己控数据的人；与 FreeLLMAPI 等同批核验清单出现。</p>
   
   <div class="how"><strong>怎么领：</strong>按开源项目说明安装/自托管</div><div class="meta author">@imocone · 2026-11-07 15:37 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/qita-keji-e215d1a842.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/imocone/status/2118971100717592580" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/qita-keji-e215d1a842.html">详情与领取方法</a> · <a class="fulllink" href="https://x.com/imocone/status/2118971100717592580" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/qita-keji-e215d1a842.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Image to Image AI:免费在线AI图像编辑器– Tancky AI Show HN: Ima 来源摘要：Show HN: Image to Image AI: Free AI Image Editor Online – Tancky AI Show HN: Image to Image AI: Free AI Image Editor Online – Tancky AI 打开来源链接按页面说明领取/试用；参与前自行核实。 tancky https://tancky.io/ 其他科技 Hacker News">
+<article class="card" data-text="Image to Image AI:免费在线 AI图像编辑器 – Tancky AI 图像到图像AI ：免费在线AI图像编辑器– Tancky AI 打开来源链接按页面说明领取/试用；参与前自行核实。 tancky https://tancky.io/ 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-image-to-image-ai-ai-tancky-406459e603.html">Show HN: Image to Image AI:免费在线AI图像编辑器– Tancky AI Show HN: Ima</a></h3>
-  <p class="orig">原文：Show HN: Image to Image AI: Free AI Image Editor Online – Tancky AI Show HN: Ima</p>
-  <p class="summary">来源摘要：Show HN: Image to Image AI: Free AI Image Editor Online – Tancky AI Show HN: Image to Image AI: Free AI Image Editor Online – Tancky AI</p>
+  <h3 class="title"><a href="../item/image-to-image-ai-ai-tancky-ai-406459e603.html">Image to Image AI:免费在线 AI图像编辑器 – Tancky AI</a></h3>
+  
+  <p class="summary">图像到图像AI ：免费在线AI图像编辑器– Tancky AI</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@tancky · 2026-11-07 22:26 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-image-to-image-ai-ai-tancky-406459e603.html">详情与领取方法</a> · <a class="fulllink" href="https://tancky.io/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/image-to-image-ai-ai-tancky-ai-406459e603.html">详情与领取方法</a> · <a class="fulllink" href="https://tancky.io/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/image-to-image-ai-ai-tancky-ai-406459e603.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="人工智能正在把保护主义者变成自由贸易者人工智能正在把保护主义者变成 来源摘要：AI is turning protectionists into free traders AI is turning protectionists into free traders 打开来源链接按页面说明领取/试用；参与前自行核实。 andsoitis https://www.economist.com/finance-and-economics/2026/11/05/ai-is-turning-protectionists-into-free-traders 其他科技 Hacker News">
+<article class="card" data-text="人工智能正在把保护主义者变成自由贸易者人工智能正在把保护主义者变成 上一篇：人工智能正在将保护主义者转变为自由贸易者人工智能正在将保护主义者转变为自由贸易者 打开来源链接按页面说明领取/试用；参与前自行核实。 andsoitis https://www.economist.com/finance-and-economics/2026/11/05/ai-is-turning-protectionists-into-free-traders 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/qita-keji-70fc34d785.html">人工智能正在把保护主义者变成自由贸易者人工智能正在把保护主义者变成</a></h3>
-  <p class="orig">原文：AI is turning protectionists into free traders AI is turning protectionists into</p>
-  <p class="summary">来源摘要：AI is turning protectionists into free traders AI is turning protectionists into free traders</p>
+  
+  <p class="summary">上一篇：人工智能正在将保护主义者转变为自由贸易者人工智能正在将保护主义者转变为自由贸易者</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@andsoitis · 2026-11-07 21:20 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/qita-keji-70fc34d785.html">详情与领取方法</a> · <a class="fulllink" href="https://www.economist.com/finance-and-economics/2026/11/05/ai-is-turning-protectionists-into-free-traders" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/qita-keji-70fc34d785.html">详情与领取方法</a> · <a class="fulllink" href="https://www.economist.com/finance-and-economics/2026/11/05/ai-is-turning-protectionists-into-free-traders" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/qita-keji-70fc34d785.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="显示HN ：代理从源推断乐高机制，然后对其进行动画显示HN ： A 来源摘要：Show HN: Agents infer Lego mechanisms from sources, then animate them Show HN: Agents infer Lego mechanisms from sources, then animate them Hi there :)&lt;p&gt;Around a month ago, I released LDraw Nova, an agentic toolset for assembling LEGO CAD models by generating LDraw source cod… 打开来源链接按页面说明领取/试用；参与前自行核实。 antelocnova https://github.com/anteloc/ldraw-mecha/tree/v0.5.0 其他科技 Hacker News">
+<article class="card" data-text="显示HN ：代理从源推断乐高机制，然后对其进行动画显示HN ： A 显示HN ：客服代表从来源推断乐高机制，然后对其进行动画处理显示HN ：客服代表从来源推断乐高机制，然后对其进行动画处理你好:)&lt;p&gt;大约一个月前 ，我发布了 LDraw Nova ，这是一个代理工具集 ，用于通过生成 LDraw源代码来组装乐高 CAD模型…… 打开来源链接按页面说明领取/试用；参与前自行核实。 antelocnova https://github.com/anteloc/ldraw-mecha/tree/v0.5.0 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/hn-hn-a-add023bd20.html">显示HN ：代理从源推断乐高机制，然后对其进行动画显示HN ： A</a></h3>
-  <p class="orig">原文：Show HN: Agents infer Lego mechanisms from sources, then animate them Show HN: A</p>
-  <p class="summary">来源摘要：Show HN: Agents infer Lego mechanisms from sources, then animate them Show HN: Agents infer Lego mechanisms from sources, then animate them Hi there :)&lt;p&gt;Around a month ago, I released LDraw Nova, an agentic toolset for assembling LEGO CAD models by generating LDraw source cod…</p>
+  
+  <p class="summary">显示HN ：客服代表从来源推断乐高机制，然后对其进行动画处理显示HN ：客服代表从来源推断乐高机制，然后对其进行动画处理你好:)&lt;p&gt;大约一个月前 ，我发布了 LDraw Nova ，这是一个代理工具集 ，用于通过生成 LDraw源代码来组装乐高 CAD模型……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@antelocnova · 2026-11-07 03:41 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hn-hn-a-add023bd20.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/anteloc/ldraw-mecha/tree/v0.5.0" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-hn-a-add023bd20.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/anteloc/ldraw-mecha/tree/v0.5.0" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-hn-a-add023bd20.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Infinity –人工智能聊天的Git样式分支Show HN: Infinity – Git-sty 来源摘要：Show HN: Infinity – Git-style branching for AI chats Show HN: Infinity – Git-style branching for AI chats Hello HN, I&amp;#x27;m Nik. I built Infinity for myself because I tend to love to rabbit-hole on various subjects.&lt;p&gt;I usually have 3-4 windows open for ChatGPT desktop + Clau… 打开来源链接按页面说明领取/试用；参与前自行核实。 nkotov https://infinitychat.app/ 其他科技 Hacker News">
+<article class="card" data-text="Infinity –人工智能聊天的 Git样式分支 Infinity –人工智能聊天的Git风格分支Hello HN ，我是Nik。我为自己构建了Infinity无穷大，无穷大因为我倾向于喜欢在各种主题上打兔子洞。&lt;p&gt;我通常为ChatGPT桌面 + CLAU打开 3-4个窗口…… 打开来源链接按页面说明领取/试用；参与前自行核实。 nkotov https://infinitychat.app/ 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-infinity-git-show-hn-infinit-1f16d7515a.html">Show HN: Infinity –人工智能聊天的Git样式分支Show HN: Infinity – Git-sty</a></h3>
-  <p class="orig">原文：Show HN: Infinity – Git-style branching for AI chats Show HN: Infinity – Git-sty</p>
-  <p class="summary">来源摘要：Show HN: Infinity – Git-style branching for AI chats Show HN: Infinity – Git-style branching for AI chats Hello HN, I&amp;#x27;m Nik. I built Infinity for myself because I tend to love to rabbit-hole on various subjects.&lt;p&gt;I usually have 3-4 windows open for ChatGPT desktop + Clau…</p>
+  <h3 class="title"><a href="../item/infinity-git-1f16d7515a.html">Infinity –人工智能聊天的 Git样式分支</a></h3>
+  
+  <p class="summary">Infinity –人工智能聊天的Git风格分支Hello HN ，我是Nik。我为自己构建了Infinity无穷大，无穷大因为我倾向于喜欢在各种主题上打兔子洞。&lt;p&gt;我通常为ChatGPT桌面 + CLAU打开 3-4个窗口……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@nkotov · 2026-11-07 00:19 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-infinity-git-show-hn-infinit-1f16d7515a.html">详情与领取方法</a> · <a class="fulllink" href="https://infinitychat.app/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/infinity-git-1f16d7515a.html">详情与领取方法</a> · <a class="fulllink" href="https://infinitychat.app/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/infinity-git-1f16d7515a.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Stitch.ai -全新一体化工作空间，配备人工智能助手Stitchy Show 来源摘要：Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Our team is excited to launch Stitch.ai this week. We&amp;#x27;ve been working hard to bring knowledge workers, freelancers and f… 打开来源链接按页面说明领取/试用；参与前自行核实。 joquinn https://app.stitch.ai/auth/signup 其他科技 Hacker News">
+<article class="card" data-text="Stitch.ai -全新一体化工作空间，配备人工智能助手Stitchy Show Stitch.ai -与Stitchy合作的全新一体化工作空间我们的团队很高兴本周推出Stitch.ai。我们一直在努力让知识工作者、自由职业者和…… 打开来源链接按页面说明领取/试用；参与前自行核实。 joquinn https://app.stitch.ai/auth/signup 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-stitch-ai-stitchy-show-0c9c38d4c6.html">Show HN: Stitch.ai -全新一体化工作空间，配备人工智能助手Stitchy Show</a></h3>
-  <p class="orig">原文：Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Show</p>
-  <p class="summary">来源摘要：Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Our team is excited to launch Stitch.ai this week. We&amp;#x27;ve been working hard to bring knowledge workers, freelancers and f…</p>
+  <h3 class="title"><a href="../item/stitch-ai-stitchy-show-0c9c38d4c6.html">Stitch.ai -全新一体化工作空间，配备人工智能助手Stitchy Show</a></h3>
+  
+  <p class="summary">Stitch.ai -与Stitchy合作的全新一体化工作空间我们的团队很高兴本周推出Stitch.ai。我们一直在努力让知识工作者、自由职业者和……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@joquinn · 2026-11-06 13:19 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-stitch-ai-stitchy-show-0c9c38d4c6.html">详情与领取方法</a> · <a class="fulllink" href="https://app.stitch.ai/auth/signup" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/stitch-ai-stitchy-show-0c9c38d4c6.html">详情与领取方法</a> · <a class="fulllink" href="https://app.stitch.ai/auth/signup" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/stitch-ai-stitchy-show-0c9c38d4c6.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="显示HN ： Botel –始终可以联系到您只在他们工作期间付费的代理商 来源摘要：Show HN: Botel – always reachable agents you pay for only while they&#x27;re working Show HN: Botel – always reachable agents you pay for only while they&#x27;re working I built a pay-as-you-go two star hotel for bots that you’re only charged for while it’s active. Typically wakes in un… 打开来源链接按页面说明领取/试用；参与前自行核实。 4ver https://botel.dev 其他科技 Hacker News">
+<article class="card" data-text="显示HN ： Botel –始终可以联系到您只在他们工作期间付费的代理商 Botel –始终可以联系到的代理商，您只需在他们工作时支付费用我为机器人建造了一家现收现付的两星级酒店，您只需在机器人激活时支付费用。通常在……的时候醒来 打开来源链接按页面说明领取/试用；参与前自行核实。 4ver https://botel.dev 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/hn-botel-a56a6b0659.html">显示HN ： Botel –始终可以联系到您只在他们工作期间付费的代理商</a></h3>
-  <p class="orig">原文：Show HN: Botel – always reachable agents you pay for only while they&#x27;re working</p>
-  <p class="summary">来源摘要：Show HN: Botel – always reachable agents you pay for only while they&#x27;re working Show HN: Botel – always reachable agents you pay for only while they&#x27;re working I built a pay-as-you-go two star hotel for bots that you’re only charged for while it’s active. Typically wakes in un…</p>
+  
+  <p class="summary">Botel –始终可以联系到的代理商，您只需在他们工作时支付费用我为机器人建造了一家现收现付的两星级酒店，您只需在机器人激活时支付费用。通常在……的时候醒来</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@4ver · 2026-11-06 23:46 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hn-botel-a56a6b0659.html">详情与领取方法</a> · <a class="fulllink" href="https://botel.dev" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-botel-a56a6b0659.html">详情与领取方法</a> · <a class="fulllink" href="https://botel.dev" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-botel-a56a6b0659.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Ski Voice-First多语言中性编码线束Show HN: Ski Voice- 来源摘要：Show HN: Ski Voice-First Multilingual Neutral Coding Harness Show HN: Ski Voice-First Multilingual Neutral Coding Harness Glad to showcase SKI (&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;justski.it&quot; rel=&quot;nofollow&quot;&gt;https:&amp;#x2F;&amp;#x2F;justski.it&lt;/a&gt;) , a voice-first coding harness.&lt;p&gt;It supports… 打开来源链接按页面说明领取/试用；参与前自行核实。 jomon003 https://justski.it/ 其他科技 Hacker News">
+<article class="card" data-text="Ski Voice-First多语言中性编码线束 Ski Voice-First Multilingual Neutral Coding Harness很高兴展示 Ski (https://justski.it) ，这是一&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;justski.it&quot; rel=&quot;nofollow&quot;&gt;款&lt;/a&gt;语音优先编码线束。&lt;p&gt;它支持 …… 打开来源链接按页面说明领取/试用；参与前自行核实。 jomon003 https://justski.it/ 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-ski-voice-first-show-hn-ski-dab13472a8.html">Show HN: Ski Voice-First多语言中性编码线束Show HN: Ski Voice-</a></h3>
-  <p class="orig">原文：Show HN: Ski Voice-First Multilingual Neutral Coding Harness Show HN: Ski Voice-</p>
-  <p class="summary">来源摘要：Show HN: Ski Voice-First Multilingual Neutral Coding Harness Show HN: Ski Voice-First Multilingual Neutral Coding Harness Glad to showcase SKI (&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;justski.it&quot; rel=&quot;nofollow&quot;&gt;https:&amp;#x2F;&amp;#x2F;justski.it&lt;/a&gt;) , a voice-first coding harness.&lt;p&gt;It supports…</p>
+  <h3 class="title"><a href="../item/ski-voice-first-dab13472a8.html">Ski Voice-First多语言中性编码线束</a></h3>
+  
+  <p class="summary">Ski Voice-First Multilingual Neutral Coding Harness很高兴展示 Ski (https://justski.it) ，这是一&lt;a href=&quot;https:&amp;#x2F;&amp;#x2F;justski.it&quot; rel=&quot;nofollow&quot;&gt;款&lt;/a&gt;语音优先编码线束。&lt;p&gt;它支持 ……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@jomon003 · 2026-11-06 02:56 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-ski-voice-first-show-hn-ski-dab13472a8.html">详情与领取方法</a> · <a class="fulllink" href="https://justski.it/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/ski-voice-first-dab13472a8.html">详情与领取方法</a> · <a class="fulllink" href="https://justski.it/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/ski-voice-first-dab13472a8.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="用Python制作的文件共享平台–非vibe编码–自2025年以来文件共享 来源摘要：File sharing platform made in Python – Not vibe coded – Since 2025 File sharing platform made in Python – Not vibe coded – Since 2025 https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;Merkoba&amp;#x2F;Harambe&lt;p&gt;I worked heavily on this around 2025. I wasn&amp;#x27;t using AI. It&amp;#x27;s completely han… 打开来源链接按页面说明领取/试用；参与前自行核实。 madprops https://news.ycombinator.com/item?id=50417858 其他科技 Hacker News">
+<article class="card" data-text="用Python制作的文件共享平台–非vibe编码–自2025年以来文件共享 案来源摘要例名称： Python制作的文件共享平台–未vibe编码–自2025年起Python制作的文件共享平台–未vibe编码–自2025年起https://github.com/Merkoba/Harambe&lt;p&gt;我在2025年左右为此做了大量的工作。我没有使用人工智能。这完全是汉…… 打开来源链接按页面说明领取/试用；参与前自行核实。 madprops https://news.ycombinator.com/item?id=50417858 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/python-vibe-2025-108e10c6cf.html">用Python制作的文件共享平台–非vibe编码–自2025年以来文件共享</a></h3>
-  <p class="orig">原文：File sharing platform made in Python – Not vibe coded – Since 2025 File sharing</p>
-  <p class="summary">来源摘要：File sharing platform made in Python – Not vibe coded – Since 2025 File sharing platform made in Python – Not vibe coded – Since 2025 https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;Merkoba&amp;#x2F;Harambe&lt;p&gt;I worked heavily on this around 2025. I wasn&amp;#x27;t using AI. It&amp;#x27;s completely han…</p>
+  
+  <p class="summary">案来源摘要例名称： Python制作的文件共享平台–未vibe编码–自2025年起Python制作的文件共享平台–未vibe编码–自2025年起https://github.com/Merkoba/Harambe&lt;p&gt;我在2025年左右为此做了大量的工作。我没有使用人工智能。这完全是汉……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@madprops · 2026-11-09 06:04 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/python-vibe-2025-108e10c6cf.html">详情与领取方法</a> · <a class="fulllink" href="https://news.ycombinator.com/item?id=50417858" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/python-vibe-2025-108e10c6cf.html">详情与领取方法</a> · <a class="fulllink" href="https://news.ycombinator.com/item?id=50417858" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/python-vibe-2025-108e10c6cf.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="在浏览器中显示HN ：带有可共享URL S的免费Gameboy风格音乐跟踪器 来源摘要：Show HN: A free Gameboy–style music tracker in the browser with shareable URLs Show HN: A free Gameboy–style music tracker in the browser with shareable URLs I built a 4-channel music tracker modeled on the original Game Boy&amp;#x27;s sound hardware: two pulse channels, a wave ch… 打开来源链接按页面说明领取/试用；参与前自行核实。 iamdan https://chiptunes.studio/ 其他科技 Hacker News">
+<article class="card" data-text="在浏览器中显示HN ：带有可共享URL S的免费Gameboy风格音乐跟踪器 浏览器中的免费Gameboy风格音乐跟踪器，带有可共享的网址我构建了一个模仿原始Game Boy声音硬件的4通道音乐跟踪器：两个脉冲通道，一个波形通道…… 打开来源链接按页面说明领取/试用；参与前自行核实。 iamdan https://chiptunes.studio/ 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/hn-url-s-gameboy-49b9c74877.html">在浏览器中显示HN ：带有可共享URL S的免费Gameboy风格音乐跟踪器</a></h3>
-  <p class="orig">原文：Show HN: A free Gameboy–style music tracker in the browser with shareable URLs S</p>
-  <p class="summary">来源摘要：Show HN: A free Gameboy–style music tracker in the browser with shareable URLs Show HN: A free Gameboy–style music tracker in the browser with shareable URLs I built a 4-channel music tracker modeled on the original Game Boy&amp;#x27;s sound hardware: two pulse channels, a wave ch…</p>
+  
+  <p class="summary">浏览器中的免费Gameboy风格音乐跟踪器，带有可共享的网址我构建了一个模仿原始Game Boy声音硬件的4通道音乐跟踪器：两个脉冲通道，一个波形通道……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@iamdan · 2026-11-09 04:43 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hn-url-s-gameboy-49b9c74877.html">详情与领取方法</a> · <a class="fulllink" href="https://chiptunes.studio/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-url-s-gameboy-49b9c74877.html">详情与领取方法</a> · <a class="fulllink" href="https://chiptunes.studio/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-url-s-gameboy-49b9c74877.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="显示HN ：分级或跳过–测量精灵宝可梦卡片的中心和分级ROI显示 来源摘要：Show HN: Grade or Skip – measure a Pokémon card&#x27;s centering and grading ROI Show HN: Grade or Skip – measure a Pokémon card&#x27;s centering and grading ROI Hi HN. Pokémon cards are one of my hobbies, and the question that comes up over and over is whether a raw card is worth payin… 打开来源链接按页面说明领取/试用；参与前自行核实。 nateparkerdev https://github.com/0x4rch/gradeorskip 其他科技 Hacker News">
+<article class="card" data-text="显示HN ：分级或跳过–测量精灵宝可梦卡片的中心和分级ROI显示 Grade or Skip –测量精灵卡片的中心和等级ROI Hi HN。神奇宝贝卡片是我的爱好之一，一遍又一遍地出现的问题是，一张原始卡片是否值得花钱…… 打开来源链接按页面说明领取/试用；参与前自行核实。 nateparkerdev https://github.com/0x4rch/gradeorskip 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/hn-roi-9eb8ec7172.html">显示HN ：分级或跳过–测量精灵宝可梦卡片的中心和分级ROI显示</a></h3>
-  <p class="orig">原文：Show HN: Grade or Skip – measure a Pokémon card&#x27;s centering and grading ROI Show</p>
-  <p class="summary">来源摘要：Show HN: Grade or Skip – measure a Pokémon card&#x27;s centering and grading ROI Show HN: Grade or Skip – measure a Pokémon card&#x27;s centering and grading ROI Hi HN. Pokémon cards are one of my hobbies, and the question that comes up over and over is whether a raw card is worth payin…</p>
+  
+  <p class="summary">Grade or Skip –测量精灵卡片的中心和等级ROI Hi HN。神奇宝贝卡片是我的爱好之一，一遍又一遍地出现的问题是，一张原始卡片是否值得花钱……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@nateparkerdev · 2026-11-08 21:03 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hn-roi-9eb8ec7172.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/0x4rch/gradeorskip" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-roi-9eb8ec7172.html">详情与领取方法</a> · <a class="fulllink" href="https://github.com/0x4rch/gradeorskip" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-roi-9eb8ec7172.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN ： Gitbet –适用于Linux的免费sourcetree风格Git客户端Show HN ： Gitbet – 来源摘要：Show HN: Gitbet – A free sourcetree style Git client for Linux Show HN: Gitbet – A free sourcetree style Git client for Linux I used Sourcetree for about 7 years on macOS and Windows. When I switched to Linux, I found it isn’t available, and none of the alternatives had the la… 打开来源链接按页面说明领取/试用；参与前自行核实。 byc0 https://www.gitbet.dev/ 其他科技 Hacker News">
+<article class="card" data-text="Gitbet –适用于 Linux的免费 sourcetree风格 Git客户端 Gitbet –适用于Linux的免费sourcetree风格Git客户端我在macOS和Windows上使用Sourcetree约7年。当我切换到Linux时，我发现它不可用，而且所有的替代品都没有…… 打开来源链接按页面说明领取/试用；参与前自行核实。 byc0 https://www.gitbet.dev/ 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-gitbet-linux-sourcetree-git-17f1a15782.html">Show HN ： Gitbet –适用于Linux的免费sourcetree风格Git客户端Show HN ： Gitbet –</a></h3>
-  <p class="orig">原文：Show HN: Gitbet – A free sourcetree style Git client for Linux Show HN: Gitbet –</p>
-  <p class="summary">来源摘要：Show HN: Gitbet – A free sourcetree style Git client for Linux Show HN: Gitbet – A free sourcetree style Git client for Linux I used Sourcetree for about 7 years on macOS and Windows. When I switched to Linux, I found it isn’t available, and none of the alternatives had the la…</p>
+  <h3 class="title"><a href="../item/gitbet-linux-sourcetree-git-17f1a15782.html">Gitbet –适用于 Linux的免费 sourcetree风格 Git客户端</a></h3>
+  
+  <p class="summary">Gitbet –适用于Linux的免费sourcetree风格Git客户端我在macOS和Windows上使用Sourcetree约7年。当我切换到Linux时，我发现它不可用，而且所有的替代品都没有……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@byc0 · 2026-11-08 19:55 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-gitbet-linux-sourcetree-git-17f1a15782.html">详情与领取方法</a> · <a class="fulllink" href="https://www.gitbet.dev/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/gitbet-linux-sourcetree-git-17f1a15782.html">详情与领取方法</a> · <a class="fulllink" href="https://www.gitbet.dev/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/gitbet-linux-sourcetree-git-17f1a15782.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN ：通过在Mac上说一次来教一个语音模型（简体中文） Show HN 来源摘要：Show HN: Teach a speech model (en) a name by saying it once, on your Mac Show HN: Teach a speech model (en) a name by saying it once, on your Mac I wanted to see if a speech model could spell a name better if it heard it, not just read it.&lt;p&gt;Most STT tools handle custom words … 打开来源链接按页面说明领取/试用；参与前自行核实。 Angus1192 https://detailkeeper.com/ 其他科技 Hacker News">
+<article class="card" data-text="通过在Mac上说一次来教一个语音模型（简体中文） 通过说一次来教一个语音模型（ en ）一个名字，在您的Mac上，我想看看一个语音模型如果听到它，是否可以更好地拼写一个名字，而不仅仅是阅读它。&lt;p&gt;大多数STT工具处理自定义单词…… 打开来源链接按页面说明领取/试用；参与前自行核实。 Angus1192 https://detailkeeper.com/ 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-mac-show-hn-a8c0afd787.html">Show HN ：通过在Mac上说一次来教一个语音模型（简体中文） Show HN</a></h3>
-  <p class="orig">原文：Show HN: Teach a speech model (en) a name by saying it once, on your Mac Show HN</p>
-  <p class="summary">来源摘要：Show HN: Teach a speech model (en) a name by saying it once, on your Mac Show HN: Teach a speech model (en) a name by saying it once, on your Mac I wanted to see if a speech model could spell a name better if it heard it, not just read it.&lt;p&gt;Most STT tools handle custom words …</p>
+  <h3 class="title"><a href="../item/qita-keji-a8c0afd787.html">通过在Mac上说一次来教一个语音模型（简体中文）</a></h3>
+  
+  <p class="summary">通过说一次来教一个语音模型（ en ）一个名字，在您的Mac上，我想看看一个语音模型如果听到它，是否可以更好地拼写一个名字，而不仅仅是阅读它。&lt;p&gt;大多数STT工具处理自定义单词……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@Angus1192 · 2026-11-06 04:06 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-mac-show-hn-a8c0afd787.html">详情与领取方法</a> · <a class="fulllink" href="https://detailkeeper.com/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/qita-keji-a8c0afd787.html">详情与领取方法</a> · <a class="fulllink" href="https://detailkeeper.com/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/qita-keji-a8c0afd787.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="显示HN ： Android 9上的跨设备密钥身份验证，与Bitwarden同步显示HN ： 来源摘要：Show HN: Cross-device passkey auth on Android 9, synced with Bitwarden Show HN: Cross-device passkey auth on Android 9, synced with Bitwarden I saw a colleague log in to a website on my laptop by scanning a FIDO QR code. I wanted to do the same, but couldn&amp;#x27;t find a way to… 打开来源链接按页面说明领取/试用；参与前自行核实。 riksnel https://rsnel.github.io/passkeychain/ 其他科技 Hacker News">
+<article class="card" data-text="显示HN ： Android 9上的跨设备密钥身份验证，与Bitwarden同步显示HN ： 显示HN ： Android 9上的跨设备密钥认证，与 Bitwarden同步显示HN ： Android 9上的跨设备密钥认证，与 Bitwarden同步我看到一位同事通过扫描 FIDO二维码在我的笔记本电脑上登录到一个网站。我想做同样的事情 ，但找不到办法 …… 打开来源链接按页面说明领取/试用；参与前自行核实。 riksnel https://rsnel.github.io/passkeychain/ 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/hn-android-9-bitwarden-hn-396c217a9a.html">显示HN ： Android 9上的跨设备密钥身份验证，与Bitwarden同步显示HN ：</a></h3>
-  <p class="orig">原文：Show HN: Cross-device passkey auth on Android 9, synced with Bitwarden Show HN:</p>
-  <p class="summary">来源摘要：Show HN: Cross-device passkey auth on Android 9, synced with Bitwarden Show HN: Cross-device passkey auth on Android 9, synced with Bitwarden I saw a colleague log in to a website on my laptop by scanning a FIDO QR code. I wanted to do the same, but couldn&amp;#x27;t find a way to…</p>
+  
+  <p class="summary">显示HN ： Android 9上的跨设备密钥认证，与 Bitwarden同步显示HN ： Android 9上的跨设备密钥认证，与 Bitwarden同步我看到一位同事通过扫描 FIDO二维码在我的笔记本电脑上登录到一个网站。我想做同样的事情 ，但找不到办法 ……</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@riksnel · 2026-11-08 22:16 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hn-android-9-bitwarden-hn-396c217a9a.html">详情与领取方法</a> · <a class="fulllink" href="https://rsnel.github.io/passkeychain/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-android-9-bitwarden-hn-396c217a9a.html">详情与领取方法</a> · <a class="fulllink" href="https://rsnel.github.io/passkeychain/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-android-9-bitwarden-hn-396c217a9a.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="Show HN: Reges Code –在本地模型上运行的免费AI代码编辑器Show HN: R 来源摘要：Show HN: Reges Code – a free AI code editor that runs on local models Show HN: Reges Code – a free AI code editor that runs on local models 打开来源链接按页面说明领取/试用；参与前自行核实。 nonerthy https://regescode.com/ 其他科技 Hacker News">
+<article class="card" data-text="Reges Code –在本地模型上运行的免费AI代码编辑器 Reges Code –在本地模型上运行的免费AI代码编辑器 打开来源链接按页面说明领取/试用；参与前自行核实。 nonerthy https://regescode.com/ 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
-  <h3 class="title"><a href="../item/show-hn-reges-code-ai-show-hn-r-671a5d2ae8.html">Show HN: Reges Code –在本地模型上运行的免费AI代码编辑器Show HN: R</a></h3>
-  <p class="orig">原文：Show HN: Reges Code – a free AI code editor that runs on local models Show HN: R</p>
-  <p class="summary">来源摘要：Show HN: Reges Code – a free AI code editor that runs on local models Show HN: Reges Code – a free AI code editor that runs on local models</p>
+  <h3 class="title"><a href="../item/reges-code-ai-671a5d2ae8.html">Reges Code –在本地模型上运行的免费AI代码编辑器</a></h3>
+  
+  <p class="summary">Reges Code –在本地模型上运行的免费AI代码编辑器</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@nonerthy · 2026-11-08 12:32 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/show-hn-reges-code-ai-show-hn-r-671a5d2ae8.html">详情与领取方法</a> · <a class="fulllink" href="https://regescode.com/" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/reges-code-ai-671a5d2ae8.html">详情与领取方法</a> · <a class="fulllink" href="https://regescode.com/" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/reges-code-ai-671a5d2ae8.html">复制链接</a></div>
 </article>
 
-<article class="card" data-text="显示HN ： RenderPixels -通过MCP从任何AI生成图像， 50次免费渲染SHO 来源摘要：Show HN: RenderPixels – Generate images from any AI via MCP, 50 free renders Show HN: RenderPixels – Generate images from any AI via MCP, 50 free renders 打开来源链接按页面说明领取/试用；参与前自行核实。 vivgui https://renderpixels.com 其他科技 Hacker News">
+<article class="card" data-text="显示HN ： RenderPixels -通过MCP从任何AI生成图像， 50次免费渲染SHO RenderPixels -通过 MCP从任何 AI生成图像 ， 50次免费渲染 打开来源链接按页面说明领取/试用；参与前自行核实。 vivgui https://renderpixels.com 其他科技 Hacker News">
   <div class="badgerow"><span class="badge">其他科技</span><span class="src-tag">来源 Hacker News</span></div>
   <h3 class="title"><a href="../item/hn-renderpixels-mcp-ai-50-sho-18a9f72ba2.html">显示HN ： RenderPixels -通过MCP从任何AI生成图像， 50次免费渲染SHO</a></h3>
-  <p class="orig">原文：Show HN: RenderPixels – Generate images from any AI via MCP, 50 free renders Sho</p>
-  <p class="summary">来源摘要：Show HN: RenderPixels – Generate images from any AI via MCP, 50 free renders Show HN: RenderPixels – Generate images from any AI via MCP, 50 free renders</p>
+  
+  <p class="summary">RenderPixels -通过 MCP从任何 AI生成图像 ， 50次免费渲染</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@vivgui · 2026-11-08 09:12 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/hn-renderpixels-mcp-ai-50-sho-18a9f72ba2.html">详情与领取方法</a> · <a class="fulllink" href="https://renderpixels.com" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/hn-renderpixels-mcp-ai-50-sho-18a9f72ba2.html">详情与领取方法</a> · <a class="fulllink" href="https://renderpixels.com" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/hn-renderpixels-mcp-ai-50-sho-18a9f72ba2.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="说说最近在折腾 Claude 上继续浪费的钱吧 说说最近在折腾 Claude 上继续浪费的钱吧 说说最近在折腾 Claude 上继续浪费的钱吧 说说最近在折腾 Claude 上继续浪费的钱吧 之前说过，Claude 连续被封了几个自己的老号。 一直在尝试折腾 [在自己的电脑上，使用 Claude Code desktop 开发] 折腾了几天，除了浪费点钱之外，没有任何收获 分享一下吧 主要是购买了已经过 kyc 的账号。 包括过 kyc 是印尼区、美区的 id 也包括 Outlook 、Gmail 等邮箱 包括新号、老号（通过我自己看邮箱里面 Claude 注册邮件） 使用不同的梯子（没错，之前说梯子 300 一个月，被 V 站老哥喷惨了，经… 打开来源链接按页面说明领取/试用；参与前自行核实。 ggp1ot2 https://www.v2ex.com/t/1255567 其他科技 V2EX">
@@ -1034,7 +1158,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">说说最近在折腾 Claude 上继续浪费的钱吧 说说最近在折腾 Claude 上继续浪费的钱吧 之前说过，Claude 连续被封了几个自己的老号。 一直在尝试折腾 [在自己的电脑上，使用 Claude Code desktop 开发] 折腾了几天，除了浪费点钱之外，没有任何收获 分享一下吧 主要是购买了已经过 kyc 的账号。 包括过 kyc 是印尼区、美区的 id 也包括 Outlook 、Gmail 等邮箱 包括新号、老号（通过我自己看邮箱里面 Claude 注册邮件） 使用不同的梯子（没错，之前说梯子 300 一个月，被 V 站老哥喷惨了，经…</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@ggp1ot2 · 2026-11-09 14:48 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/claude-claude-1066f52738.html">详情与领取方法</a> · <a class="fulllink" href="https://www.v2ex.com/t/1255567" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/claude-claude-1066f52738.html">详情与领取方法</a> · <a class="fulllink" href="https://www.v2ex.com/t/1255567" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/claude-claude-1066f52738.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="闲着做了个吉他指板的小程序，欢迎指点和使用 闲着做了个吉他指板的小程序，欢迎指点和使用 闲着做了个吉他指板的小程序，欢迎指点和使用 闲着做了个吉他指板的小程序，欢迎指点和使用 大家好，前段时间闲着，想试试能不能把自己的一个小想法完整做出来，于是做了一个微信小程序，叫「 Jan 的吉他指板」。 这是我第一次以独立开发者的方式，把一个东西从想法、设计、开发、测试一直做到审核上线。 我不是做音乐教育的，选择吉他指板这个方向，主要是因为它刚好和自己的兴趣沾边，我也能理解这个场景：有些人记住了几个音阶形状，但随便给出一个音名，还是不能马上在指板上找到位置。 最开始我只做了一个很简单的“看音名找位置”。后来边用边改，又慢慢加了能力摸底、每日训练、… 打开来源链接按页面说明领取/试用；参与前自行核实。 aeroyu https://www.v2ex.com/t/1255566 其他科技 V2EX">
@@ -1044,7 +1168,7 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">闲着做了个吉他指板的小程序，欢迎指点和使用 闲着做了个吉他指板的小程序，欢迎指点和使用 大家好，前段时间闲着，想试试能不能把自己的一个小想法完整做出来，于是做了一个微信小程序，叫「 Jan 的吉他指板」。 这是我第一次以独立开发者的方式，把一个东西从想法、设计、开发、测试一直做到审核上线。 我不是做音乐教育的，选择吉他指板这个方向，主要是因为它刚好和自己的兴趣沾边，我也能理解这个场景：有些人记住了几个音阶形状，但随便给出一个音名，还是不能马上在指板上找到位置。 最开始我只做了一个很简单的“看音名找位置”。后来边用边改，又慢慢加了能力摸底、每日训练、…</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@aeroyu · 2026-11-09 14:48 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/qita-keji-eefa403ef7.html">详情与领取方法</a> · <a class="fulllink" href="https://www.v2ex.com/t/1255566" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/qita-keji-eefa403ef7.html">详情与领取方法</a> · <a class="fulllink" href="https://www.v2ex.com/t/1255566" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/qita-keji-eefa403ef7.html">复制链接</a></div>
 </article>
 
 <article class="card" data-text="女儿生病出不了门，给她做了 100+体感小游戏：打开网页，站到摄像头前就能玩 女儿生病出不了门，给她做了 100+体感小游戏：打开网页，站到摄像头前就能玩 女儿生病出不了门，给她做了 100+体感小游戏：打开网页，站到摄像头前就能玩 女儿生病出不了门，给她做了 100+体感小游戏：打开网页，站到摄像头前就能玩 前段时间上幼儿园中班的女儿生病，在家休养，不能出门。小孩子精力旺盛，平时下楼跑跑跳跳的运动量一下子全没了，总不能天天坐着看动画片。 想让她在家也多动一动，家里又没有游戏机，也不想为这个专门买设备。手边只有一台笔记本，那就用笔记本自带的摄像头：她在屏幕前跳，屏幕里的小人跟着跳；挥手切水果、蹲下躲激光、摆姿势穿墙洞…… 一个游戏接一个游戏地做下来，就有了 **动动乐园**： https://dong… 打开来源链接按页面说明领取/试用；参与前自行核实。 TristanYang https://www.v2ex.com/t/1255360 其他科技 V2EX">
@@ -1054,8 +1178,104 @@ footer { margin-top: 36px; text-align: center; color: var(--muted); font-family:
   <p class="summary">女儿生病出不了门，给她做了 100+体感小游戏：打开网页，站到摄像头前就能玩 女儿生病出不了门，给她做了 100+体感小游戏：打开网页，站到摄像头前就能玩 前段时间上幼儿园中班的女儿生病，在家休养，不能出门。小孩子精力旺盛，平时下楼跑跑跳跳的运动量一下子全没了，总不能天天坐着看动画片。 想让她在家也多动一动，家里又没有游戏机，也不想为这个专门买设备。手边只有一台笔记本，那就用笔记本自带的摄像头：她在屏幕前跳，屏幕里的小人跟着跳；挥手切水果、蹲下躲激光、摆姿势穿墙洞…… 一个游戏接一个游戏地做下来，就有了 **动动乐园**： https://dong…</p>
   
   <div class="how"><strong>怎么领：</strong>打开来源链接按页面说明领取/试用；参与前自行核实。</div><div class="meta author">@TristanYang · 2026-11-08 17:03 Asia/Shanghai</div>
-  <div class="linkrow"><a href="../item/100-100-0d8930093d.html">详情与领取方法</a> · <a class="fulllink" href="https://www.v2ex.com/t/1255360" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="../item/100-100-0d8930093d.html">详情与领取方法</a> · <a class="fulllink" href="https://www.v2ex.com/t/1255360" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="https://ai168.netlify.app/item/100-100-0d8930093d.html">复制链接</a></div>
 </article></div></section>
   <div class="panel-box"><h2>更多日期</h2><a class="arch current" href="2026-11-09.html">2026-11-09</a></div>
   <footer>AI大模型免费资源导航</footer>
-</div></body></html>
+</div>
+<script>(function(){
+  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.style.colorScheme = 'dark';
+  try { document.body.classList.add('page-enter'); } catch(e) {}
+  const root = document.documentElement;
+  window.addEventListener('pointermove', function(e){
+    root.style.setProperty('--spot-x', e.clientX + 'px');
+    root.style.setProperty('--spot-y', e.clientY + 'px');
+  }, {passive:true});
+
+  function bindTilt(el){
+    el.addEventListener('pointermove', function(e){
+      if (reduced) return;
+      var r = el.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width;
+      var y = (e.clientY - r.top) / r.height;
+      el.style.setProperty('--mx', (x*100)+'%');
+      el.style.setProperty('--my', (y*100)+'%');
+      el.style.transform = 'perspective(900px) rotateX(' + ((0.5-y)*8) + 'deg) rotateY(' + ((x-0.5)*10) + 'deg) translateY(-2px)';
+    });
+    el.addEventListener('pointerleave', function(){ el.style.transform = ''; });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.card, .module-tile'), bindTilt);
+
+  function animateCount(el, target){
+    var t0 = performance.now(), dur = 900;
+    function frame(t){
+      var p = Math.min(1, (t - t0)/dur);
+      var eased = 1 - Math.pow(1-p, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-count]'), function(el){
+    var n = parseInt(el.getAttribute('data-count')||'0',10);
+    if (!reduced) animateCount(el, n); else el.textContent = String(n);
+  });
+
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal, .card, .module-tile, .panel-box, .hero'));
+  reveals.forEach(function(el){ el.classList.add('reveal'); });
+  if (!reduced && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold: 0.12, rootMargin: '0px 0px -8% 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  var canvas = document.getElementById('fx-particles');
+  if (!canvas || reduced || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var w=0,h=0, particles=[], mouse={x:-9999,y:-9999};
+  var mobile = Math.min(window.innerWidth, window.innerHeight) < 720;
+  var COUNT = mobile ? 28 : 70;
+  function resize(){ w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+  function init(){
+    particles = [];
+    for (var i=0;i<COUNT;i++) particles.push({
+      x: Math.random()*w, y: Math.random()*h,
+      vx: (Math.random()-.5)*.35, vy: (Math.random()-.5)*.35,
+      r: Math.random()*1.6 + .4
+    });
+  }
+  function step(){
+    ctx.clearRect(0,0,w,h);
+    for (var i=0;i<particles.length;i++){
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      var dx = p.x - mouse.x, dy = p.y - mouse.y;
+      if (dx*dx + dy*dy < 16000) { p.vx += dx * -0.00003; p.vy += dy * -0.00003; }
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = 'rgba(92,225,255,.75)'; ctx.fill();
+    }
+    var maxD = mobile ? 110 : 140;
+    for (var i=0;i<particles.length;i++){
+      for (var j=i+1;j<particles.length;j++){
+        var a=particles[i], b=particles[j];
+        var dx=a.x-b.x, dy=a.y-b.y, dist=Math.hypot(dx,dy);
+        if (dist < maxD){
+          ctx.strokeStyle = 'rgba(167,139,250,' + ((1-dist/maxD)*0.35) + ')';
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(step);
+  }
+  window.addEventListener('pointermove', function(e){ mouse.x=e.clientX; mouse.y=e.clientY; }, {passive:true});
+  window.addEventListener('resize', function(){ resize(); init(); });
+  resize(); init(); step();
+})();
+</script>
+</body></html>

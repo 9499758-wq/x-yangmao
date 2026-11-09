@@ -12,24 +12,20 @@
       "language": "Kotlin",
       "created_at": "2026-10-29 Asia/Shanghai",
       "url": "https://github.com/wangzan101/Mika",
-      "translated_by": "free-translate",
-      "original_title": "wangzan101/Mika",
-      "original_summary": "An on-device AI agent for Android that operates apps and the web to get things done for you."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-modelflare-ai-anymodelbot",
       "source": "GitHub",
       "name": "modelflare-ai/AnyModelBot",
-      "title": "🤖 开源， Grok Bot、OpenAI DOT和Claude Duet的本地（modelflare-ai/AnyModelBot）",
+      "title": "🤖 开源Grok Bot、 OpenAI DOT和 Claude Duet的本地 （ modelflare-ai/AnyModelBot ）",
       "summary": "🤖 开源， Grok Bot、OpenAI DOT和Claude Duet的本地首选替代品。通过一个Modelflare密钥，您可以在任何型号上使用自己的人工智能机器人： GPT、Claude、Gemini、Grok、DeepSeek、Kimi、GLM和70多个。通过应用程序、微信或飞树联系他们；他们会记住您，在后台工作，运行命令并使用您的计算机。按次付费。",
       "summary_en": "🤖 Open-source, local-first alternative to Grok Bot, OpenAI dots and Claude Duet. Your own AI bots on any model: GPT, Claude, Gemini, Grok, DeepSeek, Kimi, GLM and 70+ more through one Modelflare key. Reach them in the app, WeChat or Feishu; they remember you, work in the background, run commands and use your computer. Pay per use.",
       "stars": 2741,
       "language": "Python",
       "created_at": "2026-10-27 Asia/Shanghai",
       "url": "https://github.com/modelflare-ai/AnyModelBot",
-      "translated_by": "free-translate",
-      "original_title": "modelflare-ai/AnyModelBot",
-      "original_summary": "🤖 Open-source, local-first alternative to Grok Bot, OpenAI dots and Claude Duet. Your own AI bots on any model: GPT, Claude, Gemini, Grok, DeepSeek, Kimi, GLM and 70+ more through one Modelflare key. Reach them in the app, WeChat or Feishu; they remember you, work in the background, run commands and use your computer. Pay per use."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-n1neman-sapper-v2",
@@ -42,39 +38,33 @@
       "language": "Python",
       "created_at": "2026-10-30 Asia/Shanghai",
       "url": "https://github.com/N1nEmAn/sapper-v2",
-      "translated_by": "free-translate",
-      "original_title": "N1nEmAn/sapper-v2",
-      "original_summary": "Autonomous pentest legion — AI commander + worker swarm + layered fact-intent graph. 3rd Tencent Intelligent Attack-Defense online champion (634 teams · 8h unattended · 1B tokens beat 4.5B). The Nüwa Test: give AIs Create/Language/History, let a civilization grow."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-sandflow-ai-sand3d",
       "source": "GitHub",
       "name": "Sandflow-ai/sand3d",
-      "title": "Python中的3D建模，专为LLM构建（Sandflow-ai/sand3d）",
+      "title": "Python 中的3D建模 ，专为 LLM构建 （ Sandflow-ai/sand3d ）",
       "summary": "Python中的3D建模，专为LLM构建。",
       "summary_en": "3D modeling in Python, built for LLMs.",
       "stars": 1500,
       "language": "HTML",
       "created_at": "2026-11-03 Asia/Shanghai",
       "url": "https://github.com/Sandflow-ai/sand3d",
-      "translated_by": "free-translate",
-      "original_title": "Sandflow-ai/sand3d",
-      "original_summary": "3D modeling in Python, built for LLMs."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-shanselman-gputaskman",
       "source": "GitHub",
       "name": "shanselman/gputaskman",
-      "title": "适用于Windows、Linux和WSL的GPU任务管理器：每进程VRAM、GP（shanselman/gputaskman）",
-      "summary": "适用于Windows、Linux和WSL的GPU任务管理器：每进程VRAM、GPU活动和LLM模型/KV缓存洞察（ Windows AMD和NVIDIA ）。",
+      "title": "适用于Windows、 Linux和 WSL的 GPU任务管理器 ：每进程 VRAM、 GP （ shanselman/gputaskman ）",
+      "summary": "适用于Windows、 Linux和 WSL的 GPU任务管理器 ：每进程 VRAM、 GPU活动和 LLM模型/缓存洞察KV （ Windows AMD和 NVIDIA ）。",
       "summary_en": "A GPU task manager for Windows, Linux, and WSL: per-process VRAM, GPU activity, and LLM model/KV-cache insights (Windows AMD and NVIDIA).",
       "stars": 1231,
       "language": "Python",
       "created_at": "2026-11-03 Asia/Shanghai",
       "url": "https://github.com/shanselman/gputaskman",
-      "translated_by": "free-translate",
-      "original_title": "shanselman/gputaskman",
-      "original_summary": "A GPU task manager for Windows, Linux, and WSL: per-process VRAM, GPU activity, and LLM model/KV-cache insights (Windows AMD and NVIDIA)."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-diygod-pinky",
@@ -87,24 +77,20 @@
       "language": "Go",
       "created_at": "2026-11-07 Asia/Shanghai",
       "url": "https://github.com/DIYgod/pinky",
-      "translated_by": "free-translate",
-      "original_title": "DIYgod/pinky",
-      "original_summary": "Let AI agents use your phone, with you in the loop."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-jackwener-dsh-android",
       "source": "GitHub",
       "name": "jackwener/DSH-Android",
-      "title": "免 ROOT 免 Termux，一个 APK 在安卓手机上跑 DeepSeek （jackwener/DSH-Android）",
+      "title": "免 ROOT 免 Termux ，一个 APK 在安卓手机上跑 DeepSeek （ jackwener/DSH-Android ）",
       "summary": "免 ROOT 免 Termux，一个 APK 在安卓手机上跑 DeepSeek Harness。引擎内嵌 App 进程 · 读屏操作 App · 改系统设置 · 定时/条件自动化 · 可选 Shizuku",
       "summary_en": "免 ROOT 免 Termux，一个 APK 在安卓手机上跑 DeepSeek Harness。引擎内嵌 App 进程 · 读屏操作 App · 改系统设置 · 定时/条件自动化 · 可选 Shizuku",
       "stars": 890,
       "language": "Kotlin",
       "created_at": "2026-10-28 Asia/Shanghai",
       "url": "https://github.com/jackwener/DSH-Android",
-      "translated_by": "free-translate",
-      "original_title": "jackwener/DSH-Android",
-      "original_summary": "免 ROOT 免 Termux，一个 APK 在安卓手机上跑 DeepSeek Harness。引擎内嵌 App 进程 · 读屏操作 App · 改系统设置 · 定时/条件自动化 · 可选 Shizuku"
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-josssphzhou-poki",
@@ -117,24 +103,20 @@
       "language": "Swift",
       "created_at": "2026-11-05 Asia/Shanghai",
       "url": "https://github.com/JosssphZhou/poki",
-      "translated_by": "free-translate",
-      "original_title": "JosssphZhou/poki",
-      "original_summary": "Let AI agents operate a real iPhone. Local MCP server and agent, no jailbreak, no extra hardware."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-wanghao-sunsky-cs329z-chinese",
       "source": "GitHub",
       "name": "wanghao-SunSky/cs329z-chinese",
-      "title": "斯坦福 Stanford CS329Z Engineering AI Agent（wanghao-SunSky/cs329z-chinese）",
-      "summary": "斯坦福 Stanford CS329Z Engineering AI Agents 中文教程：面向 Python 开发者的 AI 智能体课程，19 讲与 4 项实践，涵盖 LLM、RAG、工具调用、记忆、多智能体、评测与安全。完整 Markdown、在线与离线 HTML。Chinese course notes.",
+      "title": "斯坦福 Stanford CS329Z Engineering AI Agent （ wanghao-SunSky/cs329z-chinese ）",
+      "summary": "斯坦福 Stanford CS329Z Engineering AI Agents 中文教程：面向 Python 开发者的 AI 智能体课程， 19 讲与 4 项实践，涵盖 LLM RAG、、工具调用、记忆、多智能体、评测与安全。完整 Markdown、在线与离线 HTML。中文课程笔记。",
       "summary_en": "斯坦福 Stanford CS329Z Engineering AI Agents 中文教程：面向 Python 开发者的 AI 智能体课程，19 讲与 4 项实践，涵盖 LLM、RAG、工具调用、记忆、多智能体、评测与安全。完整 Markdown、在线与离线 HTML。Chinese course notes.",
       "stars": 514,
       "language": "HTML",
       "created_at": "2026-10-29 Asia/Shanghai",
       "url": "https://github.com/wanghao-SunSky/cs329z-chinese",
-      "translated_by": "free-translate",
-      "original_title": "wanghao-SunSky/cs329z-chinese",
-      "original_summary": "斯坦福 Stanford CS329Z Engineering AI Agents 中文教程：面向 Python 开发者的 AI 智能体课程，19 讲与 4 项实践，涵盖 LLM、RAG、工具调用、记忆、多智能体、评测与安全。完整 Markdown、在线与离线 HTML。Chinese course notes."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-saos-3624-dsh-see-now",
@@ -147,9 +129,7 @@
       "language": "JavaScript",
       "created_at": "2026-11-01 Asia/Shanghai",
       "url": "https://github.com/SAOS-3624/dsh-see-now",
-      "translated_by": "free-translate",
-      "original_title": "SAOS-3624/dsh-see-now",
-      "original_summary": "让 AI 实时看见你的屏幕：按变化量筛选帧、多帧拼进一张图，静止画面几乎不花 token"
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-aa1143-namiagent",
@@ -162,9 +142,7 @@
       "language": "Python",
       "created_at": "2026-10-30 Asia/Shanghai",
       "url": "https://github.com/aa1143/NamiAgent",
-      "translated_by": "free-translate",
-      "original_title": "aa1143/NamiAgent",
-      "original_summary": "零基础入门 AI Agent 的基础教程。不只是教程，也是一个能在本地跑起来的 Agent：读写文件、执行命令、MCP、长期记忆，自带网页端看清每一步。从 100 行最小循环开始，一课加一个能力，最后拆解 Claude Code、Codex 等主流 Agent"
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-andrew-babo-muse4ai",
@@ -177,9 +155,7 @@
       "language": "TypeScript",
       "created_at": "2026-11-04 Asia/Shanghai",
       "url": "https://github.com/andrew-babo/muse4ai",
-      "translated_by": "free-translate",
-      "original_title": "andrew-babo/muse4ai",
-      "original_summary": "Muse4AI — let your AI agent make the pictures and the videos. Local Windows bridge for Muse via REST, MCP, and OAuth."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-jmanico-grim-prompter",
@@ -192,24 +168,20 @@
       "language": "未知",
       "created_at": "2026-10-28 Asia/Shanghai",
       "url": "https://github.com/jmanico/grim-prompter",
-      "translated_by": "free-translate",
-      "original_title": "jmanico/grim-prompter",
-      "original_summary": "Threat modeling for AI coding agents: point Claude Code, Codex or any agent at your repo and get an evidence-traced threat model. 36 architectures, 29 methods, MIT."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-paladinsmash84-aida-64-extreme",
       "source": "GitHub",
       "name": "PaladinSmash84/aida-64-extreme",
-      "title": "AI提示工程工具包AIDA 64 Extreme ，预配置环境，用于在隔离的本地（PaladinSmash84/aida-64-extreme）",
+      "title": "AI 提示工程工具包AIDA 64 Extreme预配置环境 ，用于在隔离的本地 （ PaladinSmash84/aida-64-extreme ）",
       "summary": "AI提示工程工具包AIDA 64 Extreme ，预配置环境，用于在隔离的本地进行高级LLM培训和部署...",
       "summary_en": "AI Prompt Engineering Toolkit Aida 64 Extreme, pre-configured environment for advanced LLM training and deployment in isolated local...",
       "stars": 402,
       "language": "未知",
       "created_at": "2026-11-08 Asia/Shanghai",
       "url": "https://github.com/PaladinSmash84/aida-64-extreme",
-      "translated_by": "free-translate",
-      "original_title": "PaladinSmash84/aida-64-extreme",
-      "original_summary": "AI Prompt Engineering Toolkit Aida 64 Extreme, pre-configured environment for advanced LLM training and deployment in isolated local..."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-outsideclofilter-aion-2-trainer-tool",
@@ -222,9 +194,7 @@
       "language": "未知",
       "created_at": "2026-11-08 Asia/Shanghai",
       "url": "https://github.com/Outsideclofilter/aion-2-trainer-tool",
-      "translated_by": "free-translate",
-      "original_title": "Outsideclofilter/aion-2-trainer-tool",
-      "original_summary": "Aion 2, an AI-driven LLM prompt engineering resource, offers a pre-configured environment for seamless local workstation deployment in 2026."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-interactive-active-ai-nexttransformer",
@@ -237,24 +207,20 @@
       "language": "Python",
       "created_at": "2026-10-31 Asia/Shanghai",
       "url": "https://github.com/Interactive-Active-AI/NextTransformer",
-      "translated_by": "free-translate",
-      "original_title": "Interactive-Active-AI/NextTransformer",
-      "original_summary": ":sunrise: A comprehensive, cutting-edge open-source framework for next-generation Transformers/LLM, with compute-matched benchmarking and a platform for autonomous architecture research."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-mrhlaingbwardev-agentic-hacking-skills",
       "source": "GitHub",
       "name": "mrhlaingbwardev/agentic-hacking-skills",
-      "title": "人工智能驱动的网络安全和自动化- “Agentic Hacking”电子书的官方（mrhlaingbwardev/agentic-hacking-skills）",
+      "title": "人工智能驱动的网络安全和自动化- “Agentic Hacking”电子书的官方 （ mrhlaingbwardev/agentic-hacking-skills ）",
       "summary": "人工智能驱动的网络安全和自动化- “Agentic Hacking”电子书的官方奖励技能、代理和MCP配置（ 28个SKILL.md模板）",
       "summary_en": "AI-Powered Web Security & Automation - Official bonus skills, agents & MCP configs for the 'Agentic Hacking' ebook (28 SKILL.md templates)",
       "stars": 349,
       "language": "JavaScript",
       "created_at": "2026-11-01 Asia/Shanghai",
       "url": "https://github.com/mrhlaingbwardev/agentic-hacking-skills",
-      "translated_by": "free-translate",
-      "original_title": "mrhlaingbwardev/agentic-hacking-skills",
-      "original_summary": "AI-Powered Web Security & Automation - Official bonus skills, agents & MCP configs for the 'Agentic Hacking' ebook (28 SKILL.md templates)"
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-dominikscholz-open-bot-avatar",
@@ -267,9 +233,7 @@
       "language": "TypeScript",
       "created_at": "2026-11-03 Asia/Shanghai",
       "url": "https://github.com/DominikScholz/open-bot-avatar",
-      "translated_by": "free-translate",
-      "original_title": "DominikScholz/open-bot-avatar",
-      "original_summary": "A JSON spec and renderer for interactive agent avatars"
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-elunboundfiremail-livewall-live-wallpaper-for-desktop",
@@ -282,24 +246,20 @@
       "language": "未知",
       "created_at": "2026-11-08 Asia/Shanghai",
       "url": "https://github.com/elunboundfiremail/LiveWall---Live-Wallpaper-For-Desktop",
-      "translated_by": "free-translate",
-      "original_title": "elunboundfiremail/LiveWall---Live-Wallpaper-For-Desktop",
-      "original_summary": "elunboundfiremail/LiveWall---Live-Wallpaper-For-Desktop"
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-gogoymh-auto-ontology-mcp",
       "source": "GitHub",
       "name": "gogoymh/auto-ontology-mcp",
-      "title": "NVIDIA Auto Ontology的语义层和个人知识库，作为Claude、（gogoymh/auto-ontology-mcp）",
+      "title": "NVIDIA Auto Ontology的语义层和个人知识库 ，作为 Claude、 （ gogoymh/auto-ontology-mcp ）",
       "summary": "NVIDIA Auto Ontology的语义层和个人知识库，作为Claude、ChatGPT和其他MCP客户端的MCP服务器。无需LLM API密钥。",
       "summary_en": "NVIDIA Auto Ontology's semantic layer and a personal knowledge base as an MCP server for Claude, ChatGPT and other MCP clients. No LLM API key needed.",
       "stars": 234,
       "language": "Python",
       "created_at": "2026-11-06 Asia/Shanghai",
       "url": "https://github.com/gogoymh/auto-ontology-mcp",
-      "translated_by": "free-translate",
-      "original_title": "gogoymh/auto-ontology-mcp",
-      "original_summary": "NVIDIA Auto Ontology's semantic layer and a personal knowledge base as an MCP server for Claude, ChatGPT and other MCP clients. No LLM API key needed."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-tngshoo-agentcase-lab",
@@ -312,24 +272,20 @@
       "language": "Python",
       "created_at": "2026-11-04 Asia/Shanghai",
       "url": "https://github.com/TngSHoO/agentcase-lab",
-      "translated_by": "free-translate",
-      "original_title": "TngSHoO/agentcase-lab",
-      "original_summary": "AI Agent failure replay and root cause analysis platform"
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-tavern-labs-ai-persona-ai-sdk",
       "source": "GitHub",
       "name": "tavern-labs-ai/persona-ai-sdk",
-      "title": "Persona AI SDK ：一个软件包中的默认角色、持久的角色记忆和Bedr（tavern-labs-ai/persona-ai-sdk）",
+      "title": "Persona AI SDK ：一个软件包中的默认角色、持久的角色记忆和 Bedr （ tavern-labs-ai/persona-ai-sdk ）",
       "summary": "Persona AI SDK ：一个软件包中的默认角色、持久的角色记忆和Bedrock/OpenAI适配器。",
       "summary_en": "Persona AI SDK: default personas, durable character memory, and Bedrock/OpenAI adapters in one package.",
       "stars": 187,
       "language": "TypeScript",
       "created_at": "2026-10-31 Asia/Shanghai",
       "url": "https://github.com/tavern-labs-ai/persona-ai-sdk",
-      "translated_by": "free-translate",
-      "original_title": "tavern-labs-ai/persona-ai-sdk",
-      "original_summary": "Persona AI SDK: default personas, durable character memory, and Bedrock/OpenAI adapters in one package."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-mankidev-codixel",
@@ -342,9 +298,7 @@
       "language": "JavaScript",
       "created_at": "2026-11-01 Asia/Shanghai",
       "url": "https://github.com/mankidev/codixel",
-      "translated_by": "free-translate",
-      "original_title": "mankidev/codixel",
-      "original_summary": "Pixel art skill for Claude Code: how to make good pixel, animated game sprite out, effects etc."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-tiger-ai-lab-websitebench",
@@ -357,39 +311,33 @@
       "language": "Python",
       "created_at": "2026-11-04 Asia/Shanghai",
       "url": "https://github.com/TIGER-AI-Lab/WebsiteBench",
-      "translated_by": "free-translate",
-      "original_title": "TIGER-AI-Lab/WebsiteBench",
-      "original_summary": "Can AI agents rebuild websites through browser exploration?"
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-dkkd13-dsh-finance",
       "source": "GitHub",
       "name": "DKKD13/dsh-finance",
-      "title": "DKKD13 个人开发的第三方 DSH 金融研究插件：研究 Skills、证据资（DKKD13/dsh-finance）",
+      "title": "DKKD13 个人开发的第三方 DSH 金融研究插件：研究技能、证据资（ DKKD13/dsh-finance ）",
       "summary": "DKKD13 个人开发的第三方 DSH 金融研究插件：研究 Skills、证据资料库、个股图表与模拟基金。与 DeepSeek 官方无隶属关系。",
       "summary_en": "DKKD13 个人开发的第三方 DSH 金融研究插件：研究 Skills、证据资料库、个股图表与模拟基金。与 DeepSeek 官方无隶属关系。",
       "stars": 124,
       "language": "TypeScript",
       "created_at": "2026-11-01 Asia/Shanghai",
       "url": "https://github.com/DKKD13/dsh-finance",
-      "translated_by": "free-translate",
-      "original_title": "DKKD13/dsh-finance",
-      "original_summary": "DKKD13 个人开发的第三方 DSH 金融研究插件：研究 Skills、证据资料库、个股图表与模拟基金。与 DeepSeek 官方无隶属关系。"
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-yt-proteus-bot-mineagent",
       "source": "GitHub",
       "name": "YT-Proteus-bot/MineAgent",
-      "title": "agent定制自由化，agent流程可视化（YT-Proteus-bot/MineAgent）",
+      "title": "agent 定制自由化， agent流程可视化 （ YT-Proteus-bot/MineAgent ）",
       "summary": "agent定制自由化，agent流程可视化。在浏览器里用画布搭出工业级 Agent 流程，选框架自动生成架构图， 拖节点、连线、写代码、配模型，点「保存」就把整张画布编译成一个可独立运行的 Python Agent 项目， 点「运行」直接在你的机器上真实执行并流式回传每一步。欢迎各位同行二次开发，如有商用请说明出处。",
       "summary_en": "agent定制自由化，agent流程可视化。在浏览器里用画布搭出工业级 Agent 流程，选框架自动生成架构图， 拖节点、连线、写代码、配模型，点「保存」就把整张画布编译成一个可独立运行的 Python Agent 项目， 点「运行」直接在你的机器上真实执行并流式回传每一步。欢迎各位同行二次开发，如有商用请说明出处。",
       "stars": 111,
       "language": "Python",
       "created_at": "2026-11-05 Asia/Shanghai",
       "url": "https://github.com/YT-Proteus-bot/MineAgent",
-      "translated_by": "free-translate",
-      "original_title": "YT-Proteus-bot/MineAgent",
-      "original_summary": "agent定制自由化，agent流程可视化。在浏览器里用画布搭出工业级 Agent 流程，选框架自动生成架构图， 拖节点、连线、写代码、配模型，点「保存」就把整张画布编译成一个可独立运行的 Python Agent 项目， 点「运行」直接在你的机器上真实执行并流式回传每一步。欢迎各位同行二次开发，如有商用请说明出处。"
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-fanhuayishiy-ai-crew-pass",
@@ -402,9 +350,7 @@
       "language": "TypeScript",
       "created_at": "2026-11-07 Asia/Shanghai",
       "url": "https://github.com/fanhuayishiy/ai-crew-pass",
-      "translated_by": "free-translate",
-      "original_title": "fanhuayishiy/ai-crew-pass",
-      "original_summary": "非人类员工｜九位 AI 同事的 3D 工牌领取处，中英文、透明 PNG 下载。微信公众号：风花AI实验室。"
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-modem-dev-boxery",
@@ -417,9 +363,7 @@
       "language": "JavaScript",
       "created_at": "2026-10-31 Asia/Shanghai",
       "url": "https://github.com/modem-dev/boxery",
-      "translated_by": "free-translate",
-      "original_title": "modem-dev/boxery",
-      "original_summary": "Easiest way to give your coding agents VMs - locally, remote, or cloud sandboxes"
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-reason-machines-aspen",
@@ -432,24 +376,20 @@
       "language": "Rust",
       "created_at": "2026-11-05 Asia/Shanghai",
       "url": "https://github.com/reason-machines/aspen",
-      "translated_by": "free-translate",
-      "original_title": "reason-machines/aspen",
-      "original_summary": "A self-hostable Git server for agent-scale traffic: packs in object storage, per-branch history in Postgres. Pre-alpha."
+      "translated_by": "free-translate"
     },
     {
       "id": "ghot-ensignalp-kota",
       "source": "GitHub",
       "name": "ensignalp/kota",
-      "title": "AI kullanım limitleri GNOME üst panelind（ensignalp/kota）",
-      "summary": "AI kullanım limitleri GNOME üst panelinde — Claude、Codex、Gemini、Copilot、API bakiyeleri · GNOME顶部栏中的AI使用限制",
+      "title": "AI kullanım limitleri GNOME üst panelind （ ensignalp/kota ）",
+      "summary": "AI kullanım limitleri GNOME üst panelinde — Claude、 Codex、 Gemini、 Copilot、 API bakiyeleri · GNOME顶部栏中的 AI使用限制",
       "summary_en": "AI kullanım limitleri GNOME üst panelinde — Claude, Codex, Gemini, Copilot, API bakiyeleri · AI usage limits in the GNOME top bar",
       "stars": 67,
       "language": "Rust",
       "created_at": "2026-11-08 Asia/Shanghai",
       "url": "https://github.com/ensignalp/kota",
-      "translated_by": "free-translate",
-      "original_title": "ensignalp/kota",
-      "original_summary": "AI kullanım limitleri GNOME üst panelinde — Claude, Codex, Gemini, Copilot, API bakiyeleri · AI usage limits in the GNOME top bar"
+      "translated_by": "free-translate"
     }
   ],
   "models_ok": 0,

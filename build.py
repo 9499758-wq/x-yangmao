@@ -71,8 +71,17 @@ MODULES = [
     ("hot-topics", "最近热议", "最新AI新闻与社区热议", "m/hot-topics.html", "hot", None),
 ]
 
-CSS = '\n:root {\n  --bg0: #05070f;\n  --bg1: #0a1022;\n  --panel: rgba(12, 18, 36, 0.62);\n  --panel2: rgba(16, 24, 48, 0.78);\n  --card: rgba(14, 22, 44, 0.72);\n  --line: rgba(120, 200, 255, 0.14);\n  --line2: rgba(168, 140, 255, 0.28);\n  --text: #eef3ff;\n  --muted: #8b97b8;\n  --cyan: #5ce1ff;\n  --violet: #a78bfa;\n  --mint: #5ef0c0;\n  --warn: #ffd08a;\n  --glow: 0 0 40px rgba(92, 225, 255, 0.12);\n  --radius: 20px;\n  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;\n  --sans: "PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;\n}\n@media (prefers-color-scheme: light) {\n  :root {\n    --bg0: #f3f6ff; --bg1: #e8eefc;\n    --panel: rgba(255,255,255,.72); --panel2: rgba(255,255,255,.88);\n    --card: rgba(255,255,255,.82);\n    --line: rgba(60,100,180,.14); --line2: rgba(110,80,220,.22);\n    --text: #0e1528; --muted: #5a6688;\n    --cyan: #0891b2; --violet: #6d28d9; --mint: #0f766e; --warn: #b45309;\n    --glow: 0 0 36px rgba(8,145,178,.10);\n  }\n}\n* { box-sizing: border-box; }\nhtml { scroll-behavior: smooth; color-scheme: dark; }\nhtml, body { margin:0; padding:0; overflow-wrap:anywhere; word-break:break-word; }\nbody {\n  font-family: var(--sans);\n  color: var(--text);\n  background: var(--bg0);\n  min-height: 100vh;\n  line-height: 1.65;\n  -webkit-font-smoothing: antialiased;\n}\nbody::before {\n  content:"";\n  position: fixed; inset: 0; pointer-events: none; z-index: 0;\n  background:\n    radial-gradient(900px 500px at 12% -10%, rgba(92,225,255,.16), transparent 55%),\n    radial-gradient(800px 520px at 88% 0%, rgba(167,139,250,.18), transparent 50%),\n    radial-gradient(700px 480px at 50% 110%, rgba(94,240,192,.08), transparent 55%),\n    linear-gradient(180deg, var(--bg0), var(--bg1) 45%, var(--bg0));\n}\nbody::after {\n  content:"";\n  position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .35;\n  background-image:\n    linear-gradient(rgba(92,225,255,.045) 1px, transparent 1px),\n    linear-gradient(90deg, rgba(92,225,255,.045) 1px, transparent 1px);\n  background-size: 56px 56px;\n  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);\n}\n@media (prefers-reduced-motion: no-preference) {\n  body::before { animation: aurora 18s ease-in-out infinite alternate; }\n  @keyframes aurora {\n    0% { filter: hue-rotate(0deg) saturate(1); }\n    100% { filter: hue-rotate(18deg) saturate(1.15); }\n  }\n}\na { color: var(--cyan); text-decoration: none; }\na:hover { text-decoration: underline; }\n.wrap { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 20px 18px 80px; }\n\n.topnav {\n  position: sticky; top: 12px; z-index: 50;\n  display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between;\n  margin-bottom: 28px; padding: 10px 12px;\n  border-radius: 16px; border: 1px solid var(--line);\n  background: var(--panel); backdrop-filter: blur(18px) saturate(1.4);\n  -webkit-backdrop-filter: blur(18px) saturate(1.4);\n  box-shadow: var(--glow);\n}\n.brand-mini {\n  display: inline-flex; align-items: center; gap: 10px;\n  font-weight: 700; letter-spacing: -.01em; color: var(--text); text-decoration: none;\n}\n.brand-mini .mark {\n  width: 10px; height: 10px; border-radius: 3px;\n  background: linear-gradient(135deg, var(--cyan), var(--violet));\n  box-shadow: 0 0 16px rgba(92,225,255,.55);\n}\n.navlinks { display: flex; flex-wrap: wrap; gap: 6px; }\n.navlinks a {\n  color: var(--muted); font-size: .82rem; padding: 7px 11px; border-radius: 999px;\n  border: 1px solid transparent; text-decoration: none;\n}\n.navlinks a:hover { color: var(--text); border-color: var(--line); background: rgba(92,225,255,.06); text-decoration: none; }\n\n.hero {\n  position: relative; overflow: hidden;\n  border: 1px solid var(--line2); border-radius: 28px;\n  padding: clamp(28px, 5vw, 52px) clamp(20px, 4vw, 40px);\n  margin-bottom: 28px;\n  background:\n    linear-gradient(135deg, rgba(92,225,255,.10), transparent 40%),\n    linear-gradient(225deg, rgba(167,139,250,.12), transparent 42%),\n    var(--panel);\n  backdrop-filter: blur(20px) saturate(1.35);\n  -webkit-backdrop-filter: blur(20px) saturate(1.35);\n  box-shadow: var(--glow);\n}\n.eyebrow {\n  display: inline-flex; align-items: center; gap: 8px;\n  font-family: var(--mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;\n  color: var(--mint); margin-bottom: 14px;\n}\n.eyebrow i { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); display: inline-block;\n  box-shadow: 0 0 0 4px rgba(94,240,192,.15); }\n.hero h1 {\n  margin: 0 0 14px; font-size: clamp(1.8rem, 5.2vw, 3rem); line-height: 1.15;\n  font-weight: 780; letter-spacing: -.03em;\n  background: linear-gradient(105deg, #fff 10%, var(--cyan) 45%, var(--violet) 85%);\n  -webkit-background-clip: text; background-clip: text; color: transparent;\n}\n@media (prefers-color-scheme: light) {\n  .hero h1 { background: linear-gradient(105deg, #0b1224 5%, var(--cyan) 45%, var(--violet) 90%);\n    -webkit-background-clip: text; background-clip: text; color: transparent; }\n}\n.hero .lead { margin: 0; max-width: 46rem; color: var(--muted); font-size: 1.05rem; }\n.stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }\n.pill {\n  font-family: var(--mono); font-size: .75rem; color: var(--muted);\n  border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px;\n  background: rgba(255,255,255,.03);\n}\n.pill b { color: var(--cyan); font-weight: 650; }\n\n.module-grid {\n  display: grid; grid-template-columns: 1fr; gap: 16px; margin: 8px 0 28px;\n}\n@media (min-width: 720px) {\n  .module-grid { grid-template-columns: repeat(2, 1fr); }\n}\n@media (min-width: 980px) {\n  .module-grid { grid-template-columns: repeat(3, 1fr); }\n}\n.module-tile {\n  display: flex; flex-direction: column; gap: 12px;\n  padding: 20px 18px; border-radius: var(--radius);\n  border: 1px solid var(--line);\n  background: linear-gradient(160deg, rgba(92,225,255,.07), transparent 42%), var(--card);\n  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);\n  text-decoration: none; color: inherit;\n  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;\n}\n.module-tile:hover {\n  transform: translateY(-4px); text-decoration: none;\n  border-color: rgba(92,225,255,.45);\n  box-shadow: 0 0 0 1px rgba(167,139,250,.18), 0 20px 50px rgba(0,0,0,.35), 0 0 36px rgba(92,225,255,.12);\n}\n.module-tile h2 {\n  margin: 0; font-size: 1.12rem; letter-spacing: -.01em;\n  display: flex; justify-content: space-between; gap: 10px; align-items: baseline;\n}\n.module-tile h2 em {\n  font-style: normal; font-family: var(--mono); font-size: .78rem; color: var(--cyan);\n  border: 1px solid var(--line); border-radius: 999px; padding: 2px 8px;\n}\n.module-tile .desc { margin: 0; color: var(--muted); font-size: .9rem; }\n.module-tile ol { margin: 0; padding-left: 1.1rem; color: var(--muted); font-size: .88rem; }\n.module-tile ol li { margin: 0 0 6px; }\n.module-tile .go { margin-top: auto; font-family: var(--mono); font-size: .75rem; color: var(--violet); letter-spacing: .04em; }\n\n.toolbar {\n  border: 1px solid var(--line); border-radius: 16px; padding: 12px; margin-bottom: 16px;\n  background: var(--panel); backdrop-filter: blur(14px);\n}\n#q {\n  width: 100%; padding: 13px 16px; border-radius: 12px; border: 1px solid var(--line);\n  background: rgba(0,0,0,.25); color: var(--text); font-size: 1rem; outline: none;\n}\n#q:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(92,225,255,.15); }\n.grid { display: grid; grid-template-columns: 1fr; gap: 14px; }\n@media (min-width: 720px) { .grid { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); } }\n\n.card {\n  position: relative; padding: 16px 15px 14px; border-radius: var(--radius);\n  border: 1px solid var(--line);\n  background: linear-gradient(160deg, rgba(92,225,255,.06), transparent 40%), var(--card);\n  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);\n  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;\n  overflow: visible; max-height: none;\n}\n.card:hover {\n  transform: translateY(-3px);\n  border-color: rgba(92,225,255,.4);\n  box-shadow: 0 18px 40px rgba(0,0,0,.28), 0 0 28px rgba(167,139,250,.12);\n}\n.badgerow { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }\n.badge, .src-tag, .dl-tag {\n  font-family: var(--mono); font-size: .7rem; border-radius: 999px; padding: 3px 9px; border: 1px solid var(--line);\n}\n.badge { color: var(--cyan); background: rgba(92,225,255,.08); border-color: rgba(92,225,255,.28); }\n.src-tag { color: var(--mint); border-color: rgba(94,240,192,.25); }\n.dl-tag { color: var(--warn); border-color: rgba(255,208,138,.3); }\n.title { margin: 0 0 8px; font-size: 1.05rem; font-weight: 650; line-height: 1.4; }\n.title a { color: inherit; text-decoration: none; }\n.title a:hover { color: var(--cyan); }\n.summary, .how, .meta, .linkrow, .author, .orig {\n  margin: 0 0 10px; overflow: visible; max-height: none; white-space: normal; overflow-wrap: anywhere;\n}\n.summary { color: var(--muted); font-size: .95rem; }\n.orig { font-size: .78rem; color: var(--muted); opacity: .8; margin-top: -4px; }\n.how { font-size: .9rem; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; background: rgba(255,255,255,.03); }\n.meta, .author { font-family: var(--mono); font-size: .78rem; color: var(--warn); }\n.author { color: var(--muted); }\n.linkrow { font-size: .86rem; color: var(--muted); }\n.fulllink { color: var(--cyan); }\n.hidden { display: none !important; }\n.panel-box {\n  margin-top: 22px; padding: 18px; border-radius: 18px; border: 1px solid var(--line);\n  background: var(--panel); backdrop-filter: blur(14px);\n}\n.panel-box h2 { margin: 0 0 10px; font-size: 1rem; }\n.arch {\n  display: inline-block; margin: 0 8px 8px 0; padding: 7px 11px; border-radius: 10px;\n  border: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: .78rem;\n}\n.arch:hover { color: var(--text); border-color: var(--cyan); text-decoration: none; }\n.arch.current { color: var(--mint); border-color: rgba(94,240,192,.4); }\n.crumbs { margin: 0 0 16px; color: var(--muted); font-size: .9rem; }\n.btn {\n  display: inline-block; padding: 10px 16px; border-radius: 12px; border: 1px solid var(--line2);\n  background: linear-gradient(135deg, rgba(92,225,255,.16), rgba(167,139,250,.12));\n  color: var(--text); font-weight: 600; text-decoration: none;\n}\n.btn:hover { text-decoration: none; box-shadow: 0 0 24px rgba(92,225,255,.18); }\n.empty { text-align: center; color: var(--muted); padding: 48px 10px; }\nfooter { margin-top: 36px; text-align: center; color: var(--muted); font-family: var(--mono); font-size: .75rem; }\n.section { margin: 22px 0; }\n.section h2 { margin: 0 0 12px; font-size: 1.2rem; }\n.sec-desc { margin: 0 0 14px; color: var(--muted); }\n.intro p { margin: 0; color: var(--muted); }\n'
+def _load_asset(name: str) -> str:
+    path = SITE / name
+    try:
+        return path.read_text(encoding="utf-8")
+    except Exception:
+        return ""
 
+
+CSS = _load_asset("fx.css")
+FX_JS = _load_asset("fx.js")
+INTERACT_JS = _load_asset("vendor/interact.js")
 
 def load_cfg() -> dict:
     cfg = dict(DEFAULT_CFG)
@@ -266,7 +275,7 @@ def head_block(title, description, canonical, og_title=None, pubdate=None, extra
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-<meta name="color-scheme" content="dark light" />
+<meta name="color-scheme" content="dark" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="renderer" content="webkit" />
 <meta name="force-rendering" content="webkit" />
@@ -295,6 +304,20 @@ def head_block(title, description, canonical, og_title=None, pubdate=None, extra
 """
 
 
+
+def brain_block(vendor_prefix: str = "vendor/") -> str:
+    return f"""
+<div id="brain-hero" data-vendor="{esc(vendor_prefix)}" aria-hidden="true">
+  <span class="brain-caption">Neural Graph · WebGL</span>
+</div>
+"""
+
+
+def brain_loader_script(vendor_prefix: str = "vendor/") -> str:
+    # classic script; resolves ES module from vendored path
+    return f'<script src="{esc(vendor_prefix)}brain-loader.js" defer></script>'
+
+
 def topnav(prefix="./"):
     links = "".join(
         f'<a href="{prefix}{esc(href)}">{esc(title)}</a>'
@@ -307,10 +330,9 @@ def topnav(prefix="./"):
 </header>"""
 
 
-def orig_html(main: str, original: str) -> str:
-    if not original or original == main:
-        return ""
-    return f'<p class="orig">原文：{esc(original)}</p>'
+def orig_html(main: str = "", original: str = "") -> str:
+    return ""
+
 
 
 def card_deal(item, prefix=""):
@@ -336,7 +358,7 @@ def card_deal(item, prefix=""):
   <p class="summary">{esc(summary)}</p>
   {orig_html(summary, item.get("original_summary") or "")}
   {how_html}{author_html}
-  <div class="linkrow"><a href="{esc(slug_path)}">详情与领取方法</a> · <a class="fulllink" href="{esc(url)}" target="_blank" rel="noopener noreferrer">原帖</a></div>
+  <div class="linkrow"><a href="{esc(slug_path)}">详情与领取方法</a> · <a class="fulllink" href="{esc(url)}" target="_blank" rel="noopener noreferrer">来源链接</a> · <a href="#" class="copy-link" data-copy-link="{esc(CANONICAL + (item.get("_path") or slug_path.lstrip('./')))}">复制链接</a></div>
 </article>"""
 
 
@@ -390,6 +412,9 @@ SEARCH_JS = r"""
   });
 })();
 """
+
+SITE_JS = SEARCH_JS + "\n" + FX_JS + "\n" + INTERACT_JS
+
 
 
 def write_sitemaps(urls):
@@ -467,11 +492,17 @@ def write_item_pages(all_items, date):
         ]
         page = f"""{head_block(page_title, desc, canonical, title_zh, pubdate=str(pub), extra_ld=ld)}
 <body>
+<div class="fx-aurora" aria-hidden="true"></div>
+<div class="fx-grid" aria-hidden="true"></div>
+<div class="fx-noise" aria-hidden="true"></div>
+<div class="fx-scan" aria-hidden="true"></div>
+<div class="fx-spot" aria-hidden="true"></div>
+<canvas id="fx-particles" aria-hidden="true"></canvas>
 <div class="wrap">
   {topnav("../")}
   <div class="crumbs"><a href="../">首页</a> › <a href="../c/{esc(cat_slug)}.html">{esc(cat)}</a> › {esc(title_zh)}</div>
   <header class="hero">
-    <div class="eyebrow"><i></i> DETAIL</div>
+    <div class="eyebrow"><i class="live-dot"></i> DETAIL</div>
     <h1>{esc(title_zh)}</h1>
     <p class="lead">{esc(cat)} · 来源 {esc(it.get("source") or "公开网页")}</p>
   </header>
@@ -486,6 +517,7 @@ def write_item_pages(all_items, date):
   <section class="panel-box"><h2>相关推荐</h2>{rel_html or "暂无"}</section>
   <footer>{esc(SITE_NAME)}</footer>
 </div>
+<script>{FX_JS}</script>
 </body></html>"""
         (ITEMS / f"{slug}.html").write_text(page, encoding="utf-8")
         paths.append(f"item/{slug}.html")
@@ -511,21 +543,31 @@ def write_category_pages(all_items, date, ym):
         ]
         page = f"""{head_block(page_title, intro, canonical, extra_ld=ld)}
 <body>
+<div class="fx-aurora" aria-hidden="true"></div>
+<div class="fx-grid" aria-hidden="true"></div>
+<div class="fx-noise" aria-hidden="true"></div>
+<div class="fx-scan" aria-hidden="true"></div>
+<div class="fx-spot" aria-hidden="true"></div>
+<canvas id="fx-particles" aria-hidden="true"></canvas>
 <div class="wrap">
   {topnav("../")}
   <div class="crumbs"><a href="../">首页</a> › {esc(cat)}</div>
-  <header class="hero">
-    <div class="eyebrow"><i></i> MODULE</div>
-    <h1>{esc(cat)}</h1>
+  <header class="hero hero-brain">
+    <div class="hero-copy">
+    <div class="eyebrow"><i class="live-dot"></i> MODULE</div>
+    <h1 class="hero-title">{esc(cat)}</h1>
     <p class="lead">{esc(intro)}</p>
-    <div class="stats"><div class="pill">条目 <b>{len(cat_items)}</b></div><div class="pill">更新 <b>{esc(date)}</b></div></div>
+    <div class="stats"><div class="pill">条目 <b data-count="{len(cat_items)}">0</b></div><div class="pill">更新 <b>{esc(date)}</b></div></div>
+    </div>
+    {brain_block("../vendor/")}
   </header>
+  {brain_loader_script("../vendor/")}
   <div class="toolbar"><input id="q" type="search" placeholder="在本模块内搜索…" autocomplete="off" /></div>
   <div class="grid">{cards}</div>
   <div id="empty" class="empty hidden">没有匹配条目</div>
   <footer>{esc(SITE_NAME)} · {esc(cat)}</footer>
 </div>
-<script>{SEARCH_JS}</script>
+<script>{SITE_JS}</script>
 </body></html>"""
         (CATS / f"{slug}.html").write_text(page, encoding="utf-8")
         paths.append(f"c/{slug}.html")
@@ -539,21 +581,31 @@ def write_module_special(repos, topics, date, ym):
     cards = "\n".join(card_repo(r) for r in repos) or '<div class="empty">暂无</div>'
     page = f"""{head_block(f"GitHub 新热门 | {SITE_NAME} · {ym}", f"{SITE_NAME} GitHub热门项目与AI开源项目推荐", f"{CANONICAL}m/github-hot.html")}
 <body>
+<div class="fx-aurora" aria-hidden="true"></div>
+<div class="fx-grid" aria-hidden="true"></div>
+<div class="fx-noise" aria-hidden="true"></div>
+<div class="fx-scan" aria-hidden="true"></div>
+<div class="fx-spot" aria-hidden="true"></div>
+<canvas id="fx-particles" aria-hidden="true"></canvas>
 <div class="wrap">
   {topnav("../")}
   <div class="crumbs"><a href="../">首页</a> › GitHub 新热门</div>
-  <header class="hero">
-    <div class="eyebrow"><i></i> GITHUB</div>
-    <h1>GitHub 新热门</h1>
-    <p class="lead">近 7–14 天创建的 AI / 大模型 / Agent 开源项目，按星标整理，中文说明 + 原文对照。</p>
-    <div class="stats"><div class="pill">项目 <b>{len(repos)}</b></div><div class="pill">更新 <b>{esc(date)}</b></div></div>
+  <header class="hero hero-brain">
+    <div class="hero-copy">
+    <div class="eyebrow"><i class="live-dot"></i> GITHUB</div>
+    <h1 class="hero-title">GitHub 新热门</h1>
+    <p class="lead">近 7–14 天创建的 AI / 大模型 / Agent 开源项目，按星标整理，完整中文说明。</p>
+    <div class="stats"><div class="pill">项目 <b data-count="{len(repos)}">0</b></div><div class="pill">更新 <b>{esc(date)}</b></div></div>
+    </div>
+    {brain_block("../vendor/")}
   </header>
+  {brain_loader_script("../vendor/")}
   <div class="toolbar"><input id="q" type="search" placeholder="搜索仓库 / 简介…" autocomplete="off" /></div>
   <div class="grid">{cards}</div>
   <div id="empty" class="empty hidden">没有匹配条目</div>
   <footer>{esc(SITE_NAME)}</footer>
 </div>
-<script>{SEARCH_JS}</script>
+<script>{SITE_JS}</script>
 </body></html>"""
     (MODS / "github-hot.html").write_text(page, encoding="utf-8")
     paths.append("m/github-hot.html")
@@ -561,21 +613,31 @@ def write_module_special(repos, topics, date, ym):
     cards = "\n".join(card_hot(t) for t in topics) or '<div class="empty">暂无</div>'
     page = f"""{head_block(f"最近热议 / 最新AI新闻 | {SITE_NAME} · {ym}", f"{SITE_NAME}最新AI新闻与社区热议", f"{CANONICAL}m/hot-topics.html")}
 <body>
+<div class="fx-aurora" aria-hidden="true"></div>
+<div class="fx-grid" aria-hidden="true"></div>
+<div class="fx-noise" aria-hidden="true"></div>
+<div class="fx-scan" aria-hidden="true"></div>
+<div class="fx-spot" aria-hidden="true"></div>
+<canvas id="fx-particles" aria-hidden="true"></canvas>
 <div class="wrap">
   {topnav("../")}
   <div class="crumbs"><a href="../">首页</a> › 最近热议</div>
-  <header class="hero">
-    <div class="eyebrow"><i></i> PULSE</div>
-    <h1>最近热议</h1>
-    <p class="lead">Hacker News / V2EX / X 等渠道的 AI 与科技热议，标题与摘要已尽量译为中文。</p>
-    <div class="stats"><div class="pill">话题 <b>{len(topics)}</b></div><div class="pill">更新 <b>{esc(date)}</b></div></div>
+  <header class="hero hero-brain">
+    <div class="hero-copy">
+    <div class="eyebrow"><i class="live-dot"></i> PULSE</div>
+    <h1 class="hero-title">最近热议</h1>
+    <p class="lead">Hacker News / V2EX / X 等渠道的 AI 与科技热议，标题与摘要已译为中文。</p>
+    <div class="stats"><div class="pill">话题 <b data-count="{len(topics)}">0</b></div><div class="pill">更新 <b>{esc(date)}</b></div></div>
+    </div>
+    {brain_block("../vendor/")}
   </header>
+  {brain_loader_script("../vendor/")}
   <div class="toolbar"><input id="q" type="search" placeholder="搜索热议…" autocomplete="off" /></div>
   <div class="grid">{cards}</div>
   <div id="empty" class="empty hidden">没有匹配条目</div>
   <footer>{esc(SITE_NAME)}</footer>
 </div>
-<script>{SEARCH_JS}</script>
+<script>{SITE_JS}</script>
 </body></html>"""
     (MODS / "hot-topics.html").write_text(page, encoding="utf-8")
     paths.append("m/hot-topics.html")
@@ -598,24 +660,34 @@ def write_archive_page(day, items, all_dates):
     arch = "".join(f'<a class="arch {"current" if d==day else ""}" href="{esc(d)}.html">{esc(d)}</a>' for d in all_dates[:60])
     page = f"""{head_block(title, desc, canonical)}
 <body>
+<div class="fx-aurora" aria-hidden="true"></div>
+<div class="fx-grid" aria-hidden="true"></div>
+<div class="fx-noise" aria-hidden="true"></div>
+<div class="fx-scan" aria-hidden="true"></div>
+<div class="fx-spot" aria-hidden="true"></div>
+<canvas id="fx-particles" aria-hidden="true"></canvas>
 <div class="wrap">
   {topnav("../")}
   <div class="crumbs"><a href="../">首页</a> › 日归档 › {esc(day)}</div>
-  <header class="hero"><div class="eyebrow"><i></i> ARCHIVE</div><h1>{esc(day)}</h1>
+  <header class="hero"><div class="eyebrow"><i class="live-dot"></i> ARCHIVE</div><h1>{esc(day)}</h1>
   <p class="lead">{esc(ym)} · {len(items)} 条</p></header>
   {''.join(sections) or '<div class="empty">暂无</div>'}
   <div class="panel-box"><h2>更多日期</h2>{arch}</div>
   <footer>{esc(SITE_NAME)}</footer>
-</div></body></html>"""
+</div>
+<script>{FX_JS}</script>
+</body></html>"""
     (ARCHIVES / f"{day}.html").write_text(page, encoding="utf-8")
 
 
 def write_404():
     (SITE / "404.html").write_text(
         f"""{head_block(f"页面未找到 | {SITE_NAME}", META_DESC, CANONICAL + "404.html")}
-<body><div class="wrap">{topnav("./")}<header class="hero"><h1>404</h1>
+<body><div class="fx-aurora" aria-hidden="true"></div><div class="fx-grid" aria-hidden="true"></div><div class="fx-noise" aria-hidden="true"></div><div class="fx-scan" aria-hidden="true"></div><div class="fx-spot" aria-hidden="true"></div><canvas id="fx-particles" aria-hidden="true"></canvas><div class="wrap">{topnav("./")}<header class="hero"><h1>404</h1>
 <p class="lead">页面不存在，返回首页继续浏览大模型免费资源。</p>
-<p><a class="btn" href="./">返回首页</a></p></header></div></body></html>""",
+<p><a class="btn" href="./">返回首页</a></p></header></div>
+<script>{FX_JS}</script>
+</body></html>""",
         encoding="utf-8",
     )
 
@@ -683,21 +755,31 @@ def build():
     page_title = f"{SITE_NAME} · {ym} · 大模型免费API / 免费GPT / Claude免费"
     page = f"""{head_block(page_title, META_DESC, CANONICAL, SITE_NAME + " · " + ym, extra_ld=[website_ld])}
 <body>
+<div class="fx-aurora" aria-hidden="true"></div>
+<div class="fx-grid" aria-hidden="true"></div>
+<div class="fx-noise" aria-hidden="true"></div>
+<div class="fx-scan" aria-hidden="true"></div>
+<div class="fx-spot" aria-hidden="true"></div>
+<canvas id="fx-particles" aria-hidden="true"></canvas>
 <div class="wrap">
   {topnav("./")}
-  <header class="hero">
-    <div class="eyebrow"><i></i> LIVE FREE AI RESOURCES</div>
-    <h1>{esc(SITE_NAME)}</h1>
+  <header class="hero hero-brain">
+    <div class="hero-copy">
+    <div class="eyebrow"><i class="live-dot"></i> LIVE FREE AI RESOURCES</div>
+    <h1 class="hero-title">{esc(SITE_NAME)}</h1>
     <p class="lead">帮你一站看清大模型免费API、免费GPT、Claude免费额度、DeepSeek免费额度、AI工具免费试用、免费GPU，以及值得关注的 GitHub 热门项目与最新AI新闻。每个模块独立成页，信息每日自动更新；参与前请以官网规则为准。</p>
     <div class="stats">
       <div class="pill">更新日期 <b>{esc(date)}</b></div>
-      <div class="pill">免费资源 <b>{len(items)}</b></div>
-      <div class="pill">GitHub热门 <b>{len(repos)}</b></div>
-      <div class="pill">热议 <b>{len(topics)}</b></div>
+      <div class="pill">免费资源 <b data-count="{len(items)}">0</b></div>
+      <div class="pill">GitHub热门 <b data-count="{len(repos)}">0</b></div>
+      <div class="pill">热议 <b data-count="{len(topics)}">0</b></div>
       <div class="pill">更新 <b>{esc(updated)}</b></div>
       <div class="pill">生成 <b>{esc(now_label)}</b></div>
     </div>
+    </div>
+    {brain_block("vendor/")}
   </header>
+  {brain_loader_script("vendor/")}
 
   <section class="section">
     <h2>选择模块</h2>
