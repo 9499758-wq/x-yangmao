@@ -23,9 +23,9 @@ TZ = ZoneInfo("Asia/Shanghai")
 
 DEFAULT_CFG = {
     "site_name": "AI大模型免费资源导航",
-    "canonical": "https://ai168.netlify.app/",
+    "canonical": "https://ai1688.netlify.app/",
     "baidu_site_verification": "",
-    "baidu_push_site": "https://ai168.netlify.app",
+    "baidu_push_site": "https://ai1688.netlify.app",
 }
 
 CATEGORIES = [
@@ -95,8 +95,8 @@ def load_cfg() -> dict:
         cfg["baidu_site_verification"] = env_v
     cfg["canonical"] = (cfg.get("canonical") or DEFAULT_CFG["canonical"]).rstrip("/") + "/"
     if "aidamoxing-mianfei" in cfg["canonical"] or "aiyangmao" in cfg["canonical"]:
-        cfg["canonical"] = "https://ai168.netlify.app/"
-        cfg["baidu_push_site"] = "https://ai168.netlify.app"
+        cfg["canonical"] = "https://ai1688.netlify.app/"
+        cfg["baidu_push_site"] = "https://ai1688.netlify.app"
     return cfg
 
 
