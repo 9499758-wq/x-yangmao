@@ -1,12 +1,12 @@
 {
-  "updated_at_label": "2026-11-09 16:30 Asia/Shanghai",
+  "updated_at_label": "2026-11-09 16:38 Asia/Shanghai",
   "items": [
     {
       "id": "hnhot-50410107",
       "source": "Hacker News",
       "title": "【hot】Goodbye Claude, hello Pi",
       "summary": "原文：Goodbye Claude, hello Pi",
-      "heat": "点数 754 · 评论 462",
+      "heat": "点数 754 · 评论 465",
       "points": 754,
       "url": "https://caleb.software/posts/claude-to-pi.html",
       "translated_by": "keywords"
@@ -16,8 +16,8 @@
       "source": "Hacker News",
       "title": "【hot】Goldman Sachs is pulling Claude Code from its bankers and traders",
       "summary": "原文：Goldman Sachs is pulling Claude Code from its bankers and traders",
-      "heat": "点数 748 · 评论 400",
-      "points": 748,
+      "heat": "点数 752 · 评论 401",
+      "points": 752,
       "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
       "translated_by": "keywords"
     },
@@ -26,8 +26,8 @@
       "source": "Hacker News",
       "title": "【hot】Nvidia CEO Jensen Huang's letter to staff about affair",
       "summary": "原文：Nvidia CEO Jensen Huang's letter to staff about affair",
-      "heat": "点数 607 · 评论 623",
-      "points": 607,
+      "heat": "点数 623 · 评论 638",
+      "points": 623,
       "url": "https://nvidianews.nvidia.com/news/a-message-to-our-company",
       "translated_by": "keywords"
     },
@@ -36,8 +36,8 @@
       "source": "Hacker News",
       "title": "【hot】KetchUp – Open-source SketchUp alternative built with Rust and WebGPU",
       "summary": "原文：KetchUp – Open-source SketchUp alternative built with Rust and WebGPU",
-      "heat": "点数 440 · 评论 123",
-      "points": 440,
+      "heat": "点数 442 · 评论 124",
+      "points": 442,
       "url": "https://ketchup3d.github.io/app/",
       "translated_by": "keywords"
     },
@@ -56,7 +56,7 @@
       "source": "Hacker News",
       "title": "【hot】Outlook.com is rejecting email from domains without DMARC",
       "summary": "原文：Outlook.com is rejecting email from domains without DMARC",
-      "heat": "点数 380 · 评论 271",
+      "heat": "点数 380 · 评论 272",
       "points": 380,
       "url": "https://mailroute.net/blog/outlook-rejecting-email-without-dmarc",
       "translated_by": "keywords"
@@ -66,8 +66,8 @@
       "source": "Hacker News",
       "title": "【hot】I'm not convinced the AI bubble exists",
       "summary": "原文：I'm not convinced the AI bubble exists",
-      "heat": "点数 233 · 评论 340",
-      "points": 233,
+      "heat": "点数 241 · 评论 352",
+      "points": 241,
       "url": "https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html#im-not-convinced-the-ai-bubble-exists",
       "translated_by": "keywords"
     },
@@ -76,8 +76,8 @@
       "source": "Hacker News",
       "title": "【hot】How I Fight AI Brain Fry",
       "summary": "原文：How I Fight AI Brain Fry",
-      "heat": "点数 233 · 评论 165",
-      "points": 233,
+      "heat": "点数 237 · 评论 166",
+      "points": 237,
       "url": "https://sergeykuhne.com/blog/fighting-ai-brain-fry",
       "translated_by": "keywords"
     },
@@ -86,8 +86,8 @@
       "source": "V2EX",
       "title": "[中转站] 小众中转站推广，特色分组 opus-4.6，进来领鸡蛋 10$",
       "summary": "站点： https://minitoken.cc/\r\n充值比例 1:1\r\n\r\n主营模型\r\nclaude-opus-4-6\r\nclaude-sonnet-4-6\r\ngpt-6-astra\r\ngpt-6.1-sol\r\n\r\n\r\n留下用户名送 5$,加入 qq 群留下用户名送 5$，一共 10$ 有效期一个月\r\n点击链接加入群聊： https://qm.qq.com/q/P2hDQlEPus",
-      "heat": "回复 105",
-      "points": 105,
+      "heat": "回复 108",
+      "points": 108,
       "url": "https://www.v2ex.com/t/1255439",
       "translated_by": "native-zh"
     },
@@ -96,8 +96,8 @@
       "source": "Hacker News",
       "title": "【hot】A Critique of GPUI",
       "summary": "原文：A Critique of GPUI",
-      "heat": "点数 83 · 评论 48",
-      "points": 83,
+      "heat": "点数 84 · 评论 49",
+      "points": 84,
       "url": "https://blog.zortax.de/posts/a-critique-of-gpui",
       "translated_by": "keywords"
     },
@@ -112,6 +112,16 @@
       "translated_by": "native-zh"
     },
     {
+      "id": "v2hot-1255590",
+      "source": "V2EX",
+      "title": "我做的收费 SSH 客户端 Termark，被人 1:1 复刻并开源了",
+      "summary": "很久没来 V 站了，今天搜「 gpui 」想学点新东西，点开第一个结果，发现这个项目和我做的 SSH 客户端 Termark ，在界面布局、功能设计、交互方式，甚至图标上都高度一致。\r\n\r\n作为开发者，第一反应挺复杂的。这些细节是我一点点打磨出来的，现在被原样搬走，说不难受是假的。\r\n\r\n不过冷静下来想想，能被人复刻，至少说明这个产品是有价值的。\r\n\r\n我也不打算折腾维权，只想说一句：**开源不等于可以不署名、不尊重原创。** 借鉴可以，但希望能有边界，也希望能说明来源。\r\n\r\nTermark 会继续开发和维护，不会因为出现了相似产品就停下来。下面是两边的截图，大家可以自己对比。\r\n\r\n如果你",
+      "heat": "回复 21",
+      "points": 21,
+      "url": "https://www.v2ex.com/t/1255590",
+      "translated_by": "native-zh"
+    },
+    {
       "id": "xhot-lg-exaone",
       "source": "X",
       "title": "LG K-EXAONE 2.5：API 彻底免费开放",
@@ -119,16 +129,6 @@
       "heat": "赞 6 · 收藏 6",
       "points": 21,
       "url": "https://x.com/Super_Nius/status/2119635733048852485",
-      "translated_by": "native-zh"
-    },
-    {
-      "id": "v2hot-1255590",
-      "source": "V2EX",
-      "title": "我做的收费 SSH 客户端 Termark，被人 1:1 复刻并开源了",
-      "summary": "很久没来 V 站了，今天搜「 gpui 」想学点新东西，点开第一个结果，发现这个项目和我做的 SSH 客户端 Termark ，在界面布局、功能设计、交互方式，甚至图标上都高度一致。\r\n\r\n作为开发者，第一反应挺复杂的。这些细节是我一点点打磨出来的，现在被原样搬走，说不难受是假的。\r\n\r\n不过冷静下来想想，能被人复刻，至少说明这个产品是有价值的。\r\n\r\n我也不打算折腾维权，只想说一句：**开源不等于可以不署名、不尊重原创。** 借鉴可以，但希望能有边界，也希望能说明来源。\r\n\r\nTermark 会继续开发和维护，不会因为出现了相似产品就停下来。下面是两边的截图，大家可以自己对比。\r\n\r\n如果你",
-      "heat": "回复 19",
-      "points": 19,
-      "url": "https://www.v2ex.com/t/1255590",
       "translated_by": "native-zh"
     },
     {
@@ -156,8 +156,8 @@
       "source": "V2EX",
       "title": "Gemini 今天重置完又废了",
       "summary": "Claude Code 没法用了以后重新又把 Gemini 捡起来用，上周用着 Gemini 4 Argon ，体感用着跟 cc 居然差不多，除了额度不太够。这周一回到工位，发现额度居然重置了，结果一个任务跑了两个半小时还没跑完，额度已经烧的七七八八了。太不稳定了吧，果然又是昙花一现 ![]( https://i.imgur.com/toA6Anu.png)",
-      "heat": "回复 9",
-      "points": 9,
+      "heat": "回复 10",
+      "points": 10,
       "url": "https://www.v2ex.com/t/1255575",
       "translated_by": "native-zh"
     },
@@ -166,8 +166,8 @@
       "source": "V2EX",
       "title": "[尴尬]开完 grok 订阅才发现要装 cursor 才行.",
       "summary": "想着接到 dsh 里用来着, 找了半天发现 api 模式是另外的费用, 订阅的量只能在 grokbot 或者 cursor 内部使用.\r\n\r\n有点尴尬啊",
-      "heat": "回复 6",
-      "points": 6,
+      "heat": "回复 7",
+      "points": 7,
       "url": "https://www.v2ex.com/t/1255564",
       "translated_by": "native-zh"
     },
@@ -176,19 +176,9 @@
       "source": "V2EX",
       "title": "现在大家用 AI Agent，是不是还停留在 AI 编程阶段？如何才能真正进阶？",
       "summary": "最近一直在思考一个问题：现在 AI Agent 发展得这么快，但对于大多数开发者来说，实际使用场景是不是还停留在 AI 编程这个阶段？\r\n目前我自己的使用场景主要还是 Cursor 、Claude Code 、Codex 这一类工具。日常工作中，让 AI 阅读项目代码、编写功能、修复 Bug 、生成文档，确实已经能提升不少效率。\r\n但仔细想想，这些场景本质上还是：人负责思考和拆解任务，AI 负责执行具体的开发工作。\r\n感觉这只是把 AI 当成了一个能力很强的程序员，而不是一个真正意义上的 Agent 。如何让 Agent 自主理解业务目标、拆解任务并完成交付。\r\n所以想大家请教一下：你们目前使",
-      "heat": "回复 4",
-      "points": 4,
+      "heat": "回复 5",
+      "points": 5,
       "url": "https://www.v2ex.com/t/1255577",
-      "translated_by": "native-zh"
-    },
-    {
-      "id": "v2hot-1255560",
-      "source": "V2EX",
-      "title": "[免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏览、下载 iPhone 照片和文件",
-      "summary": "大家好，我是一名独立开发者，想分享一下自己做的 iOS 应用 KimDrop ，也希望听听大家的使用建议。\r\n\r\nKimDrop 主要想解决一个场景：想在电脑上管理 iPhone 里的照片或文件。\r\n\r\n手机和电脑连接同一个 Wi-Fi 后，在 iPhone 上打开 KimDrop ，再用电脑浏览器访问应用显示的地址，就可以浏览、下载、管理照片及文件。\r\n\r\n相册与文件功能\r\n- 在电脑浏览器中浏览 iPhone 相册，按相册、日期等查找照片\r\n- 预览 HEIC 照片和 Live Photo\r\n- 下载需要保存的照片和视频原件\r\n- 在手机和电脑之间传输文件，支持文件夹上传和 ZIP 下载\r",
-      "heat": "回复 4",
-      "points": 4,
-      "url": "https://www.v2ex.com/t/1255560",
       "translated_by": "native-zh"
     },
     {
@@ -199,6 +189,16 @@
       "heat": "赞 4 · 收藏 0",
       "points": 4,
       "url": "https://x.com/chichu187/status/2119008302432690299",
+      "translated_by": "native-zh"
+    },
+    {
+      "id": "v2hot-1255592",
+      "source": "V2EX",
+      "title": "闲置笔记本新玩法： AI 统一前后端上下文，运行时前后端拆两台机器，有轻量方案吗？",
+      "summary": "办公室设备换代，闲置出一批红米笔记本：**i5-7 代 + 8G 内存**。\r\n单机性能不算强，但单独跑一个前端、或者单独跑一个后端服务，压力不大。\r\n\r\n## 现在的开发痛点\r\n工位笔记本远程桌面连开发服务器，基本 2 人共用一台服务器。\r\n服务器配置并不差：**i5-14600K + 64G ，半年前新买的**。\r\n但只要其中一个人编译后端，整机 CPU 直接打满，另一个人连打字都卡顿，体验非常鸡肋。\r\n\r\n目前我的 AI 开发习惯：\r\n用 Trae 打开一个总文件夹，前端仓库、后端仓库都放在这个目录下。\r\n直接在客户端内对话，让 AI 跨前后端一起分析、改代码、提交，全部在**一个客户端",
+      "heat": "回复 3",
+      "points": 3,
+      "url": "https://www.v2ex.com/t/1255592",
       "translated_by": "native-zh"
     },
     {
@@ -219,16 +219,6 @@
       "heat": "回复 2",
       "points": 2,
       "url": "https://www.v2ex.com/t/1255595",
-      "translated_by": "native-zh"
-    },
-    {
-      "id": "v2hot-1255592",
-      "source": "V2EX",
-      "title": "闲置笔记本新玩法： AI 统一前后端上下文，运行时前后端拆两台机器，有轻量方案吗？",
-      "summary": "办公室设备换代，闲置出一批红米笔记本：**i5-7 代 + 8G 内存**。\r\n单机性能不算强，但单独跑一个前端、或者单独跑一个后端服务，压力不大。\r\n\r\n## 现在的开发痛点\r\n工位笔记本远程桌面连开发服务器，基本 2 人共用一台服务器。\r\n服务器配置并不差：**i5-14600K + 64G ，半年前新买的**。\r\n但只要其中一个人编译后端，整机 CPU 直接打满，另一个人连打字都卡顿，体验非常鸡肋。\r\n\r\n目前我的 AI 开发习惯：\r\n用 Trae 打开一个总文件夹，前端仓库、后端仓库都放在这个目录下。\r\n直接在客户端内对话，让 AI 跨前后端一起分析、改代码、提交，全部在**一个客户端",
-      "heat": "回复 2",
-      "points": 2,
-      "url": "https://www.v2ex.com/t/1255592",
       "translated_by": "native-zh"
     },
     {
@@ -279,6 +269,36 @@
       "heat": "赞 1 · 收藏 0",
       "points": 1,
       "url": "https://x.com/AWG48488/status/2119415638494204051",
+      "translated_by": "native-zh"
+    },
+    {
+      "id": "v2hot-1255612",
+      "source": "V2EX",
+      "title": "t3code\\herdr\\cindy 等等多 agent 聚合工具，推荐用哪个？",
+      "summary": "或者大家有其他的推荐？",
+      "heat": "回复 0",
+      "points": 0,
+      "url": "https://www.v2ex.com/t/1255612",
+      "translated_by": "native-zh"
+    },
+    {
+      "id": "v2hot-1255611",
+      "source": "V2EX",
+      "title": "没有好用的 icon 设计 skill 吗？",
+      "summary": "自己做开发需要用一个 icon design skill 来帮助设计，但找了一轮竟然没发现像 Anthropic frontend-design 一样完整，或者像 caveman 和 ponytail 一样知名的。\r\n\r\n令人惊讶，因为 icon 应该是很常见的设计需求了。\r\n\r\n是我自己漏掉了什么，还是这么大的缺口竟然没人填补？望多指教。",
+      "heat": "回复 0",
+      "points": 0,
+      "url": "https://www.v2ex.com/t/1255611",
+      "translated_by": "native-zh"
+    },
+    {
+      "id": "v2hot-1255609",
+      "source": "V2EX",
+      "title": "也用 mygo 写了一个 git 的可视化工具客户端",
+      "summary": "有了 Opus 5.5 神力，也太方便了，之前的 WebStrom 一直没卸载就是因为集成的可视化 git ，现在在 AI 的帮助下，直接让它写了一个类似的 git 客户端，它直接调用你本机的 `git`，所以现有的配置、hooks 、凭据都照常生效。\r\n\r\n![日志页]( https://raw.githubusercontent.com/Zenyet/banyan/main/docs/screenshots/log.png)\r\n\r\n### 主要功能\r\n\r\n- **日志**：分支树 + 彩色提交图，按文本 / 分支 / 作者 / 日期 / 路径筛选（由 git 筛选，不受已加载数量限制），⌘",
+      "heat": "回复 0",
+      "points": 0,
+      "url": "https://www.v2ex.com/t/1255609",
       "translated_by": "native-zh"
     },
     {
@@ -379,26 +399,6 @@
       "heat": "回复 0",
       "points": 0,
       "url": "https://www.v2ex.com/t/1255566",
-      "translated_by": "native-zh"
-    },
-    {
-      "id": "v2hot-1255559",
-      "source": "V2EX",
-      "title": "GPT 被封号",
-      "summary": "一个订阅过菲区的账号，pro 订阅已经过期后面只用来聊聊天。\r\n今天发现被 t 出登录，再次登录发现账号被封了。",
-      "heat": "回复 0",
-      "points": 0,
-      "url": "https://www.v2ex.com/t/1255559",
-      "translated_by": "native-zh"
-    },
-    {
-      "id": "xhot-aliyun-bailian",
-      "source": "X",
-      "title": "阿里云百炼：新用户每模型约 100 万 Tokens",
-      "summary": "新用户开通百炼可调 70+ 主流大模型，每模型约 100 万 Tokens，总计 7000 万+ Tokens，约 90 天有效；需实名认证，国内直连。",
-      "heat": "赞 0 · 收藏 0",
-      "points": 0,
-      "url": "https://x.com/0x_chaoran/status/2119379991226105957",
       "translated_by": "native-zh"
     }
   ],
