@@ -1,14 +1,14 @@
 {
   "date": "2026-11-09",
-  "updated_at": "2026-11-09T16:16+08:00",
-  "updated_at_label": "2026-11-09 16:16 Asia/Shanghai",
+  "updated_at": "2026-11-09T16:30+08:00",
+  "updated_at_label": "2026-11-09 16:30 Asia/Shanghai",
   "source": "auto-fetch public APIs",
   "items": [
     {
       "id": "hn-50418158",
       "source": "Hacker News",
       "category": "AI 开发工具与编程助手",
-      "title": "【科技】Show HN: My first project, an AI-powered financial news analyzer",
+      "title": "【科技】Show HN: My first project, an AI-powered financial news analyzer Show HN: My fir",
       "summary": "来源摘要：Show HN: My first project, an AI-powered financial news analyzer Show HN: My first project, an AI-powered financial news analyzer I&#x27;m 17, and I started NotBot a few months ago to see whether I could turn an idea into a working project. My main interest is economics, not b…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -18,13 +18,14 @@
       "engagement": {
         "points": 2,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50414111",
       "source": "Hacker News",
       "category": "大模型 API 免费额度",
-      "title": "【科技】Show HN: Velork – Design and Code, Together",
+      "title": "【科技】Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, T",
       "summary": "来源摘要：Show HN: Velork – Design and Code, Together Show HN: Velork – Design and Code, Together Hi HN! :)<p>I’ve been working as a fullstack freelancer for over 4 years now. I always wanted some kind of IDE where I could take designs, turn them into code, and not be restricted to usin…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -34,13 +35,14 @@
       "engagement": {
         "points": 1,
         "comments": 6
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50414095",
       "source": "Hacker News",
       "category": "AI 开发工具与编程助手",
-      "title": "【科技】Show HN: Jurex in House – Handles Legal Side of Your Business with AI",
+      "title": "【科技】Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: J",
       "summary": "来源摘要：Show HN: Jurex in House – Handles Legal Side of Your Business with AI Show HN: Jurex in House – Handles Legal Side of Your Business with AI Hi,<p>Jurex-in-house is a Tool you &amp; legal teams can use to handle the legal side of your business. Best in Class Drafting, research …",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -50,7 +52,8 @@
       "engagement": {
         "points": 1,
         "comments": 1
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50404884",
@@ -66,13 +69,14 @@
       "engagement": {
         "points": 1,
         "comments": 3
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50404825",
       "source": "Hacker News",
       "category": "其他科技",
-      "title": "【科技】Show HN: Image to Image AI: Free AI Image Editor Online – Tancky AI",
+      "title": "【科技】Show HN: Image to Image AI: Free AI Image Editor Online – Tancky AI Show HN: Ima",
       "summary": "来源摘要：Show HN: Image to Image AI: Free AI Image Editor Online – Tancky AI Show HN: Image to Image AI: Free AI Image Editor Online – Tancky AI",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -82,13 +86,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50404341",
       "source": "Hacker News",
       "category": "其他科技",
-      "title": "【科技】AI is turning protectionists into free traders",
+      "title": "【科技】AI is turning protectionists into free traders AI is turning protectionists into",
       "summary": "来源摘要：AI is turning protectionists into free traders AI is turning protectionists into free traders",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -98,13 +103,14 @@
       "engagement": {
         "points": 4,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50402561",
       "source": "Hacker News",
       "category": "大模型 API 免费额度",
-      "title": "【科技】Free open API of weekly resale sold-price medians",
+      "title": "【科技】Free open API of weekly resale sold-price medians Free open API of weekly resale",
       "summary": "来源摘要：Free open API of weekly resale sold-price medians Free open API of weekly resale sold-price medians",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -114,13 +120,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50397325",
       "source": "Hacker News",
       "category": "科技软件/App 限免",
-      "title": "【科技】Show HN: Agents infer Lego mechanisms from sources, then animate them",
+      "title": "【科技】Show HN: Agents infer Lego mechanisms from sources, then animate them Show HN: A",
       "summary": "来源摘要：Show HN: Agents infer Lego mechanisms from sources, then animate them Show HN: Agents infer Lego mechanisms from sources, then animate them Hi there :)<p>Around a month ago, I released LDraw Nova, an agentic toolset for assembling LEGO CAD models by generating LDraw source cod…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -130,13 +137,14 @@
       "engagement": {
         "points": 31,
         "comments": 2
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50396871",
       "source": "Hacker News",
       "category": "大模型 API 免费额度",
-      "title": "【科技】Show HN: Makoda: reuse your Codex or Claude subscriptions as API",
+      "title": "【科技】Show HN: Makoda: reuse your Codex or Claude subscriptions as API Show HN: Makoda",
       "summary": "来源摘要：Show HN: Makoda: reuse your Codex or Claude subscriptions as API Show HN: Makoda: reuse your Codex or Claude subscriptions as API Already paying for ChatGPT or Claude? You should not need a second, per-token bill just to test your app(local or remote).<p>I was paying ~$120&#x2…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -146,13 +154,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50394379",
       "source": "Hacker News",
       "category": "云服务/GPU/开发者资源",
-      "title": "【科技】Show HN: Infinity – Git-style branching for AI chats",
+      "title": "【科技】Show HN: Infinity – Git-style branching for AI chats Show HN: Infinity – Git-sty",
       "summary": "来源摘要：Show HN: Infinity – Git-style branching for AI chats Show HN: Infinity – Git-style branching for AI chats Hello HN, I&#x27;m Nik. I built Infinity for myself because I tend to love to rabbit-hole on various subjects.<p>I usually have 3-4 windows open for ChatGPT desktop + Clau…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -162,13 +171,14 @@
       "engagement": {
         "points": 4,
         "comments": 2
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50388519",
       "source": "Hacker News",
       "category": "AI 开发工具与编程助手",
-      "title": "【科技】Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant",
+      "title": "【科技】Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Show",
       "summary": "来源摘要：Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Show HN: Stitch.ai – New all-in-one workspace with Stitchy the AI assistant Our team is excited to launch Stitch.ai this week. We&#x27;ve been working hard to bring knowledge workers, freelancers and f…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -178,13 +188,14 @@
       "engagement": {
         "points": 2,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50368804",
       "source": "Hacker News",
       "category": "AI 开发工具与编程助手",
-      "title": "【科技】Launch HN: Kino AI (YC S23) – AI media manager and video editor",
+      "title": "【科技】Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino ",
       "summary": "来源摘要：Launch HN: Kino AI (YC S23) – AI media manager and video editor Launch HN: Kino AI (YC S23) – AI media manager and video editor Hi HN! I&#x27;m Luke from Kino (<a href=\"https:&#x2F;&#x2F;kino.ai\">https:&#x2F;&#x2F;kino.ai</a>). Kino lets you make great videos with your agents …",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -194,13 +205,14 @@
       "engagement": {
         "points": 111,
         "comments": 36
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50393793",
       "source": "Hacker News",
       "category": "大模型 API 免费额度",
-      "title": "【科技】Show HN: Botel – always reachable agents you pay for only while they're working",
+      "title": "【科技】Show HN: Botel – always reachable agents you pay for only while they're working ",
       "summary": "来源摘要：Show HN: Botel – always reachable agents you pay for only while they're working Show HN: Botel – always reachable agents you pay for only while they're working I built a pay-as-you-go two star hotel for bots that you’re only charged for while it’s active. Typically wakes in un…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -210,13 +222,14 @@
       "engagement": {
         "points": 4,
         "comments": 3
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50382923",
       "source": "Hacker News",
       "category": "大模型 API 免费额度",
-      "title": "【科技】Show HN: Ski Voice-First Multilingual Neutral Coding Harness",
+      "title": "【科技】Show HN: Ski Voice-First Multilingual Neutral Coding Harness Show HN: Ski Voice-",
       "summary": "来源摘要：Show HN: Ski Voice-First Multilingual Neutral Coding Harness Show HN: Ski Voice-First Multilingual Neutral Coding Harness Glad to showcase SKI (<a href=\"https:&#x2F;&#x2F;justski.it\" rel=\"nofollow\">https:&#x2F;&#x2F;justski.it</a>) , a voice-first coding harness.<p>It supports…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -226,13 +239,14 @@
       "engagement": {
         "points": 5,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50419019",
       "source": "Hacker News",
       "category": "科技软件/App 限免",
-      "title": "【科技】Tell HN: A flood of reports of Opus 5.5 being nerfed",
+      "title": "【科技】Tell HN: A flood of reports of Opus 5.5 being nerfed Tell HN: A flood of reports",
       "summary": "来源摘要：Tell HN: A flood of reports of Opus 5.5 being nerfed Tell HN: A flood of reports of Opus 5.5 being nerfed Here are several user reports of Opus 5.5 being nerfed:<p>https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;ClaudeCode&#x2F;comments&#x2F;1xr4urz&#x2F;opus_55_in_the_past_two_w…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -242,13 +256,14 @@
       "engagement": {
         "points": 17,
         "comments": 9
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50417858",
       "source": "Hacker News",
       "category": "其他科技",
-      "title": "【科技】File sharing platform made in Python – Not vibe coded – Since 2025",
+      "title": "【科技】File sharing platform made in Python – Not vibe coded – Since 2025 File sharing ",
       "summary": "来源摘要：File sharing platform made in Python – Not vibe coded – Since 2025 File sharing platform made in Python – Not vibe coded – Since 2025 https:&#x2F;&#x2F;github.com&#x2F;Merkoba&#x2F;Harambe<p>I worked heavily on this around 2025. I wasn&#x27;t using AI. It&#x27;s completely han…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -258,13 +273,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50417585",
       "source": "Hacker News",
       "category": "大模型 API 免费额度",
-      "title": "【科技】Show HN: Fireside Folio – free books, comics and news editions for reMarkable",
+      "title": "【科技】Show HN: Fireside Folio – free books, comics and news editions for reMarkable Sh",
       "summary": "来源摘要：Show HN: Fireside Folio – free books, comics and news editions for reMarkable Show HN: Fireside Folio – free books, comics and news editions for reMarkable I own a reMarkable 2 and wanted more to read on it than my own PDFs, so I built a free web app. You connect your tablet o…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -274,13 +290,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50416992",
       "source": "Hacker News",
       "category": "大模型 API 免费额度",
-      "title": "【科技】Show HN: A free Gameboy–style music tracker in the browser with shareable URLs",
+      "title": "【科技】Show HN: A free Gameboy–style music tracker in the browser with shareable URLs S",
       "summary": "来源摘要：Show HN: A free Gameboy–style music tracker in the browser with shareable URLs Show HN: A free Gameboy–style music tracker in the browser with shareable URLs I built a 4-channel music tracker modeled on the original Game Boy&#x27;s sound hardware: two pulse channels, a wave ch…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -290,13 +307,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50413970",
       "source": "Hacker News",
       "category": "AI 开发工具与编程助手",
-      "title": "【科技】Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals",
+      "title": "【科技】Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals ",
       "summary": "来源摘要：Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals Show HN: Recalc – Spreadsheet where cells can be Claude Code or Codex terminals I built this because it was useful for me when building evals&#x2F;benchmarks, and I decided to put it up for free fo…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -306,13 +324,14 @@
       "engagement": {
         "points": 3,
         "comments": 5
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50412914",
       "source": "Hacker News",
       "category": "大模型 API 免费额度",
-      "title": "【科技】Show HN: Grade or Skip – measure a Pokémon card's centering and grading ROI",
+      "title": "【科技】Show HN: Grade or Skip – measure a Pokémon card's centering and grading ROI Show",
       "summary": "来源摘要：Show HN: Grade or Skip – measure a Pokémon card's centering and grading ROI Show HN: Grade or Skip – measure a Pokémon card's centering and grading ROI Hi HN. Pokémon cards are one of my hobbies, and the question that comes up over and over is whether a raw card is worth payin…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -322,13 +341,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50412484",
       "source": "Hacker News",
       "category": "科技软件/App 限免",
-      "title": "【科技】Show HN: Gitbet – A free sourcetree style Git client for Linux",
+      "title": "【科技】Show HN: Gitbet – A free sourcetree style Git client for Linux Show HN: Gitbet –",
       "summary": "来源摘要：Show HN: Gitbet – A free sourcetree style Git client for Linux Show HN: Gitbet – A free sourcetree style Git client for Linux I used Sourcetree for about 7 years on macOS and Windows. When I switched to Linux, I found it isn’t available, and none of the alternatives had the la…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -338,13 +358,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50403588",
       "source": "Hacker News",
       "category": "大模型 API 免费额度",
-      "title": "【科技】Show HN: Give your agent a Mac it can control",
+      "title": "【科技】Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it ",
       "summary": "来源摘要：Show HN: Give your agent a Mac it can control Show HN: Give your agent a Mac it can control Hello hello!<p>I&#x27;m building Offstage Cloud which are ephemeral macOS sandboxes billed by second.<p>You can use it for CI (eg GitHub Actions), build with Xcode, or let your agent co…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -354,13 +375,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50397561",
       "source": "Hacker News",
       "category": "AI 开发工具与编程助手",
-      "title": "【科技】Show HN: Tell the Sky – message lanterns drift on winds from live weather data",
+      "title": "【科技】Show HN: Tell the Sky – message lanterns drift on winds from live weather data S",
       "summary": "来源摘要：Show HN: Tell the Sky – message lanterns drift on winds from live weather data Show HN: Tell the Sky – message lanterns drift on winds from live weather data I created a web&#x2F;mobile app that lets you write a story&#x2F;secret&#x2F;encouragement&#x2F;etc... on a lantern. Yo…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -370,13 +392,14 @@
       "engagement": {
         "points": 6,
         "comments": 1
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50383785",
       "source": "Hacker News",
       "category": "AI 开发工具与编程助手",
-      "title": "【科技】Show HN: Teach a speech model (en) a name by saying it once, on your Mac",
+      "title": "【科技】Show HN: Teach a speech model (en) a name by saying it once, on your Mac Show HN",
       "summary": "来源摘要：Show HN: Teach a speech model (en) a name by saying it once, on your Mac Show HN: Teach a speech model (en) a name by saying it once, on your Mac I wanted to see if a speech model could spell a name better if it heard it, not just read it.<p>Most STT tools handle custom words …",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -386,13 +409,14 @@
       "engagement": {
         "points": 3,
         "comments": 1
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50380433",
       "source": "Hacker News",
       "category": "AI 开发工具与编程助手",
-      "title": "【科技】Show HN: Kids Shelf, your kids' own little internet",
+      "title": "【科技】Show HN: Kids Shelf, your kids' own little internet Show HN: Kids Shelf, your ki",
       "summary": "来源摘要：Show HN: Kids Shelf, your kids' own little internet Show HN: Kids Shelf, your kids' own little internet Hey all, I made this server for spinning up a local network page for our (young) kids to host videos and manage video watching time without turning them loose on main youtub…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -402,13 +426,14 @@
       "engagement": {
         "points": 8,
         "comments": 2
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50379300",
       "source": "Hacker News",
       "category": "大模型 API 免费额度",
-      "title": "【科技】Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay",
+      "title": "【科技】Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay ",
       "summary": "来源摘要：Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay Show HN: I paid Claude US$1,070 to read the worst reviews of 30k places to stay Hi HN, I&#x27;m Oriol, a solo developer in Barcelona.<p>Before booking anything, I used to do the same thing every ti…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -418,13 +443,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50413568",
       "source": "Hacker News",
       "category": "科技软件/App 限免",
-      "title": "【科技】Show HN: Cross-device passkey auth on Android 9, synced with Bitwarden",
+      "title": "【科技】Show HN: Cross-device passkey auth on Android 9, synced with Bitwarden Show HN: ",
       "summary": "来源摘要：Show HN: Cross-device passkey auth on Android 9, synced with Bitwarden Show HN: Cross-device passkey auth on Android 9, synced with Bitwarden I saw a colleague log in to a website on my laptop by scanning a FIDO QR code. I wanted to do the same, but couldn&#x27;t find a way to…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -434,13 +460,14 @@
       "engagement": {
         "points": 2,
         "comments": 1
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50412316",
       "source": "Hacker News",
       "category": "AI 开发工具与编程助手",
-      "title": "【科技】Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket",
+      "title": "【科技】Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show ",
       "summary": "来源摘要：Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Show HN: CloudShare app for iOS, simple way to share to your own S3 bucket Hello HN. I&#x27;m a developer from Spain, working for a US company and building apps as side projects.<p>I discovered that Clo…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -450,13 +477,14 @@
       "engagement": {
         "points": 2,
         "comments": 2
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50411013",
       "source": "Hacker News",
       "category": "大模型 API 免费额度",
-      "title": "【科技】Show HN: SEC Fundamentals – free financial API",
+      "title": "【科技】Show HN: SEC Fundamentals – free financial API Show HN: SEC Fundamentals – free ",
       "summary": "来源摘要：Show HN: SEC Fundamentals – free financial API Show HN: SEC Fundamentals – free financial API",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -466,13 +494,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50410429",
       "source": "Hacker News",
       "category": "其他科技",
-      "title": "【科技】Show HN: Reges Code – a free AI code editor that runs on local models",
+      "title": "【科技】Show HN: Reges Code – a free AI code editor that runs on local models Show HN: R",
       "summary": "来源摘要：Show HN: Reges Code – a free AI code editor that runs on local models Show HN: Reges Code – a free AI code editor that runs on local models",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -482,13 +511,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50409628",
       "source": "Hacker News",
       "category": "其他科技",
-      "title": "【科技】Show HN: RenderPixels – Generate images from any AI via MCP, 50 free renders",
+      "title": "【科技】Show HN: RenderPixels – Generate images from any AI via MCP, 50 free renders Sho",
       "summary": "来源摘要：Show HN: RenderPixels – Generate images from any AI via MCP, 50 free renders Show HN: RenderPixels – Generate images from any AI via MCP, 50 free renders",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -498,13 +528,14 @@
       "engagement": {
         "points": 1,
         "comments": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50407241",
       "source": "Hacker News",
       "category": "AI 开发工具与编程助手",
-      "title": "【科技】Show HN: I built a free trivia hosting app with no accounts or subscriptions",
+      "title": "【科技】Show HN: I built a free trivia hosting app with no accounts or subscriptions Sho",
       "summary": "来源摘要：Show HN: I built a free trivia hosting app with no accounts or subscriptions Show HN: I built a free trivia hosting app with no accounts or subscriptions It&#x27;s basically a fancy wrapper around your quiz data so that as a host you can show showmanship and present like a TV …",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -514,13 +545,14 @@
       "engagement": {
         "points": 1,
         "comments": 1
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "hn-50406993",
       "source": "Hacker News",
       "category": "大模型 API 免费额度",
-      "title": "【科技】Tell HN: HN Is Wrong",
+      "title": "【科技】Tell HN: HN Is Wrong Tell HN: HN Is Wrong Here is a quick Show HN story.<p>Inspi",
       "summary": "来源摘要：Tell HN: HN Is Wrong Tell HN: HN Is Wrong Here is a quick Show HN story.<p>Inspired by Alex Karpathy&#x27;s HackerTube, i spent time, effort and tokens on analyzing Show HN posts - 200K plus posts, and a million plus comments, identifying trends, patterns, reactions etc.<p>I s…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -530,13 +562,14 @@
       "engagement": {
         "points": 10,
         "comments": 11
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "v2ex-1255595",
       "source": "V2EX",
       "category": "大模型 API 免费额度",
-      "title": "实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！",
+      "title": "实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流",
       "summary": "实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！ 为了解决 GPT 的审美不稳定的问题，我开发了一款类似 Claude Design 的项目，我起初并没有抱太大希望，觉得可以保证风格统一就好了。在使用 Codex Cli 的 `gpt-6.1-sol` 开发了 [摄影网站]( https://drop-af770064-b43.amery2010.workers.dev/)，结果却惊艳到了我。网站排版更大胆，交互更细腻，如果不说…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -544,14 +577,15 @@
       "url": "https://www.v2ex.com/t/1255595",
       "posted_at": "2026-11-09 16:01 Asia/Shanghai",
       "engagement": {
-        "replies": 1
-      }
+        "replies": 2
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "v2ex-1255567",
       "source": "V2EX",
       "category": "其他科技",
-      "title": "说说最近在折腾 Claude 上继续浪费的钱吧",
+      "title": "说说最近在折腾 Claude 上继续浪费的钱吧 说说最近在折腾 Claude 上继续浪费的钱吧",
       "summary": "说说最近在折腾 Claude 上继续浪费的钱吧 说说最近在折腾 Claude 上继续浪费的钱吧 之前说过，Claude 连续被封了几个自己的老号。 一直在尝试折腾 [在自己的电脑上，使用 Claude Code desktop 开发] 折腾了几天，除了浪费点钱之外，没有任何收获 分享一下吧 主要是购买了已经过 kyc 的账号。 包括过 kyc 是印尼区、美区的 id 也包括 Outlook 、Gmail 等邮箱 包括新号、老号（通过我自己看邮箱里面 Claude 注册邮件） 使用不同的梯子（没错，之前说梯子 300 一个月，被 V 站老哥喷惨了，经…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -559,14 +593,15 @@
       "url": "https://www.v2ex.com/t/1255567",
       "posted_at": "2026-11-09 14:48 Asia/Shanghai",
       "engagement": {
-        "replies": 17
-      }
+        "replies": 18
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "v2ex-1255566",
       "source": "V2EX",
       "category": "其他科技",
-      "title": "闲着做了个吉他指板的小程序，欢迎指点和使用",
+      "title": "闲着做了个吉他指板的小程序，欢迎指点和使用 闲着做了个吉他指板的小程序，欢迎指点和使用",
       "summary": "闲着做了个吉他指板的小程序，欢迎指点和使用 闲着做了个吉他指板的小程序，欢迎指点和使用 大家好，前段时间闲着，想试试能不能把自己的一个小想法完整做出来，于是做了一个微信小程序，叫「 Jan 的吉他指板」。 这是我第一次以独立开发者的方式，把一个东西从想法、设计、开发、测试一直做到审核上线。 我不是做音乐教育的，选择吉他指板这个方向，主要是因为它刚好和自己的兴趣沾边，我也能理解这个场景：有些人记住了几个音阶形状，但随便给出一个音名，还是不能马上在指板上找到位置。 最开始我只做了一个很简单的“看音名找位置”。后来边用边改，又慢慢加了能力摸底、每日训练、…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -575,13 +610,14 @@
       "posted_at": "2026-11-09 14:48 Asia/Shanghai",
       "engagement": {
         "replies": 0
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "v2ex-1255560",
       "source": "V2EX",
       "category": "AI 产品会员/试用",
-      "title": "[免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏览、下载 iPhone 照片和文件",
+      "title": "[免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏览、下载 iPhone 照片和文件 [免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏",
       "summary": "[免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏览、下载 iPhone 照片和文件 [免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏览、下载 iPhone 照片和文件 大家好，我是一名独立开发者，想分享一下自己做的 iOS 应用 KimDrop ，也希望听听大家的使用建议。 KimDrop 主要想解决一个场景：想在电脑上管理 iPhone 里的照片或文件。 手机和电脑连接同一个 Wi-Fi 后，在 iPhone 上打开 KimDrop ，再用电脑浏览器访问应用显示的地址，就可以浏览、下载、管理照片及文件。 相册与文件功能…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -590,28 +626,14 @@
       "posted_at": "2026-11-09 14:22 Asia/Shanghai",
       "engagement": {
         "replies": 4
-      }
-    },
-    {
-      "id": "v2ex-1255556",
-      "source": "V2EX",
-      "category": "AI 产品会员/试用",
-      "title": "[送会员] 为了学好 英语 和 日语，我做了这个...",
-      "summary": "[送会员] 为了学好 英语 和 日语，我做了这个... [送会员] 为了学好 英语 和 日语，我做了这个... 地址在： https://www.lingodew.com/ 目前支持 Web/iOS/Android 三端同步, App Store 和 Google Play 搜 “lingodew” 即可。 ## 简介 首先我自己坚信语言学习的最有效途径就是**大量可理解的输入**，所以为了**大量**，**可理解**的**输入**，以及确保自己有持续的学习兴趣，我做了这个项目： 收集了适合语言学习的 YouTube 视频 - 提供双语字幕 - 提…",
-      "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
-      "deadline": null,
-      "author": "LingoDew",
-      "url": "https://www.v2ex.com/t/1255556",
-      "posted_at": "2026-11-09 14:08 Asia/Shanghai",
-      "engagement": {
-        "replies": 20
-      }
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "v2ex-1255360",
       "source": "V2EX",
       "category": "其他科技",
-      "title": "女儿生病出不了门，给她做了 100+体感小游戏：打开网页，站到摄像头前就能玩",
+      "title": "女儿生病出不了门，给她做了 100+体感小游戏：打开网页，站到摄像头前就能玩 女儿生病出不了门，给她做了 100+体感小游戏：打开网页，站到摄像头前就能玩",
       "summary": "女儿生病出不了门，给她做了 100+体感小游戏：打开网页，站到摄像头前就能玩 女儿生病出不了门，给她做了 100+体感小游戏：打开网页，站到摄像头前就能玩 前段时间上幼儿园中班的女儿生病，在家休养，不能出门。小孩子精力旺盛，平时下楼跑跑跳跳的运动量一下子全没了，总不能天天坐着看动画片。 想让她在家也多动一动，家里又没有游戏机，也不想为这个专门买设备。手边只有一台笔记本，那就用笔记本自带的摄像头：她在屏幕前跳，屏幕里的小人跟着跳；挥手切水果、蹲下躲激光、摆姿势穿墙洞…… 一个游戏接一个游戏地做下来，就有了 **动动乐园**： https://dong…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -619,14 +641,15 @@
       "url": "https://www.v2ex.com/t/1255360",
       "posted_at": "2026-11-08 17:03 Asia/Shanghai",
       "engagement": {
-        "replies": 80
-      }
+        "replies": 82
+      },
+      "translated_by": "keywords"
     },
     {
       "id": "ghdeal-st-gr-sail-proxy",
       "source": "GitHub",
       "category": "大模型 API 免费额度",
-      "title": "【科技】st-gr/sail-proxy",
+      "title": "【科技】st-gr/sail-proxy st-gr/sail-proxy Free, open-source LLM gateway for SAP AI Core.",
       "summary": "来源摘要：st-gr/sail-proxy st-gr/sail-proxy Free, open-source LLM gateway for SAP AI Core. Run Claude Code, Codex, GitHub Copilot, Gemini CLI and your own apps on your SAP models through native OpenAI, Anthropic, Gemini, Bedrock and Ollama APIs. SSO, per-user API keys, SAP cost analytic…",
       "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
       "deadline": null,
@@ -635,7 +658,26 @@
       "posted_at": "2026-11-09 16:12 Asia/Shanghai",
       "engagement": {
         "stars": 0
-      }
+      },
+      "translated_by": "keywords"
+    },
+    {
+      "id": "ghdeal-royalskynet-orchestrator",
+      "source": "GitHub",
+      "category": "大模型 API 免费额度",
+      "title": "【科技】royalskynet/orchestrator royalskynet/orchestrator Dispatch work orders to any LL",
+      "summary": "royalskynet/orchestrator royalskynet/orchestrator Dispatch work orders to any LLM you have (free pools, subscriptions, OmniRoute providers, APIs), ranked by measured pass rate; done = acceptance script passes. 多 LLM 工單調度器。",
+      "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
+      "deadline": null,
+      "author": "royalskynet",
+      "url": "https://github.com/royalskynet/orchestrator",
+      "posted_at": "2026-11-09 16:01 Asia/Shanghai",
+      "engagement": {
+        "stars": 0
+      },
+      "translated_by": "keywords"
     }
-  ]
+  ],
+  "models_ok": 0,
+  "models_fail": 4
 }

@@ -1,95 +1,105 @@
 {
-  "updated_at_label": "2026-11-09 16:17 Asia/Shanghai",
+  "updated_at_label": "2026-11-09 16:30 Asia/Shanghai",
   "items": [
     {
       "id": "hnhot-50410107",
       "source": "Hacker News",
-      "title": "【HN】Goodbye Claude, hello Pi",
-      "summary": "HN热度内容：Goodbye Claude, hello Pi",
-      "heat": "点数 754 · 评论 460",
+      "title": "【hot】Goodbye Claude, hello Pi",
+      "summary": "原文：Goodbye Claude, hello Pi",
+      "heat": "点数 754 · 评论 462",
       "points": 754,
-      "url": "https://caleb.software/posts/claude-to-pi.html"
+      "url": "https://caleb.software/posts/claude-to-pi.html",
+      "translated_by": "keywords"
     },
     {
       "id": "hnhot-50415628",
       "source": "Hacker News",
-      "title": "【HN】Goldman Sachs is pulling Claude Code from its bankers and traders",
-      "summary": "HN热度内容：Goldman Sachs is pulling Claude Code from its bankers and traders",
-      "heat": "点数 740 · 评论 400",
-      "points": 740,
-      "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers"
+      "title": "【hot】Goldman Sachs is pulling Claude Code from its bankers and traders",
+      "summary": "原文：Goldman Sachs is pulling Claude Code from its bankers and traders",
+      "heat": "点数 748 · 评论 400",
+      "points": 748,
+      "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+      "translated_by": "keywords"
     },
     {
       "id": "hnhot-50418016",
       "source": "Hacker News",
-      "title": "【HN】Nvidia CEO Jensen Huang's letter to staff about affair",
-      "summary": "HN热度内容：Nvidia CEO Jensen Huang's letter to staff about affair",
-      "heat": "点数 597 · 评论 612",
-      "points": 597,
-      "url": "https://nvidianews.nvidia.com/news/a-message-to-our-company"
+      "title": "【hot】Nvidia CEO Jensen Huang's letter to staff about affair",
+      "summary": "原文：Nvidia CEO Jensen Huang's letter to staff about affair",
+      "heat": "点数 607 · 评论 623",
+      "points": 607,
+      "url": "https://nvidianews.nvidia.com/news/a-message-to-our-company",
+      "translated_by": "keywords"
     },
     {
       "id": "hnhot-50418176",
       "source": "Hacker News",
-      "title": "【HN】KetchUp – Open-source SketchUp alternative built with Rust and WebGPU",
-      "summary": "HN热度内容：KetchUp – Open-source SketchUp alternative built with Rust and WebGPU",
-      "heat": "点数 431 · 评论 121",
-      "points": 431,
-      "url": "https://ketchup3d.github.io/app/"
+      "title": "【hot】KetchUp – Open-source SketchUp alternative built with Rust and WebGPU",
+      "summary": "原文：KetchUp – Open-source SketchUp alternative built with Rust and WebGPU",
+      "heat": "点数 440 · 评论 123",
+      "points": 440,
+      "url": "https://ketchup3d.github.io/app/",
+      "translated_by": "keywords"
     },
     {
       "id": "hnhot-50411961",
       "source": "Hacker News",
-      "title": "【HN】Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
-      "summary": "HN热度内容：Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+      "title": "【hot】Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+      "summary": "原文：Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
       "heat": "点数 412 · 评论 185",
       "points": 412,
-      "url": "https://github.com/synchopate/llama-modchip"
+      "url": "https://github.com/synchopate/llama-modchip",
+      "translated_by": "keywords"
     },
     {
       "id": "hnhot-50416158",
       "source": "Hacker News",
-      "title": "【HN】Outlook.com is rejecting email from domains without DMARC",
-      "summary": "HN热度内容：Outlook.com is rejecting email from domains without DMARC",
-      "heat": "点数 378 · 评论 269",
-      "points": 378,
-      "url": "https://mailroute.net/blog/outlook-rejecting-email-without-dmarc"
-    },
-    {
-      "id": "hnhot-50416363",
-      "source": "Hacker News",
-      "title": "【HN】How I Fight AI Brain Fry",
-      "summary": "HN热度内容：How I Fight AI Brain Fry",
-      "heat": "点数 229 · 评论 164",
-      "points": 229,
-      "url": "https://sergeykuhne.com/blog/fighting-ai-brain-fry"
+      "title": "【hot】Outlook.com is rejecting email from domains without DMARC",
+      "summary": "原文：Outlook.com is rejecting email from domains without DMARC",
+      "heat": "点数 380 · 评论 271",
+      "points": 380,
+      "url": "https://mailroute.net/blog/outlook-rejecting-email-without-dmarc",
+      "translated_by": "keywords"
     },
     {
       "id": "hnhot-50418975",
       "source": "Hacker News",
-      "title": "【HN】I'm not convinced the AI bubble exists",
-      "summary": "HN热度内容：I'm not convinced the AI bubble exists",
-      "heat": "点数 223 · 评论 329",
-      "points": 223,
-      "url": "https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html#im-not-convinced-the-ai-bubble-exists"
+      "title": "【hot】I'm not convinced the AI bubble exists",
+      "summary": "原文：I'm not convinced the AI bubble exists",
+      "heat": "点数 233 · 评论 340",
+      "points": 233,
+      "url": "https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html#im-not-convinced-the-ai-bubble-exists",
+      "translated_by": "keywords"
+    },
+    {
+      "id": "hnhot-50416363",
+      "source": "Hacker News",
+      "title": "【hot】How I Fight AI Brain Fry",
+      "summary": "原文：How I Fight AI Brain Fry",
+      "heat": "点数 233 · 评论 165",
+      "points": 233,
+      "url": "https://sergeykuhne.com/blog/fighting-ai-brain-fry",
+      "translated_by": "keywords"
     },
     {
       "id": "v2hot-1255439",
       "source": "V2EX",
       "title": "[中转站] 小众中转站推广，特色分组 opus-4.6，进来领鸡蛋 10$",
-      "summary": "站点： https://minitoken.cc/ 充值比例 1:1 主营模型 claude-opus-4-6 claude-sonnet-4-6 gpt-6-astra gpt-6.1-sol 留下用户名送 5$,加入 qq 群留下用户名送 5$，一共 10$ 有效期一个月 点击链接加入群聊： https://qm.qq.com/q/P2hDQlEPus",
-      "heat": "回复 103",
-      "points": 103,
-      "url": "https://www.v2ex.com/t/1255439"
+      "summary": "站点： https://minitoken.cc/\r\n充值比例 1:1\r\n\r\n主营模型\r\nclaude-opus-4-6\r\nclaude-sonnet-4-6\r\ngpt-6-astra\r\ngpt-6.1-sol\r\n\r\n\r\n留下用户名送 5$,加入 qq 群留下用户名送 5$，一共 10$ 有效期一个月\r\n点击链接加入群聊： https://qm.qq.com/q/P2hDQlEPus",
+      "heat": "回复 105",
+      "points": 105,
+      "url": "https://www.v2ex.com/t/1255439",
+      "translated_by": "native-zh"
     },
     {
       "id": "hnhot-50420857",
       "source": "Hacker News",
-      "title": "【HN】A Critique of GPUI",
-      "summary": "HN热度内容：A Critique of GPUI",
-      "heat": "点数 81 · 评论 48",
-      "points": 81,
-      "url": "https://blog.zortax.de/posts/a-critique-of-gpui"
+      "title": "【hot】A Critique of GPUI",
+      "summary": "原文：A Critique of GPUI",
+      "heat": "点数 83 · 评论 48",
+      "points": 83,
+      "url": "https://blog.zortax.de/posts/a-critique-of-gpui",
+      "translated_by": "keywords"
     },
     {
       "id": "xhot-gemini-flash-api",
@@ -98,16 +108,8 @@
       "summary": "Google AI Studio 生成 API Key 即可用，免绑信用卡。适合跑自动化脚本、本地 CLI、翻译和小项目测试。注意：免费层数据可能用于模型训练，勿上传敏感代码。",
       "heat": "赞 30 · 收藏 7",
       "points": 52,
-      "url": "https://x.com/Stargridcompass/status/2119384439457477086"
-    },
-    {
-      "id": "hnhot-50405043",
-      "source": "Hacker News",
-      "title": "【HN】Air holes turn silicon wafers into flat UV focusing mirrors for compact optics",
-      "summary": "HN热度内容：Air holes turn silicon wafers into flat UV focusing mirrors for compact optics",
-      "heat": "点数 51 · 评论 6",
-      "points": 51,
-      "url": "https://phys.org/news/2026-11-air-holes-silicon-wafers-flat.html"
+      "url": "https://x.com/Stargridcompass/status/2119384439457477086",
+      "translated_by": "native-zh"
     },
     {
       "id": "xhot-lg-exaone",
@@ -116,61 +118,78 @@
       "summary": "LG 在英伟达首尔 AI 日宣布 K-EXAONE 2.5 API 对开发者/企业/研究机构免费。宣传约 7500 亿参数、约 51.2 万上下文、兼容 OpenAI 接口；目前主要支持韩语和英语。帖中对比 AutomationBench/BrowseComp 等分数接近或超过 DeepSeek-V4.1-Flash。",
       "heat": "赞 6 · 收藏 6",
       "points": 21,
-      "url": "https://x.com/Super_Nius/status/2119635733048852485"
-    },
-    {
-      "id": "v2hot-1255567",
-      "source": "V2EX",
-      "title": "说说最近在折腾 Claude 上继续浪费的钱吧",
-      "summary": "之前说过，Claude 连续被封了几个自己的老号。 一直在尝试折腾 [在自己的电脑上，使用 Claude Code desktop 开发] 折腾了几天，除了浪费点钱之外，没有任何收获 分享一下吧 主要是购买了已经过 kyc 的账号。 包括过 kyc 是印尼区、美区的 id 也包括 Outlook 、Gmail 等邮箱 包括新号、老号（通过我自己看邮箱里面 Claude 注册邮件） 使用不同的梯子（没错，之前说梯子 300 一个月，被 V",
-      "heat": "回复 17",
-      "points": 17,
-      "url": "https://www.v2ex.com/t/1255567"
-    },
-    {
-      "id": "v2hot-1255587",
-      "source": "V2EX",
-      "title": "工作以及求职解惑",
-      "summary": "背景： 我们公司现在全面推 AI ，前段时间裁了几个人，目前只剩 5 个主力开发。 困境： 老板是技术出身，自己用 Claude 很溜，最近几个月派活儿完全按他自己的预估来，还搞了绩效考核，一直在扣我和另一个同事的绩效。我是前端，现在靠 AI 也能写后端功能，但运维部署这块不熟，偶尔进度会拖，我也清楚这是自己需要补的地方。 最近朋友介绍了一个 CMS 的小活，做的过程中我就在想，要不要干脆离职、彻底转自由职业。现在受限于工作地点，工资也",
-      "heat": "回复 16",
-      "points": 16,
-      "url": "https://www.v2ex.com/t/1255587"
+      "url": "https://x.com/Super_Nius/status/2119635733048852485",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255590",
       "source": "V2EX",
       "title": "我做的收费 SSH 客户端 Termark，被人 1:1 复刻并开源了",
-      "summary": "很久没来 V 站了，今天搜「 gpui 」想学点新东西，点开第一个结果，发现这个项目和我做的 SSH 客户端 Termark ，在界面布局、功能设计、交互方式，甚至图标上都高度一致。 作为开发者，第一反应挺复杂的。这些细节是我一点点打磨出来的，现在被原样搬走，说不难受是假的。 不过冷静下来想想，能被人复刻，至少说明这个产品是有价值的。 我也不打算折腾维权，只想说一句：**开源不等于可以不署名、不尊重原创。** 借鉴可以，但希望能有边界，",
-      "heat": "回复 14",
-      "points": 14,
-      "url": "https://www.v2ex.com/t/1255590"
+      "summary": "很久没来 V 站了，今天搜「 gpui 」想学点新东西，点开第一个结果，发现这个项目和我做的 SSH 客户端 Termark ，在界面布局、功能设计、交互方式，甚至图标上都高度一致。\r\n\r\n作为开发者，第一反应挺复杂的。这些细节是我一点点打磨出来的，现在被原样搬走，说不难受是假的。\r\n\r\n不过冷静下来想想，能被人复刻，至少说明这个产品是有价值的。\r\n\r\n我也不打算折腾维权，只想说一句：**开源不等于可以不署名、不尊重原创。** 借鉴可以，但希望能有边界，也希望能说明来源。\r\n\r\nTermark 会继续开发和维护，不会因为出现了相似产品就停下来。下面是两边的截图，大家可以自己对比。\r\n\r\n如果你",
+      "heat": "回复 19",
+      "points": 19,
+      "url": "https://www.v2ex.com/t/1255590",
+      "translated_by": "native-zh"
+    },
+    {
+      "id": "v2hot-1255587",
+      "source": "V2EX",
+      "title": "工作以及求职解惑",
+      "summary": "背景： 我们公司现在全面推 AI ，前段时间裁了几个人，目前只剩 5 个主力开发。\r\n困境： 老板是技术出身，自己用 Claude 很溜，最近几个月派活儿完全按他自己的预估来，还搞了绩效考核，一直在扣我和另一个同事的绩效。我是前端，现在靠 AI 也能写后端功能，但运维部署这块不熟，偶尔进度会拖，我也清楚这是自己需要补的地方。\r\n最近朋友介绍了一个 CMS 的小活，做的过程中我就在想，要不要干脆离职、彻底转自由职业。现在受限于工作地点，工资也不高，还经常被 PUA ，心情挺受影响。\r\n能力： 说下我目前的情况，全栈开发基本没问题，App （ iOS 已经上架）、小程序、Web 和后端都能做。借助",
+      "heat": "回复 19",
+      "points": 19,
+      "url": "https://www.v2ex.com/t/1255587",
+      "translated_by": "native-zh"
+    },
+    {
+      "id": "v2hot-1255567",
+      "source": "V2EX",
+      "title": "说说最近在折腾 Claude 上继续浪费的钱吧",
+      "summary": "之前说过，Claude 连续被封了几个自己的老号。\r\n\r\n一直在尝试折腾 [在自己的电脑上，使用 Claude Code desktop 开发] \r\n\r\n折腾了几天，除了浪费点钱之外，没有任何收获\r\n\r\n分享一下吧\r\n\r\n主要是购买了已经过 kyc 的账号。\r\n\r\n包括过 kyc 是印尼区、美区的 id\r\n\r\n也包括 Outlook 、Gmail 等邮箱\r\n\r\n包括新号、老号（通过我自己看邮箱里面 Claude 注册邮件）\r\n\r\n使用不同的梯子（没错，之前说梯子 300 一个月，被 V 站老哥喷惨了，经过评论区指导，我也尝试购买了一些所谓的美国家宽）\r\n\r\n## 结果\r\n\r\n总共大概投入 7-",
+      "heat": "回复 18",
+      "points": 18,
+      "url": "https://www.v2ex.com/t/1255567",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255575",
       "source": "V2EX",
       "title": "Gemini 今天重置完又废了",
       "summary": "Claude Code 没法用了以后重新又把 Gemini 捡起来用，上周用着 Gemini 4 Argon ，体感用着跟 cc 居然差不多，除了额度不太够。这周一回到工位，发现额度居然重置了，结果一个任务跑了两个半小时还没跑完，额度已经烧的七七八八了。太不稳定了吧，果然又是昙花一现 ![]( https://i.imgur.com/toA6Anu.png)",
-      "heat": "回复 7",
-      "points": 7,
-      "url": "https://www.v2ex.com/t/1255575"
+      "heat": "回复 9",
+      "points": 9,
+      "url": "https://www.v2ex.com/t/1255575",
+      "translated_by": "native-zh"
+    },
+    {
+      "id": "v2hot-1255564",
+      "source": "V2EX",
+      "title": "[尴尬]开完 grok 订阅才发现要装 cursor 才行.",
+      "summary": "想着接到 dsh 里用来着, 找了半天发现 api 模式是另外的费用, 订阅的量只能在 grokbot 或者 cursor 内部使用.\r\n\r\n有点尴尬啊",
+      "heat": "回复 6",
+      "points": 6,
+      "url": "https://www.v2ex.com/t/1255564",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255577",
       "source": "V2EX",
       "title": "现在大家用 AI Agent，是不是还停留在 AI 编程阶段？如何才能真正进阶？",
-      "summary": "最近一直在思考一个问题：现在 AI Agent 发展得这么快，但对于大多数开发者来说，实际使用场景是不是还停留在 AI 编程这个阶段？ 目前我自己的使用场景主要还是 Cursor 、Claude Code 、Codex 这一类工具。日常工作中，让 AI 阅读项目代码、编写功能、修复 Bug 、生成文档，确实已经能提升不少效率。 但仔细想想，这些场景本质上还是：人负责思考和拆解任务，AI 负责执行具体的开发工作。 感觉这只是把 AI 当成",
+      "summary": "最近一直在思考一个问题：现在 AI Agent 发展得这么快，但对于大多数开发者来说，实际使用场景是不是还停留在 AI 编程这个阶段？\r\n目前我自己的使用场景主要还是 Cursor 、Claude Code 、Codex 这一类工具。日常工作中，让 AI 阅读项目代码、编写功能、修复 Bug 、生成文档，确实已经能提升不少效率。\r\n但仔细想想，这些场景本质上还是：人负责思考和拆解任务，AI 负责执行具体的开发工作。\r\n感觉这只是把 AI 当成了一个能力很强的程序员，而不是一个真正意义上的 Agent 。如何让 Agent 自主理解业务目标、拆解任务并完成交付。\r\n所以想大家请教一下：你们目前使",
       "heat": "回复 4",
       "points": 4,
-      "url": "https://www.v2ex.com/t/1255577"
+      "url": "https://www.v2ex.com/t/1255577",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255560",
       "source": "V2EX",
       "title": "[免费] iOS 工具 KimDrop：在电脑浏览器里管理、浏览、下载 iPhone 照片和文件",
-      "summary": "大家好，我是一名独立开发者，想分享一下自己做的 iOS 应用 KimDrop ，也希望听听大家的使用建议。 KimDrop 主要想解决一个场景：想在电脑上管理 iPhone 里的照片或文件。 手机和电脑连接同一个 Wi-Fi 后，在 iPhone 上打开 KimDrop ，再用电脑浏览器访问应用显示的地址，就可以浏览、下载、管理照片及文件。 相册与文件功能 - 在电脑浏览器中浏览 iPhone 相册，按相册、日期等查找照片 - 预览 H",
+      "summary": "大家好，我是一名独立开发者，想分享一下自己做的 iOS 应用 KimDrop ，也希望听听大家的使用建议。\r\n\r\nKimDrop 主要想解决一个场景：想在电脑上管理 iPhone 里的照片或文件。\r\n\r\n手机和电脑连接同一个 Wi-Fi 后，在 iPhone 上打开 KimDrop ，再用电脑浏览器访问应用显示的地址，就可以浏览、下载、管理照片及文件。\r\n\r\n相册与文件功能\r\n- 在电脑浏览器中浏览 iPhone 相册，按相册、日期等查找照片\r\n- 预览 HEIC 照片和 Live Photo\r\n- 下载需要保存的照片和视频原件\r\n- 在手机和电脑之间传输文件，支持文件夹上传和 ZIP 下载\r",
       "heat": "回复 4",
       "points": 4,
-      "url": "https://www.v2ex.com/t/1255560"
+      "url": "https://www.v2ex.com/t/1255560",
+      "translated_by": "native-zh"
     },
     {
       "id": "xhot-nvidia-nim-kimi",
@@ -179,34 +198,48 @@
       "summary": "登录 build.nvidia.com 即可试用 Kimi K3.1 Pro（2.8T、百万上下文）、DeepSeek V4.1 Flash、GLM 5.3 Flash；免费层约 40 次/分限速，不按 Token 扣费。部分模型网页可预览、API 开放情况以官网为准。",
       "heat": "赞 4 · 收藏 0",
       "points": 4,
-      "url": "https://x.com/chichu187/status/2119008302432690299"
+      "url": "https://x.com/chichu187/status/2119008302432690299",
+      "translated_by": "native-zh"
     },
     {
-      "id": "v2hot-1255564",
+      "id": "v2hot-1255597",
       "source": "V2EX",
-      "title": "[尴尬]开完 grok 订阅才发现要装 cursor 才行.",
-      "summary": "想着接到 dsh 里用来着, 找了半天发现 api 模式是另外的费用, 订阅的量只能在 grokbot 或者 cursor 内部使用. 有点尴尬啊",
-      "heat": "回复 3",
-      "points": 3,
-      "url": "https://www.v2ex.com/t/1255564"
+      "title": "我给我的动感单车做了个抽象的游戏，一边蹬自行车，一边加“功德”",
+      "summary": "AI 真是很有意思的玩意，用来整活儿也是！\r\n\r\n周末在咸鱼上收了一台 8 新迈瑞克的绝影 one 动感单车。350 感觉贵了，shit!\r\n\r\n然后开始上手，突然发现他们这个车配套的游戏是蓝牙连接，我就寻思让 AI 研究一下，我们能不能拦截一下这个蓝牙的数据，自己定制游戏。我当时还想着即便实在不行，我们还可以使用 REA 逆向。谁知道事情远比我想象的要简单的多。\r\n\r\nAI 上来就给了我肯定答案：\r\n\r\n> 能，而且比想象简单 —— 你根本不需要“拦截”。\r\n先纠正一个前提\r\nBLE 是点对点 GATT ，不是广播。官方 App 和车之间那条链路没有可旁路的“广播流”给你截。但反过来，你自己",
+      "heat": "回复 2",
+      "points": 2,
+      "url": "https://www.v2ex.com/t/1255597",
+      "translated_by": "native-zh"
+    },
+    {
+      "id": "v2hot-1255595",
+      "source": "V2EX",
+      "title": "实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！",
+      "summary": "为了解决 GPT 的审美不稳定的问题，我开发了一款类似 Claude Design 的项目，我起初并没有抱太大希望，觉得可以保证风格统一就好了。在使用 Codex Cli 的 `gpt-6.1-sol` 开发了 [摄影网站]( https://drop-af770064-b43.amery2010.workers.dev/)，结果却惊艳到了我。网站排版更大胆，交互更细腻，如果不说是什么模型做的，可能还会被认为是用 Opus 做的网站。此外，我还让其设计了[个人主页]( https://drop-f285c473-61a.amery2010.workers.dev/)，同样风格不在拘泥于传统页面",
+      "heat": "回复 2",
+      "points": 2,
+      "url": "https://www.v2ex.com/t/1255595",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255592",
       "source": "V2EX",
       "title": "闲置笔记本新玩法： AI 统一前后端上下文，运行时前后端拆两台机器，有轻量方案吗？",
-      "summary": "办公室设备换代，闲置出一批红米笔记本：**i5-7 代 + 8G 内存**。 单机性能不算强，但单独跑一个前端、或者单独跑一个后端服务，压力不大。 ## 现在的开发痛点 工位笔记本远程桌面连开发服务器，基本 2 人共用一台服务器。 服务器配置并不差：**i5-14600K + 64G ，半年前新买的**。 但只要其中一个人编译后端，整机 CPU 直接打满，另一个人连打字都卡顿，体验非常鸡肋。 目前我的 AI 开发习惯： 用 Trae 打",
+      "summary": "办公室设备换代，闲置出一批红米笔记本：**i5-7 代 + 8G 内存**。\r\n单机性能不算强，但单独跑一个前端、或者单独跑一个后端服务，压力不大。\r\n\r\n## 现在的开发痛点\r\n工位笔记本远程桌面连开发服务器，基本 2 人共用一台服务器。\r\n服务器配置并不差：**i5-14600K + 64G ，半年前新买的**。\r\n但只要其中一个人编译后端，整机 CPU 直接打满，另一个人连打字都卡顿，体验非常鸡肋。\r\n\r\n目前我的 AI 开发习惯：\r\n用 Trae 打开一个总文件夹，前端仓库、后端仓库都放在这个目录下。\r\n直接在客户端内对话，让 AI 跨前后端一起分析、改代码、提交，全部在**一个客户端",
       "heat": "回复 2",
       "points": 2,
-      "url": "https://www.v2ex.com/t/1255592"
+      "url": "https://www.v2ex.com/t/1255592",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255568",
       "source": "V2EX",
       "title": "小垃圾码农吐槽一下，不针对谁",
-      "summary": "如题，不是聊行业趋势，昨晚有点睡不着，随便吐两句。 咱们这种写业务的，以前一个框架摸透了能安稳用两年，学明白就是自己的本事。现在不行了。上周我花了三个晚上，把公司那个破内部工具接上了一套 agent 流程，调了两天 prompt ，又补了个重试，跑通那天还挺高兴，甚至在群里发了句\"搞定\"。周一刷手机，发现这套做法已经被新版本做进默认行为了，一行配置的事。我盯着屏幕看了会儿，说不上生气，就是有点空。 这种事今年越来越密。我感觉自己像往一个",
+      "summary": "如题，不是聊行业趋势，昨晚有点睡不着，随便吐两句。\r\n\r\n咱们这种写业务的，以前一个框架摸透了能安稳用两年，学明白就是自己的本事。现在不行了。上周我花了三个晚上，把公司那个破内部工具接上了一套 agent 流程，调了两天 prompt ，又补了个重试，跑通那天还挺高兴，甚至在群里发了句\"搞定\"。周一刷手机，发现这套做法已经被新版本做进默认行为了，一行配置的事。我盯着屏幕看了会儿，说不上生气，就是有点空。\r\n\r\n这种事今年越来越密。我感觉自己像往一个漏的桶里倒水，倒的速度还赶不上漏。收藏夹里两百多篇没点开，群里每天有人甩新东西，标题一个比一个吓人。我点进去，看两屏，关掉，然后假装自己跟上了。有次",
       "heat": "回复 2",
       "points": 2,
-      "url": "https://www.v2ex.com/t/1255568"
+      "url": "https://www.v2ex.com/t/1255568",
+      "translated_by": "native-zh"
     },
     {
       "id": "xhot-iteracompute-qwen",
@@ -215,34 +248,18 @@
       "summary": "每月约 3000 万 Token 免费额度，Qwen3.8-27B 输入/缓存/输出标价为 0，约 128K 上下文，OpenAI 兼容接口；邮箱验证拿 Key，不用绑卡。额度每月 1 号重置，超额回 429 不自动扣费。帖称推广约到 11 月 24 日，高峰共享算力可能排队。同作者还提到 AMD 开发者计划约 100 美元 MI300X 额度（激活后约 30 天过期）等。",
       "heat": "赞 2 · 收藏 0",
       "points": 2,
-      "url": "https://x.com/Jonnyhlkw/status/2119269427845988819"
-    },
-    {
-      "id": "v2hot-1255597",
-      "source": "V2EX",
-      "title": "我给我的动感单车做了个抽象的游戏，一边蹬自行车，一边加“功德”",
-      "summary": "AI 真是很有意思的玩意，用来整活儿也是！ 周末在咸鱼上收了一台 8 新迈瑞克的绝影 one 动感单车。350 感觉贵了，shit! 然后开始上手，突然发现他们这个车配套的游戏是蓝牙连接，我就寻思让 AI 研究一下，我们能不能拦截一下这个蓝牙的数据，自己定制游戏。我当时还想着即便实在不行，我们还可以使用 REA 逆向。谁知道事情远比我想象的要简单的多。 AI 上来就给了我肯定答案： > 能，而且比想象简单 —— 你根本不需要“拦截”。 ",
-      "heat": "回复 1",
-      "points": 1,
-      "url": "https://www.v2ex.com/t/1255597"
-    },
-    {
-      "id": "v2hot-1255595",
-      "source": "V2EX",
-      "title": "实践出真知 GPT 模型的审美能力完全可以通过好的 Skills 和设计流程来解锁！",
-      "summary": "为了解决 GPT 的审美不稳定的问题，我开发了一款类似 Claude Design 的项目，我起初并没有抱太大希望，觉得可以保证风格统一就好了。在使用 Codex Cli 的 `gpt-6.1-sol` 开发了 [摄影网站]( https://drop-af770064-b43.amery2010.workers.dev/)，结果却惊艳到了我。网站排版更大胆，交互更细腻，如果不说是什么模型做的，可能还会被认为是用 Opus 做的网站。此",
-      "heat": "回复 1",
-      "points": 1,
-      "url": "https://www.v2ex.com/t/1255595"
+      "url": "https://x.com/Jonnyhlkw/status/2119269427845988819",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255582",
       "source": "V2EX",
       "title": "感谢各位 v 友预警，无伤度过这次 oai 封号",
-      "summary": "https://v2ex.com/t/1237143 上次大规模封号给杀完了，后面就改成了自己订阅 plus ，其他的 pro 全是月抛版 然后上周看到有人说在封号，赶紧把 sub2api 上的帐号都暂停了 现在回过头看，还活着，挺好的...",
+      "summary": "https://v2ex.com/t/1237143\r\n\r\n上次大规模封号给杀完了，后面就改成了自己订阅 plus ，其他的 pro 全是月抛版\r\n然后上周看到有人说在封号，赶紧把 sub2api 上的帐号都暂停了\r\n\r\n现在回过头看，还活着，挺好的...",
       "heat": "回复 1",
       "points": 1,
-      "url": "https://www.v2ex.com/t/1255582"
+      "url": "https://www.v2ex.com/t/1255582",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255563",
@@ -251,7 +268,8 @@
       "summary": "有老铁路由到了 GPT-6.2 Sol 吗？体验如何？",
       "heat": "回复 1",
       "points": 1,
-      "url": "https://www.v2ex.com/t/1255563"
+      "url": "https://www.v2ex.com/t/1255563",
+      "translated_by": "native-zh"
     },
     {
       "id": "xhot-cloudflare-neurons",
@@ -260,52 +278,78 @@
       "summary": "Cloudflare 免费计划每天赠送约 1 万 Neurons（UTC 0 点 / 北京时间早 8 点重置），超额不扣费只报错。可跑 Llama、Qwen、Gemma、Mistral 等开源模型，也支持生图与语音转文字。有人换算约等于每天 490 次 Llama 3.1 8B、或 83 次 70B、或约 57 张图。注意：额度账号共享；Kimi/GLM 5/DeepSeek V4 等前沿模型不在免费档，要绑付费方式。",
       "heat": "赞 1 · 收藏 0",
       "points": 1,
-      "url": "https://x.com/AWG48488/status/2119415638494204051"
+      "url": "https://x.com/AWG48488/status/2119415638494204051",
+      "translated_by": "native-zh"
+    },
+    {
+      "id": "v2hot-1255607",
+      "source": "V2EX",
+      "title": "Cow Code 中转站 | 支持 Claude、GPT、Gemini、DeepSeek 等主流模型 0.1x 起，支持 ZFB 支付与按量、包月计费",
+      "summary": "目前站内支持 OpenAI 、Anthropic 、Gemini 反重力、深度求索 DeepSeek 、智谱 GLM 等\r\nGPT Claude 0.1x 起\r\n\r\n官网地址： https://cowcode.top\r\n\r\n邀请好友返利 10%\r\nhttps://cowcode.top/r/v2ex",
+      "heat": "回复 0",
+      "points": 0,
+      "url": "https://www.v2ex.com/t/1255607",
+      "translated_by": "native-zh"
+    },
+    {
+      "id": "v2hot-1255605",
+      "source": "V2EX",
+      "title": "新闻分析看盘工具更新",
+      "summary": "**标题：EverHill 更新：新闻源大幅扩充、智能任务、驱动因素绘图（附 Plus 会员福利）**\r\n\r\n---\r\n\r\n前几天在这里介绍了新闻分析看盘工具 EverHill （ https://everhill.ai ），不少朋友已经在日常使用，非常感谢。这次补充介绍一下项目背景和最近的更新，也给大家准备了一份福利。\r\n\r\n这是之前的介绍帖子 [新闻分析看盘工具 EverHill]( https://www.v2ex.com/t/1234567)\r\n\r\n\r\n\r\n## **开发背景**\r\n\r\n本人是北京大学物理学博士，毕业后一直在纽约从事量化交易。平时看盘、看新闻主要用 TradingVie",
+      "heat": "回复 0",
+      "points": 0,
+      "url": "https://www.v2ex.com/t/1255605",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255602",
       "source": "V2EX",
       "title": "mustty 一款古典的 TUI markdown 编辑器",
-      "summary": "![]( https://i.v2ex.co/08bpr289.png) AI 时代任何内容都可以生成了，安静地码字有时候也成了奢侈。现有的 Markdown 编辑器很多都是走的功能多而全的风格，有的甚至加入了 AI 辅助的功能。很多时候，我写作时甚至希望屏蔽掉大多数界面。偶然间，我发现 TUI 似乎挺适合来作为文本创作的界面，只是现有的 TUI 编辑器大多数是针对编码而非写作，因此我依照自己的理解打造了这款看起来有点老派的编辑器。 *",
+      "summary": "![]( https://i.v2ex.co/08bpr289.png)\r\n\r\nAI 时代任何内容都可以生成了，安静地码字有时候也成了奢侈。现有的 Markdown 编辑器很多都是走的功能多而全的风格，有的甚至加入了 AI 辅助的功能。很多时候，我写作时甚至希望屏蔽掉大多数界面。偶然间，我发现 TUI 似乎挺适合来作为文本创作的界面，只是现有的 TUI 编辑器大多数是针对编码而非写作，因此我依照自己的理解打造了这款看起来有点老派的编辑器。\r\n\r\n* 官网： https://mustty.com ，你可以在浏览器中体验\r\n* GitHub： https://github.com/joyqi/mu",
       "heat": "回复 0",
       "points": 0,
-      "url": "https://www.v2ex.com/t/1255602"
+      "url": "https://www.v2ex.com/t/1255602",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255600",
       "source": "V2EX",
       "title": "我们开源的游戏素材工具 Game Assets Maker 近况，累计下载量已过 300,并且有了不错的流水",
-      "summary": "我们的开源 2D 游戏素材制作工具 Game Assets Maker 已经迭代到 v1.0.3 了。感谢大家之前的支持，目前下载量已经达到了三百多次,并且陆续收到一些充值,虽然还没覆盖成本,但是我老板已经开心的冒泡了. 近期将会针对全体注册用户发放一批感谢积分,用的到的都有开发者欢迎来薅呦! **支持平台：** * Windows x64 * macOS (Apple Silicon / M 系列芯片) **获取地址：** * **G",
+      "summary": "我们的开源 2D 游戏素材制作工具 Game Assets Maker 已经迭代到 v1.0.3 了。感谢大家之前的支持，目前下载量已经达到了三百多次,并且陆续收到一些充值,虽然还没覆盖成本,但是我老板已经开心的冒泡了.\r\n近期将会针对全体注册用户发放一批感谢积分,用的到的都有开发者欢迎来薅呦!\r\n\r\n**支持平台：**\r\n\r\n* Windows x64\r\n* macOS (Apple Silicon / M 系列芯片)\r\n\r\n**获取地址：**\r\n\r\n* **GitHub Release 下载**: [Game Assets Maker v1.0.3]( https://github.com",
       "heat": "回复 0",
       "points": 0,
-      "url": "https://www.v2ex.com/t/1255600"
+      "url": "https://www.v2ex.com/t/1255600",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255599",
       "source": "V2EX",
       "title": "把做的 CYD GPS 码表开源了，暂时裸着还没壳子",
-      "summary": "前情提要：/t/1253585 开源地址： https://github.com/hellodk34/MotoNav-CYD-Plus bilibili 视频介绍： [使用 ESP32 CYD 开发版制作 GPS 码表] https://www.bilibili.com/video/BV1ZPxn6nEbM/",
+      "summary": "前情提要：/t/1253585\r\n\r\n开源地址： https://github.com/hellodk34/MotoNav-CYD-Plus\r\n\r\nbilibili 视频介绍： [使用 ESP32 CYD 开发版制作 GPS 码表]  https://www.bilibili.com/video/BV1ZPxn6nEbM/",
       "heat": "回复 0",
       "points": 0,
-      "url": "https://www.v2ex.com/t/1255599"
+      "url": "https://www.v2ex.com/t/1255599",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255598",
       "source": "V2EX",
       "title": "有买 kimi 的吗？实测效果如何？",
-      "summary": "1. 套餐实际 token 用量多少？ 2. 代码质量和 GPT 比吗？ GPT 的代码老是又臭又长，过度防御，想换个从 claude 蒸馏的模型了。",
+      "summary": "1. 套餐实际 token 用量多少？\r\n2. 代码质量和 GPT 比吗？\r\n\r\nGPT 的代码老是又臭又长，过度防御，想换个从 claude 蒸馏的模型了。",
       "heat": "回复 0",
       "points": 0,
-      "url": "https://www.v2ex.com/t/1255598"
+      "url": "https://www.v2ex.com/t/1255598",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255594",
       "source": "V2EX",
       "title": "独立开发周记 195：大事化小，不再费脑",
-      "summary": "# 2026,1102 ～ 1108 上了个新 App ，断断续续花了将近四个月，但是实际开发也就一个月。本来是想快速验证，结果还是没能实现，中间中断了好几次，每次继续开发都要推翻重来。上架后也没有多兴奋，简单宣传了一下，无人问津，意料之中，现在做一个扑一个，唉。 # 本周工作 ## 大事化小 这周最重要的事情就是，**大事化小（英文名是 Smallify ）** 上架了 App Store ！上周日补上了截图，第二次提交，过了四天，直",
+      "summary": "# 2026,1102 ～ 1108\r\n\r\n上了个新 App ，断断续续花了将近四个月，但是实际开发也就一个月。本来是想快速验证，结果还是没能实现，中间中断了好几次，每次继续开发都要推翻重来。上架后也没有多兴奋，简单宣传了一下，无人问津，意料之中，现在做一个扑一个，唉。\r\n\r\n# 本周工作\r\n\r\n## 大事化小\r\n\r\n这周最重要的事情就是，**大事化小（英文名是 Smallify ）** 上架了 App Store ！上周日补上了截图，第二次提交，过了四天，直接通过审核了。\r\n\r\n这是我第一个带有服务器的 iOS App ，因为需要用到 AI 分析，就用腾讯云搭建了 API ，调用的是 Qwe",
       "heat": "回复 0",
       "points": 0,
-      "url": "https://www.v2ex.com/t/1255594"
+      "url": "https://www.v2ex.com/t/1255594",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255581",
@@ -314,43 +358,38 @@
       "summary": "重启，edge 自动更新后，直接给我装多了一个 2G 大小的 Copilot 软件，微软，你是拿 edge 做分发垃圾的途径了吗。。。。",
       "heat": "回复 0",
       "points": 0,
-      "url": "https://www.v2ex.com/t/1255581"
+      "url": "https://www.v2ex.com/t/1255581",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255571",
       "source": "V2EX",
       "title": "CutoutDock：浏览器里的商品图抠图工具，支持边缘笔刷和批量导出",
-      "summary": "大家好，我做了个在浏览器里给商品图去背景的小工具，叫 CutoutDock 。想解决的是这种小事：背景已经抠得差不多了，但台灯的细杆、杯把之类的地方还得手动补两笔。处理一张时希望打开就能用，整理一批商品图时又希望尺寸和文件名能统一。 [打开 CutoutDock]( https://cutoutdock.com/?utm_source=v2ex&utm_medium=referral&utm_campaign=product_photo",
+      "summary": "大家好，我做了个在浏览器里给商品图去背景的小工具，叫 CutoutDock 。想解决的是这种小事：背景已经抠得差不多了，但台灯的细杆、杯把之类的地方还得手动补两笔。处理一张时希望打开就能用，整理一批商品图时又希望尺寸和文件名能统一。\r\n\r\n[打开 CutoutDock]( https://cutoutdock.com/?utm_source=v2ex&utm_medium=referral&utm_campaign=product_photo_demo)\r\n\r\n首页放了一张书房台灯的示例（场景图由 AI 生成，去背是工具实际跑出的结果）。可以先拖动看前后，再点「 Edit the sample",
       "heat": "回复 0",
       "points": 0,
-      "url": "https://www.v2ex.com/t/1255571"
+      "url": "https://www.v2ex.com/t/1255571",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255566",
       "source": "V2EX",
       "title": "闲着做了个吉他指板的小程序，欢迎指点和使用",
-      "summary": "大家好，前段时间闲着，想试试能不能把自己的一个小想法完整做出来，于是做了一个微信小程序，叫「 Jan 的吉他指板」。 这是我第一次以独立开发者的方式，把一个东西从想法、设计、开发、测试一直做到审核上线。 我不是做音乐教育的，选择吉他指板这个方向，主要是因为它刚好和自己的兴趣沾边，我也能理解这个场景：有些人记住了几个音阶形状，但随便给出一个音名，还是不能马上在指板上找到位置。 最开始我只做了一个很简单的“看音名找位置”。后来边用边改，又慢",
+      "summary": "大家好，前段时间闲着，想试试能不能把自己的一个小想法完整做出来，于是做了一个微信小程序，叫「 Jan 的吉他指板」。\r\n\r\n这是我第一次以独立开发者的方式，把一个东西从想法、设计、开发、测试一直做到审核上线。\r\n\r\n我不是做音乐教育的，选择吉他指板这个方向，主要是因为它刚好和自己的兴趣沾边，我也能理解这个场景：有些人记住了几个音阶形状，但随便给出一个音名，还是不能马上在指板上找到位置。\r\n\r\n最开始我只做了一个很简单的“看音名找位置”。后来边用边改，又慢慢加了能力摸底、每日训练、位置认音、音程练习、实琴收音识别，以及错题和薄弱位置复练。\r\n\r\n现在大致形成了一条这样的练习路径：\r\n\r\n> 先摸",
       "heat": "回复 0",
       "points": 0,
-      "url": "https://www.v2ex.com/t/1255566"
+      "url": "https://www.v2ex.com/t/1255566",
+      "translated_by": "native-zh"
     },
     {
       "id": "v2hot-1255559",
       "source": "V2EX",
       "title": "GPT 被封号",
-      "summary": "一个订阅过菲区的账号，pro 订阅已经过期后面只用来聊聊天。 今天发现被 t 出登录，再次登录发现账号被封了。",
+      "summary": "一个订阅过菲区的账号，pro 订阅已经过期后面只用来聊聊天。\r\n今天发现被 t 出登录，再次登录发现账号被封了。",
       "heat": "回复 0",
       "points": 0,
-      "url": "https://www.v2ex.com/t/1255559"
-    },
-    {
-      "id": "v2hot-1255558",
-      "source": "V2EX",
-      "title": "《一文读懂：市面上这么多 Claude Ultra 成品账号 他们到底有哪些区别》",
-      "summary": "![]( https://i.v2ex.co/W33jVPdQ.png) 假设有两个 Claude 账号，打开都显示 是 Ultra 的套餐账单，你能分辨他们的区别吗？答案肯定是-不能。 Ultra 由原来的 Max20x 套餐更名而来，因为拥有更多的使用额度而广受青睐。但是很多人买 Claude 账号只在乎价格，却忽略了他们的来源。而它们的来源，其中的很多细节，就决定了你的账号能使用多久...... 简单来讲，Claude 成品账号主",
-      "heat": "回复 0",
-      "points": 0,
-      "url": "https://www.v2ex.com/t/1255558"
+      "url": "https://www.v2ex.com/t/1255559",
+      "translated_by": "native-zh"
     },
     {
       "id": "xhot-aliyun-bailian",
@@ -359,7 +398,10 @@
       "summary": "新用户开通百炼可调 70+ 主流大模型，每模型约 100 万 Tokens，总计 7000 万+ Tokens，约 90 天有效；需实名认证，国内直连。",
       "heat": "赞 0 · 收藏 0",
       "points": 0,
-      "url": "https://x.com/0x_chaoran/status/2119379991226105957"
+      "url": "https://x.com/0x_chaoran/status/2119379991226105957",
+      "translated_by": "native-zh"
     }
-  ]
+  ],
+  "models_ok": 0,
+  "models_fail": 8
 }
