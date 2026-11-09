@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>X 羊毛情报站 · AI / 科技</title>
+<meta name="description" content="从 X 公开帖子自动整理的大模型与科技类羊毛情报" />
+<style>
+:root {
+  --bg:#0b1020; --panel:#121933; --card:#171f3d; --line:#2a3560;
+  --text:#e8ecff; --muted:#9aa3c7; --accent:#6ea8ff; --accent2:#7dffa6;
+  --warn:#ffc857; --danger:#ff7b7b;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:radial-gradient(1200px 600px at 10% -10%, #1a2758 0%, transparent 55%),
+             radial-gradient(900px 500px at 100% 0%, #132a3f 0%, transparent 50%),
+             var(--bg);
+  color:var(--text); line-height:1.55; min-height:100vh;
+}
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.wrap { max-width:1100px; margin:0 auto; padding:20px 16px 64px; }
+header {
+  background:linear-gradient(135deg, rgba(110,168,255,.16), rgba(125,255,166,.08));
+  border:1px solid var(--line); border-radius:18px; padding:22px 20px; margin-bottom:18px;
+}
+header h1 { margin:0 0 8px; font-size:1.55rem; letter-spacing:.02em; }
+header p { margin:0; color:var(--muted); font-size:.95rem; }
+.stats { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.pill {
+  background:rgba(0,0,0,.25); border:1px solid var(--line); border-radius:999px;
+  padding:6px 12px; font-size:.85rem; color:var(--muted);
+}
+.pill b { color:var(--accent2); font-weight:600; }
+.toolbar {
+  position:sticky; top:0; z-index:20; backdrop-filter:blur(10px);
+  background:rgba(11,16,32,.82); border:1px solid var(--line); border-radius:14px;
+  padding:10px; margin-bottom:16px;
+}
+#q {
+  width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--line);
+  background:var(--panel); color:var(--text); font-size:1rem; outline:none;
+}
+#q:focus { border-color:var(--accent); }
+.tabs { display:flex; gap:8px; overflow-x:auto; padding:10px 2px 2px; scrollbar-width:thin; }
+.tab {
+  flex:0 0 auto; border:1px solid var(--line); background:var(--panel); color:var(--muted);
+  border-radius:999px; padding:8px 12px; cursor:pointer; font-size:.85rem;
+}
+.tab em { font-style:normal; color:var(--accent); margin-left:4px; }
+.tab.active, .tab:hover { color:var(--text); border-color:var(--accent); }
+.section { margin:22px 0; }
+.section h2 { font-size:1.15rem; margin:0 0 12px; }
+.section h2 span { color:var(--muted); font-weight:500; font-size:.9rem; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; }
+.card {
+  background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 14px 12px;
+  display:flex; flex-direction:column; gap:8px; min-height:180px;
+}
+.badge {
+  align-self:flex-start; font-size:.72rem; color:#cfe0ff; background:rgba(110,168,255,.15);
+  border:1px solid rgba(110,168,255,.35); border-radius:999px; padding:3px 8px;
+}
+h3 { margin:0; font-size:1.02rem; line-height:1.35; }
+.summary { margin:0; color:var(--muted); font-size:.9rem; flex:1; }
+.how { font-size:.86rem; color:#d7defa; background:rgba(255,255,255,.03); border-radius:8px; padding:8px 10px; }
+.meta { font-size:.82rem; color:var(--warn); }
+.tag {
+  display:inline-block; border-radius:6px; padding:1px 6px; margin-right:4px;
+  background:rgba(255,200,87,.15); border:1px solid rgba(255,200,87,.35);
+}
+.foot {
+  display:flex; justify-content:space-between; gap:10px; align-items:center;
+  font-size:.78rem; color:var(--muted); border-top:1px solid rgba(42,53,96,.7); padding-top:8px;
+}
+.hidden { display:none !important; }
+.archive, .disclaimer {
+  margin-top:28px; padding:16px; border-radius:14px; border:1px solid var(--line); background:var(--panel);
+}
+.archive h2, .disclaimer h2 { margin:0 0 10px; font-size:1rem; }
+.arch {
+  display:inline-block; margin:0 8px 8px 0; padding:6px 10px; border-radius:8px;
+  border:1px solid var(--line); color:var(--muted); background:rgba(0,0,0,.2);
+}
+.arch.current { color:var(--accent2); border-color:rgba(125,255,166,.45); }
+.disclaimer p { margin:0; color:var(--muted); font-size:.88rem; }
+.empty { text-align:center; color:var(--muted); padding:40px 10px; }
+footer { margin-top:24px; color:var(--muted); font-size:.8rem; text-align:center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🐑 X 羊毛情报站 · AI / 科技</h1>
+    <p>只收大模型与科技类羊毛：免费 API 额度、AI 工具试用、云 GPU、开发者资源、科技 App 限免。信息来自 X 公开帖子，自动整理。</p>
+    <div class="stats">
+      <div class="pill">更新日期 <b>2026-11-09</b></div>
+      <div class="pill">条目 <b>37</b></div>
+      <div class="pill">页面生成 <b>2026-11-09 15:25 Asia/Shanghai</b></div>
+      <div class="pill">数据更新 <b>2026-11-09 15:22 Asia/Shanghai</b></div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <input id="q" type="search" placeholder="搜索标题 / 内容 / 作者…" autocomplete="off" />
+    <div class="tabs"><button class="tab active" data-filter="全部">全部 <em>37</em></button><button class="tab" data-filter="大模型 API 免费额度">大模型 API 免费额度 <em>10</em></button><button class="tab" data-filter="AI 产品会员/试用">AI 产品会员/试用 <em>4</em></button><button class="tab" data-filter="AI 开发工具与编程助手">AI 开发工具与编程助手 <em>7</em></button><button class="tab" data-filter="云服务/GPU/开发者资源">云服务/GPU/开发者资源 <em>6</em></button><button class="tab" data-filter="科技软件/App 限免">科技软件/App 限免 <em>8</em></button><button class="tab" data-filter="其他科技">其他科技 <em>2</em></button></div>
+  </div>
+
+  <div id="list">
+    <section class="section" data-section="大模型 API 免费额度"><h2 id="大模型 API 免费额度">大模型 API 免费额度 <span>(10)</span></h2><div class="grid">
+<article class="card" data-cat="大模型 API 免费额度" data-text="NVIDIA NIM：Kimi / DeepSeek / GLM 免信用卡试用 登录 build.nvidia.com 即可试用 Kimi K3.1 Pro（2.8T、百万上下文）、DeepSeek V4.1 Flash、GLM 5.3 Flash；免费层约 40 次/分限速，不按 Token 扣费。部分模型网页可预览、API 开放情况以官网为准。 chichu187">
+  <div class="badge">大模型 API 免费额度</div>
+  <h3>NVIDIA NIM：Kimi / DeepSeek / GLM 免信用卡试用</h3>
+  <p class="summary">登录 build.nvidia.com 即可试用 Kimi K3.1 Pro（2.8T、百万上下文）、DeepSeek V4.1 Flash、GLM 5.3 Flash；免费层约 40 次/分限速，不按 Token 扣费。部分模型网页可预览、API 开放情况以官网为准。</p>
+  <div class="how"><strong>怎么领：</strong>打开 build.nvidia.com → 登录 → 选择对应模型试用</div>
+  
+  <div class="foot">
+    <span>@chichu187 · 2026-11-07 18:05 Asia/Shanghai</span>
+    <a href="https://x.com/chichu187/status/2119008302432690299" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="Cloudflare Workers AI：每天 1 万 Neurons 免费计划每天赠送约 1 万 Neurons（UTC 0 点 / 北京时间早 8 点重置），可跑 Llama、Qwen、Gemma、Mistral 等开源模型，也支持生图与语音转文字。超额不扣费，直接报错停用。 AWG48488">
+  <div class="badge">大模型 API 免费额度</div>
+  <h3>Cloudflare Workers AI：每天 1 万 Neurons</h3>
+  <p class="summary">免费计划每天赠送约 1 万 Neurons（UTC 0 点 / 北京时间早 8 点重置），可跑 Llama、Qwen、Gemma、Mistral 等开源模型，也支持生图与语音转文字。超额不扣费，直接报错停用。</p>
+  <div class="how"><strong>怎么领：</strong>注册 Cloudflare → 开通 Workers AI → 用免费额度调用</div>
+  
+  <div class="foot">
+    <span>@AWG48488 · 2026-11-08 21:03 Asia/Shanghai</span>
+    <a href="https://x.com/AWG48488/status/2119415638494204051" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="Gemini 3.5 Flash：每天约 500 次免费 API Google AI Studio 生成 API Key 即可用，免绑信用卡。适合跑自动化脚本、本地 CLI、翻译和小项目测试。注意：免费层数据可能用于模型训练，勿上传敏感代码。 Stargridcompass">
+  <div class="badge">大模型 API 免费额度</div>
+  <h3>Gemini 3.5 Flash：每天约 500 次免费 API</h3>
+  <p class="summary">Google AI Studio 生成 API Key 即可用，免绑信用卡。适合跑自动化脚本、本地 CLI、翻译和小项目测试。注意：免费层数据可能用于模型训练，勿上传敏感代码。</p>
+  <div class="how"><strong>怎么领：</strong>打开 Google AI Studio → 生成 API Key → 调用 Gemini 3.5 Flash</div>
+  
+  <div class="foot">
+    <span>@Stargridcompass · 2026-11-08 19:00 Asia/Shanghai</span>
+    <a href="https://x.com/Stargridcompass/status/2119384439457477086" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="阿里云百炼：新用户每模型约 100 万 Tokens 新用户开通百炼可调 70+ 主流大模型，每模型约 100 万 Tokens，总计 7000 万+ Tokens，约 90 天有效；需实名认证，国内直连。 0x_chaoran">
+  <div class="badge">大模型 API 免费额度</div>
+  <h3>阿里云百炼：新用户每模型约 100 万 Tokens</h3>
+  <p class="summary">新用户开通百炼可调 70+ 主流大模型，每模型约 100 万 Tokens，总计 7000 万+ Tokens，约 90 天有效；需实名认证，国内直连。</p>
+  <div class="how"><strong>怎么领：</strong>注册阿里云 → 实名 → 开通百炼控制台领取</div>
+  <div class="meta"><span class="tag warn">截止</span> 新用户限领，有效期约 90 天</div>
+  <div class="foot">
+    <span>@0x_chaoran · 2026-11-08 18:42 Asia/Shanghai</span>
+    <a href="https://x.com/0x_chaoran/status/2119379991226105957" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="AMD 国区：15 个大模型免费调用 DeepSeek-V4.1-Flash、GLM-5.3、Qwen3.8 等约 15 个模型可免费调，支持约 1M 上下文，免绑卡，每天 0 点重置额度。登录官网领 rc- Key 后可接入 Cherry Studio。 0x_chaoran">
+  <div class="badge">大模型 API 免费额度</div>
+  <h3>AMD 国区：15 个大模型免费调用</h3>
+  <p class="summary">DeepSeek-V4.1-Flash、GLM-5.3、Qwen3.8 等约 15 个模型可免费调，支持约 1M 上下文，免绑卡，每天 0 点重置额度。登录官网领 rc- Key 后可接入 Cherry Studio。</p>
+  <div class="how"><strong>怎么领：</strong>登录 AMD 官网 → 领取 API Key → 填入客户端</div>
+  
+  <div class="foot">
+    <span>@0x_chaoran · 2026-11-08 14:43 Asia/Shanghai</span>
+    <a href="https://x.com/0x_chaoran/status/2119319917963206980" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="LG K-EXAONE 2.5：API 彻底免费开放 LG 在英伟达首尔 AI 日宣布 K-EXAONE 2.5（约 7500 亿参数量级宣传）API 对开发者、企业、研究机构免费，申请 API Key 即可调用。 Super_Nius">
+  <div class="badge">大模型 API 免费额度</div>
+  <h3>LG K-EXAONE 2.5：API 彻底免费开放</h3>
+  <p class="summary">LG 在英伟达首尔 AI 日宣布 K-EXAONE 2.5（约 7500 亿参数量级宣传）API 对开发者、企业、研究机构免费，申请 API Key 即可调用。</p>
+  <div class="how"><strong>怎么领：</strong>按官方渠道申请 K-EXAONE API Key</div>
+  
+  <div class="foot">
+    <span>@Super_Nius · 2026-11-09 11:38 Asia/Shanghai</span>
+    <a href="https://x.com/Super_Nius/status/2119635733048852485" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="Perch AI：每月约 $20 / 2 万 PT，免绑卡 Starter 免费账号每月自动领约 20,000 PT（约合 $20），可用 DeepSeek 等模型；网页/桌面/命令行三端可用。Qwen 3.8 Max 限免至 11 月 21 日凌晨 1 点（吃月度额度，非无限）。 jhl880617">
+  <div class="badge">大模型 API 免费额度</div>
+  <h3>Perch AI：每月约 $20 / 2 万 PT，免绑卡</h3>
+  <p class="summary">Starter 免费账号每月自动领约 20,000 PT（约合 $20），可用 DeepSeek 等模型；网页/桌面/命令行三端可用。Qwen 3.8 Max 限免至 11 月 21 日凌晨 1 点（吃月度额度，非无限）。</p>
+  <div class="how"><strong>怎么领：</strong>注册 Perch AI 免费 Starter → 每月自动到账</div>
+  <div class="meta"><span class="tag warn">截止</span> Qwen 3.8 Max 限免至 2026-11-21 01:00 Asia/Shanghai</div>
+  <div class="foot">
+    <span>@jhl880617 · 2026-11-09 10:28 Asia/Shanghai</span>
+    <a href="https://x.com/jhl880617/status/2119618098743451875" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="国内平台额度速领：硅基流动 / 百炼 / 千帆 / 方舟 帖主实测汇总：硅基流动注册送约 14 元券；阿里云百炼每模型约 100 万 tokens；百度千帆 DeepSeek 每模型约 100 万；火山方舟每模型约 50 万，实名后还可每日再领。 jiangxuhe">
+  <div class="badge">大模型 API 免费额度</div>
+  <h3>国内平台额度速领：硅基流动 / 百炼 / 千帆 / 方舟</h3>
+  <p class="summary">帖主实测汇总：硅基流动注册送约 14 元券；阿里云百炼每模型约 100 万 tokens；百度千帆 DeepSeek 每模型约 100 万；火山方舟每模型约 50 万，实名后还可每日再领。</p>
+  <div class="how"><strong>怎么领：</strong>分别注册各平台并按新用户/实名流程领取</div>
+  
+  <div class="foot">
+    <span>@jiangxuhe · 2026-11-08 04:05 Asia/Shanghai</span>
+    <a href="https://x.com/jiangxuhe/status/2119159437164425567" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="Token 羊毛聚合站：多平台免费额度一页看 卡兹克等人整理的聚合页，把官网/公众号/X 上的免费 Token 福利按每日、每周、每月、新人礼包和限免分组；有帖提到豆包、秒悟、Cloudflare Neurons、Qoder、MiniMax 等卡牌式展示。 TianciZhutc">
+  <div class="badge">大模型 API 免费额度</div>
+  <h3>Token 羊毛聚合站：多平台免费额度一页看</h3>
+  <p class="summary">卡兹克等人整理的聚合页，把官网/公众号/X 上的免费 Token 福利按每日、每周、每月、新人礼包和限免分组；有帖提到豆包、秒悟、Cloudflare Neurons、Qoder、MiniMax 等卡牌式展示。</p>
+  <div class="how"><strong>怎么领：</strong>打开聚合站按分组领取（以站点当日核实为准）</div>
+  
+  <div class="foot">
+    <span>@TianciZhutc · 2026-11-09 13:32 Asia/Shanghai</span>
+    <a href="https://x.com/TianciZhutc/status/2119664524512858243" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="大模型 API 免费额度" data-text="Ant Ling-3.2-flash：两周免费试用 Ling-3.2-flash（560B/25B MoE，支持文本+图像+视频）自 11 月 5 日上线起免费约两周，OpenAI/Anthropic 兼容接口。有帖称注册需 +86 手机号。 liro90106788">
+  <div class="badge">大模型 API 免费额度</div>
+  <h3>Ant Ling-3.2-flash：两周免费试用</h3>
+  <p class="summary">Ling-3.2-flash（560B/25B MoE，支持文本+图像+视频）自 11 月 5 日上线起免费约两周，OpenAI/Anthropic 兼容接口。有帖称注册需 +86 手机号。</p>
+  <div class="how"><strong>怎么领：</strong>按官方注册并领取试用（注意地区/手机号要求）</div>
+  <div class="meta"><span class="tag warn">截止</span> 约 2026-11-19 截止（帖称 Nov 5–19）</div>
+  <div class="foot">
+    <span>@liro90106788 · 2026-11-07 23:40 Asia/Shanghai</span>
+    <a href="https://x.com/liro90106788/status/2119092556835565580" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article></div></section><section class="section" data-section="AI 产品会员/试用"><h2 id="AI 产品会员/试用">AI 产品会员/试用 <span>(4)</span></h2><div class="grid">
+<article class="card" data-cat="AI 产品会员/试用" data-text="fal FLUX 3 Max：免费周末只剩最后一天 新视频模型免费开放：免登录每天 3 条，登录 4 条，绑卡验证 5 条；单条最长约 15 秒、720p、带声音。 NianEn_Ai">
+  <div class="badge">AI 产品会员/试用</div>
+  <h3>fal FLUX 3 Max：免费周末只剩最后一天</h3>
+  <p class="summary">新视频模型免费开放：免登录每天 3 条，登录 4 条，绑卡验证 5 条；单条最长约 15 秒、720p、带声音。</p>
+  <div class="how"><strong>怎么领：</strong>打开 fal 对应活动页生成；建议今晚先试几条</div>
+  <div class="meta"><span class="tag warn">截止</span> 2026-11-10 04:00 Asia/Shanghai</div>
+  <div class="foot">
+    <span>@NianEn_Ai · 2026-11-09 09:54 Asia/Shanghai</span>
+    <a href="https://x.com/NianEn_Ai/status/2119609656192516379" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="AI 产品会员/试用" data-text="阶跃 StepAudio / 语音模型限免延期到 11/17 帖称官方定价页已改：适用限免的模型延到 11 月 17 日 11:59，12 点起按新价收费；含实时语音、配音、音频生成、音乐、语音识别。免费套餐需个人实名。另有帖提到 StepAudio 3 有 4 个 preview 模型免费。 tutuqi88">
+  <div class="badge">AI 产品会员/试用</div>
+  <h3>阶跃 StepAudio / 语音模型限免延期到 11/17</h3>
+  <p class="summary">帖称官方定价页已改：适用限免的模型延到 11 月 17 日 11:59，12 点起按新价收费；含实时语音、配音、音频生成、音乐、语音识别。免费套餐需个人实名。另有帖提到 StepAudio 3 有 4 个 preview 模型免费。</p>
+  <div class="how"><strong>怎么领：</strong>登录阶跃/StepFun → 创建 API Key → 使用限免模型</div>
+  <div class="meta"><span class="tag warn">截止</span> 2026-11-17 11:59 Asia/Shanghai</div>
+  <div class="foot">
+    <span>@tutuqi88 · 2026-11-09 13:35 Asia/Shanghai</span>
+    <a href="https://x.com/tutuqi88/status/2119665105483059423" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="AI 产品会员/试用" data-text="腾讯混元 Hy4：WorkBuddy/CodeBuddy 限免 在 WorkBuddy、CodeBuddy 中选 Hy4 可领每日免费额度；帖称网友反馈几句可能限流，晚上更顺。另提 TokenHub 五折至年底（输入约 3 元/百万 token）。 FirstInFeed">
+  <div class="badge">AI 产品会员/试用</div>
+  <h3>腾讯混元 Hy4：WorkBuddy/CodeBuddy 限免</h3>
+  <p class="summary">在 WorkBuddy、CodeBuddy 中选 Hy4 可领每日免费额度；帖称网友反馈几句可能限流，晚上更顺。另提 TokenHub 五折至年底（输入约 3 元/百万 token）。</p>
+  <div class="how"><strong>怎么领：</strong>打开 WorkBuddy/CodeBuddy → 选择 Hy4 使用每日额度</div>
+  <div class="meta"><span class="tag warn">截止</span> 2026-11-15 23:59 Asia/Shanghai</div>
+  <div class="foot">
+    <span>@FirstInFeed · 2026-11-08 10:40 Asia/Shanghai</span>
+    <a href="https://x.com/FirstInFeed/status/2119258807843139989" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="AI 产品会员/试用" data-text="智谱 ZCode：每天晚间领 3 亿 GLM-5.3-Flash 帖称智谱 ZCode 每天 19:00 可领约 3 亿 GLM-5.3-Flash，但 23:00 至次日 9:00 才能消耗，且限客户端使用。另提到长亭 MonkeyCode 共享池与 AutoClaw 活动，以官网为准。 BonoDJblack">
+  <div class="badge">AI 产品会员/试用</div>
+  <h3>智谱 ZCode：每天晚间领 3 亿 GLM-5.3-Flash</h3>
+  <p class="summary">帖称智谱 ZCode 每天 19:00 可领约 3 亿 GLM-5.3-Flash，但 23:00 至次日 9:00 才能消耗，且限客户端使用。另提到长亭 MonkeyCode 共享池与 AutoClaw 活动，以官网为准。</p>
+  <div class="how"><strong>怎么领：</strong>打开智谱 ZCode 客户端 → 19:00 后领取 → 晚间时段使用</div>
+  
+  <div class="foot">
+    <span>@BonoDJblack · 2026-11-08 15:52 Asia/Shanghai</span>
+    <a href="https://x.com/BonoDJblack/status/2119337260500107572" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article></div></section><section class="section" data-section="AI 开发工具与编程助手"><h2 id="AI 开发工具与编程助手">AI 开发工具与编程助手 <span>(7)</span></h2><div class="grid">
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="Qoder 匿名模型 Qoduck：个人号每日 0 Credits 11/7 起个人账号（Free 到 Ultra）每天有 Qoduck 免费额度，额度内思考强度拉满也不扣 Credits；官方未公开模型身份。部分帖称仅 International/网页端支持，Teams/企业看不到；高峰可能排队。 GeekCatX">
+  <div class="badge">AI 开发工具与编程助手</div>
+  <h3>Qoder 匿名模型 Qoduck：个人号每日 0 Credits</h3>
+  <p class="summary">11/7 起个人账号（Free 到 Ultra）每天有 Qoduck 免费额度，额度内思考强度拉满也不扣 Credits；官方未公开模型身份。部分帖称仅 International/网页端支持，Teams/企业看不到；高峰可能排队。</p>
+  <div class="how"><strong>怎么领：</strong>打开 Qoder → 模型选择器切到 Qoduck → 直接写代码</div>
+  <div class="meta"><span class="tag warn">截止</span> 限时活动，结束时间未定</div>
+  <div class="foot">
+    <span>@GeekCatX · 2026-11-09 14:35 Asia/Shanghai</span>
+    <a href="https://x.com/GeekCatX/status/2119680316772405739" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="CodeRabbit：开源项目免费 + 私有代码试用 AI 代码审查工具：开源仓库免费；私有代码提供免费试用。适合 PR 审查与安全扫描。 CryptoSenyo">
+  <div class="badge">AI 开发工具与编程助手</div>
+  <h3>CodeRabbit：开源项目免费 + 私有代码试用</h3>
+  <p class="summary">AI 代码审查工具：开源仓库免费；私有代码提供免费试用。适合 PR 审查与安全扫描。</p>
+  <div class="how"><strong>怎么领：</strong>打开 coderabbit.ai → 连接仓库 → 对 OSS 免费启用</div>
+  
+  <div class="foot">
+    <span>@CryptoSenyo · 2026-11-09 13:50 Asia/Shanghai</span>
+    <a href="https://x.com/CryptoSenyo/status/2119668944420409465" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="Devin Desktop（原 Windsurf）：免费计划可用 免费计划含轻量 Agent 配额、有限模型额度、无限内联编辑与 Tab 补全，日常写代码够用；重活仍需加钱。 jhl880617">
+  <div class="badge">AI 开发工具与编程助手</div>
+  <h3>Devin Desktop（原 Windsurf）：免费计划可用</h3>
+  <p class="summary">免费计划含轻量 Agent 配额、有限模型额度、无限内联编辑与 Tab 补全，日常写代码够用；重活仍需加钱。</p>
+  <div class="how"><strong>怎么领：</strong>注册 Devin Desktop 免费计划后直接使用</div>
+  
+  <div class="foot">
+    <span>@jhl880617 · 2026-11-09 06:29 Asia/Shanghai</span>
+    <a href="https://x.com/jhl880617/status/2119557938222109112" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="GitHub 学生包：Copilot 等开发者权益 学生认证后可领 Copilot 免费额度，以及域名一年、云服务额度等。需学校邮箱或学生证，审核有时要几天。 7eddsi">
+  <div class="badge">AI 开发工具与编程助手</div>
+  <h3>GitHub 学生包：Copilot 等开发者权益</h3>
+  <p class="summary">学生认证后可领 Copilot 免费额度，以及域名一年、云服务额度等。需学校邮箱或学生证，审核有时要几天。</p>
+  <div class="how"><strong>怎么领：</strong>GitHub Education → 学生认证 → 领取 Student Developer Pack</div>
+  
+  <div class="foot">
+    <span>@7eddsi · 2026-11-07 10:18 Asia/Shanghai</span>
+    <a href="https://x.com/7eddsi/status/2118890883076517914" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="OmniRoute：开源免费 AI 网关聚合多平台 开源本地网关，聚合大量提供商/免费方案到一个端点，可被 Claude Code、Cursor、Codex、Copilot、Cline 等指向使用；帖称有自动切路能力。注意合规与可用性，勿用于绕过付费条款。 0xGky">
+  <div class="badge">AI 开发工具与编程助手</div>
+  <h3>OmniRoute：开源免费 AI 网关聚合多平台</h3>
+  <p class="summary">开源本地网关，聚合大量提供商/免费方案到一个端点，可被 Claude Code、Cursor、Codex、Copilot、Cline 等指向使用；帖称有自动切路能力。注意合规与可用性，勿用于绕过付费条款。</p>
+  <div class="how"><strong>怎么领：</strong>按 GitHub 项目说明自建网关并指向 IDE</div>
+  
+  <div class="foot">
+    <span>@0xGky · 2026-11-09 09:20 Asia/Shanghai</span>
+    <a href="https://x.com/0xGky/status/2119600861261279410" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="awesome-free-llm-apis：免费大模型 API 清单 GitHub 高星清单整理多家免费额度入口（Gemini、Groq、OpenRouter、智谱等）。有帖提醒：免注册免 Key 的很少，Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰。 yxl44">
+  <div class="badge">AI 开发工具与编程助手</div>
+  <h3>awesome-free-llm-apis：免费大模型 API 清单</h3>
+  <p class="summary">GitHub 高星清单整理多家免费额度入口（Gemini、Groq、OpenRouter、智谱等）。有帖提醒：免注册免 Key 的很少，Claude 基本空白，适合试开源/小脚本，别指望完全替代付费旗舰。</p>
+  <div class="how"><strong>怎么领：</strong>打开该 GitHub 清单 → 按提供商申请 Key</div>
+  
+  <div class="foot">
+    <span>@yxl44 · 2026-11-08 15:09 Asia/Shanghai</span>
+    <a href="https://x.com/yxl44/status/2119326478248915137" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="AI 开发工具与编程助手" data-text="大学生参加 Qoder 高校赛可领一个月会员 帖称参加 2026 Qoder 高校创造力大赛即可白嫖一个月会员（以官方活动规则为准）。 lyuihh">
+  <div class="badge">AI 开发工具与编程助手</div>
+  <h3>大学生参加 Qoder 高校赛可领一个月会员</h3>
+  <p class="summary">帖称参加 2026 Qoder 高校创造力大赛即可白嫖一个月会员（以官方活动规则为准）。</p>
+  <div class="how"><strong>怎么领：</strong>按 Qoder 高校赛官方入口报名</div>
+  <div class="meta"><span class="tag warn">截止</span> 以赛事报名截止为准</div>
+  <div class="foot">
+    <span>@lyuihh · 2026-11-08 20:40 Asia/Shanghai</span>
+    <a href="https://x.com/lyuihh/status/2119409656972132777" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article></div></section><section class="section" data-section="云服务/GPU/开发者资源"><h2 id="云服务/GPU/开发者资源">云服务/GPU/开发者资源 <span>(6)</span></h2><div class="grid">
+<article class="card" data-cat="云服务/GPU/开发者资源" data-text="Kaggle：每周约 30 小时双 T4 免费 GPU 免费档常见 GPU T4 x2（约 2×16GB），单次最长约 12 小时，每周约 30 小时 + 约 20 小时 TPU；免绑卡，但需手机验证。多账号刷额度违规。互动很高的汇总帖。 mingzi206">
+  <div class="badge">云服务/GPU/开发者资源</div>
+  <h3>Kaggle：每周约 30 小时双 T4 免费 GPU</h3>
+  <p class="summary">免费档常见 GPU T4 x2（约 2×16GB），单次最长约 12 小时，每周约 30 小时 + 约 20 小时 TPU；免绑卡，但需手机验证。多账号刷额度违规。互动很高的汇总帖。</p>
+  <div class="how"><strong>怎么领：</strong>Google 登录 Kaggle → Settings 手机验证 → Notebook 选 GPU T4 x2</div>
+  
+  <div class="foot">
+    <span>@mingzi206 · 2026-11-09 00:32 Asia/Shanghai</span>
+    <a href="https://x.com/mingzi206/status/2119468078165815781" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="云服务/GPU/开发者资源" data-text="Box by Simular：免费云端 Linux 桌面 给 AI Agent 用的云电脑：帖称约 4 核 / 7.7G 内存 / 40G 硬盘，Ubuntu 24.04，Google 登录免绑卡；每天送积分，闲置会休眠，无公网入口。可用 npx @simular-ai/box connect 接入。 vampire2g">
+  <div class="badge">云服务/GPU/开发者资源</div>
+  <h3>Box by Simular：免费云端 Linux 桌面</h3>
+  <p class="summary">给 AI Agent 用的云电脑：帖称约 4 核 / 7.7G 内存 / 40G 硬盘，Ubuntu 24.04，Google 登录免绑卡；每天送积分，闲置会休眠，无公网入口。可用 npx @simular-ai/box connect 接入。</p>
+  <div class="how"><strong>怎么领：</strong>打开 box.simular.ai → 登录领取 → 用 MCP/CLI 接入 AI</div>
+  
+  <div class="foot">
+    <span>@vampire2g · 2026-11-07 22:41 Asia/Shanghai</span>
+    <a href="https://x.com/vampire2g/status/2119077912074949083" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="云服务/GPU/开发者资源" data-text="Google Colab 免费版：约 16GB T4 GPU 免费版可开 NVIDIA T4（约 16G 显存），Google 账号登录浏览器即用，通常免绑卡。额度不公开、看运气；适合轻量模型与实验。 KOF97AI">
+  <div class="badge">云服务/GPU/开发者资源</div>
+  <h3>Google Colab 免费版：约 16GB T4 GPU</h3>
+  <p class="summary">免费版可开 NVIDIA T4（约 16G 显存），Google 账号登录浏览器即用，通常免绑卡。额度不公开、看运气；适合轻量模型与实验。</p>
+  <div class="how"><strong>怎么领：</strong>打开 Google Colab → 运行时改 GPU → 开始写 Notebook</div>
+  
+  <div class="foot">
+    <span>@KOF97AI · 2026-11-09 11:51 Asia/Shanghai</span>
+    <a href="https://x.com/KOF97AI/status/2119638891808612551" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="云服务/GPU/开发者资源" data-text="natbox：免费试用 NAT VPS 一个月 免费试用档：256MB RAM、0.5 共享核、3GB SSD、5 个转发端口、100GB 流量，含 root SSH 与 IPv6 /80。一人一台，名额有限。 natboxio">
+  <div class="badge">云服务/GPU/开发者资源</div>
+  <h3>natbox：免费试用 NAT VPS 一个月</h3>
+  <p class="summary">免费试用档：256MB RAM、0.5 共享核、3GB SSD、5 个转发端口、100GB 流量，含 root SSH 与 IPv6 /80。一人一台，名额有限。</p>
+  <div class="how"><strong>怎么领：</strong>打开 my.natbox.io 免费试用页领取</div>
+  <div class="meta"><span class="tag warn">截止</span> 名额发完即止</div>
+  <div class="foot">
+    <span>@natboxio · 2026-11-08 11:58 Asia/Shanghai</span>
+    <a href="https://x.com/natboxio/status/2119278249570099289" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="云服务/GPU/开发者资源" data-text="Vultr 新用户促销额度：优惠码 FLY300VULTR 帖称 Vultr 官方优惠页列出新用户最高约 $300 Promotional Credit，优惠码 FLY300VULTR。以官网活动页实时规则为准。 Leo_zhang2018">
+  <div class="badge">云服务/GPU/开发者资源</div>
+  <h3>Vultr 新用户促销额度：优惠码 FLY300VULTR</h3>
+  <p class="summary">帖称 Vultr 官方优惠页列出新用户最高约 $300 Promotional Credit，优惠码 FLY300VULTR。以官网活动页实时规则为准。</p>
+  <div class="how"><strong>怎么领：</strong>注册 Vultr → 结账填 FLY300VULTR（核对官网）</div>
+  <div class="meta"><span class="tag warn">截止</span> 以 Vultr 活动页为准</div>
+  <div class="foot">
+    <span>@Leo_zhang2018 · 2026-11-07 13:11 Asia/Shanghai</span>
+    <a href="https://x.com/Leo_zhang2018/status/2118934417666428946" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="云服务/GPU/开发者资源" data-text="Cloady：免费小容器（现多称仅免费一个月） 邮箱注册可领约 0.5 核 / 1G 内存 / 5G 硬盘容器，能跑 Docker。评论区有人称政策改为只免费一个月，也有封号反馈，建议小号先试。 fanfankp">
+  <div class="badge">云服务/GPU/开发者资源</div>
+  <h3>Cloady：免费小容器（现多称仅免费一个月）</h3>
+  <p class="summary">邮箱注册可领约 0.5 核 / 1G 内存 / 5G 硬盘容器，能跑 Docker。评论区有人称政策改为只免费一个月，也有封号反馈，建议小号先试。</p>
+  <div class="how"><strong>怎么领：</strong>邮箱注册 Cloady → 领取免费档</div>
+  <div class="meta"><span class="tag warn">截止</span> 政策变动中，可能仅 1 个月</div>
+  <div class="foot">
+    <span>@fanfankp · 2026-11-08 18:53 Asia/Shanghai</span>
+    <a href="https://x.com/fanfankp/status/2119382702088417686" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article></div></section><section class="section" data-section="科技软件/App 限免"><h2 id="科技软件/App 限免">科技软件/App 限免 <span>(8)</span></h2><div class="grid">
+<article class="card" data-cat="科技软件/App 限免" data-text="ImageSweep：相册垃圾清理 App 本体限免 原价约 ¥28 → 0，按年月/地点快速划选废片，无广告、防误删。 linbai489068">
+  <div class="badge">科技软件/App 限免</div>
+  <h3>ImageSweep：相册垃圾清理 App 本体限免</h3>
+  <p class="summary">原价约 ¥28 → 0，按年月/地点快速划选废片，无广告、防误删。</p>
+  <div class="how"><strong>怎么领：</strong>App Store 搜索 ImageSweep 或打开帖内链接领取</div>
+  <div class="meta"><span class="tag warn">截止</span> 限免随时结束</div>
+  <div class="foot">
+    <span>@linbai489068 · 2026-11-08 16:28 Asia/Shanghai</span>
+    <a href="https://x.com/linbai489068/status/2119346247995994265" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="科技软件/App 限免" data-text="电影精灵：老牌视频剪辑本体 ¥198→0 多轨道、画中画、绿幕抠像等功能的 iOS 视频剪辑 App，本体限免入库。 linbai489068">
+  <div class="badge">科技软件/App 限免</div>
+  <h3>电影精灵：老牌视频剪辑本体 ¥198→0</h3>
+  <p class="summary">多轨道、画中画、绿幕抠像等功能的 iOS 视频剪辑 App，本体限免入库。</p>
+  <div class="how"><strong>怎么领：</strong>App Store 打开帖内链接 0 元下载</div>
+  <div class="meta"><span class="tag warn">截止</span> 限免随时结束</div>
+  <div class="foot">
+    <span>@linbai489068 · 2026-11-08 11:30 Asia/Shanghai</span>
+    <a href="https://x.com/linbai489068/status/2119271425475498138" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="科技软件/App 限免" data-text="Duo widget：电量/WiFi/信号组件 ¥28→0 约 1.4MB 极简无广桌面/锁屏组件，20 种排版，一眼看状态。 linbai489068">
+  <div class="badge">科技软件/App 限免</div>
+  <h3>Duo widget：电量/WiFi/信号组件 ¥28→0</h3>
+  <p class="summary">约 1.4MB 极简无广桌面/锁屏组件，20 种排版，一眼看状态。</p>
+  <div class="how"><strong>怎么领：</strong>App Store 打开帖内链接领取</div>
+  <div class="meta"><span class="tag warn">截止</span> 限免随时结束</div>
+  <div class="foot">
+    <span>@linbai489068 · 2026-11-08 21:02 Asia/Shanghai</span>
+    <a href="https://x.com/linbai489068/status/2119415280321560746" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="科技软件/App 限免" data-text="Linkjoy：跨平台书签/离线高亮终身内购限免 原价约 ¥128 的终身内购限免，去广告阅读、划线批注、iCloud 多端同步。 linbai489068">
+  <div class="badge">科技软件/App 限免</div>
+  <h3>Linkjoy：跨平台书签/离线高亮终身内购限免</h3>
+  <p class="summary">原价约 ¥128 的终身内购限免，去广告阅读、划线批注、iCloud 多端同步。</p>
+  <div class="how"><strong>怎么领：</strong>App Store 打开帖内链接 → 领取终身内购</div>
+  <div class="meta"><span class="tag warn">截止</span> 限免随时结束</div>
+  <div class="foot">
+    <span>@linbai489068 · 2026-11-09 00:32 Asia/Shanghai</span>
+    <a href="https://x.com/linbai489068/status/2119468075993157818" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="科技软件/App 限免" data-text="Stillwell 叠光相机：RAW 相机终身限免 原价约 ¥88 终身内购限免；原生 Bayer RAW、星轨与多重曝光等。 linbai489068">
+  <div class="badge">科技软件/App 限免</div>
+  <h3>Stillwell 叠光相机：RAW 相机终身限免</h3>
+  <p class="summary">原价约 ¥88 终身内购限免；原生 Bayer RAW、星轨与多重曝光等。</p>
+  <div class="how"><strong>怎么领：</strong>App Store 打开帖内链接领取终身版</div>
+  <div class="meta"><span class="tag warn">截止</span> 限免随时结束</div>
+  <div class="foot">
+    <span>@linbai489068 · 2026-11-09 00:29 Asia/Shanghai</span>
+    <a href="https://x.com/linbai489068/status/2119467385514258665" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="科技软件/App 限免" data-text="《Age of Wonders 4》Steam 完整版限时免费玩 帖称 Steam 周末本体完整版全开试玩（非永久入库），到 11 月 10 日凌晨 2 点。 404latitude">
+  <div class="badge">科技软件/App 限免</div>
+  <h3>《Age of Wonders 4》Steam 完整版限时免费玩</h3>
+  <p class="summary">帖称 Steam 周末本体完整版全开试玩（非永久入库），到 11 月 10 日凌晨 2 点。</p>
+  <div class="how"><strong>怎么领：</strong>Steam 打开游戏页 → 限时免费试玩</div>
+  <div class="meta"><span class="tag warn">截止</span> 2026-11-10 02:00 Asia/Shanghai</div>
+  <div class="foot">
+    <span>@404latitude · 2026-11-08 15:19 Asia/Shanghai</span>
+    <a href="https://x.com/404latitude/status/2119328818548892028" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="科技软件/App 限免" data-text="Epic 手机端免费领《巴别塔圣歌》 帖称 Epic 手机端可免费领《巴别塔圣歌》（约 98% 好评），截止约 11 月 12 日；可能锁国区，需切换 IP。 cyberde05">
+  <div class="badge">科技软件/App 限免</div>
+  <h3>Epic 手机端免费领《巴别塔圣歌》</h3>
+  <p class="summary">帖称 Epic 手机端可免费领《巴别塔圣歌》（约 98% 好评），截止约 11 月 12 日；可能锁国区，需切换 IP。</p>
+  <div class="how"><strong>怎么领：</strong>Epic 手机端按活动领取（注意区服限制）</div>
+  <div class="meta"><span class="tag warn">截止</span> 约 2026-11-12</div>
+  <div class="foot">
+    <span>@cyberde05 · 2026-11-08 17:06 Asia/Shanghai</span>
+    <a href="https://x.com/cyberde05/status/2119355966424834436" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="科技软件/App 限免" data-text="Lumenic 影音播放器：限时八折 本地/NAS 影音播放器，支持 SMB/WebDAV、HDR/杜比视界等；美区全平台约 US$7.99（原价 9.99），优惠至 11 月 15 日。 iOSRXWY">
+  <div class="badge">科技软件/App 限免</div>
+  <h3>Lumenic 影音播放器：限时八折</h3>
+  <p class="summary">本地/NAS 影音播放器，支持 SMB/WebDAV、HDR/杜比视界等；美区全平台约 US$7.99（原价 9.99），优惠至 11 月 15 日。</p>
+  <div class="how"><strong>怎么领：</strong>各区 App Store 购买（价格以商店为准）</div>
+  <div class="meta"><span class="tag warn">截止</span> 2026-11-15</div>
+  <div class="foot">
+    <span>@iOSRXWY · 2026-11-08 19:18 Asia/Shanghai</span>
+    <a href="https://x.com/iOSRXWY/status/2119389087501005109" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article></div></section><section class="section" data-section="其他科技"><h2 id="其他科技">其他科技 <span>(2)</span></h2><div class="grid">
+<article class="card" data-cat="其他科技" data-text="开发者官方兑换码站：领 App 内购 Pro 帖介绍专门汇总开发者提供的 Apple 官方兑换码的网站，可永久解锁部分付费内购，不同于普通限免降价站。 BlackMelooo">
+  <div class="badge">其他科技</div>
+  <h3>开发者官方兑换码站：领 App 内购 Pro</h3>
+  <p class="summary">帖介绍专门汇总开发者提供的 Apple 官方兑换码的网站，可永久解锁部分付费内购，不同于普通限免降价站。</p>
+  <div class="how"><strong>怎么领：</strong>打开帖内网站按 App 领取兑换码</div>
+  <div class="meta"><span class="tag warn">截止</span> 码发完即止</div>
+  <div class="foot">
+    <span>@BlackMelooo · 2026-11-08 10:34 Asia/Shanghai</span>
+    <a href="https://x.com/BlackMelooo/status/2119257219942457547" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article>
+
+<article class="card" data-cat="其他科技" data-text="Cap：开源可自托管录屏工具 开源录屏，主体协议 AGPLv3，适合想自己控数据的人；与 FreeLLMAPI 等同批核验清单出现。 imocone">
+  <div class="badge">其他科技</div>
+  <h3>Cap：开源可自托管录屏工具</h3>
+  <p class="summary">开源录屏，主体协议 AGPLv3，适合想自己控数据的人；与 FreeLLMAPI 等同批核验清单出现。</p>
+  <div class="how"><strong>怎么领：</strong>按开源项目说明安装/自托管</div>
+  
+  <div class="foot">
+    <span>@imocone · 2026-11-07 15:37 Asia/Shanghai</span>
+    <a href="https://x.com/imocone/status/2118971100717592580" target="_blank" rel="noopener noreferrer">看原帖</a>
+  </div>
+</article></div></section>
+  </div>
+  <div id="empty" class="empty hidden">没有匹配的条目，换个关键词试试。</div>
+
+  <div class="archive">
+    <h2>历史存档（JSON）</h2>
+    <div><a class="arch current" href="data/2026-11-09.json" target="_blank" rel="noopener">2026-11-09（37）</a></div>
+  </div>
+
+  <div class="disclaimer">
+    <h2>免责声明</h2>
+    <p>信息来自 X 公开帖子，自动整理，可能过期、不准确或含推广。参与前请自行核实官网与活动规则，谨防诈骗、钓鱼与盗号。本站不保证任何活动有效，也不提供领奖代操作。</p>
+  </div>
+
+  <footer>Yi Kos · X 羊毛情报站 · 仅 AI / 科技类</footer>
+</div>
+<script>
+(function(){
+  const q = document.getElementById('q');
+  const tabs = [...document.querySelectorAll('.tab')];
+  const cards = [...document.querySelectorAll('.card')];
+  const sections = [...document.querySelectorAll('.section')];
+  const empty = document.getElementById('empty');
+  let filter = '全部';
+
+  function apply(){
+    const term = (q.value || '').trim().toLowerCase();
+    let shown = 0;
+    cards.forEach(card => {
+      const cat = card.getAttribute('data-cat') || '';
+      const text = (card.getAttribute('data-text') || '').toLowerCase();
+      const okCat = filter === '全部' || cat === filter;
+      const okTerm = !term || text.includes(term);
+      const ok = okCat && okTerm;
+      card.classList.toggle('hidden', !ok);
+      if (ok) shown++;
+    });
+    sections.forEach(sec => {
+      const any = [...sec.querySelectorAll('.card')].some(c => !c.classList.contains('hidden'));
+      sec.classList.toggle('hidden', !any);
+    });
+    empty.classList.toggle('hidden', shown > 0);
+  }
+
+  tabs.forEach(btn => btn.addEventListener('click', () => {
+    tabs.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filter = btn.getAttribute('data-filter') || '全部';
+    apply();
+  }));
+  q.addEventListener('input', apply);
+})();
+</script>
+</body>
+</html>
