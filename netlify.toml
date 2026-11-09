@@ -1,42 +1,24 @@
-# Mirror GitHub Pages onto this Netlify free subdomain.
 [build]
   publish = "."
-  command = "echo 'static mirror via redirects'"
+  command = "echo 'static site'"
 
 [[headers]]
-  for = "/*.html"
+  for = "/*"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
     CDN-Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
-  for = "/"
+  for = "/vendor/*"
   [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-    CDN-Cache-Control = "public, max-age=0, must-revalidate"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
 [[headers]]
-  for = "/m/*"
+  for = "/*.js"
   [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
 [[headers]]
-  for = "/c/*"
+  for = "/fx.css"
   [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-[[headers]]
-  for = "/item/*"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-[[headers]]
-  for = "/archives/*"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
-[[redirects]]
-  from = "/*"
-  to = "https://9499758-wq.github.io/x-yangmao/:splat"
-  status = 200
-  force = true
+    Cache-Control = "public, max-age=3600, must-revalidate"
