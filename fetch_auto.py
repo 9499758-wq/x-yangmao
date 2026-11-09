@@ -8,6 +8,7 @@ Writes:
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -157,193 +158,301 @@ def keyword_classify(text: str) -> tuple[str, str, str]:
 
 MODELS_OK = 0
 MODELS_FAIL = 0
+TRANSLATE_OK = 0
+TRANSLATE_FAIL = 0
+TRANSLATE_CACHE_PATH = DATA_AUTO / "translations.json"
+_TRANSLATE_CACHE: dict[str, str] | None = None
+_TRANSLATE_DIRTY = False
 
 
 def has_cjk(s: str) -> bool:
     return bool(re.search(r"[\u4e00-\u9fff]", s or ""))
 
 
+def _load_translate_cache() -> dict[str, str]:
+    global _TRANSLATE_CACHE
+    if _TRANSLATE_CACHE is not None:
+        return _TRANSLATE_CACHE
+    _TRANSLATE_CACHE = {}
+    if TRANSLATE_CACHE_PATH.exists():
+        try:
+            data = json.loads(TRANSLATE_CACHE_PATH.read_text(encoding="utf-8"))
+            if isinstance(data, dict):
+                _TRANSLATE_CACHE = {str(k): str(v) for k, v in data.items() if v}
+        except Exception as e:
+            print(f"[warn] translations cache read: {e}")
+    return _TRANSLATE_CACHE
+
+
+def save_translate_cache() -> None:
+    global _TRANSLATE_DIRTY, _TRANSLATE_CACHE
+    if not _TRANSLATE_DIRTY:
+        return
+    try:
+        TRANSLATE_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        cache = _load_translate_cache()
+        if len(cache) > 8000:
+            keys = list(cache.keys())[-6000:]
+            cache = {k: cache[k] for k in keys}
+            _TRANSLATE_CACHE = cache
+        TRANSLATE_CACHE_PATH.write_text(
+            json.dumps(cache, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        _TRANSLATE_DIRTY = False
+        print(f"[translate] cache saved n={len(cache)}")
+    except Exception as e:
+        print(f"[warn] translations cache write: {e}")
+
+
+def _cache_key(text: str) -> str:
+    return hashlib.sha1(text.strip().encode("utf-8")).hexdigest()
+
+
+def _http_get_text(url: str, timeout: int = 20) -> tuple[int | None, str | None]:
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
+        with urllib.request.urlopen(req, timeout=timeout, context=CTX) as resp:
+            return resp.status, resp.read().decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"[warn] translate GET fail: {type(e).__name__}")
+        return None, None
+
+
+def _via_google(text: str) -> str | None:
+    q = urllib.parse.quote(text[:4500])
+    url = (
+        "https://translate.googleapis.com/translate_a/single"
+        f"?client=gtx&sl=auto&tl=zh-CN&dt=t&q={q}"
+    )
+    st, body = _http_get_text(url, timeout=25)
+    if not body:
+        return None
+    try:
+        data = json.loads(body)
+        parts = []
+        for seg in data[0] or []:
+            if seg and seg[0]:
+                parts.append(seg[0])
+        out = "".join(parts).strip()
+        return out or None
+    except Exception:
+        return None
+
+
+def _via_mymemory(text: str) -> str | None:
+    q = urllib.parse.quote(text[:450])
+    url = f"https://api.mymemory.translated.net/get?q={q}&langpair=en|zh-CN"
+    st, body = _http_get_text(url, timeout=25)
+    if not body:
+        return None
+    try:
+        data = json.loads(body)
+        out = ((data.get("responseData") or {}).get("translatedText") or "").strip()
+        if not out or "MYMEMORY WARNING" in out.upper():
+            return None
+        if out.lower() == text.strip().lower() and not has_cjk(out):
+            return None
+        return out
+    except Exception:
+        return None
+
+
+_LIBRE_ENDPOINTS = [
+    "https://libretranslate.com/translate",
+    "https://translate.argosopentech.com/translate",
+    "https://libretranslate.de/translate",
+]
+
+
+def _via_libre(text: str) -> str | None:
+    payload = {"q": text[:4500], "source": "auto", "target": "zh", "format": "text"}
+    raw = json.dumps(payload).encode("utf-8")
+    for ep in _LIBRE_ENDPOINTS:
+        try:
+            req = urllib.request.Request(
+                ep,
+                data=raw,
+                method="POST",
+                headers={
+                    "User-Agent": UA,
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=25, context=CTX) as resp:
+                data = json.loads(resp.read().decode("utf-8", errors="replace"))
+            out = (data.get("translatedText") or "").strip()
+            if out and (has_cjk(out) or out.lower() != text.strip().lower()):
+                return out
+        except Exception:
+            continue
+    return None
+
+
+def free_translate(text: str) -> str:
+    """Translate to zh-CN via Google gtx → MyMemory → LibreTranslate. Cache hits. Never raises."""
+    global TRANSLATE_OK, TRANSLATE_FAIL, _TRANSLATE_DIRTY
+    text = (text or "").strip()
+    if not text:
+        return ""
+    cjk = len(re.findall(r"[\u4e00-\u9fff]", text))
+    if cjk >= max(8, max(len(text), 1) // 3):
+        return text
+
+    cache = _load_translate_cache()
+    key = _cache_key(text)
+    if key in cache and cache[key]:
+        return cache[key]
+
+    out = None
+    for name, fn in (
+        ("google", _via_google),
+        ("mymemory", _via_mymemory),
+        ("libre", _via_libre),
+    ):
+        try:
+            out = fn(text)
+        except Exception as e:
+            print(f"[warn] translate {name}: {type(e).__name__}")
+            out = None
+        if out and out.strip():
+            print(f"[translate] ok via {name} len={len(text)}")
+            break
+        time.sleep(0.35)
+
+    if out and out.strip():
+        TRANSLATE_OK += 1
+        cache[key] = out.strip()
+        _TRANSLATE_DIRTY = True
+        time.sleep(0.45)
+        return out.strip()
+
+    TRANSLATE_FAIL += 1
+    print(f"[warn] translate failed, keep original len={len(text)}")
+    return text
+
+
+def translate_fields(title: str, body: str, *, keep_title_en: bool = False) -> dict:
+    title = (title or "").strip()
+    body = (body or "").strip()
+    original_title = title
+    original_summary = body or title
+    zh_title = title
+    zh_summary = body or title
+    if title and not has_cjk(title):
+        if keep_title_en:
+            zh_title = title
+        else:
+            zh_title = free_translate(title)
+    if body and not has_cjk(body):
+        zh_summary = free_translate(body)
+    elif body and has_cjk(body):
+        zh_summary = body
+    elif not body and title and not has_cjk(title) and not keep_title_en:
+        zh_summary = zh_title
+    elif not body and title and keep_title_en:
+        zh_summary = free_translate(f"GitHub repository: {title}")
+    return {
+        "title": zh_title or title or "未命名",
+        "summary": zh_summary or body or title or "",
+        "original_title": original_title,
+        "original_summary": original_summary,
+        "translated_by": "free-translate",
+    }
+
+
 def models_zh(prompt: str, max_tokens: int = 1200) -> str | None:
-    """Optional Models call. GitHub Models retired 2026-07-30; always falls back."""
     global MODELS_OK, MODELS_FAIL
-    # GitHub Models inference API retired; skip network noise after first note.
     if not getattr(models_zh, "_noted", False):
-        print("[info] GitHub Models retired (2026-07-30); using Chinese keyword fallback")
+        print("[info] GitHub Models retired; using free translate APIs")
         models_zh._noted = True  # type: ignore[attr-defined]
     MODELS_FAIL += 1
     return None
 
 
 def _extract_json_array(text: str) -> list | None:
-    if not text:
-        return None
-    text = text.strip()
-    # strip fences
-    text = re.sub(r"^```(?:json)?\s*", "", text)
-    text = re.sub(r"\s*```$", "", text)
-    try:
-        obj = json.loads(text)
-        if isinstance(obj, list):
-            return obj
-        if isinstance(obj, dict) and isinstance(obj.get("items"), list):
-            return obj["items"]
-    except Exception:
-        pass
-    m = re.search(r"\[[\s\S]*\]", text)
-    if m:
-        try:
-            obj = json.loads(m.group(0))
-            if isinstance(obj, list):
-                return obj
-        except Exception:
-            return None
     return None
 
 
 def batch_translate(rows: list[dict], kind: str, batch_size: int = 12) -> dict[str, dict]:
-    """Translate many items via one Models call per batch.
-
-    rows: [{id, title, text, keep_title?}]
-    returns: {id: {title, summary, category?, how?, original_title?}}
-    """
+    """Translate items with free keyless APIs + cache. Never breaks the build."""
     out: dict[str, dict] = {}
     if not rows:
         return out
-
-    for i in range(0, len(rows), batch_size):
-        chunk = rows[i : i + batch_size]
-        payload_rows = []
-        for r in chunk:
-            payload_rows.append(
-                {
-                    "id": r["id"],
-                    "title": (r.get("title") or "")[:180],
-                    "text": (r.get("text") or r.get("title") or "")[:500],
-                }
-            )
-        if kind == "deal":
-            prompt = (
-                "将下列科技/羊毛条目翻译整理为中文。不要编造。\n"
-                "对每个元素输出 JSON 数组，元素字段：\n"
-                'id, category(只能是: '
-                + " / ".join(CATEGORIES)
-                + "), title(中文短标题), summary(1-2句中文说明能领到什么/怎么领), how(一句中文领取步骤)\n"
-                "只输出 JSON 数组。\n输入="
-                + json.dumps(payload_rows, ensure_ascii=False)
-            )
-        elif kind == "repo":
-            prompt = (
-                "将下列 GitHub 仓库说明翻译成中文。仓库全名保持英文不要改。\n"
-                "输出 JSON 数组，字段：id, title(可用仓库名或中文短名), summary(一句中文简介，不要编造)\n"
-                "只输出 JSON 数组。\n输入="
-                + json.dumps(payload_rows, ensure_ascii=False)
-            )
-        else:  # hot
-            prompt = (
-                "将下列科技热议标题/摘要翻译成中文。不要编造。\n"
-                "输出 JSON 数组，字段：id, title(中文短标题), summary(一句中文)\n"
-                "只输出 JSON 数组。\n输入="
-                + json.dumps(payload_rows, ensure_ascii=False)
-            )
-        ai = models_zh(prompt, max_tokens=1800)
-        parsed = _extract_json_array(ai or "")
-        if not parsed:
-            print(f"[warn] batch_translate({kind}) fallback keywords for {len(chunk)} items")
-            for r in chunk:
-                if kind == "deal":
-                    cat, title, summary = keyword_classify(f"{r.get('title')} {r.get('text')}")
-                    out[r["id"]] = {
-                        "category": cat,
-                        "title": title,
-                        "summary": summary,
-                        "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
-                        "translated_by": "keywords",
-                    }
-                else:
-                    title = re.sub(r"\s+", " ", (r.get("title") or "").strip())[:100] or "未命名"
-                    summary = re.sub(r"\s+", " ", (r.get("text") or title).strip())[:220]
-                    if not has_cjk(title):
-                        title = f"【{kind}】{title}"
-                    if not has_cjk(summary):
-                        summary = f"原文：{summary}"
-                    out[r["id"]] = {
-                        "title": title,
-                        "summary": summary,
-                        "translated_by": "keywords",
-                    }
-            continue
-
-        by_id = {str(x.get("id")): x for x in parsed if isinstance(x, dict) and x.get("id") is not None}
-        for r in chunk:
-            x = by_id.get(str(r["id"]))
-            if not x:
-                # fallback single
-                cat, title, summary = keyword_classify(f"{r.get('title')} {r.get('text')}")
-                out[r["id"]] = {
-                    "category": cat if kind == "deal" else None,
-                    "title": title if kind != "repo" else (r.get("title") or title),
-                    "summary": summary,
-                    "how": "打开来源链接按页面说明领取/试用；参与前自行核实。" if kind == "deal" else None,
-                    "translated_by": "keywords",
-                }
-                continue
-            title = str(x.get("title") or r.get("title") or "").strip()[:120]
-            summary = str(x.get("summary") or "").strip()[:400]
-            if kind == "repo":
-                # keep repo full name as name; title can be chinese short or name
-                if not summary:
-                    summary = f"GitHub 仓库：{r.get('title')}"
-                out[r["id"]] = {
-                    "title": title or r.get("title"),
-                    "summary": summary,
-                    "translated_by": "models",
-                }
-            elif kind == "deal":
-                cat = str(x.get("category") or "").strip()
-                if cat not in CATEGORIES:
-                    cat, _, _ = keyword_classify(f"{r.get('title')} {r.get('text')}")
-                how = str(x.get("how") or "打开来源链接按页面说明领取/试用；参与前自行核实。").strip()[:200]
-                if not has_cjk(title):
-                    title = f"【羊毛】{title}"
-                if not has_cjk(summary):
-                    summary = f"摘要：{summary}"
+    print(f"[translate] batch kind={kind} n={len(rows)}")
+    for i, r in enumerate(rows):
+        try:
+            title = (r.get("title") or "")[:180]
+            text = (r.get("text") or r.get("title") or "")[:800]
+            if kind == "deal":
+                cat, _, _ = keyword_classify(f"{title} {text}")
+                fields = translate_fields(title, text, keep_title_en=False)
                 out[r["id"]] = {
                     "category": cat,
-                    "title": title,
-                    "summary": summary,
-                    "how": how,
-                    "translated_by": "models",
+                    "title": fields["title"],
+                    "summary": fields["summary"],
+                    "how": "打开来源链接按页面说明领取/试用；参与前自行核实。",
+                    "original_title": fields["original_title"],
+                    "original_summary": fields["original_summary"],
+                    "translated_by": fields["translated_by"],
+                }
+            elif kind == "repo":
+                fields = translate_fields(title, text, keep_title_en=True)
+                summary = fields["summary"]
+                if summary and not has_cjk(summary):
+                    summary = free_translate(text or title)
+                zh_label = ""
+                if has_cjk(summary):
+                    zh_label = re.split(r"[。！？\n]", summary)[0][:40]
+                disp_title = (
+                    f"{zh_label}（{title}）" if zh_label and title else (title or zh_label or "GitHub 项目")
+                )
+                out[r["id"]] = {
+                    "title": disp_title,
+                    "summary": summary or f"GitHub 仓库 {title}",
+                    "original_title": title,
+                    "original_summary": text or title,
+                    "translated_by": "free-translate",
                 }
             else:
-                if not has_cjk(title):
-                    title = f"【热议】{title}"
-                if not has_cjk(summary):
-                    summary = f"摘要：{summary}"
+                fields = translate_fields(title, text, keep_title_en=False)
                 out[r["id"]] = {
-                    "title": title,
-                    "summary": summary,
-                    "translated_by": "models",
+                    "title": fields["title"],
+                    "summary": fields["summary"],
+                    "original_title": fields["original_title"],
+                    "original_summary": fields["original_summary"],
+                    "translated_by": fields["translated_by"],
                 }
-        time.sleep(0.8)
+        except Exception as e:
+            print(f"[heal] translate item failed: {type(e).__name__}: {e}")
+            title = (r.get("title") or "未命名")[:120]
+            text = (r.get("text") or title)[:400]
+            cat = keyword_classify(f"{title} {text}")[0] if kind == "deal" else None
+            out[r["id"]] = {
+                "category": cat,
+                "title": title,
+                "summary": text,
+                "how": "打开来源链接按页面说明领取/试用；参与前自行核实。" if kind == "deal" else None,
+                "original_title": title,
+                "original_summary": text,
+                "translated_by": "passthrough",
+            }
+        if (i + 1) % 5 == 0:
+            save_translate_cache()
+    save_translate_cache()
     return out
 
 
 def enrich_deal(raw_title: str, raw_text: str, source: str) -> tuple[str, str, str, str]:
-    """Single-item fallback (prefer batch_translate)."""
-    blob = f"{raw_title}\n{raw_text}"
-    cat, title, summary = keyword_classify(blob)
+    cat, _, _ = keyword_classify(f"{raw_title}\n{raw_text}")
+    fields = translate_fields(raw_title, raw_text)
     how = "打开来源链接按页面说明领取/试用；参与前自行核实。"
-    return cat, title, summary, how
+    return cat, fields["title"], fields["summary"], how
 
 
 def enrich_one_liner(raw_title: str, raw_text: str, kind: str) -> tuple[str, str]:
-    title = re.sub(r"\s+", " ", (raw_title or "").strip())[:100] or "未命名"
-    summary = re.sub(r"\s+", " ", (raw_text or raw_title or "").strip())[:220]
-    if not has_cjk(title):
-        title = f"【{kind}】{title}"
-    if not has_cjk(summary):
-        summary = f"{kind}内容：{summary}"
-    return title, summary
+    fields = translate_fields(raw_title, raw_text, keep_title_en=(kind == "repo"))
+    return fields["title"], fields["summary"]
 
 
 # ---------------- sources: deals ----------------
@@ -611,9 +720,11 @@ def fetch_github_hot() -> list[dict]:
     out = []
     for r in raw:
         t = tr.get(r["id"]) or {}
+        r["original_title"] = t.get("original_title") or r.get("_raw_title") or r.get("name")
+        r["original_summary"] = t.get("original_summary") or r.get("summary_en") or r.get("_raw_text") or ""
         r["title"] = t.get("title") or r["name"]
-        r["summary"] = t.get("summary") or (r.get("summary_en") and f"简介：{r['summary_en']}") or f"GitHub 仓库 {r['name']}"
-        r["translated_by"] = t.get("translated_by") or "keywords"
+        r["summary"] = t.get("summary") or r.get("summary_en") or f"GitHub 仓库 {r['name']}"
+        r["translated_by"] = t.get("translated_by") or "free-translate"
         r.pop("_raw_title", None)
         r.pop("_raw_text", None)
         out.append(r)
@@ -705,10 +816,14 @@ def fetch_hot_topics(x_items: list[dict] | None = None) -> list[dict]:
         seen.add(u)
         if r.get("_need_tr"):
             t = tr.get(r["id"]) or {}
+            r["original_title"] = t.get("original_title") or r.get("_raw_title") or r.get("title")
+            r["original_summary"] = t.get("original_summary") or r.get("_raw_text") or r.get("summary")
             r["title"] = t.get("title") or r["title"]
             r["summary"] = t.get("summary") or r["summary"]
-            r["translated_by"] = t.get("translated_by") or "keywords"
+            r["translated_by"] = t.get("translated_by") or "free-translate"
         else:
+            r["original_title"] = r.get("title")
+            r["original_summary"] = r.get("summary")
             r["translated_by"] = "native-zh"
         r.pop("_raw_title", None)
         r.pop("_raw_text", None)
@@ -767,17 +882,23 @@ def finalize_deals(raw_items: list[dict]) -> list[dict]:
         t = tr.get(it["id"]) or {}
         if t:
             it["category"] = t.get("category") or it.get("category") or "其他科技"
+            it["original_title"] = t.get("original_title") or it.get("title")
+            it["original_summary"] = t.get("original_summary") or it.get("_raw") or it.get("summary")
             it["title"] = t.get("title") or it.get("title")
             it["summary"] = t.get("summary") or it.get("summary")
             it["how"] = t.get("how") or "打开来源链接按页面说明领取/试用；参与前自行核实。"
-            it["translated_by"] = t.get("translated_by") or "keywords"
+            it["translated_by"] = t.get("translated_by") or "free-translate"
         else:
-            cat, title, summary, how = enrich_deal(it.get("title") or "", it.get("_raw") or it.get("title") or "", it.get("source") or "")
+            raw_t = it.get("title") or ""
+            raw_b = it.get("_raw") or it.get("title") or ""
+            cat, title, summary, how = enrich_deal(raw_t, raw_b, it.get("source") or "")
             it["category"] = cat
+            it["original_title"] = raw_t
+            it["original_summary"] = raw_b
             it["title"] = title
             it["summary"] = summary
             it["how"] = how
-            it["translated_by"] = "keywords"
+            it["translated_by"] = "free-translate"
         it.pop("_raw", None)
         out.append(it)
     return out
@@ -873,7 +994,8 @@ def main():
     for it in cur.get("items") or []:
         by_src[it.get("source")] = by_src.get(it.get("source"), 0) + 1
     print("[summary] deals by source", by_src)
-    print(f"[summary] models_ok={MODELS_OK} models_fail={MODELS_FAIL}")
+    print(f"[summary] models_ok={MODELS_OK} models_fail={MODELS_FAIL} translate_ok={TRANSLATE_OK} translate_fail={TRANSLATE_FAIL}")
+    save_translate_cache()
 
 
 if __name__ == "__main__":
